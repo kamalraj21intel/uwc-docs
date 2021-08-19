@@ -1,0 +1,36 @@
+name: Push
+on:
+  # Trigger the workflow on pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  # Also trigger on page_build, as well as release created events
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        sudo apt-get install -y python3-setuptools
+        pip3 install --user sphinx sphinx_rtd_theme
+    - name: Build the docs
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        sphinx-build -t html source build
+        touch build/.nojekyll
+    - name: Deploy the docs
+      run: |
+        cur_dir=`pwd`
+        cd $HOME
+        git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/ --branch main --single-branch
+        cp -r $cur_dir/build/* docs/
+        git config --global user.name "${GITHUB_ACTOR}"
+        git config --global user.email "${GITHUB_ACTOR}@github.com"
+        git add .
+        git commit -m "latest html output"
+        git push -f https://${GITHUB_ACTOR}:${{secrets.ACCESS_TOKEN}}@github.com/$GITHUB_REPOSITORY HEAD:main
