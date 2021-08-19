@@ -51,3 +51,23 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_theme_options = {
+    'canonical_url': '',
+    'analytics_id': '',
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'bottom',
+     # Toc options
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+}
+
+html_context = {
+    'display_github': True, # Add 'Edit on Github' link instead of 'View page source'
+    'github_repo': 'open-edge-insights/uwc-docs',
+    'github_version': 'main',
+    'conf_py_path': '/source/', # needs leading and trailing slashes!
+    #'source_suffix': source_suffix,
+}
