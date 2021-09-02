@@ -67,7 +67,7 @@ html_theme_options = {
 html_context = {
     'display_github': True, # Add 'Edit on Github' link instead of 'View page source'
     'github_repo': 'open-edge-insights/uwc-docs',
-    'github_version': 'main',
+    'github_version': 'develop',
     'conf_py_path': '/source/', # needs leading and trailing slashes!
     #'source_suffix': source_suffix,
 }
