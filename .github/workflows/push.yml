@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Install dependencies
       run: |
         export PATH="$HOME/.local/bin:$PATH"
@@ -34,4 +36,4 @@ jobs:
         git config --global user.email "${GITHUB_ACTOR}@github.com"
         git add .
         git commit -m "latest html output"
-        git push -f https://${GITHUB_ACTOR}:${{secrets.ACCESS_TOKEN}}@github.com/$GITHUB_REPOSITORY HEAD:develop
+        git push -f https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY HEAD:develop
