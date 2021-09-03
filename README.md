@@ -1,4 +1,4 @@
-
+ 
 ## Sphinx Prequisites
 1. Install IDE on machine e.g., Visual Studio Code, PyCharm, etc.  
 
@@ -50,7 +50,7 @@ After cloning the UWC Sphinx documentation project from Git, the following folde
 
 * To build the project after adding new files, images or even after updating the content, use following command:
  
-   ```
+   ```sh
      $ sphinx-build -t html source build
    ```
 
