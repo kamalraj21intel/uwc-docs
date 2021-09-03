@@ -78,9 +78,9 @@ Enter the QOS for scada (between 0 to 2):
 Is TLS required for sparkplug-bridge (yes/no): 
     no
 Enter the external broker address/hostname:
-    192.168.1.11
+    192.164.1.2
 Enter the external broker port number: 
-    22883
+    11883
 Enter the QOS for scada (between 0 to 2): 
     1
 
