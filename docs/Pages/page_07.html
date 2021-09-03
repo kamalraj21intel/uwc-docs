@@ -1,49 +1,42 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
   
-  <title>7.0 UWC Modbus Operations &mdash;   documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
+  <title>7.0 Site Configurations &mdash;   documentation</title>
   
 
   
   
-
+  
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.0 Sparkplug-Bridge Operations" href="page_08.html" />
-    <link rel="prev" title="6.0 Site Configurations" href="page_06.html" /> 
+    <link rel="next" title="8.0 UWC Modbus Operations" href="page_08.html" />
+    <link rel="prev" title="6.0 Container Configuration setting" href="page_06.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,7 +73,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -88,7 +80,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
@@ -97,135 +89,140 @@
 <li class="toctree-l2"><a class="reference internal" href="page_01.html#system-requirements">1.3  System Requirements</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0  Before Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#uwc-for-o-g-site">2.1  UWC for O&amp;G Site</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#upstream-oil-and-gas-facilities">2.2  Upstream Oil and Gas Facilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#understanding-uwc-platform">2.3  Understanding UWC Platform</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#modbus-containers">2.3.1  Modbus containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#mqtt-bridge-container">2.3.2   MQTT-Bridge container</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#sparkplug-bridge-container">2.3.3  Sparkplug-Bridge container</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#kpi-application-container">2.3.4  KPI Application Container</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#configurations">2.3.5  Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0 Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-6">2.1 Feature list- supported in UWC-v1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-5">2.2 Feature list- supported in UWC-v1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-0">2.3 Feature list supported in UWC-v1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#changes-to-existing-features">2.4 Changes to Existing Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#unsupported-or-discontinued-features">2.5 Unsupported or Discontinued Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Before Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#uwc-for-o-g-site">3.1  UWC for O&amp;G Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#upstream-oil-and-gas-facilities">3.2  Upstream Oil and Gas Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#understanding-uwc-platform">3.3  Understanding UWC Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#modbus-containers">3.3.1  Modbus containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#mqtt-bridge-container">3.3.2   MQTT-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#sparkplug-bridge-container">3.3.3  Sparkplug-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#kpi-application-container">3.3.4  KPI Application Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#configurations">3.3.5  Configurations</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_03.html#how-to-install-uwc-software-with-eii-installer">3.1  How to install UWC software with EII installer</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="page_04.html">4.0  Container Configuration setting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_04.html#deactivate-auto-update">4.1     Deactivate Auto Update</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_04.html#deactivate-unattended-upgrades">4.1.1   Deactivate Unattended Upgrades</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_04.html#deactivate-periodic-unattended-upgrades">4.1.2   Deactivate Periodic Unattended Upgrades</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_04.html#deactivate-scheduled-upgrades">4.1.3   Deactivate Scheduled Upgrades</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="page_04.html">4.0  Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_04.html#how-to-install-uwc-software-with-eii-installer">4.1  How to install UWC software with EII installer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_05.html">5.0  Container Configuration setting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#containers">5.1  Containers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#common-configuration-for-modbus-client-containers">5.1.1  Common Configuration for Modbus Client Containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#configuration-foodbus-network">5.1.2  Configuration foodbus network</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#modbus-tcp-communication">5.2             Modbus TCP Communication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#modbus-rtu-communication">5.3         Modbus RTU Communication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#mqtt-bridge">5.4     MQTT Bridge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#mqtt">5.5     MQTT</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#accessing-secured-mqtt-container-from-an-external-mqtt-client">5.5.1   Accessing secured MQTT container from an external MQTT client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#accessing-secured-mqtt-container-from-a-client-inside-a-container">5.5.2   Accessing secured MQTT container from a client inside a container</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#sparkplug-bridge">5.6     Sparkplug-Bridge</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#pre-requisite-for-running-sparkplug-bridge">5.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#kpi-app">5.7     KPI App</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="page_06.html">6.0  Site Configurations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#system-level-global-configuration">6.1     System Level Global Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-polling-and-on-demand-operation">6.1.1   Settings for Polling and On-Demand operation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-sparkplug-bridge-sparkplug-communication-operation">6.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-default-scale-factor">6.1.3   Settings for default scale factor</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-site-and-wellhead">6.2     How to Configure Site and Wellhead</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuring-tcp-device-in-device-group">6.2.1   Configuring TCP device in device-group</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuring-rtu-device-in-device-group">6.2.2   Configuring RTU device in device-group</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-devices">6.3     How to Configure Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-device-points">6.4     How to Configure Device points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-add-edit-delete-new-wellhead-device-point-configurations">6.5     How to add/edit/delete new wellhead/device/point configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#kpi-app-configuration">6.6     KPI App Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7.0     UWC Modbus Operations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#data-polling">7.1     Data Polling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#on-demand-write">7.2     On-Demand Write</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#on-demand-read">7.3     On-Demand Read</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kpi-application">7.4     KPI Application</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="page_08.html">8.0     Sparkplug-Bridge Operations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_08.html#app-virtual-device-communication">8.1     App (virtual device) communication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-topic-format">8.1.1   App Message Topic Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-birth">8.1.2   App Message - BIRTH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-data">8.1.3   App Message - DATA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-cmd">8.1.4   App Message - CMD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-death">8.1.5   App Message - DEATH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-templatedef">8.1.6   App Message - TemplateDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#start-birth-process">8.1.7   START_BIRTH_PROCESS</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_08.html#modbus-real-device-communication">8.2     Modbus (real) device communication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-dbirth">8.2.1   Support for DBIRTH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-ddata">8.2.2   Support for DDATA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-dcmd">8.2.3   Support for DCMD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-ddeath">8.2.4   Support for DDEATH</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_08.html#sparkplug-messages">8.3     SparkPlug Messages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#nbirth-message">8.3.1   NBIRTH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ndeath-message">8.3.2   NDEATH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#dbirth-message">8.3.3   DBIRTH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ddeath-message">8.3.4   DDEATH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ddata-message">8.3.5   DDATA Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ncmd-message">8.3.6   NCMD Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#deactivate-auto-update">5.1     Deactivate Auto Update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-unattended-upgrades">5.1.1   Deactivate Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-periodic-unattended-upgrades">5.1.2   Deactivate Periodic Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-scheduled-upgrades">5.1.3   Deactivate Scheduled Upgrades</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_09.html">9.0     Debugging steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_10.html">10.0    Error Codes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_11.html">11.0    Steps to flash LFM BIOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_12.html">12.0    UWC Gateway to Cloud Communication</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_12.html#architecture">12.1    Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_12.html#installation-and-configuration">12.2    Installation and Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_12.html#ssb-installation-and-cloud-infrastructure-provisioning">12.2.1  SSB installation and cloud infrastructure provisioning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_12.html#aws-iot-core-broker-and-ssb-configuration">12.2.2  AWS IoT core broker and SSB configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_12.html#uwc-gateway-configuration">12.2.3  UWC gateway configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_06.html">6.0  Container Configuration setting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#containers">6.1  Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#common-configuration-for-modbus-client-containers">6.1.1  Common Configuration for Modbus Client Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuration-foodbus-network">6.1.2  Configuration foodbus network</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="page_12.html#monitor-data-on-cloud">12.3    Monitor Data on Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#modbus-tcp-communication">6.2             Modbus TCP Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#modbus-rtu-communication">6.3         Modbus RTU Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#mqtt-bridge">6.4     MQTT Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#mqtt">6.5     MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#accessing-secured-mqtt-container-from-an-external-mqtt-client">6.5.1   Accessing secured MQTT container from an external MQTT client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#accessing-secured-mqtt-container-from-a-client-inside-a-container">6.5.2   Accessing secured MQTT container from a client inside a container</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_13.html">13.0    Steps to Apply RT Patch</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#install-prerequisites">13.1    Install prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#keyboard-shortcuts-for-menuconfig-ui">13.2    Keyboard shortcuts for menuconfig UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#steps-to-apply-preempt-rt-patch">13.3    Steps to apply PREEMPT_RT patch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#references">13.4    References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#sparkplug-bridge">6.6     Sparkplug-Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#pre-requisite-for-running-sparkplug-bridge">6.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_14.html">14.0 Appendix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#kpi-app">6.7     KPI App</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7.0  Site Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-level-global-configuration">7.1     System Level Global Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#settings-for-polling-and-on-demand-operation">7.1.1   Settings for Polling and On-Demand operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings-for-sparkplug-bridge-sparkplug-communication-operation">7.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings-for-default-scale-factor">7.1.3   Settings for default scale factor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-configure-site-and-wellhead">7.2     How to Configure Site and Wellhead</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-tcp-device-in-device-group">7.2.1   Configuring TCP device in device-group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-rtu-device-in-device-group">7.2.2   Configuring RTU device in device-group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-configure-devices">7.3     How to Configure Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-configure-device-points">7.4     How to Configure Device points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-add-edit-delete-new-wellhead-device-point-configurations">7.5     How to add/edit/delete new wellhead/device/point configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-app-configuration">7.6     KPI App Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_08.html">8.0     UWC Modbus Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#data-polling">8.1     Data Polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#on-demand-write">8.2     On-Demand Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#on-demand-read">8.3     On-Demand Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#kpi-application">8.4     KPI Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_09.html">9.0     Sparkplug-Bridge Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#app-virtual-device-communication">9.1     App (virtual device) communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-topic-format">9.1.1   App Message Topic Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-birth">9.1.2   App Message - BIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-data">9.1.3   App Message - DATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-cmd">9.1.4   App Message - CMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-death">9.1.5   App Message - DEATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-templatedef">9.1.6   App Message - TemplateDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#start-birth-process">9.1.7   START_BIRTH_PROCESS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#modbus-real-device-communication">9.2     Modbus (real) device communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-dbirth">9.2.1   Support for DBIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-ddata">9.2.2   Support for DDATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-dcmd">9.2.3   Support for DCMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-ddeath">9.2.4   Support for DDEATH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#sparkplug-messages">9.3     SparkPlug Messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#nbirth-message">9.3.1   NBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ndeath-message">9.3.2   NDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#dbirth-message">9.3.3   DBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ddeath-message">9.3.4   DDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ddata-message">9.3.5   DDATA Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ncmd-message">9.3.6   NCMD Message</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_10.html">10.0    Debugging steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_11.html">11.0    Error Codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_12.html">12.0    Steps to flash LFM BIOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_13.html">13.0    UWC Gateway to Cloud Communication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#architecture">13.1    Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#installation-and-configuration">13.2    Installation and Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#ssb-installation-and-cloud-infrastructure-provisioning">13.2.1  SSB installation and cloud infrastructure provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#aws-iot-core-broker-and-ssb-configuration">13.2.2  AWS IoT core broker and SSB configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#uwc-gateway-configuration">13.2.3  UWC gateway configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#monitor-data-on-cloud">13.3    Monitor Data on Cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_14.html">14.0 RT Patch (Optional)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-choose-and-apply-rt-kernel-patch">14.1    Steps to Choose and Apply RT Kernel Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-apply-rt-kernel-patch">14.2    Steps To Apply RT Kernel Patch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_15.html">15.0 Appendix</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -260,20 +257,18 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>7.0     UWC Modbus Operations</li>
+      <li>7.0  Site Configurations</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/develop/source/Pages/page_07.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -289,333 +284,512 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="uwc-modbus-operations">
-<h1>7.0     UWC Modbus Operations<a class="headerlink" href="#uwc-modbus-operations" title="Permalink to this headline">¶</a></h1>
-<p>This section provides configurations required to read and write data from sensors and actuators connected over Modbus TCP or RTU on UWC gateway.
-An application can perform following operations using UWC containers:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Data Polling</p></li>
-<li><p>On-Demand Write</p></li>
-<li><p>On-Demand Read</p></li>
-</ul>
-</div></blockquote>
-<p>Following section explains how to use MQTT topics to perform above operations. Further these operations can be performed in realtime (RT) and non-realtime (Non-RT) mode.
-Multiple modules are involved in processing the operation. To capture the time taken by each module (i.e., a step), epoch timestamps in microseconds are added at various levels. These timestamps are present in JSON message.</p>
-<p><strong>The table of terms here is useful for interpreting the JSON payloads of the messages.</strong></p>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../_images/table10_1_update.png"><img alt="../_images/table10_1_update.png" src="../_images/table10_1_update.png" style="width: 460.59999999999997px; height: 558.5999999999999px;" /></a>
-</figure>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../_images/table10_2_update.png"><img alt="../_images/table10_2_update.png" src="../_images/table10_2_update.png" style="width: 461.29999999999995px; height: 577.5px;" /></a>
-</figure>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../_images/table10_3_update.png"><img alt="../_images/table10_3_update.png" src="../_images/table10_3_update.png" style="width: 461.99999999999994px; height: 578.9px;" /></a>
-</figure>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../_images/table10_4_update.png"><img alt="../_images/table10_4_update.png" src="../_images/table10_4_update.png" style="width: 459.9px; height: 201.6px;" /></a>
-</figure>
-<section id="data-polling">
-<h2>7.1     Data Polling<a class="headerlink" href="#data-polling" title="Permalink to this headline">¶</a></h2>
-<p>In the datapoint YML configuration file, a polling frequency is configured. As per polling frequency, data is fetched from the end point and published on MQTT by the UWC container. This section describes how to read the data for polled points using MQTT.</p>
-<p>The data actions which are “Polling” actions are initiated by the Protocol container (in this case the Modbus protocol application (i.e., the driver) within the Modbus container.</p>
-<p>To receive polled data: Application should use a topic in following format to receive (i.e., subscribe) polling data from MQTT:</p>
-<dl class="simple">
-<dt><strong>MQTT topic to receive (i.e., subscribe) write response:</strong></dt><dd><p><strong>/device/wellhead/point/update</strong></p>
-</dd>
-</dl>
-<p>Please refer to the table in section 6 for details of fields.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<p><strong>Example:</strong></p>
-<p><strong>Polling Topic</strong>: /flowmeter/PL0/D3/update</p>
-<p><strong>Polling Message</strong>: Success Response</p>
-<p>{</p>
-<blockquote>
-<div><p>“driver_seq”:       “1153204567290051305”,</p>
-<p>“timestamp”:        “2020-05-01T06:40:25”,</p>
-<p>“version”:  “2.0”,</p>
-<p>“realtime”: “1”,</p>
-<p>“data_topic”:       /flowmeter/PL0/D3/update”,</p>
-<p>“wellhead”: “PL0”,</p>
-<p>“metric”:   “D3”,</p>
-<p>“tsPollingTime”:    “1588315225331550”,</p>
-<p>“reqRcvdInStack”:   “1588315225331890”,</p>
-<p>“reqSentByStack”:   “1588315225333180”,</p>
-<p>“respRcvdByStack”:  “1588315225333900”,</p>
-<p>“respPostedByStack”:        “1588315225333950”,</p>
-<p>“status”:   “Good”,</p>
-<p>“value”:    “0x01”,</p>
-<p>“datatype”:”boolean”</p>
-<p>“scaledValue”:      true,</p>
-<p>“usec”:     “1588315225334040”,</p>
-<p>“tsMsgRcvdForProcessing”:   “1588315225335060”,</p>
-<p>“tsMsgReadyForPublish”:     “1588315225335420”</p>
-</div></blockquote>
-<p>}</p>
-<p><strong>Polling Message</strong>: Error Response</p>
+  <div class="section" id="site-configurations">
+<h1>7.0  Site Configurations<a class="headerlink" href="#site-configurations" title="Permalink to this headline">¶</a></h1>
+<p>This section provides configurations required to configure site, wellhead, device and points for UWC containers.</p>
+<div class="section" id="system-level-global-configuration">
+<h2>7.1     System Level Global Configuration<a class="headerlink" href="#system-level-global-configuration" title="Permalink to this headline">¶</a></h2>
+<p>This file contains configurations to be used for operations across UWC containers for (Modbus-TCP, Modbus-RTU, MQTT-Bridge.)</p>
+<p>Global_Config.yml file location - /opt/intel/eii/uwc_data/common_config</p>
+<p>Based on realtime requirement, operations are classified into following sub-operations:</p>
+<ol class="arabic simple">
+<li><p>Polling realtime</p></li>
+<li><p>Polling non-realtime</p></li>
+<li><p>On-demand read realtime</p></li>
+<li><p>On-demand read non-realtime</p></li>
+<li><p>On-demand write realtime</p></li>
+<li><p>On-demand write non-realtime</p></li>
+<li><p>SparkPlug communication for Sparkplug-Bridge</p></li>
+<li><p>Default scale factor</p></li>
+</ol>
+<div class="section" id="settings-for-polling-and-on-demand-operation">
+<h3>7.1.1   Settings for Polling and On-Demand operation<a class="headerlink" href="#settings-for-polling-and-on-demand-operation" title="Permalink to this headline">¶</a></h3>
+<p>Following is a sample for Polling operation. Similar is applicable for On-demand operations:</p>
 <dl>
-<dt>{</dt><dd><p>“driver_seq”:       “1153204567290051305”,</p>
-<p>“timestamp”:        “2020-05-01T06:40:25”,</p>
-<p>“version”:  “2.0”,</p>
-<p>“realtime”: “1”,</p>
-<p>“data_topic”:       /flowmeter/PL0/D3/update”,</p>
-<p>“wellhead”: “PL0”,</p>
-<p>“metric”:   “D3”,</p>
-<p>“tsPollingTime”:    “1588315225331550”,</p>
-<p>“reqRcvdInStack”:   “1588315225331890”,</p>
-<p>“reqSentByStack”:   “1588315225333180”,</p>
-<p>“respRcvdByStack”:  “0”,</p>
-<p>“respPostedByStack”:        “1588315225333950”,</p>
-<p>“status” : “Bad”,</p>
-<p>“error_code” : “2003”,</p>
-<p>“lastGoodUsec” : “1588315225333897”,</p>
-<p>“value” : “0x01”,</p>
-<p>“datatype”:”boolean”</p>
-<p>“scaledValue”:      true,</p>
-<p>“usec” : “1588315225334040</p>
-<p>“tsMsgRcvdForProcessing” : “1588315225335060”,</p>
-<p>“tsMsgReadyForPublish” : “1588315225335420”</p>
+<dt>Global:</dt><dd><dl>
+<dt>Operations:</dt><dd><ul>
+<li><dl>
+<dt>Polling:</dt><dd><p>default_realtime: false</p>
+<dl>
+<dt>realtime:</dt><dd><p>operation_priority: 4</p>
+<p>retries: 1</p>
+<p>qos: 1</p>
+</dd>
+<dt>non-realtime:</dt><dd><p>operation_priority: 1</p>
+<p>retries: 0</p>
+<p>qos: 0</p>
 </dd>
 </dl>
-<p>}</p>
-</section>
-<section id="on-demand-write">
-<h2>7.2     On-Demand Write<a class="headerlink" href="#on-demand-write" title="Permalink to this headline">¶</a></h2>
-<p>This section describes how to write data to some specific Modbus point using MQTT.</p>
-<p>To send request: Application should use a topic in the following format to send (i.e., publish) write request on MQTT:</p>
-<p><strong>MQTT topic to send (i.e., publish) write request: /device/wellhead/point/write</strong></p>
-<p>To receive response: Application should use a topic in the following format to receive (i.e., subscribe) response of write request from MQTT:</p>
-<p><strong>MQTT topic to receive (i.e., subscribe) write response: /device/wellhead/point/writeResponse</strong></p>
-<p>Please refer to the table in section 6 for details of fields.</p>
-<p><strong>Example:</strong></p>
-<p><strong>Request Topic</strong>: /flowmeter/PL0/Flow/write</p>
-<p><strong>Request Message:</strong></p>
-<p>{“wellhead”:”PL0”,”command”:”Flow”,”value”:”0x00”,”timestamp”:”2019-09-20 12:34:56”,”usec”:”1571887474111145”,”version”:”2.0”,”app_seq”:”1234”}</p>
-<p>A message without <em>“realtime”</em> field is treated as a non-realtime message. To execute a message in realtime way, a field called <em>“realtime”</em> should be added as shown below:</p>
-<p>{“wellhead”:”PL0”,”command”:”Flow”,”value”:”0x00”,”timestamp”:”2019-09-20 12:34:56”,”usec”:”1571887474111145”,”version”:”2.0”,”app_seq”:”1234”,”realtime”:”1”}</p>
-<p>A message with <em>“value”</em> is treated as On-Demand Write from vendor App.</p>
-<p>{“wellhead” : “PL0”,”command” : “INT16_MF10”,”timestamp” : “2019-09-20 12:34:56”,
-“usec” : “1571887474111145”,”version” : “2.0”,”realtime” : “0”,”app_seq” : “1234”,
-“scaledValue” : 12}</p>
-<p>A message with <em>“scaledValue”</em> is treated as On-Demand Write from Ignition system.</p>
-<p>The <em>“value”</em> / <em>“scaledValue”</em> field represents value to be written to the end device as a part of on-demand write operation.</p>
-<p><strong>Response Topic:</strong> /flowmeter/PL0/Flow/writeResponse</p>
-<p><strong>Response Message:</strong> Success Response</p>
-<p>{</p>
-<blockquote>
-<div><p>“app_seq”:    “1234”,</p>
-<p>“version”:    “2.0”,</p>
-<p>“realtime”:    “0”,</p>
-<p>“data_topic”:    “/flowmeter/PL0/Time0/writeResponse”,</p>
-<p>“wellhead”:    “PL0”,</p>
-<p>“metric”:    “Time0”,</p>
-<p>“tsMsgRcvdFromMQTT”:    “1585660044014345”,</p>
-<p>“tsMsgPublishOnEII”:    “1585660044017877”,</p>
-<p>“reqRcvdByApp”:    “1585660044021380”,</p>
-<p>“reqRcvdInStack”:    “1585660044023582”,</p>
-<p>“reqSentByStack”:    “1585660044025671”,</p>
-<p>“respRcvdByStack”:    “1585660044025636”,</p>
-<p>“respPostedByStack”:    “1585660044025712”,</p>
-<p>“status”:    “Good”,</p>
-<p>“usec”:    “1585660044026131”,</p>
-<p>“tsMsgRcvdForProcessing”:    “1585660044027184”,</p>
-<p>“tsMsgReadyForPublish”:    “1585660045024371”</p>
-</div></blockquote>
-<p>}</p>
-<p><strong>Response Message</strong>: Error Response</p>
-<p>{</p>
-<blockquote>
-<div><p>“app_seq” : “1234”,</p>
-<p>“timestamp” : “2020-04-24 06:10:30”,</p>
-<p>“version” : “2.0”,</p>
-<p>“realtime” : “1”,</p>
-<p>“data_topic” : “/flowmeter/PL0/Flow/writeResponse”,</p>
-<p>“wellhead” : “PL0”,</p>
-<p>“metric” : “Flow”,</p>
-<p>“tsMsgRcvdFromMQTT” : “1587708630464551”,</p>
-<p>“tsMsgPublishOnEII” : “1587708630465375”,</p>
-<p>“reqRcvdByApp” : “1587708630465988”,</p>
-<p>“reqRcvdInStack” : “1587708630466345”,</p>
-<p>“reqSentByStack” : “0”,</p>
-<p>“respRcvdByStack” : “0”,</p>
-<p>“respPostedByStack” : “1587708630466627”,</p>
-<p>“status” : “Bad”,</p>
-<p>“error_code” : “2003”,</p>
-<p>“usec” : “1587708630466935”,</p>
-<p>“tsMsgRcvdForProcessing” : “1587708630467797”,</p>
-<p>“tsMsgReadyForPublish” : “1587708630468239”</p>
-</div></blockquote>
-<p>}</p>
-<p><strong>Response Message:</strong> Error Response for Invalid request JSON</p>
-<p>{</p>
-<blockquote>
-<div><p>“app_seq”:”1234”,</p>
-<p>“timestamp”:”2020-05-13 06:43:50”,</p>
-<p>“version”:”2.0”,</p>
-<p>“realtime”:”0”,</p>
-<p>“topic”:”/iou/PL0/D1/writeResponse”,</p>
-<p>“wellhead”:”PL0”,</p>
-<p>“metric”:”D1”,</p>
-<p>“tsMsgRcvdFromMQTT”:”1589352230212884”,</p>
-<p>“tsMsgPublishOnEII”:”1589352230214516”,</p>
-<p>“reqRcvdByApp”:”1589352230215485”,</p>
-<p>“reqRcvdInStack”:”0”,</p>
-<p>“reqSentByStack”:”0”,</p>
-<p>“respRcvdByStack”:”0”,</p>
-<p>“respPostedByStack”:”0”,</p>
-<p>“status”:”Bad”,</p>
-<p>“usec”:”1589352230217118”,</p>
-<p>“error_code”:”102”,</p>
-<p>“tsMsgRcvdForProcessing”:”1589352230220450”,</p>
-<p>“tsMsgReadyForPublish”:”1589352230220503”</p>
-</div></blockquote>
-<p>}</p>
-</section>
-<section id="on-demand-read">
-<h2>7.3     On-Demand Read<a class="headerlink" href="#on-demand-read" title="Permalink to this headline">¶</a></h2>
-<p>This section describes how to read data from some specific Modbus points using MQTT.</p>
-<p>To send request: Application should use a topic in the following format to send (i.e., publish) read request on MQTT:</p>
-<p><strong>MQTT topic to send (i.e. publish) read request: /device/wellhead/point/read</strong></p>
-<p>To receive response: Application should use a topic in the following format to receive (i.e., subscribe) response of read request from MQTT:</p>
-<dl class="simple">
-<dt><strong>MQTT topic to receive (i.e., subscribe) write response:</strong></dt><dd><p><strong>/device/wellhead/point/readResponse</strong></p>
 </dd>
 </dl>
-<p>Please refer to the table in section 6 for details of fields.</p>
-<p><strong>Example:</strong></p>
-<p><strong>Request Topic: /flowmeter/PL0/Flow/read</strong></p>
-<p><strong>Request Message:</strong></p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Following is a description of each field.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/image8_1.png"><img alt="../_images/image8_1.png" src="../_images/image8_1.png" style="width: 460.79999999999995px; height: 308.4px;" /></a>
+</div>
+<p><em>Sub fields for “realtime” and “non-realtime” group are as follow</em></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/image8_2.png"><img alt="../_images/image8_2.png" src="../_images/image8_2.png" style="width: 461.4px; height: 348.0px;" /></a>
+</div>
+<p>If incorrect value is specified for any of above fields, a default value (listed below) will be used:</p>
 <blockquote>
-<div><p>{“wellhead”:”PL0”,”command”:”Flow”,”timestamp”:”2019-09-20 12:34:56”,”usec”:”1571887474111145”,”version”:”2.0”,”app_seq”:”1234”}</p>
+<div><p>default_realtime: false</p>
+<p>operation_priority: 1</p>
+<p>retries: 0</p>
+<p>qos: 0</p>
 </div></blockquote>
-<p>A message without “realtime” field is treated as a non-realtime message. To execute a message in realtime way, a field called “realtime” should eb added as shown below:</p>
+<p>If configuration parameter or section is missing for any of the sub-operation (related to Polling and On-Demand), then default values mentioned above will be used.</p>
+</div>
+<div class="section" id="settings-for-sparkplug-bridge-sparkplug-communication-operation">
+<span id="link"></span><h3>7.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation<a class="headerlink" href="#settings-for-sparkplug-bridge-sparkplug-communication-operation" title="Permalink to this headline">¶</a></h3>
+<p>Following is a sample:</p>
+<dl>
+<dt>Global:</dt><dd><dl>
+<dt>Operations:</dt><dd><ul>
+<li><p>SparkPlug_Operation:</p>
 <blockquote>
-<div><p>{“wellhead”:”PL0”,”command”:”Flow”,”timestamp”:”2019-09-20 12:34:56”,”usec”:”1571887474111145”,”version”:”2.0”,”app_seq”:”1234”,”realtime”:”1”}</p>
-</div></blockquote>
-<p><strong>Response Topic:</strong> /flowmeter/PL0/Flow/readResponse</p>
-<p><strong>Response Message:</strong> Success Response</p>
-<p>{</p>
+<div><p>group_id: “UWC nodes”</p>
 <blockquote>
-<div><p>“app_seq”:”1234”,</p>
-<p>“timestamp”:”2020-04-24 05:24:02”,</p>
-<p>“version”:”2.0”,</p>
-<p>“realtime”:”0”,</p>
-<p>“data_topic”:”/flowmeter/PL0/Flow/readResponse”,</p>
-<p>“wellhead”:”PL0”,</p>
-<p>“metric”:”Flow”,</p>
-<p>“tsMsgRcvdFromMQTT”:”1587705842296135”,</p>
-<p>“tsMsgPublishOnEII”:”1587705842296550”,</p>
-<p>“reqRcvdInStack”:”1587705842296921”,</p>
-<p>“reqSentByStack”:”1587705842298063”,</p>
-<p>“reqRcvdByApp”:”1587705842296836”,</p>
-<p>“respRcvdByStack”:”1587705842298666”,</p>
-<p>“respPostedByStack”:”1587705842298686”,</p>
-<p>“status”:”Good”,</p>
-<p>“value”:”0x01”,</p>
-<p>“datatype”:”boolean”</p>
-<p>“scaledValue”:      true,</p>
-<p>“usec”:”1587705842298811”,</p>
-<p>“tsMsgRcvdForProcessing”:”1587705842299038”,</p>
-<p>“tsMsgReadyForPublish”:”1587705842299115”</p>
+<div><p>edge_node_id: “RBOX510”</p>
 </div></blockquote>
-<p>}</p>
-<p><strong>Response Message:</strong> Error Response</p>
-<p>{</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Above are also the default values for mentioned parameters. If configuration parameter or section is missing for SparkPlug communication, then default values mentioned above will be used.</p>
+<p>The parameters here are used to form SparkPlug formatted topic name.</p>
+<p>These values should properly be configured to ensure correct representation of data under SCADA Master.</p>
+<p>Following is a description of each field.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table6.png"><img alt="../_images/table6.png" src="../_images/table6.png" style="width: 464.09999999999997px; height: 154.0px;" /></a>
+</div>
+</div>
+<div class="section" id="settings-for-default-scale-factor">
+<h3>7.1.3   Settings for default scale factor<a class="headerlink" href="#settings-for-default-scale-factor" title="Permalink to this headline">¶</a></h3>
+<p>Following is a sample:</p>
+<dl>
+<dt>Global:</dt><dd><p>Operations:
+.</p>
+<p>.</p>
+<p>.</p>
+</dd>
+</dl>
+<p>default_scale_factor: 1.0</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table7.png"><img alt="../_images/table7.png" src="../_images/table7.png" style="width: 461.99999999999994px; height: 137.89999999999998px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-configure-site-and-wellhead">
+<h2>7.2     How to Configure Site and Wellhead<a class="headerlink" href="#how-to-configure-site-and-wellhead" title="Permalink to this headline">¶</a></h2>
+<p>There is one file which lists down reference to device-groups (i.e., wellheads) controlled by one UWC gateway. Ideally, in one UWC gateway there is one TCP and one RTU container. Please note one RTU container can manage communication with multiple RTU networks.</p>
+<p>—
+<em>file:</em></p>
 <blockquote>
-<div><p>“app_seq” : “1234”,</p>
-<p>“timestamp” : “2020-04-24 06:17:33”,</p>
-<p>“version” : “2.0”,</p>
-<p>“realtime” : “0”,</p>
-<p>“data_topic” : “/flowmeter/PL0/Flow/readResponse”,</p>
-<p>“wellhead” : “PL0”,</p>
-<p>“metric” : “Flow”,</p>
-<p>“tsMsgRcvdFromMQTT” : “1587709053533410”,</p>
-<p>“tsMsgPublishOnEII” : “1587709053534618”,</p>
-<p>“reqRcvdInStack” : “1587709053535694”,</p>
-<p>“reqRcvdByApp” : “1587709053535467”,</p>
-<p>“reqSentByStack” : “0”,</p>
-<p>“respRcvdByStack” : “0”,</p>
-<p>“respPostedByStack” : “1587709053536172”,</p>
-<p>“status” : “Bad”,</p>
-<p>“value” : “”,</p>
-<p>“datatype”:”boolean”</p>
-<p>“scaledValue”:,</p>
-<p>“error_code” : “2003”,</p>
-<p>“usec” : “1587709053536590”,</p>
-<p>“tsMsgRcvdForProcessing” : “1587709053537377”,</p>
-<p>“tsMsgReadyForPublish” : “1587709053537647”</p>
+<div><p><em>version: “1.0.0”</em></p>
+<p><em>author: “Intel”</em></p>
+<p><em>date: “Sun Sep 1 13:34:13 PDT 2019”</em></p>
+<p><em>description: “Common device group file for TCP and RTU devices”</em></p>
 </div></blockquote>
-<p>}</p>
-<p><strong>Response Message</strong>: Error Response for Invalid Input JSON</p>
-<p>{</p>
+<p><em>devicegrouplist:</em></p>
 <blockquote>
-<div><p>“app_seq” : “1234”,</p>
-<p>“timestamp” : “2020-04-24 06:22:42”,</p>
-<p>“version” : “2.0”,</p>
-<p>“realtime” : “0”,</p>
-<p>“data_topic” : “/flowmeter/PL0/Flow/readResponse”,</p>
-<p>“wellhead” : “PL0”,</p>
-<p>“metric” : “Flow1”,</p>
-<p>“tsMsgRcvdFromMQTT” : “1587709362173590”,</p>
-<p>“tsMsgPublishOnEII” : “1587709362173872”,</p>
-<p>“reqRcvdInStack” : “0”,</p>
-<p>“reqSentByStack” : “0”,</p>
-<p>“reqRcvdByApp” : “1587709362174221”,</p>
-<p>“respRcvdByStack” : “0”,</p>
-<p>“respPostedByStack” : “0”,</p>
-<p>“status” : “Bad”,</p>
-<p>“value” : “”,</p>
-<p>“datatype”:”boolean”</p>
-<p>“scaledValue”: ,</p>
-<p>“error_code” : “2014”,</p>
-<p>“usec” : “1587709362174333”,</p>
-<p>“tsMsgRcvdForProcessing” : “1587709362174590”,</p>
-<p>“tsMsgReadyForPublish” : “1587709362174647”</p>
+<div><p><em>- “Device_group1.yml”</em></p>
+<p><em>- “Device_group2.yml”</em></p>
 </div></blockquote>
-<p>}</p>
-</section>
-<section id="kpi-application">
-<h2>7.4     KPI Application<a class="headerlink" href="#kpi-application" title="Permalink to this headline">¶</a></h2>
-<p>Following data (if available) is logged in a log-file by KPI Application for control loops.</p>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../_images/table11_1_update.png"><img alt="../_images/table11_1_update.png" src="../_images/table11_1_update.png" style="width: 528.0px; height: 652.8000000000001px;" /></a>
-</figure>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../_images/table11_2_update.png"><img alt="../_images/table11_2_update.png" src="../_images/table11_2_update.png" style="width: 526.4px; height: 631.2px;" /></a>
-</figure>
-</section>
-</section>
+<p>Above example shows “Device_group1” and “Device_group2” as a reference to group of devices. “Device_group1.yml” is a separate file listing down all TCP and RTU devices falling under one device-group (e.g. wellhead PL0)</p>
+<p>Each device-group file will have information about devices in that group.</p>
+<p>—
+<em>file:</em></p>
+<blockquote>
+<div><p><em>version: “1.0.0”</em></p>
+<p><em>author: “Intel”</em></p>
+<p><em>date: “Sun Sep 1 13:34:13 PDT 2019”</em></p>
+<p><em>description: “Device group 1”</em></p>
+</div></blockquote>
+<p><em>id: “PL0”</em></p>
+<p><em>description: “Device group 1”</em></p>
+<p><em>devicelist:</em></p>
+<p><em>- deviceinfo: “flowmeter_device.yml”</em></p>
+<blockquote>
+<div><p><em>id: “flowmeter”</em></p>
+<p><em>protocol:</em></p>
+<blockquote>
+<div><p><em>protocol: “PROTOCOL_TCP”</em></p>
+<p><em>ipaddress: “192.168.0.222”</em></p>
+<p><em>port: 502</em></p>
+<p><em>unitid: 1</em></p>
+</div></blockquote>
+<p><em>tcp_master_info: “tcp_master_info.yml”</em></p>
+</div></blockquote>
+<p><em>- deviceinfo: “iou_device.yml”</em></p>
+<blockquote>
+<div><p><em>id: “iou1”</em></p>
+<p><em>protocol:</em></p>
+<blockquote>
+<div><p><em>protocol: “PROTOCOL_RTU”</em></p>
+<p><em>slaveid: ‘10’</em></p>
+</div></blockquote>
+<p><em>rtu_master_network_info: “rtu_network1.yml”</em></p>
+</div></blockquote>
+<p>Following sections provide details about TCP and RTU device configuration in device-group file.</p>
+<div class="section" id="configuring-tcp-device-in-device-group">
+<h3>7.2.1   Configuring TCP device in device-group<a class="headerlink" href="#configuring-tcp-device-in-device-group" title="Permalink to this headline">¶</a></h3>
+<p>E.g.
+<em>devicelist:</em>
+<em>- deviceinfo: “flowmeter_device.yml”</em></p>
+<blockquote>
+<div><p><em>id: “flowmeter”</em></p>
+<p><em>protocol:</em></p>
+<blockquote>
+<div><p><em>protocol: “PROTOCOL_TCP”</em></p>
+<p><em>ipaddress: “192.168.0.222”</em></p>
+<p><em>port: 502</em></p>
+<p><em>unitid: 1</em></p>
+</div></blockquote>
+<p><em>tcp_master_info: “tcp_master_info.yml”</em></p>
+</div></blockquote>
+<p>Following parameters are needed for each TCP device:</p>
+<ul class="simple">
+<li><p>ipaddress – for TCP communication IP address for client device required</p></li>
+<li><p>port – can be configured as per client device configuration</p></li>
+<li><p>unitid – id can used to distinguish multiple clients on same ipaddress</p></li>
+<li><p>tcp_master_info - tcp_master_info.yml – In this file interframe delay and response timeout can be configured for TCP network</p></li>
+</ul>
+<p>Following is a sample file for tcp_master_info.yml</p>
+<p><em>file:</em></p>
+<blockquote>
+<div><p><em>version: “1.0.0”</em></p>
+<p><em>author: “Intel”</em></p>
+<p><em>date: “Sun Sep 1 13:34:13 PDT 2019”</em></p>
+<p><em>description: “TCP master config parameter file”</em></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>inter-frame delay and response timeout values are in Millisecond</p>
+</div>
+<p>interframe_delay: 1</p>
+<p>response_timeout: 80</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This reference shall be unique across TCP devices and needs to be given for each TCP device.</p>
+</div>
+</div>
+<div class="section" id="configuring-rtu-device-in-device-group">
+<h3>7.2.2   Configuring RTU device in device-group<a class="headerlink" href="#configuring-rtu-device-in-device-group" title="Permalink to this headline">¶</a></h3>
+<p>E.g.</p>
+<p><em>devicelist:</em></p>
+<p><em>- deviceinfo: “iou_device.yml”</em></p>
+<blockquote>
+<div><p><em>id: “iou1”</em></p>
+<p><em>protocol:</em></p>
+<blockquote>
+<div><p><em>protocol: “PROTOCOL_RTU”</em></p>
+<p><em>slaveid: ‘10’</em></p>
+</div></blockquote>
+<p><em>rtu_master_network_info: “rtu_network1.yml”</em></p>
+</div></blockquote>
+<p>Following parameters are needed for each RTU device:</p>
+<ul class="simple">
+<li><p>slaveid – This is end device id in case of RTU communication</p></li>
+<li><p>rtu_master_network_info: “rtu_network1.yml” – This file is used to configure RTU configuration for a specific RTU network.</p></li>
+</ul>
+<p>Following is a sample file for rtu_network1.yml</p>
+<p>—
+<em>file:</em></p>
+<blockquote>
+<div><p><em>version: “1.0.0”</em></p>
+<p><em>author: “Intel”</em></p>
+<p><em>date: “Sun Sep 1 13:34:13 PDT 2019”</em></p>
+<p><em>description: “RTU Network information for network 1”</em></p>
+</div></blockquote>
+<p><em>baudrate: 9600</em></p>
+<p><em>parity: “N”</em></p>
+<p><em>com_port_name: “/dev/ttyS0”</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>inter-frame delay and response timeout values are in Millisecond</p>
+</div>
+<p>interframe_delay: 1</p>
+<p>response_timeout: 80</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This file needs to be specified for each RTU device. If multiple RTU networks are present (RS485/RS232) then those many files should be created. For each RTU device, an appropriate RTU network reference shall be provided.</p>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-configure-devices">
+<h2>7.3     How to Configure Devices<a class="headerlink" href="#how-to-configure-devices" title="Permalink to this headline">¶</a></h2>
+<p>Device contains information of a device. Below is a sample file –</p>
+<p><em>file:</em></p>
+<blockquote>
+<div><p><em>version: “1.0.0”</em></p>
+<p><em>author: “Intel”</em></p>
+<p><em>date: “Sun Sep 1 13:34:13 PDT 2019”</em></p>
+<p><em>description: “Information for Demo IOUnit”</em></p>
+</div></blockquote>
+<p><em>device_info:</em></p>
+<blockquote>
+<div><p><em>name: “IO Unit”</em></p>
+<p><em>description: “Power Scout Meter”</em></p>
+<p><em>manufacturer: “Dent Instruments”</em></p>
+<p><em>model: “PS3037”</em></p>
+</div></blockquote>
+<p><em>pointlist: “iou_datapoints.yml”</em></p>
+</div>
+<div class="section" id="how-to-configure-device-points">
+<h2>7.4     How to Configure Device points<a class="headerlink" href="#how-to-configure-device-points" title="Permalink to this headline">¶</a></h2>
+<p>Device Point contains end point information. Below is a sample file.</p>
+<p>Below parameters can be changed in this file –</p>
+<ul class="simple">
+<li><p>addr - can be of range 0 to 65534</p></li>
+<li><p>pollinterval – value in milliseconds</p></li>
+<li><p>type – Function Code</p></li>
+<li><p>width – Number of bytes to be read</p></li>
+<li><p>realtime – To be used for real time, as of date it is false.</p></li>
+<li><p>Datatype – Represents data type of the data point.</p></li>
+<li><p>dataPersist-Represents if data to be persisted into DB.</p></li>
+<li><p>Scalefactor – Represents scale factor to be used for the data point.</p></li>
+</ul>
+<p><em>file:</em></p>
+<blockquote>
+<div><p><em>version: “1.0.0”</em></p>
+<p><em>author: “Intel”</em></p>
+<p><em>date: “Sun Sep 1 13:34:13 PDT 2019”</em></p>
+<p><em>description: “Data for Demo IOUnit data points”</em></p>
+</div></blockquote>
+<p><em>datapoints:</em></p>
+<p><em>- id: “Arrival”</em></p>
+<blockquote>
+<div><p><em>attributes:</em></p>
+<blockquote>
+<div><p><em>type: “DISCRETE_INPUT”</em></p>
+<p><em>addr: 2048</em></p>
+<p><em>width: 1</em></p>
+<p><em>datatype: “boolean”</em></p>
+<p><em>dataPersist: true</em></p>
+<p><em>scalefactor: 1</em></p>
+</div></blockquote>
+<p><em>polling:</em></p>
+<blockquote>
+<div><p><em>pollinterval: 250</em></p>
+<p><em>realtime: true</em></p>
+</div></blockquote>
+</div></blockquote>
+<p><em>- id: “AValve”</em></p>
+<blockquote>
+<div><p><em>attributes:</em></p>
+<blockquote>
+<div><p><em>type: “HOLDING_REGISTER”</em></p>
+<p><em>addr: 640</em></p>
+<p><em>width: 2</em></p>
+<p><em>datatype: “INT”</em></p>
+<p><em>dataPersist: true</em></p>
+<p><em>scalefactor: 1</em></p>
+</div></blockquote>
+<p><em>polling:</em></p>
+<blockquote>
+<div><p><em>pollinterval: 1000</em></p>
+<p><em>realtime: true</em></p>
+</div></blockquote>
+</div></blockquote>
+<p><em>- id: “DValve”</em></p>
+<blockquote>
+<div><p><em>attributes:</em></p>
+<blockquote>
+<div><p><em>type: “COIL”</em></p>
+<p><em>addr: 2048</em></p>
+<p><em>width: 1</em></p>
+<p><em>datatype: “boolean”</em></p>
+<p><em>scalefactor: 1</em></p>
+</div></blockquote>
+<p><em>polling:</em></p>
+<blockquote>
+<div><p><em>pollinterval: 1000</em></p>
+<p><em>realtime: true</em></p>
+</div></blockquote>
+</div></blockquote>
+<p><em>- id: “TubingPressure”</em></p>
+<blockquote>
+<div><p><em>attributes:</em></p>
+<blockquote>
+<div><p><em>type: “INPUT_REGISTER”</em></p>
+<p><em>addr: 1030</em></p>
+<p><em>width: 2</em></p>
+<p><em>datatype: “float”</em></p>
+<p><em>scalefactor: -1.0</em></p>
+</div></blockquote>
+<p><em>polling:</em></p>
+<blockquote>
+<div><p><em>pollinterval: 250</em></p>
+<p><em>realtime: true</em></p>
+</div></blockquote>
+</div></blockquote>
+<p><em>- id: “CasingPressure”</em></p>
+<blockquote>
+<div><p><em>attributes:</em></p>
+<blockquote>
+<div><p><em>type: “INPUT_REGISTER”</em></p>
+<p><em>addr: 1024</em></p>
+<p><em>width: 4</em></p>
+<p><em>datatype: “double”</em></p>
+<p><em>scalefactor: 1.0</em></p>
+</div></blockquote>
+<p><em>polling:</em></p>
+<blockquote>
+<div><p><em>pollinterval: 250</em></p>
+<p><em>realtime: true</em></p>
+</div></blockquote>
+</div></blockquote>
+<p><em>- id: “KeepAlive”</em></p>
+<blockquote>
+<div><p><em>attributes:</em></p>
+<blockquote>
+<div><p><em>type: “COIL”</em></p>
+<p><em>addr: 3073</em></p>
+<p><em>width: 1</em></p>
+</div></blockquote>
+<p><em>polling:</em></p>
+<blockquote>
+<div><p><em>pollinterval: 2000</em></p>
+<p><em>realtime: true</em></p>
+</div></blockquote>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For coil type width should be 1.</p>
+</div>
+<p><strong>YML file Configuration table</strong></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table8_1_updated.png"><img alt="../_images/table8_1_updated.png" src="../_images/table8_1_updated.png" style="width: 650.4000000000001px; height: 656.8000000000001px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table8_2_updated.png"><img alt="../_images/table8_2_updated.png" src="../_images/table8_2_updated.png" style="width: 651.2px; height: 660.8000000000001px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table8_3_updated.png"><img alt="../_images/table8_3_updated.png" src="../_images/table8_3_updated.png" style="width: 651.2px; height: 644.8000000000001px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table8_4_updated.png"><img alt="../_images/table8_4_updated.png" src="../_images/table8_4_updated.png" style="width: 650.4000000000001px; height: 665.6px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table8_5_updated.png"><img alt="../_images/table8_5_updated.png" src="../_images/table8_5_updated.png" style="width: 651.2px; height: 550.4px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table8_6_updated.png"><img alt="../_images/table8_6_updated.png" src="../_images/table8_6_updated.png" style="width: 651.2px; height: 660.8000000000001px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table8_7_updated.png"><img alt="../_images/table8_7_updated.png" src="../_images/table8_7_updated.png" style="width: 652.0px; height: 511.20000000000005px;" /></a>
+</div>
+</div>
+<div class="section" id="how-to-add-edit-delete-new-wellhead-device-point-configurations">
+<h2>7.5     How to add/edit/delete new wellhead/device/point configurations<a class="headerlink" href="#how-to-add-edit-delete-new-wellhead-device-point-configurations" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>User can add/update/edit/delete Oil well configurations files (YML files) from /opt/intel/eii/uwc_data directory</p></li>
+<li><p>Open a terminal and go to &lt;working_dir&gt;/IEdgeInsights directory.</p></li>
+<li><p>Run below command to apply new Oil well site configurations</p></li>
+</ol>
+<blockquote>
+<div><p>Navigate to <em>&lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts</em></p>
+<p><em>sudo ./05_applyConfigChanges.sh</em></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script will restart all UWC docker containers.</p>
+</div>
+</div>
+<div class="section" id="kpi-app-configuration">
+<h2>7.6     KPI App Configuration<a class="headerlink" href="#kpi-app-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Following is a sample configuration file for KPI App.</p>
+<p>—
+<em>file:</em></p>
+<blockquote>
+<div><p><em>version: “1.0.0”</em></p>
+<p><em>author: “Intel”</em></p>
+<p><em>date: “Sun Sep 1 13:34:13 PDT 2020”</em></p>
+<p><em>description: “KPI App Config File”</em></p>
+</div></blockquote>
+<p><em>isMQTTModeApp: false</em></p>
+<p><em>timeToRun_Minutes: 10</em></p>
+<p><em>isRTModeForPolledPoints: true</em></p>
+<p><em>isRTModeForWriteOp: true</em></p>
+<p><strong># This section lists down number of control loops.</strong></p>
+<p><strong># For each control loop, following information is presented:</strong></p>
+<p><strong># 1. Point being polled</strong></p>
+<p><strong># 2. Point and value to be used for writing</strong></p>
+<p><strong># 3. Delay to be used before sending a write operation.</strong></p>
+<p><em>controlLoopDataPointMapping:</em></p>
+<p><em>- polled_point: “/flowmeter/PL0/P1”</em></p>
+<p><em>delay_msec: 5</em></p>
+<p><em>write_operation:</em></p>
+<blockquote>
+<div><p><em>datapoint: “/iou/PL0/D1”</em></p>
+<p><em>dataval: “0x01”</em></p>
+</div></blockquote>
+<p><em>- polled_point: “/flowmeter/PL0/P2”</em></p>
+<p><em>delay_msec: 15</em></p>
+<p><em>write_operation:</em></p>
+<blockquote>
+<div><p><em>datapoint: “/flowmeter/PL0/D2”</em></p>
+<p><em>dataval: “0x1234”</em></p>
+</div></blockquote>
+<p>Following is a description of each field.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table9_1_update.png"><img alt="../_images/table9_1_update.png" src="../_images/table9_1_update.png" style="width: 500.49999999999994px; height: 569.8px;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table9_2_update.png"><img alt="../_images/table9_2_update.png" src="../_images/table9_2_update.png" style="width: 499.79999999999995px; height: 93.8px;" /></a>
+</div>
+<p>Please note following: This configuration file should be created manually with following considerations:</p>
+<blockquote>
+<div><ol class="upperalpha simple">
+<li><p>The points in <em>“polled_point”</em> and <em>“datapoint”</em> fields in this file should be configured as per actual configuration in wellhead, device and datapoints config files.</p></li>
+</ol>
+<p>e.g., If a point to be polled is not present in datapoints config file, then data for that control loop will not be collected.</p>
+<ol class="upperalpha simple" start="2">
+<li><p>If the points being polled are configured as <em>“realtime”</em> in datapoints config file, then <em>“isRTModeForPolledPoints”</em> should be set to <em>“true”</em>. It should be set to <em>“false”</em> otherwise.</p></li>
+<li><p>ZMQ-based KPI App can monitor either RT or Non-RT points at a time.</p></li>
+<li><p>KPI App container can run either in ZMQ mode or in MQTT mode at a time.</p></li>
+</ol>
+</div></blockquote>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="page_08.html" class="btn btn-neutral float-right" title="8.0 Sparkplug-Bridge Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="page_06.html" class="btn btn-neutral float-left" title="6.0 Site Configurations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="page_08.html" class="btn btn-neutral float-right" title="8.0 UWC Modbus Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="page_06.html" class="btn btn-neutral float-left" title="6.0 Container Configuration setting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, APP.
+        &copy; Copyright 2021, APP
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -623,6 +797,7 @@ Multiple modules are involved in processing the operation. To capture the time t
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

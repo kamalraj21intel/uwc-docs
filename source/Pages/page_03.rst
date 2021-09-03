@@ -1,126 +1,228 @@
-=======================
-3.0  Installation Guide
-=======================
+========================
+3.0  Before Installation
+========================
 
----------------------------------------------------
-3.1  How to install UWC software with EII installer
----------------------------------------------------
+This section explains various concepts used throughout this document.
 
-This section provides steps to install and Deploy UWC containers using the EII installer
+---------------------
+3.1  UWC for O&G Site
+---------------------
 
-**Pre-requisite**: Internet connection (with proper proxy settings) is required for Installation.
+The UWC is a reference design that provides a secure management platform for oil and gas upstream process monitoring and control to support oil and gas installations with various artificial lift methods such as plunger lift, gas lift, and so on.  UWC is a profile on the Intel Edge Insights (EII) base platform. 
+UWC provides
+    • Soft-real time deterministic control (millisecond level control) in the containerized environment 
+    • Configurable user-defined data model describing oil well site
+    • Modularized microservices-based extensible open architecture
+    • Well defined message flow and payload to interact with the vendor application
+    • Policy-based execution of Soft-RT applications
+    • Supports multiple well pads and devices configurations
+    • Polls and controls multiple devices simultaneously
+    • Data Publish Subscribe ZeroMQ and MQTT
+    • Device Management – System Telemetry, over-the-network (a.k.a. over-the-air, or OTA) updates of firmware (FOTA), system software (SOTA), and applications (AOTA)
+    • Scalable-down to power-sensitive remote applications
+    • Scalable-up to edge analytics and vision through the EII base
 
-**Steps:**
+------------------------------------
+3.2  Upstream Oil and Gas Facilities
+------------------------------------
 
-1.	Install Ubuntu 18.04 server version on gateway and Apply RT Patch (refer section 13).
-2.	Git clone in following order will place the directories in proper relative directory  structure
+.. figure:: Doc_Images/image1.png
+    :scale: 60 %
+    :align: center
 
-.. code-block:: sh
+The example provided for UWC in this Guide is for a natural gas wellhead with one or more wells. The wellhead will have several field devices often using the Modbus protocols (both TCP and RTU). A Modbus device will have number of points to be read and/or written.  The table below shows how wellhead, device, and points, are related to each other. 
 
-    •	git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.5.1
-    •	git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch=v2.5
-    •	git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch=v2.5
-    •	git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.5
-    •	git clone https://github.com/open-edge-insights/uwc.git IEdgeInsights/uwc --branch=v1.5
-    •	git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.5
+.. list-table:: 
+   :widths: 25 25 25
+   :header-rows: 1
 
-3.	Navigate to $ <working_dir>/IEdgeInsights/build
+   * - WellHead
+     - Device
+     - Point
+   * - WellHead1
+     - flowmeter1
+     - keepAlive
+   * - WellHead1
+     - flowmeter1 
+     - flow
+   * - WellHead1 
+     - iou
+     - AValve   
+   * - WellHead2
+     - flowmeter2
+     - KeepAlive
+   * - WellHead3
+     - iou
+     - BValve
 
 
-4.	Execute Command 
+There could be similar devices and similar points in different wellheads. Hence, UWC uses this hierarchy to uniquely name a point. A point is identified like “/device/wellhead/point” e.g. flowmeter1/WellHead1/KeepAlive 
+UWC defines a data model which can be used to describe the hierarchy of wellhead, device and points.
 
-.. code-block:: sh
+.. figure:: Doc_Images/image2.png
+    :scale: 15 %
+    :align: center
 
-    a.	$./pre_requisites.sh --proxy=<proxy address with port number> for proxy enabled network.
+    Figure 3.2.  Site configurations
 
-    b.	$ sudo ./pre_requisites.sh – for non-proxy network
 
-.. note::
-       
-    If the error "Docker CE installation step is failed" is seen while running pre-requisite.sh script on a fresh system then kindly re-run the pre_requisite.sh script again. This is a known bug in docker community for Docker CE.
+-------------------------------
+3.3  Understanding UWC Platform
+-------------------------------
 
-5.	Navigate to <working_dir>/IEdgeInsights/uwc/build_scripts.   
-6.	Execute Command $ sudo ./01_uwc_pre_requisites.sh
-7.	Execute Command $ sudo ./02_provision_UWC.sh
+.. figure:: Doc_Images/image3.png
+    :scale: 50 %
+    :align: center
 
-It prompts these options – 
+    Figure 3.3.  High-level block diagram of UWC
 
-•	Please choose one of the below options based on Dev or Prod mode.
-    1) Dev
-    2) Prod 
-•	Please choose one of the below options based on the use case (combination of UWC services) needed.
-    1) Basic UWC micro-services without KPI-tactic Application & Sparkplug-Bridge - (Modbus-master TCP & RTU, mqtt-bridge, internal mqtt broker, ETCD server, ETCD UI & other base EII & UWC services)
-    2) Basic UWC micro-services as in option 1 along with KPI-tactic Application (Without Sparkplug-Bridge)
-    3) Basic UWC micro-services & KPI-tactic Application along with Sparkplug-Bridge
-    4) Basic UWC micro-services with Sparkplug-Bridge and no KPI-tactic Application
 
-Following is a sample output for Sparkplug-Bridge related configuration:
+The application can subscribe to MQTT topics to receive polled data. Similarly, the application can publish data to be written on MQTT. The platform will accordingly publish or subscribe to respective topics. The MQTT topics to be used can be configured. 
+Internally, UWC platform uses a message bus (called ZMQ) for which the topics need to be configured. ZMQ is not shown above for ease of understanding.
 
-**• Enter the following parameters required for Sparkplug-Bridge container..**
 
-Is TLS required for sparkplug-bridge (yes/no): 
-    yes
-Enter the CA certificate full path including file name:
-    /home/ubuntu/new/ca/root-ca.crt
-Enter the client certificate full path including file name: 
-    /home/ubuntu/new/client/client.crt
-Enter the client key certificate full path including file name: 
-    /home/ubuntu/new/client/client.key
-Enter the external broker address/hostname:
-    192.168.1.11
-Enter the external broker port number: 
-    22883
-Enter the QOS for scada (between 0 to 2): 
-    1
+3.3.1  Modbus containers
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-**•	Enter the following parameters required for sparkplug-bridge container**
+UWC supports Modbus TCP master and Modbus RTU master for communicating with Modbus slave devices present in a field. These are developed as two separate containers i.e., Modbus TCP container and Modbus RTU container. Please refer diagram in section 2.3
+
+**1.  Modbus RTU master container**
+
+Modbus RTU devices can be connected using RS485 or RS232. Normally, with RS232, only one device is connected at one time. Hence, to communicate with two Modbus RTU devices over RS232, two different serial ports will be needed.  
+
+Modbus RTU protocol with RS485 physical transport uses a twisted pair of wires in a daisy-chain shared media for all devices on a chain.  The communications parameters of all devices on a chain should be the same, so if different devices have different configuration (e.g., different parity, different baud rate, and so on), then, different Modbus RTU chains can be formed. To communicate with two different Modbus RTU networks, two different serial ports will be needed.  It is important to verify the analog signal integrity of the RS-485 chains including the use of termination resistors as per well-known RS-485 best-practices.
+In UWC, one Modbus RTU master can be configured to communicate over multiple serial ports. Hence a single Modbus RTU master container handles communication with multiple Modbus RTU networks. The configuration for one Modbus RTU network (e.g., port, baud rate, and so on) can be configured in a RTU network configuration file, explained in a later section of this document.
+
+
+3.3.2	MQTT-Bridge container
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Modbus containers communicate over ZMQ. The MQTT-Bridge module enables communication with Modbus containers using MQTT. The MQTT- Bridge module reads data on ZMQ received from Modbus containers and publishes that data on MQTT. Similarly, the MQTT- Bridge module reads data from MQTT and publishes it on ZMQ.
+This module was earlier known as MQTT-Export.
+
+3.3.3  Sparkplug-Bridge container
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+UWC supports Eclipse Foundation’s SparkPlug standard to expose data to SCADA Master over MQTT. Sparkplug-Bridge implements the standard and enables communication with SCADA Master. This module was earlier known as SCADA-RTU. 
+This module exposes the data on the platform to an external, centralized, Master system for the SCADA: 
+    • Data from base UWC platform i.e., real devices
+    • Mechanism to expose data from Apps running on UWC i.e., virtual devices
+
+**1.  SparkPlug MQTT Topic Namespace**
+
+Following is the topic format
+    *spBv1.0/group_id/message_type/edge_node_id/[device_id]*
 
 Is TLS required for sparkplug-bridge (yes/no): 
     no
 Enter the external broker address/hostname:
     192.164.1.2
 Enter the external broker port number: 
-    11883333
+    11883
 Enter the QOS for scada (between 0 to 2): 
     2
 
-8.	Execute Command $ sudo ./03_Build_Run_UWC.sh
+The group_id element of the Sparkplug™ Topic Namespace provides for a logical grouping of MQTT EoN nodes into the MQTT Server and back out to the consuming MQTT Clients. The value should be descriptive but as small as possible.
 
-Above is a process for interactive mode. A non-interactive mode is also supported. 
-Following are the details: 
+The value of the group_id can be valid UTF-8 alphanumeric string. The string shall not use the reserved characters of ‘+’ (plus), ‘/’ (forward slash), and ‘#’ (number sign).
 
-9. To support non-interactive mode, following options are added in 2nd script(02_provision_UWC).
+The value of this field can be configured in a configuration file, :ref:`link <link>`
 
-.. figure:: Doc_Images/table2.png
-    :scale: 80 %
-    :align: center
+**message_type:**
 
+The message_type elements are defined for the Sparkplug™ Topic Namespace. The values could be: 
 
-If required parameters are missing, then those will be requested from user in an interactive mode.
+    •	NBIRTH – Birth certificate for MQTT EoN nodes.
+    •	NDEATH – Death certificate for MQTT EoN nodes.
+    •	DBIRTH – Birth certificate for Devices.
+    •	DDEATH – Death certificate for Devices.
+    •	NDATA – Node data message.
+    •	DDATA – Device data message.
+    •	NCMD – Node command message.
+    •	DCMD – Device command message.
+    •	STATE – Critical application state message.
 
-10.	Following are sample commands for non-interactive mode execution.
+**edge_node_id:**
 
-.. code-block:: sh
+The edge_node_id element of the Sparkplug™ Topic Namespace uniquely identifies the MQTT EoN node within the infrastructure. The group_id combined with the edge_node_id element must be unique from any other group_id/edge_node_id assigned in the MQTT infrastructure. The topic element edge_node_id travels with every message published and should be as short as possible.
 
-        All UWC basic modules (no KPI, no Sparkplug-Bridge)
-        sudo ./02_provision_UWC.sh --deployMode=dev --recipe=1
+The value of the edge_node_id can be valid UTF-8 alphanumeric string. The string shall not use the reserved characters of ‘+’ (plus), ‘/’ (forward slash), and ‘#’ (number sign).
 
-        All UWC modules (with KPI and with Sparkplug-Bridge).
-        sudo ./02_provision_UWC.sh --deployMode=dev --recipe=3 --isTLS=yes --caFile="scada_ext_certs/ca/root-ca.crt" --crtFile="scada_ext_certs/client/client.crt" --keyFile="scada_ext_certs/client/client.key" --brokerAddr="192.168.1.11" --brokerPort=22883 --qos=1
+The value of this field can be configured in a configuration file, :ref:`link <link>`
 
+**device_id:**
 
-Build scripts descriptions– 
+The device_id element of the Sparkplug™ Topic Namespace identifies a device attached (physically or logically) to the MQTT EoN node. The device_id must be unique from other devices connected to the same EoN node. The device_id element travels with every message published and should be as short as possible.
 
-    1.	01_uwc_pre_requisites.sh - This script creates docker volume directory /opt/intel/eii/uwc_data, creates “/opt/intel/eii/container_logs/” for storing log and git clone modconn into respective directory of modbus master container.  
-    
-    2.	02_provision_UWC.sh - It runs the builder to generate consolidated docker-compose.yml. This script performs provisioning as per docker-compose.yml file. Along with this, it generates certs for mqtt. 
-        It allows user to choose combination of UWC services, allows to choose deployment mode either dev or prod mode.
+The format of the device_id is a valid UTF-8 alphanumeric String. The string shall not use the reserved characters of ‘+’ (plus), ‘/’ (forward slash), and ‘#’ (number sign).
 
-    3.	03_Build_Run_UWC.sh - This script will build and deploys all UWC containers.
+**2. 	Supported message types**
 
-    4.	04_uninstall_UWC.sh – Used for cleanup and uninstalling docker, docker-compose and installed libraries. This script will bring down all containers and removes all running containers.
+Following message types are supported in current version of UWC:
 
-    5.	05_applyConfigChanges.sh - This script will stop and start all running containers with updated changes.
+.. list-table:: 
+   :widths: 25 25 25
+   :header-rows: 1
 
-    6.	06_UnitTestRun.sh - This script will generate unit test report and code coverage report.
+   * - Message Type
+     - Support for real device
+     - Support for virtual device (Apps)
+   * - NBIRTH
+     - Supported. This is an edge level message.
+     - Supported. This is an edge level message.
+   * - NDEATH
+     - Supported. This is an edge level message.
+     - Supported. This is an edge level message.
+   * - DBIRTH 
+     - Supported. 
+       Data is taken from YML file.
+     - Supported. Vendor app should publish data on “BIRTH” topic.   
+   * - DDATA
+     - Supported. Data from Poll-update messages is 
+       taken to determine change in data
+       for publishing a DDATA message
+     - Supported using RBE (Report By Exception). 
+       Vendor app should publish data on “DATA” topic.
+   * - DCMD
+     - Supported. A corresponding On-Demand-Write request message is
+       published on internal MQTT for other UWC containers to process a request
+     - Supported. A corresponding CMD message is
+       published on internal MQTT for vendor app.
+   * - DDEATH
+     - Supported. Data from Poll-update messages is taken to determine change 
+       in data for publishing a DDEATH message in case of error scenarios
+     - Supported. Vendor app should publish data on “DEATH” topic.
+   * - NDATA
+     - Not Supported
+     - Not Supported
+   * - NCMD
+     - Supported “Node Control/Rebirth” control
+     - Supported “Node Control/Rebirth” control
+   * - STATE
+     - Not Supported
+     - Not Supported
 
+**3.	Name of edge node**
+
+User should properly configure “group_id” and “edge_node_id” for each edge gateway deployed in a site such that each edge node can be uniquely identified.
+
+3.3.4  KPI Application Container
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One sample application called as “KPI Application” is provided to depict how one can develop an application on UWC platform. This is a simple application which demonstrates how “single input, single output” control loop can be implemented.
+
+A control loop is executed continuously to monitor certain parameter and the adjust other parameters. Thus, a control loop consists of one read operation and one write operation. In this sample application, polling mechanism of UWC platform is used to receive values of parameters as per polling interval. The application uses “on-demand-write” operation on receiving data from polling.
+
+This KPI Application can either be executed based on MQTT communication or based on ZMQ communication. Please refer configurations for more details.
+
+The KPI Application also logs all data received as a part of control loop application in a log file. This data can be used for measuring performance of the system.
+
+3.3.5  Configurations
+~~~~~~~~~~~~~~~~~~~~~
+
+UWC needs following configuration to function properly:
+    •	Information about device group list (i.e., wellhead), device and points falling under respective Modbus container
+    •	Information about topics for internal message queue, publishers and subscribers
+
+All these configurations are related and depend on the hierarchy of wellhead, device and point.
+Following sections detail the UWC installation and configuration process.
