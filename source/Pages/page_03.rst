@@ -80,9 +80,9 @@ Is TLS required for sparkplug-bridge (yes/no):
 Enter the external broker address/hostname:
     192.164.1.2
 Enter the external broker port number: 
-    11883
+    11883333
 Enter the QOS for scada (between 0 to 2): 
-    1
+    2
 
 8.	Execute Command $ sudo ./03_Build_Run_UWC.sh
 
