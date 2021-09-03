@@ -1,44 +1,39 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>8.0 Sparkplug-Bridge Operations &mdash;   documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
+  
   
   
 
   
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9.0 Debugging steps" href="page_09.html" />
@@ -79,7 +74,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -87,16 +81,87 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0  Before Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_04.html">4.0  Container Configuration setting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_05.html">5.0  Container Configuration setting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_06.html">6.0  Site Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_07.html">7.0     UWC Modbus Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_01.html#purpose">1.1  Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_01.html#scope">1.2  Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_01.html#system-requirements">1.3  System Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0  Before Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#uwc-for-o-g-site">2.1  UWC for O&amp;G Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#upstream-oil-and-gas-facilities">2.2  Upstream Oil and Gas Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#understanding-uwc-platform">2.3  Understanding UWC Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_02.html#modbus-containers">2.3.1  Modbus containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_02.html#mqtt-bridge-container">2.3.2   MQTT-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_02.html#sparkplug-bridge-container">2.3.3  Sparkplug-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_02.html#kpi-application-container">2.3.4  KPI Application Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_02.html#configurations">2.3.5  Configurations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#how-to-install-uwc-software-with-eii-installer">3.1  How to install UWC software with EII installer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_04.html">4.0  Container Configuration setting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_04.html#deactivate-auto-update">4.1     Deactivate Auto Update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_04.html#deactivate-unattended-upgrades">4.1.1   Deactivate Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_04.html#deactivate-periodic-unattended-upgrades">4.1.2   Deactivate Periodic Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_04.html#deactivate-scheduled-upgrades">4.1.3   Deactivate Scheduled Upgrades</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_05.html">5.0  Container Configuration setting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#containers">5.1  Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#common-configuration-for-modbus-client-containers">5.1.1  Common Configuration for Modbus Client Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#configuration-foodbus-network">5.1.2  Configuration foodbus network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#modbus-tcp-communication">5.2             Modbus TCP Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#modbus-rtu-communication">5.3         Modbus RTU Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#mqtt-bridge">5.4     MQTT Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#mqtt">5.5     MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#accessing-secured-mqtt-container-from-an-external-mqtt-client">5.5.1   Accessing secured MQTT container from an external MQTT client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#accessing-secured-mqtt-container-from-a-client-inside-a-container">5.5.2   Accessing secured MQTT container from a client inside a container</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#sparkplug-bridge">5.6     Sparkplug-Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#pre-requisite-for-running-sparkplug-bridge">5.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#kpi-app">5.7     KPI App</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_06.html">6.0  Site Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#system-level-global-configuration">6.1     System Level Global Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-polling-and-on-demand-operation">6.1.1   Settings for Polling and On-Demand operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-sparkplug-bridge-sparkplug-communication-operation">6.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-default-scale-factor">6.1.3   Settings for default scale factor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-site-and-wellhead">6.2     How to Configure Site and Wellhead</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuring-tcp-device-in-device-group">6.2.1   Configuring TCP device in device-group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuring-rtu-device-in-device-group">6.2.2   Configuring RTU device in device-group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-devices">6.3     How to Configure Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-device-points">6.4     How to Configure Device points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-add-edit-delete-new-wellhead-device-point-configurations">6.5     How to add/edit/delete new wellhead/device/point configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#kpi-app-configuration">6.6     KPI App Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_07.html">7.0     UWC Modbus Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#data-polling">7.1     Data Polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#on-demand-write">7.2     On-Demand Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#on-demand-read">7.3     On-Demand Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#kpi-application">7.4     KPI Application</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">8.0     Sparkplug-Bridge Operations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#app-virtual-device-communication">8.1     App (virtual device) communication</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#app-message-topic-format">8.1.1   App Message Topic Format</a></li>
@@ -129,15 +194,30 @@
 <li class="toctree-l1"><a class="reference internal" href="page_09.html">9.0     Debugging steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_10.html">10.0    Error Codes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_11.html">11.0    Steps to flash LFM BIOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_12.html">12.0    UWC Gateway to Cloud Communication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_13.html">13.0    Steps to Apply RT Patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_12.html">12.0    UWC Gateway to Cloud Communication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_12.html#architecture">12.1    Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_12.html#installation-and-configuration">12.2    Installation and Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_12.html#ssb-installation-and-cloud-infrastructure-provisioning">12.2.1  SSB installation and cloud infrastructure provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_12.html#aws-iot-core-broker-and-ssb-configuration">12.2.2  AWS IoT core broker and SSB configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_12.html#uwc-gateway-configuration">12.2.3  UWC gateway configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_12.html#monitor-data-on-cloud">12.3    Monitor Data on Cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_13.html">13.0    Steps to Apply RT Patch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#install-prerequisites">13.1    Install prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#keyboard-shortcuts-for-menuconfig-ui">13.2    Keyboard shortcuts for menuconfig UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#steps-to-apply-preempt-rt-patch">13.3    Steps to apply PREEMPT_RT patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#references">13.4    References</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="page_14.html">14.0 Appendix</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -172,21 +252,21 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
       <li>8.0     Sparkplug-Bridge Operations</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/Pages/page_08.rst.txt" rel="nofollow"> View page source</a>
+            
+            
+              <a href="https://github.com//open-edge-insights/uwc-docs/blob/develop/source/Pages/page_08.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -199,13 +279,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sparkplug-bridge-operations">
+  <section id="sparkplug-bridge-operations">
 <h1>8.0     Sparkplug-Bridge Operations<a class="headerlink" href="#sparkplug-bridge-operations" title="Permalink to this headline">¶</a></h1>
 <p>Sparkplug-Bridge implements Eclipse Foundation’s SparkPlug standard.</p>
 <p><strong>Refer:</strong> <a class="reference external" href="https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf">https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf</a></p>
 <p>This section explains the features in detail. UWC gateway acts as a “node” as per SparkPlug standard. Please note that Sparkplug-Bridge is an under-development feature and hence not all message types are supported from SparkPlug.</p>
 <p>This section also explains how information from real device and virtual device is mapped to SparkPlug-formatted data.</p>
-<div class="section" id="app-virtual-device-communication">
+<section id="app-virtual-device-communication">
 <h2>8.1     App (virtual device) communication<a class="headerlink" href="#app-virtual-device-communication" title="Permalink to this headline">¶</a></h2>
 <p>Apps running on UWC platform can be represented as a SparkPlug device to SCADA Master. SCADA Master can monitor, control these apps using SparkPlug mechanism. Sparkplug-Bridge defines following to enable this communication between apps and SCADA Master:</p>
 <p>TemplateDef message: This allows providing a definition for a Sparkplug Template i.e., UDT</p>
@@ -214,7 +294,7 @@
 <p>DATA message: This corresponds to a SparkPlug DDATA message.</p>
 <p>CMD message: This corresponds to a SparkPlug DCMD message.</p>
 <p>Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.</p>
-<div class="section" id="app-message-topic-format">
+<section id="app-message-topic-format">
 <h3>8.1.1   App Message Topic Format<a class="headerlink" href="#app-message-topic-format" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: MESSAGETYPE/APPID/SUBCLASS</p>
 <p>Where,</p>
@@ -225,15 +305,15 @@
 </ul>
 <p>Sparkplug-Bridge uses following format to represent name of virtual device in SparkPlug Topic namespace:</p>
 <p>[value of “APPID” from app message topic] + “-“ + [value of “SUBCLASS” from app message topic]</p>
-</div>
-<div class="section" id="app-message-birth">
+</section>
+<section id="app-message-birth">
 <h3>8.1.2   App Message - BIRTH<a class="headerlink" href="#app-message-birth" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: BIRTH/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table12.png"><img alt="../_images/table12.png" src="../_images/table12.png" style="width: 466.9px; height: 352.79999999999995px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <dl>
 <dt>{</dt><dd><p>“metrics”:</p>
@@ -330,18 +410,18 @@
 </ul>
 </div>
 <p>Following information is required as a part of “value” key when UDT type is used:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table13.png"><img alt="../_images/table13.png" src="../_images/table13.png" style="width: 466.2px; height: 298.2px;" /></a>
-</div>
-</div>
-<div class="section" id="app-message-data">
+</figure>
+</section>
+<section id="app-message-data">
 <h3>8.1.3   App Message - DATA<a class="headerlink" href="#app-message-data" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: DATA/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table14.png"><img alt="../_images/table14.png" src="../_images/table14.png" style="width: 464.79999999999995px; height: 420.0px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -391,15 +471,15 @@
 <p class="admonition-title">Note</p>
 <p>A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DATA message and BIRTH message shall match.</p>
 </div>
-</div>
-<div class="section" id="app-message-cmd">
+</section>
+<section id="app-message-cmd">
 <h3>8.1.4   App Message - CMD<a class="headerlink" href="#app-message-cmd" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: CMD/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table15.png"><img alt="../_images/table15.png" src="../_images/table15.png" style="width: 464.09999999999997px; height: 419.29999999999995px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -445,15 +525,15 @@
 <p class="admonition-title">Note</p>
 <p>A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DCMD message and BIRTH message shall match.</p>
 </div>
-</div>
-<div class="section" id="app-message-death">
+</section>
+<section id="app-message-death">
 <h3>8.1.5   App Message - DEATH<a class="headerlink" href="#app-message-death" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: DEATH/APPID</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains the following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table16.png"><img alt="../_images/table16.png" src="../_images/table16.png" style="width: 464.79999999999995px; height: 133.7px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -463,18 +543,18 @@
 <p>Data Flow:</p>
 <p>When App’s connection with MQTT broker breaks then this message is published.</p>
 <p>Sparkplug-Bridge publishes a DDEATH message to SCADA Master for all known SUBCLASS associated with the App.</p>
-</div>
-<div class="section" id="app-message-templatedef">
+</section>
+<section id="app-message-templatedef">
 <h3>8.1.6   App Message - TemplateDef<a class="headerlink" href="#app-message-templatedef" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: TemplateDef</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table17_1.png"><img alt="../_images/table17_1.png" src="../_images/table17_1.png" style="width: 466.2px; height: 581.6999999999999px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table17_2.png"><img alt="../_images/table17_2.png" src="../_images/table17_2.png" style="width: 466.2px; height: 65.8px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -522,8 +602,8 @@
 <p>}</p>
 <p>Data Flow:</p>
 <p>App should use this message to provide definition of a Sparkplug Template i.e., UDT. UDT definitions are published as a part of NBIRTH message. Hence, after receiving a UDT definition, Sparkplug-Bridge publishes NDEATH and then NBIRTH to SCADA-Master.</p>
-</div>
-<div class="section" id="start-birth-process">
+</section>
+<section id="start-birth-process">
 <h3>8.1.7   START_BIRTH_PROCESS<a class="headerlink" href="#start-birth-process" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: START_BIRTH_PROCESS</p>
 <p>Message format:</p>
@@ -551,21 +631,21 @@
 <li><p>BIRTH messages for all SUBCLASS the App is having. The App shall publish BIRTH messages on receiving START_BIRTH_PROCESS message.</p></li>
 </ul>
 <p>START_BIRTH_PROCESS message will be sent on restart of Sparkplug-Bridge container or whenever Sparkplug-Bridge container needs to refresh the data that it maintains for virtual devices.</p>
-</div>
-</div>
-<div class="section" id="modbus-real-device-communication">
+</section>
+</section>
+<section id="modbus-real-device-communication">
 <h2>8.2     Modbus (real) device communication<a class="headerlink" href="#modbus-real-device-communication" title="Permalink to this headline">¶</a></h2>
 <p>Modbus devices present in network are reported to SCADA Master using SparkPlug mechanism.</p>
 <p>Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.</p>
-<div class="section" id="support-for-dbirth">
+<section id="support-for-dbirth">
 <h3>8.2.1   Support for DBIRTH<a class="headerlink" href="#support-for-dbirth" title="Permalink to this headline">¶</a></h3>
 <p>Data from device YML configuration files is used to form a DBIRTH message for real devices at the start of Sparkplug-Bridge container. One datapoint YML file corresponds to one SparkPlug template definition. One real Modbus device contains one metric of type SparkPlug template. The SparkPlug template in turn contains all other metrics which correspond to datapoints mentioned in datapoints-YML file.</p>
-</div>
-<div class="section" id="support-for-ddata">
+</section>
+<section id="support-for-ddata">
 <h3>8.2.2   Support for DDATA<a class="headerlink" href="#support-for-ddata" title="Permalink to this headline">¶</a></h3>
 <p>Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine a change in value of any of metrics associated with a real device. If a change is detected, a DDATA message is published by Sparkplug-Bridge.</p>
-</div>
-<div class="section" id="support-for-dcmd">
+</section>
+<section id="support-for-dcmd">
 <h3>8.2.3   Support for DCMD<a class="headerlink" href="#support-for-dcmd" title="Permalink to this headline">¶</a></h3>
 <p>When a DCMD message is received from a SCADA Master for a real device for a “known metric”, then an on-demand write operation is initiated by SCADA and sent to MQTT-Bridge over internal MQTT.</p>
 <div class="admonition note">
@@ -575,16 +655,16 @@
 <li><p>A DCMD message can result in multiple on-demand write operations.</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="support-for-ddeath">
+</section>
+<section id="support-for-ddeath">
 <h3>8.2.4   Support for DDEATH<a class="headerlink" href="#support-for-ddeath" title="Permalink to this headline">¶</a></h3>
 <p>Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine whether a device is reachable or not, based on error_code. If device unreachable error-code is found, a DDEATH message is published by Sparkplug-Bridge. When correct values are found, a DBIRTH message is published.</p>
-</div>
-</div>
-<div class="section" id="sparkplug-messages">
+</section>
+</section>
+<section id="sparkplug-messages">
 <h2>8.3     SparkPlug Messages<a class="headerlink" href="#sparkplug-messages" title="Permalink to this headline">¶</a></h2>
 <p>Refer SparkPlug standard for more information.</p>
-<div class="section" id="nbirth-message">
+<section id="nbirth-message">
 <h3>8.3.1   NBIRTH Message<a class="headerlink" href="#nbirth-message" title="Permalink to this headline">¶</a></h3>
 <p>NBIRTH is Node-Birth.</p>
 <p>On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.</p>
@@ -717,8 +797,8 @@
 </dd>
 </dl>
 <p>}</p>
-</div>
-<div class="section" id="ndeath-message">
+</section>
+<section id="ndeath-message">
 <h3>8.3.2   NDEATH Message<a class="headerlink" href="#ndeath-message" title="Permalink to this headline">¶</a></h3>
 <p>NDEATH is Node-Death.</p>
 <p>Whenever Sparkplug-Bridge module’s connection with MQTT broker breaks, the MQTT broker publishes this message. The message is published in text format.</p>
@@ -747,8 +827,8 @@
 <p>“seq”: 0</p>
 </div></blockquote>
 <p>}</p>
-</div>
-<div class="section" id="dbirth-message">
+</section>
+<section id="dbirth-message">
 <h3>8.3.3   DBIRTH Message<a class="headerlink" href="#dbirth-message" title="Permalink to this headline">¶</a></h3>
 <p>DBIRTH is Device-Birth.</p>
 <p>On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.</p>
@@ -869,8 +949,8 @@
 <p>“seq”: 1</p>
 </div></blockquote>
 <p>}</p>
-</div>
-<div class="section" id="ddeath-message">
+</section>
+<section id="ddeath-message">
 <h3>8.3.4   DDEATH Message<a class="headerlink" href="#ddeath-message" title="Permalink to this headline">¶</a></h3>
 <p>DDEATH is Device-Death.</p>
 <p>Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects that device is not reachable. The message is published in SparkPlug encoded format.</p>
@@ -880,8 +960,8 @@
 <p>“metrics”:[],</p>
 <p>“seq”:7</p>
 <p>}</p>
-</div>
-<div class="section" id="ddata-message">
+</section>
+<section id="ddata-message">
 <h3>8.3.5   DDATA Message<a class="headerlink" href="#ddata-message" title="Permalink to this headline">¶</a></h3>
 <p>DDATA is Device-Data.</p>
 <p>Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects a change in value of any of metrics of devices. The message is published in SparkPlug encoded format.</p>
@@ -966,8 +1046,8 @@
 <p>“seq”: 2</p>
 </div></blockquote>
 <p>}</p>
-</div>
-<div class="section" id="ncmd-message">
+</section>
+<section id="ncmd-message">
 <h3>8.3.6   NCMD Message<a class="headerlink" href="#ncmd-message" title="Permalink to this headline">¶</a></h3>
 <p>NCMD is Node-Command.</p>
 <p>SCADA Master can tell edge node to reinitiate the node birth process. The node starts publishing NBIRTH, DBIRTH messages after receiving NCMD.</p>
@@ -993,38 +1073,38 @@
 <p>“seq”: -1</p>
 </div></blockquote>
 <p>}</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="page_09.html" class="btn btn-neutral float-right" title="9.0 Debugging steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="page_07.html" class="btn btn-neutral float-left" title="7.0 UWC Modbus Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="page_09.html" class="btn btn-neutral float-right" title="9.0 Debugging steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="page_07.html" class="btn btn-neutral float-left" title="7.0 UWC Modbus Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, APP.
+        &copy; Copyright 2021, APP
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -1032,6 +1112,7 @@
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {
