@@ -1,49 +1,42 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
   
-  <title>4.0 Container Configuration setting &mdash;   documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
+  <title>4.0 Installation Guide &mdash;   documentation</title>
   
 
   
   
-
+  
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.0 Container Configuration setting" href="page_05.html" />
-    <link rel="prev" title="3.0 Installation Guide" href="page_03.html" /> 
+    <link rel="prev" title="3.0 Before Installation" href="page_03.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,7 +73,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -88,7 +80,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
@@ -97,135 +89,140 @@
 <li class="toctree-l2"><a class="reference internal" href="page_01.html#system-requirements">1.3  System Requirements</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0  Before Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#uwc-for-o-g-site">2.1  UWC for O&amp;G Site</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#upstream-oil-and-gas-facilities">2.2  Upstream Oil and Gas Facilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#understanding-uwc-platform">2.3  Understanding UWC Platform</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#modbus-containers">2.3.1  Modbus containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#mqtt-bridge-container">2.3.2   MQTT-Bridge container</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#sparkplug-bridge-container">2.3.3  Sparkplug-Bridge container</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#kpi-application-container">2.3.4  KPI Application Container</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_02.html#configurations">2.3.5  Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0 Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-6">2.1 Feature list- supported in UWC-v1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-5">2.2 Feature list- supported in UWC-v1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-0">2.3 Feature list supported in UWC-v1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#changes-to-existing-features">2.4 Changes to Existing Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#unsupported-or-discontinued-features">2.5 Unsupported or Discontinued Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Before Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#uwc-for-o-g-site">3.1  UWC for O&amp;G Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#upstream-oil-and-gas-facilities">3.2  Upstream Oil and Gas Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#understanding-uwc-platform">3.3  Understanding UWC Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#modbus-containers">3.3.1  Modbus containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#mqtt-bridge-container">3.3.2   MQTT-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#sparkplug-bridge-container">3.3.3  Sparkplug-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#kpi-application-container">3.3.4  KPI Application Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#configurations">3.3.5  Configurations</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_03.html#how-to-install-uwc-software-with-eii-installer">3.1  How to install UWC software with EII installer</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4.0  Container Configuration setting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#deactivate-auto-update">4.1     Deactivate Auto Update</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#deactivate-unattended-upgrades">4.1.1   Deactivate Unattended Upgrades</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#deactivate-periodic-unattended-upgrades">4.1.2   Deactivate Periodic Unattended Upgrades</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#deactivate-scheduled-upgrades">4.1.3   Deactivate Scheduled Upgrades</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4.0  Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-uwc-software-with-eii-installer">4.1  How to install UWC software with EII installer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_05.html">5.0  Container Configuration setting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#containers">5.1  Containers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#common-configuration-for-modbus-client-containers">5.1.1  Common Configuration for Modbus Client Containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#configuration-foodbus-network">5.1.2  Configuration foodbus network</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#modbus-tcp-communication">5.2             Modbus TCP Communication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#modbus-rtu-communication">5.3         Modbus RTU Communication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#mqtt-bridge">5.4     MQTT Bridge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#mqtt">5.5     MQTT</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#accessing-secured-mqtt-container-from-an-external-mqtt-client">5.5.1   Accessing secured MQTT container from an external MQTT client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#accessing-secured-mqtt-container-from-a-client-inside-a-container">5.5.2   Accessing secured MQTT container from a client inside a container</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#sparkplug-bridge">5.6     Sparkplug-Bridge</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_05.html#pre-requisite-for-running-sparkplug-bridge">5.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_05.html#kpi-app">5.7     KPI App</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="page_06.html">6.0  Site Configurations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#system-level-global-configuration">6.1     System Level Global Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-polling-and-on-demand-operation">6.1.1   Settings for Polling and On-Demand operation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-sparkplug-bridge-sparkplug-communication-operation">6.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#settings-for-default-scale-factor">6.1.3   Settings for default scale factor</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-site-and-wellhead">6.2     How to Configure Site and Wellhead</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuring-tcp-device-in-device-group">6.2.1   Configuring TCP device in device-group</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuring-rtu-device-in-device-group">6.2.2   Configuring RTU device in device-group</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-devices">6.3     How to Configure Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-configure-device-points">6.4     How to Configure Device points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#how-to-add-edit-delete-new-wellhead-device-point-configurations">6.5     How to add/edit/delete new wellhead/device/point configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_06.html#kpi-app-configuration">6.6     KPI App Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="page_07.html">7.0     UWC Modbus Operations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_07.html#data-polling">7.1     Data Polling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_07.html#on-demand-write">7.2     On-Demand Write</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_07.html#on-demand-read">7.3     On-Demand Read</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_07.html#kpi-application">7.4     KPI Application</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="page_08.html">8.0     Sparkplug-Bridge Operations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_08.html#app-virtual-device-communication">8.1     App (virtual device) communication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-topic-format">8.1.1   App Message Topic Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-birth">8.1.2   App Message - BIRTH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-data">8.1.3   App Message - DATA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-cmd">8.1.4   App Message - CMD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-death">8.1.5   App Message - DEATH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#app-message-templatedef">8.1.6   App Message - TemplateDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#start-birth-process">8.1.7   START_BIRTH_PROCESS</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_08.html#modbus-real-device-communication">8.2     Modbus (real) device communication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-dbirth">8.2.1   Support for DBIRTH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-ddata">8.2.2   Support for DDATA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-dcmd">8.2.3   Support for DCMD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#support-for-ddeath">8.2.4   Support for DDEATH</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="page_08.html#sparkplug-messages">8.3     SparkPlug Messages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#nbirth-message">8.3.1   NBIRTH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ndeath-message">8.3.2   NDEATH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#dbirth-message">8.3.3   DBIRTH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ddeath-message">8.3.4   DDEATH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ddata-message">8.3.5   DDATA Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_08.html#ncmd-message">8.3.6   NCMD Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#deactivate-auto-update">5.1     Deactivate Auto Update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-unattended-upgrades">5.1.1   Deactivate Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-periodic-unattended-upgrades">5.1.2   Deactivate Periodic Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-scheduled-upgrades">5.1.3   Deactivate Scheduled Upgrades</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_09.html">9.0     Debugging steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_10.html">10.0    Error Codes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_11.html">11.0    Steps to flash LFM BIOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="page_12.html">12.0    UWC Gateway to Cloud Communication</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_12.html#architecture">12.1    Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_12.html#installation-and-configuration">12.2    Installation and Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="page_12.html#ssb-installation-and-cloud-infrastructure-provisioning">12.2.1  SSB installation and cloud infrastructure provisioning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_12.html#aws-iot-core-broker-and-ssb-configuration">12.2.2  AWS IoT core broker and SSB configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="page_12.html#uwc-gateway-configuration">12.2.3  UWC gateway configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_06.html">6.0  Container Configuration setting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#containers">6.1  Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#common-configuration-for-modbus-client-containers">6.1.1  Common Configuration for Modbus Client Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuration-foodbus-network">6.1.2  Configuration foodbus network</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="page_12.html#monitor-data-on-cloud">12.3    Monitor Data on Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#modbus-tcp-communication">6.2             Modbus TCP Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#modbus-rtu-communication">6.3         Modbus RTU Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#mqtt-bridge">6.4     MQTT Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#mqtt">6.5     MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#accessing-secured-mqtt-container-from-an-external-mqtt-client">6.5.1   Accessing secured MQTT container from an external MQTT client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#accessing-secured-mqtt-container-from-a-client-inside-a-container">6.5.2   Accessing secured MQTT container from a client inside a container</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_13.html">13.0    Steps to Apply RT Patch</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#install-prerequisites">13.1    Install prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#keyboard-shortcuts-for-menuconfig-ui">13.2    Keyboard shortcuts for menuconfig UI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#steps-to-apply-preempt-rt-patch">13.3    Steps to apply PREEMPT_RT patch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_13.html#references">13.4    References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#sparkplug-bridge">6.6     Sparkplug-Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#pre-requisite-for-running-sparkplug-bridge">6.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="page_14.html">14.0 Appendix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#kpi-app">6.7     KPI App</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_07.html">7.0  Site Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#system-level-global-configuration">7.1     System Level Global Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#settings-for-polling-and-on-demand-operation">7.1.1   Settings for Polling and On-Demand operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#settings-for-sparkplug-bridge-sparkplug-communication-operation">7.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#settings-for-default-scale-factor">7.1.3   Settings for default scale factor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-configure-site-and-wellhead">7.2     How to Configure Site and Wellhead</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#configuring-tcp-device-in-device-group">7.2.1   Configuring TCP device in device-group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#configuring-rtu-device-in-device-group">7.2.2   Configuring RTU device in device-group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-configure-devices">7.3     How to Configure Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-configure-device-points">7.4     How to Configure Device points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-add-edit-delete-new-wellhead-device-point-configurations">7.5     How to add/edit/delete new wellhead/device/point configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#kpi-app-configuration">7.6     KPI App Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_08.html">8.0     UWC Modbus Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#data-polling">8.1     Data Polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#on-demand-write">8.2     On-Demand Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#on-demand-read">8.3     On-Demand Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#kpi-application">8.4     KPI Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_09.html">9.0     Sparkplug-Bridge Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#app-virtual-device-communication">9.1     App (virtual device) communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-topic-format">9.1.1   App Message Topic Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-birth">9.1.2   App Message - BIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-data">9.1.3   App Message - DATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-cmd">9.1.4   App Message - CMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-death">9.1.5   App Message - DEATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-templatedef">9.1.6   App Message - TemplateDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#start-birth-process">9.1.7   START_BIRTH_PROCESS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#modbus-real-device-communication">9.2     Modbus (real) device communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-dbirth">9.2.1   Support for DBIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-ddata">9.2.2   Support for DDATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-dcmd">9.2.3   Support for DCMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-ddeath">9.2.4   Support for DDEATH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#sparkplug-messages">9.3     SparkPlug Messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#nbirth-message">9.3.1   NBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ndeath-message">9.3.2   NDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#dbirth-message">9.3.3   DBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ddeath-message">9.3.4   DDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ddata-message">9.3.5   DDATA Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ncmd-message">9.3.6   NCMD Message</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_10.html">10.0    Debugging steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_11.html">11.0    Error Codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_12.html">12.0    Steps to flash LFM BIOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_13.html">13.0    UWC Gateway to Cloud Communication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#architecture">13.1    Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#installation-and-configuration">13.2    Installation and Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#ssb-installation-and-cloud-infrastructure-provisioning">13.2.1  SSB installation and cloud infrastructure provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#aws-iot-core-broker-and-ssb-configuration">13.2.2  AWS IoT core broker and SSB configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#uwc-gateway-configuration">13.2.3  UWC gateway configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#monitor-data-on-cloud">13.3    Monitor Data on Cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_14.html">14.0 RT Patch (Optional)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-choose-and-apply-rt-kernel-patch">14.1    Steps to Choose and Apply RT Kernel Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-apply-rt-kernel-patch">14.2    Steps To Apply RT Kernel Patch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_15.html">15.0 Appendix</a></li>
 </ul>
 
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -260,20 +257,18 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>4.0  Container Configuration setting</li>
+      <li>4.0  Installation Guide</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/develop/source/Pages/page_04.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -289,99 +284,166 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="container-configuration-setting">
-<h1>4.0  Container Configuration setting<a class="headerlink" href="#container-configuration-setting" title="Permalink to this headline">¶</a></h1>
-<section id="deactivate-auto-update">
-<h2>4.1     Deactivate Auto Update<a class="headerlink" href="#deactivate-auto-update" title="Permalink to this headline">¶</a></h2>
-<p>Once all the containers are deployed successfully, please disable system’s auto update feature as specified in the below sections. Auto update feature is enabled by default in Ubuntu.</p>
-<p>These steps are optional. It is needed to switch off auto updates of packages (Package-Lists, periodic etc) when connected to internet.</p>
-<section id="deactivate-unattended-upgrades">
-<h3>4.1.1   Deactivate Unattended Upgrades<a class="headerlink" href="#deactivate-unattended-upgrades" title="Permalink to this headline">¶</a></h3>
-<p>To deactivate unattended upgrades, we need to edit</p>
-<blockquote>
-<div><p><em>/etc/apt/apt.conf.d/20auto-upgrades</em> file and do the following changes.</p>
+  <div class="section" id="installation-guide">
+<h1>4.0  Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-install-uwc-software-with-eii-installer">
+<h2>4.1  How to install UWC software with EII installer<a class="headerlink" href="#how-to-install-uwc-software-with-eii-installer" title="Permalink to this headline">¶</a></h2>
+<p>This section provides steps to install and Deploy UWC containers using the EII installer</p>
+<p><strong>Pre-requisite</strong>: Internet connection (with proper proxy settings) is required for Installation.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Install Ubuntu 20.04 server version on gateway and Apply RT Patch (refer section 14).</p></li>
+<li><p>Git clone in following order will place the directories in proper relative directory  structure</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/ts-telegraf.git IEdgeInsights/Telegraf --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/eii-influxdb-connector.git IEdgeInsights/InfluxDBConnector --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/eii-tools.git IEdgeInsights/tools --branch<span class="o">=</span>v2.6
+•   git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch<span class="o">=</span>v1.6
+•   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch<span class="o">=</span>v1.6
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Navigate to $ &lt;working_dir&gt;/IEdgeInsights/build</p></li>
+<li><p>Execute Command</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>a.  $./pre_requisites.sh --proxy<span class="o">=</span>&lt;proxy address with port number&gt; <span class="k">for</span> proxy enabled network.
+
+b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the error “Docker CE installation step is failed” is seen while running pre-requisite.sh script on a fresh system then kindly re-run the pre_requisite.sh script again. This is a known bug in docker community for Docker CE.</p>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Navigate to &lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts.</p></li>
+<li><p>Execute Command $ sudo ./01_uwc_pre_requisites.sh</p></li>
+<li><p>Execute Command $ sudo ./02_provision_UWC.sh</p></li>
+</ol>
+<p>It prompts these options –</p>
+<ul class="simple">
+<li><p>Please choose one of the below options based on Dev or Prod mode.</p></li>
+</ul>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>Disable update package list by changing setting</p></li>
-</ol>
-<blockquote>
-<div><p><strong>from</strong> <em>APT::Periodic::Update-Package-Lists</em> <strong>“1”</strong></p>
-<p><strong>to</strong> <em>APT::Periodic::Update-Package-Lists</em> <strong>“0”</strong></p>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>Disable unattended upgrade by changing setting</p></li>
-</ol>
-<blockquote>
-<div><p><strong>from</strong> <em>APT::Periodic::Unattended-Upgrade</em> <strong>“1”</strong></p>
-<p><strong>to</strong> <em>APT::Periodic::Unattended-Upgrade</em> <strong>“0”</strong></p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</section>
-<section id="deactivate-periodic-unattended-upgrades">
-<h3>4.1.2   Deactivate Periodic Unattended Upgrades<a class="headerlink" href="#deactivate-periodic-unattended-upgrades" title="Permalink to this headline">¶</a></h3>
-<p>To deactivate periodic unattended upgrades, we need to</p>
-<p>edit <em>/etc/apt/apt.conf.d/10periodic</em> file and do the following changes</p>
-<blockquote>
-<div><ol class="arabic">
-<li><p>Disable update package list by changing setting</p>
-<p><strong>from</strong> <em>APT::Periodic::Update-Package-Lists</em> <strong>“1”</strong></p>
-<p><strong>to</strong> <em>APT::Periodic::Update-Package-Lists</em> <strong>“0”</strong></p>
-</li>
-<li><p>Disable download upgradable packages by changing setting</p>
-<p><strong>from</strong> <em>APT::Periodic::Download-Upgradeable-Packages</em> <strong>“1”</strong></p>
-<p><strong>to</strong> <em>APT::Periodic::Download-Upgradeable-Packages</em> <strong>“0”</strong></p>
-</li>
-<li><p>Disable auto clean interval by changing setting</p>
-<p><strong>from</strong> <em>APT::Periodic::AutocleanInterval</em> <strong>“1”</strong></p>
-<p><strong>to</strong> <em>APT::Periodic::AutocleanInterval</em> <strong>“0”</strong></p>
-</li>
+<li><p>Dev</p></li>
+<li><p>Prod</p></li>
 </ol>
 </div></blockquote>
-</section>
-<section id="deactivate-scheduled-upgrades">
-<h3>4.1.3   Deactivate Scheduled Upgrades<a class="headerlink" href="#deactivate-scheduled-upgrades" title="Permalink to this headline">¶</a></h3>
-<p><strong>To deactivate scheduled download please execute below commands</strong></p>
+<ul class="simple">
+<li><p>Please choose one of the below options based on the use case (combination of UWC services) needed.</p></li>
+</ul>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>sudo systemctl stop apt-daily.timer</p></li>
-<li><p>sudo systemctl disable apt-daily.timer</p></li>
-<li><p>sudo systemctl disable apt-daily.service</p></li>
-<li><p>sudo systemctl daemon-reload</p></li>
+<li><p>Basic UWC micro-services without KPI-tactic Application &amp; Sparkplug-Bridge - (Modbus-master TCP &amp; RTU, mqtt-bridge, internal mqtt broker, ETCD server, ETCD UI &amp; other base EII &amp; UWC services)</p></li>
+<li><p>Basic UWC micro-services as in option 1 along with KPI-tactic Application (Without Sparkplug-Bridge)</p></li>
+<li><p>Basic UWC micro-services &amp; KPI-tactic Application along with Sparkplug-Bridge</p></li>
+<li><p>Basic UWC micro-services with Sparkplug-Bridge and no KPI-tactic Application</p></li>
+<li><p>Basic UWC micro-services with Time series micro-services (Telegraf &amp; InfluxDBConnector)</p></li>
+<li><p>Running Basic UWC micro-services with time series services (Telegraf &amp; InfluxDBCOnnector) along with KPI-tactic app</p></li>
+<li><p>Running Basic UWC micro-services with time series services (Telegraf &amp; InfluxDBCOnnector) along with Sparkplug service</p></li>
+<li><p>Running the sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker &amp; Etcd container</p></li>
 </ol>
 </div></blockquote>
-</section>
-</section>
-</section>
+<p>Following is a sample output for Sparkplug-Bridge related configuration:</p>
+<p><strong>• Enter the following parameters required for Sparkplug-Bridge container..</strong></p>
+<dl class="simple">
+<dt>Is TLS required for sparkplug-bridge (yes/no):</dt><dd><p>yes</p>
+</dd>
+<dt>Enter the CA certificate full path including file name:</dt><dd><p>/home/ubuntu/new/ca/root-ca.crt</p>
+</dd>
+<dt>Enter the client certificate full path including file name:</dt><dd><p>/home/ubuntu/new/client/client.crt</p>
+</dd>
+<dt>Enter the client key certificate full path including file name:</dt><dd><p>/home/ubuntu/new/client/client.key</p>
+</dd>
+<dt>Enter the external broker address/hostname:</dt><dd><p>192.168.1.11</p>
+</dd>
+<dt>Enter the external broker port number:</dt><dd><p>22883</p>
+</dd>
+<dt>Enter the QOS for scada (between 0 to 2):</dt><dd><p>1</p>
+</dd>
+</dl>
+<p><strong>•     Enter the following parameters required for sparkplug-bridge container</strong></p>
+<dl class="simple">
+<dt>Is TLS required for sparkplug-bridge (yes/no):</dt><dd><p>no</p>
+</dd>
+<dt>Enter the external broker address/hostname:</dt><dd><p>192.168.1.11</p>
+</dd>
+<dt>Enter the external broker port number:</dt><dd><p>22883</p>
+</dd>
+<dt>Enter the QOS for scada (between 0 to 2):</dt><dd><p>1</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="8">
+<li><p>Execute Command $ sudo ./03_Build_Run_UWC.sh</p></li>
+</ol>
+<p>Above is a process for interactive mode. A non-interactive mode is also supported.
+Following are the details:</p>
+<ol class="arabic simple" start="9">
+<li><p>To support non-interactive mode, following options are added in 2nd script(02_provision_UWC).</p></li>
+</ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/table2.png"><img alt="../_images/table2.png" src="../_images/table2.png" style="width: 531.2px; height: 648.0px;" /></a>
+</div>
+<p>If required parameters are missing, then those will be requested from user in an interactive mode.</p>
+<ol class="arabic simple" start="10">
+<li><p>Following are sample commands for non-interactive mode execution.</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>All UWC basic modules <span class="o">(</span>no KPI, no Sparkplug-Bridge<span class="o">)</span>
+sudo ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">1</span>
+
+All UWC modules <span class="o">(</span>with KPI and with Sparkplug-Bridge<span class="o">)</span>.
+sudo ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">3</span> --isTLS<span class="o">=</span>yes --caFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/ca/root-ca.crt&quot;</span> --crtFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.crt&quot;</span> --keyFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.key&quot;</span> --brokerAddr<span class="o">=</span><span class="s2">&quot;192.168.1.11&quot;</span> --brokerPort<span class="o">=</span><span class="m">22883</span> --qos<span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Build scripts descriptions–</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>01_uwc_pre_requisites.sh - This script creates docker volume directory /opt/intel/eii/uwc_data, creates “/opt/intel/eii/container_logs/” for storing log and git clone modconn into respective directory of modbus master container.</p></li>
+<li><p>02_provision_UWC.sh - It runs the builder to generate consolidated docker-compose.yml. This script performs provisioning as per docker-compose.yml file. Along with this, it generates certs for mqtt.
+It allows user to choose combination of UWC services, allows to choose deployment mode either dev or prod mode.</p></li>
+<li><p>03_Build_Run_UWC.sh - This script will build and deploys all UWC containers.</p></li>
+<li><p>04_uninstall_UWC.sh – Used for cleanup and uninstalling docker, docker-compose and installed libraries. This script will bring down all containers and removes all running containers.</p></li>
+<li><p>05_applyConfigChanges.sh - This script will stop and start all running containers with updated changes.</p></li>
+<li><p>06_UnitTestRun.sh - This script will generate unit test report and code coverage report.</p></li>
+</ol>
+</div></blockquote>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="page_05.html" class="btn btn-neutral float-right" title="5.0 Container Configuration setting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="page_03.html" class="btn btn-neutral float-left" title="3.0 Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="page_05.html" class="btn btn-neutral float-right" title="5.0 Container Configuration setting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="page_03.html" class="btn btn-neutral float-left" title="3.0 Before Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, APP.
+        &copy; Copyright 2021, APP
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -389,6 +451,7 @@
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

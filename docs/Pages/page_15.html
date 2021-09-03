@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>15.0 Appendix &mdash;   documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="14.0 RT Patch (Optional)" href="page_14.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_01.html#purpose">1.1  Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_01.html#scope">1.2  Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_01.html#system-requirements">1.3  System Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0 Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-6">2.1 Feature list- supported in UWC-v1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-5">2.2 Feature list- supported in UWC-v1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-0">2.3 Feature list supported in UWC-v1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#changes-to-existing-features">2.4 Changes to Existing Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#unsupported-or-discontinued-features">2.5 Unsupported or Discontinued Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Before Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#uwc-for-o-g-site">3.1  UWC for O&amp;G Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#upstream-oil-and-gas-facilities">3.2  Upstream Oil and Gas Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_03.html#understanding-uwc-platform">3.3  Understanding UWC Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#modbus-containers">3.3.1  Modbus containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#mqtt-bridge-container">3.3.2   MQTT-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#sparkplug-bridge-container">3.3.3  Sparkplug-Bridge container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#kpi-application-container">3.3.4  KPI Application Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_03.html#configurations">3.3.5  Configurations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_04.html">4.0  Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_04.html#how-to-install-uwc-software-with-eii-installer">4.1  How to install UWC software with EII installer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_05.html">5.0  Container Configuration setting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_05.html#deactivate-auto-update">5.1     Deactivate Auto Update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-unattended-upgrades">5.1.1   Deactivate Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-periodic-unattended-upgrades">5.1.2   Deactivate Periodic Unattended Upgrades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_05.html#deactivate-scheduled-upgrades">5.1.3   Deactivate Scheduled Upgrades</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_06.html">6.0  Container Configuration setting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#containers">6.1  Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#common-configuration-for-modbus-client-containers">6.1.1  Common Configuration for Modbus Client Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#configuration-foodbus-network">6.1.2  Configuration foodbus network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#modbus-tcp-communication">6.2             Modbus TCP Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#modbus-rtu-communication">6.3         Modbus RTU Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#mqtt-bridge">6.4     MQTT Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#mqtt">6.5     MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#accessing-secured-mqtt-container-from-an-external-mqtt-client">6.5.1   Accessing secured MQTT container from an external MQTT client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#accessing-secured-mqtt-container-from-a-client-inside-a-container">6.5.2   Accessing secured MQTT container from a client inside a container</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#sparkplug-bridge">6.6     Sparkplug-Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_06.html#pre-requisite-for-running-sparkplug-bridge">6.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_06.html#kpi-app">6.7     KPI App</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_07.html">7.0  Site Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#system-level-global-configuration">7.1     System Level Global Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#settings-for-polling-and-on-demand-operation">7.1.1   Settings for Polling and On-Demand operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#settings-for-sparkplug-bridge-sparkplug-communication-operation">7.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#settings-for-default-scale-factor">7.1.3   Settings for default scale factor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-configure-site-and-wellhead">7.2     How to Configure Site and Wellhead</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#configuring-tcp-device-in-device-group">7.2.1   Configuring TCP device in device-group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_07.html#configuring-rtu-device-in-device-group">7.2.2   Configuring RTU device in device-group</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-configure-devices">7.3     How to Configure Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-configure-device-points">7.4     How to Configure Device points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#how-to-add-edit-delete-new-wellhead-device-point-configurations">7.5     How to add/edit/delete new wellhead/device/point configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_07.html#kpi-app-configuration">7.6     KPI App Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_08.html">8.0     UWC Modbus Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#data-polling">8.1     Data Polling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#on-demand-write">8.2     On-Demand Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#on-demand-read">8.3     On-Demand Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_08.html#kpi-application">8.4     KPI Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_09.html">9.0     Sparkplug-Bridge Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#app-virtual-device-communication">9.1     App (virtual device) communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-topic-format">9.1.1   App Message Topic Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-birth">9.1.2   App Message - BIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-data">9.1.3   App Message - DATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-cmd">9.1.4   App Message - CMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-death">9.1.5   App Message - DEATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#app-message-templatedef">9.1.6   App Message - TemplateDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#start-birth-process">9.1.7   START_BIRTH_PROCESS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#modbus-real-device-communication">9.2     Modbus (real) device communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-dbirth">9.2.1   Support for DBIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-ddata">9.2.2   Support for DDATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-dcmd">9.2.3   Support for DCMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#support-for-ddeath">9.2.4   Support for DDEATH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_09.html#sparkplug-messages">9.3     SparkPlug Messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#nbirth-message">9.3.1   NBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ndeath-message">9.3.2   NDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#dbirth-message">9.3.3   DBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ddeath-message">9.3.4   DDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ddata-message">9.3.5   DDATA Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_09.html#ncmd-message">9.3.6   NCMD Message</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_10.html">10.0    Debugging steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_11.html">11.0    Error Codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_12.html">12.0    Steps to flash LFM BIOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="page_13.html">13.0    UWC Gateway to Cloud Communication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#architecture">13.1    Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#installation-and-configuration">13.2    Installation and Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#ssb-installation-and-cloud-infrastructure-provisioning">13.2.1  SSB installation and cloud infrastructure provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#aws-iot-core-broker-and-ssb-configuration">13.2.2  AWS IoT core broker and SSB configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="page_13.html#uwc-gateway-configuration">13.2.3  UWC gateway configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="page_13.html#monitor-data-on-cloud">13.3    Monitor Data on Cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="page_14.html">14.0 RT Patch (Optional)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-choose-and-apply-rt-kernel-patch">14.1    Steps to Choose and Apply RT Kernel Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-apply-rt-kernel-patch">14.2    Steps To Apply RT Kernel Patch</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">15.0 Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html"></a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>15.0 Appendix</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com//open-edge-insights/uwc-docs/blob/develop/source/Pages/page_15.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="appendix">
+<h1>15.0 Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
+<p><strong>UWC contains these folders/files:</strong></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>#</p></th>
+<th class="head"><p>Folder/File</p></th>
+<th class="head"><p>Destination</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Modbus-master</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>Modbus application folder used to install TCP/RTU container</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>MQTT</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>It is used to install the Mosquito (MQTT) container</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>mqtt-bridge</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>Mqtt-bridge application folder used to install mqtt-bridge container</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>sparkplug-bridge</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>Sparkplug-Bridge application folder used to install Sparkplug-Bridge container.</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>kpi-tactic</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>kpi-tactic application folder used to install kpi-app container.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Others</p></td>
+<td><p>/opt/intel/eii/uwc_data/</p></td>
+<td><p>All yml files containing device, datapoints, and configurations. It also contains Global_config.yml</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>uwc_common</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>Common libraries installation docker file and source code.</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>build_scripts</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>All installation scripts are kept here</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>uwc_recipes</p></td>
+<td><p>IEdgeInsights/uwc</p></td>
+<td><p>This directory contents recipe files</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="page_14.html" class="btn btn-neutral float-left" title="14.0 RT Patch (Optional)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, APP
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
