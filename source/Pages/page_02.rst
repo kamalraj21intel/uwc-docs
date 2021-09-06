@@ -7,8 +7,11 @@
 
 *	Enabled Data Persistence feature in UWC
    *  Integrated InfluxDBConnector & Telegraf services of EII's TICK stack timeseries services with UWC.
+   
    *  Data persistence enabled for all 6 operations - ROD (Read on demand), WOD (Write on demand) & Polling in the combinations of both Realtime & non-realtime operations.
+   
    *  Data Retention policy enabled giving flexibility to users to customize the data retention period in InfluxDB.
+   
 *	UWC migrated to EII 2.6
 *  Network mode host removed from UWC micro-services and services use docker network.
 *	Sample database publisher application use case provided which serves as a reference
@@ -20,10 +23,14 @@
 2.2 Feature list- supported in UWC-v1.5
 ----------------------------------------
 *	Eclipse foundation Sparkplug standard Template feature support  
+
   	*  User Defined Template (UDT) definition and instance  
+    
   	*  Publish –Subscribe interface for third party App for publishing UTD and instances  
+    
 *	Seamless edge to cloud connectivity with AWS IoT site wise 
   	*  UDT publishing  
+    
   	*  Realtime Tags update 
   	*  Realtime connection/disconnect update 
 *	Data Conversion and transformation 
