@@ -1,5 +1,5 @@
 =============
-15.0 Appendix for UWC terminologies
+15.0 Appendix
 =============
 
 **UWC contains these folders/files:**
