@@ -2,7 +2,7 @@
 7.0  Site Configurations
 ========================
 
-This section provides configurations required to configure site, wellhead, device and points for UWC containers.
+This section provides configurations required to configure the site, wellhead, device and points for UWC containers.
 
 -------------------------------------
 7.1	System Level Global Configuration
@@ -544,7 +544,7 @@ Below parameters can be changed in this file –
 7.6 	KPI App Configuration
 -----------------------------
 
-Following is a sample configuration file for KPI App.
+Following is a sample configuration file for KPI Application.
 
 
 ---
