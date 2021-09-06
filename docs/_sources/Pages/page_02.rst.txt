@@ -20,17 +20,20 @@
 2.2 Feature list- supported in UWC-v1.5
 ----------------------------------------
 *	Eclipse foundation Sparkplug standard Template feature support
+
   	*  User Defined Template (UDT) definition and instance
     
   	*  Publish –Subscribe interface for third party App for publishing UTD and instances  
     
 *	Seamless edge to cloud connectivity with AWS IoT site wise 
+
   	*  UDT publishing
     
   	*  Realtime Tags update 
     
   	*  Realtime connection/disconnect update 
 *	Data Conversion and transformation 
+
   *	Data ingested by Modbus services is converted to data type defined in the configuration
   
   *	Data ingested by Modbus services is transformed based on the scale factor defined in the configurations 
