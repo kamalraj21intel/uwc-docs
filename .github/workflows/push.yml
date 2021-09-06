@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Install dependencies
       run: |
         export PATH="$HOME/.local/bin:$PATH"
@@ -28,9 +30,10 @@ jobs:
         cur_dir=`pwd`
         cd $HOME
         git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/ --branch main --single-branch
+        cd uwc-docs
         cp -r $cur_dir/build/* docs/
         git config --global user.name "${GITHUB_ACTOR}"
         git config --global user.email "${GITHUB_ACTOR}@github.com"
         git add .
         git commit -m "latest html output"
-        git push -f https://${GITHUB_ACTOR}:${{secrets.ACCESS_TOKEN}}@github.com/$GITHUB_REPOSITORY HEAD:main
+        git push -f https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY HEAD:main

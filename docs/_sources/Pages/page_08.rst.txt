@@ -1,1103 +1,514 @@
-===================================
-8.0 	Sparkplug-Bridge Operations
-===================================
+=========================
+8.0	UWC Modbus Operations
+=========================
+This section provides configurations required to read and write data from sensors and actuators connected over Modbus TCP or RTU on UWC gateway.
+An application can perform following operations using UWC containers:
 
-Sparkplug-Bridge implements Eclipse Foundation’s SparkPlug standard. 
+    •	Data Polling
+    •	On-Demand Write
+    •	On-Demand Read
 
-**Refer:** https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf
+Following section explains how to use MQTT topics to perform above operations. Further these operations can be performed in realtime (RT) and non-realtime (Non-RT) mode.
+Multiple modules are involved in processing the operation. To capture the time taken by each module (i.e., a step), epoch timestamps in microseconds are added at various levels. These timestamps are present in JSON message. 
 
-This section explains the features in detail. UWC gateway acts as a “node” as per SparkPlug standard. Please note that Sparkplug-Bridge is an under-development feature and hence not all message types are supported from SparkPlug.
+**The table of terms here is useful for interpreting the JSON payloads of the messages.**
 
-This section also explains how information from real device and virtual device is mapped to SparkPlug-formatted data.
-
-------------------------------------------
-8.1 	App (virtual device) communication
-------------------------------------------
-
-Apps running on UWC platform can be represented as a SparkPlug device to SCADA Master. SCADA Master can monitor, control these apps using SparkPlug mechanism. Sparkplug-Bridge defines following to enable this communication between apps and SCADA Master:
-
-
-TemplateDef message: This allows providing a definition for a Sparkplug Template i.e., UDT
-
-BIRTH message: This corresponds to a SparkPlug DBIRTH message.
-
-DEATH message: This corresponds to a SparkPlug DDEATH message.
-
-DATA message: This corresponds to a SparkPlug DDATA message.
-
-CMD message: This corresponds to a SparkPlug DCMD message.
-
-Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.
-
-
-8.1.1 	App Message Topic Format
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-MQTT Topic: MESSAGETYPE/APPID/SUBCLASS
-
-Where,
-
-•	MESSAGETYPE: Any of “BIRTH”, “DEATH”, “DATA”, “CMD”
-•	APPID: Any string e.g., “UWCP”
-•	SUBCLASS: Any string like wellhead-id e.g., “PL0”. This is not needed in case of DEATH message.
-
-Sparkplug-Bridge uses following format to represent name of virtual device in SparkPlug Topic namespace:
-
-[value of “APPID” from app message topic] + “-“ + [value of “SUBCLASS” from app message topic]
-
-8.1.2 	App Message - BIRTH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-MQTT Topic: BIRTH/APPID/SUBCLASS
-
-Message format:
-
-It is a JSON format message which contains a list of metrics having following fields:
-
-.. figure:: Doc_Images/table12.png
+.. figure:: Doc_Images/table10_1_updated.png
     :scale: 70 %
     :align: center
 
-
-**Example:** 
-
-{
-  "metrics": 
-
-  [
-
-    {
-
-      "name": "Properties/Version",
-
-      "dataType": "String",
-
-      "value": "2.0.0.1",
-
-      "timestamp": 1486144502122
-
-    },
-
-    {
-
-      "name": "Properties/RTU_Time",
-
-      "dataType": "String",
-      
-      "value": "1234",
-
-      "timestamp": 1486144502122
-
-    },
-
-    {
-
-      "name": "UDT/Prop1",
-
-      "dataType": "UDT",
-
-      "value": 
-
-      {
-
-        "udt_ref":
-
-        {
-
-          "name": "custom_udt",
-
-          "version": "1.0"
-
-        },
-
-        "metrics": 
-
-        [
-
-          {
-
-            "name": "M1",
-
-            "dataType": "String",
-
-            "value": "2.0.0.1",
-
-            "timestamp": 1486144502122
-
-          },
-
-          {
-
-            "name": "RTU_Time",
-
-            "dataType": "Int32",
-
-            "value": 1234,
-
-            "timestamp": 1486144502122
-
-          }
-
-        ],
-
-        "parameters":
-
-        [
-
-          {
-
-            "name": "P1",
-
-            "dataType": "String",
-
-            "value": "P1Val"
-
-          },
-
-          {
-
-            "name": "P2",
-
-            "dataType": "Int32",
-
-            "value": 100
-
-          }
-
-        ]
-
-      }
-
-    }
-
-  ]
-
-}
-
-**Data Flow**:
-
-This message is published by App over MQTT broker and subscribed by Sparkplug-Bridge. This message provides information about all metrics related to a SUBCLASS which App wants to expose to a SCADA Master. 
-
-Sparkplug-Bridge publishes a DBIRTH message to SCADA Master if metrics contain a new metric or if datatype of any of metrics is changed.
-
-.. note::
-
-   •	If the App publishes multiple BIRTH messages for a SUBCLASS, then Sparkplug-Bridge remembers all metrics reported in all BIRTH messages. Sparkplug-Bridge reports all these metrics to SCADA Master in DBIRTH message. This data with Sparkplug-Bridge is cleared on restart of gateway or Sparkplug-Bridge container.
-
-   •	A DBIRTH message can result in refreshing of data in Sparkplug-Bridge and in SCADA Master. Hence, it is recommended for an App to provide information about all metrics in one BIRTH message. App should avoid using multiple BIRTH messages for same SUBCLASS.
-
-   •	If App wants to publish a metric of type “UDT”, the definition of “UDT” should be provided prior to publishing the BIRTH message. UDT definition can be provided using “TemplateDef” message, explained in subsequent section.
-
-
-Following information is required as a part of “value” key when UDT type is used:
-
-.. figure:: Doc_Images/table13.png
+.. figure:: Doc_Images/table10_2_update.png
     :scale: 70 %
     :align: center
 
-
-8.1.3 	App Message - DATA
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-MQTT Topic: DATA/APPID/SUBCLASS
-
-Message format:
-
-It is a JSON format message which contains a list of metrics having following fields:
-
-.. figure:: Doc_Images/table14.png
+.. figure:: Doc_Images/table10_3_update.png
     :scale: 70 %
     :align: center
+
+.. figure:: Doc_Images/table10_4_update.png
+    :scale: 70 %
+    :align: center
+
+--------------------
+8.1 	Data Polling
+--------------------
+
+In the datapoint YML configuration file, a polling frequency is configured. As per polling frequency, data is fetched from the end point and published on MQTT by the UWC container. This section describes how to read the data for polled points using MQTT.
+
+The data actions which are “Polling” actions are initiated by the Protocol container (in this case the Modbus protocol application (i.e., the driver) within the Modbus container. 
+
+To receive polled data: Application should use a topic in following format to receive (i.e., subscribe) polling data from MQTT:
+
+**MQTT topic to receive (i.e., subscribe) write response:**
+     **/device/wellhead/point/update**
+
+Please refer to the table in section 6 for details of fields.
+
 
 **Example:**
 
+**Polling Topic**: /flowmeter/PL0/D3/update
+
+**Polling Message**: Success Response 
+
 {
 
-  "metrics": 
+  "datatype": "int16",
 
-  [
+  "respPostedByStack": "1626778386833063",
 
-    {
+  "dataPersist": true,
 
-      "name": "Properties/Version",
+  "respRcvdByStack": "1626778386832788",
 
-      "dataType": "String",
+  "status": "Good",
 
-      "value": "5.0.0.1",
+  "tsMsgRcvdForProcessing": "1626778386838199",
 
-      "timestamp": 1486144502122
+  "wellhead": "PL0",
 
-    },
+  "scaledValue": 4,
 
-    {
+  "driver_seq": "1153204606361944465",
 
-      "name": "UDT/Prop1",
+  "value": "0x0004",
 
-      "dataType": "UDT",
+  "reqRcvdInStack": "1626778386809284",
 
-      "value": 
-      
-      {
+  "data_topic": "/flowmeter/PL0/D3/update",
 
-        "metrics": 
-        
-        [
+  "metric": "D3",
 
-          {
+  "usec": "1626778386833431",
 
-            "name": "M1",
+  "reqSentByStack": "1626778386819158",
 
-            "dataType": "String",
+  "tsPollingTime": "1626778386809058",
 
-            "value": "a.b",
+  "version": "2.0",
 
-            "timestamp": 1486144502122
+  "realtime": "0",
 
-          }
+  "timestamp": "2021-07-20 10:53:06",
 
-        ]
-
-      }
-
-    }
-
-  ]
+  "tsMsgReadyForPublish": "1626778386838268"
 
 }
 
 
-Data Flow:
+**Polling Message**: Error Response
 
-This message is published by App over MQTT broker and subscribed by Sparkplug-Bridge. This message provides information about all changed metrics related to a SUBCLASS. 
+{
 
-Sparkplug-Bridge publishes a DDATA message to SCADA Master if value of any of “known metrics” is changed compared to last known value from a BIRTH or DATA message.
+  "datatype": "int16",
 
-.. note::
-   
-   A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DATA message and BIRTH message shall match.
+  "respPostedByStack": "0",
+
+  "lastGoodUsec": "1626847050409405",
+
+  "realtime": "0",
+
+  "dataPersist": true,
+
+  "respRcvdByStack": "0",
+
+  "status": "Bad",
+
+  "tsMsgRcvdForProcessing": "1626847098399696",
+
+  "wellhead": "PL0",
+
+  "scaledValue": 0,
+
+  "driver_seq": "1155737881221051931",
+
+  "value": "0x00",
+
+  "reqRcvdInStack": "0",
+
+  "data_topic": "/flowmeter/PL0/D3/update",
+
+  "metric": "D3",
+
+  "usec": "1626847098395437",
+
+  "reqSentByStack": "0",
+
+  "tsPollingTime": "1626847098394978",
+
+  "version": "2.0",
+
+  "error_code": "2003",
+
+  "timestamp": "2021-07-21 05:58:18",
+
+  "tsMsgReadyForPublish": "1626847098399751"
+
+}
+
+-----------------------
+8.2 	On-Demand Write
+-----------------------
+
+This section describes how to write data to some specific Modbus point using MQTT.
+
+To send request: Application should use a topic in the following format to send (i.e., publish) write request on MQTT:
+
+**MQTT topic to send (i.e., publish) write request: /device/wellhead/point/write**
 
 
-8.1.4	App Message - CMD
-~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MQTT Topic: CMD/APPID/SUBCLASS
+To receive response: Application should use a topic in the following format to receive (i.e., subscribe) response of write request from MQTT:
 
-Message format:
+**MQTT topic to receive (i.e., subscribe) write response: /device/wellhead/point/writeResponse**
 
-It is a JSON format message which contains a list of metrics having following fields:
-
-.. figure:: Doc_Images/table15.png  
-    :scale: 70 %
-    :align: center
+Please refer to the table in section 6 for details of fields.
 
 **Example:**
 
-{
+**Request Topic**: /flowmeter/PL0/Flow/write 
 
-  "metrics":
+**Request Message:**
 
-  [
+{"wellhead":"PL0","command":"Flow","value":"0x00","timestamp":"2019-09-20 12:34:56","usec":"1571887474111145","version":"2.0","app_seq":"1234"}
 
-    {
+A message without *“realtime”* field is treated as a non-realtime message. To execute a message in realtime way, a field called *“realtime”* should be added as shown below:
 
-      "name": "Properties/Version",
+{"wellhead":"PL0","command":"Flow","value":"0x00","timestamp":"2019-09-20 12:34:56","usec":"1571887474111145","version":"2.0","app_seq":"1234",”realtime”:”1”}
 
-      "dataType": "String",
+A message with *“value”* is treated as On-Demand Write from vendor App.
 
-      "value": "7.0.0.1",
+{"wellhead" : "PL0","command" : "INT16_MF10","timestamp" : "2019-09-20 12:34:56",
+"usec" : "1571887474111145","version" : "2.0","realtime" : "0","app_seq" : "1234",
+"scaledValue" : 12}
 
-      "timestamp": 1486144502122
+A message with *“scaledValue”* is treated as On-Demand Write from Ignition system.
 
-    },
+The *“value”* / *"scaledValue"* field represents value to be written to the end device as a part of on-demand write operation.  
 
-    {
+**Response Topic:** /flowmeter/PL0/Flow/writeResponse 
 
-      "name": "UDT/Prop1",
-
-      "dataType": "UDT",
-      
-      "metrics":
-
-      [
-
-        {
-
-          "dataType": "Int32",
-
-          "value": 4,
-
-          "name": "RTU_Time",
-          
-          "timestamp": 1614512107195
-
-        }
-
-      ],
-
-      "timestamp": 1614512107195
-
-    }
-
-  ]
-
-}
-
-Data Flow:
-
-This message is published by Sparkplug-Bridge over MQTT broker and subscribed by App. This message provides information about control command i.e., DCMD received from SCADA Master. 
-
-Sparkplug-Bridge publishes a CMD message to the App if DCMD message is received for a known metric.
-
-.. note::
-   
-   A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DCMD message and BIRTH message shall match.
-
-
-8.1.5 	App Message - DEATH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-MQTT Topic: DEATH/APPID
-
-Message format:
-
-It is a JSON format message which contains the following fields:
-
-.. figure:: Doc_Images/table16.png
-    :scale: 70 %
-    :align: center
-
-**Example:** 
+**Response Message:** Success Response 
 
 {
 
-  "timestamp": 1486144502122
+  "app_seq": "1234",
+
+  "respPostedByStack": "1626846891692261",
+
+  "dataPersist": true,
+
+  "respRcvdByStack": "1626846891692219",
+
+  "status": "Good",
+
+  "tsMsgRcvdForProcessing": "1626846891693976",
+
+  "wellhead": "PL0",
+
+  "tsMsgRcvdFromMQTT": "1626846891669463",
+
+  "tsMsgPublishOnEII": "1626846891669925",
+
+  "reqRcvdInStack": "1626846891672050",
+
+  "data_topic": "/flowmeter/PL0/Flow/writeResponse",
+
+  "reqRcvdByApp": "1626846891671963",
+
+  "metric": "Flow",
+
+  "usec": "1626846891692549",
+
+  "reqSentByStack": "1626846891673238",
+
+  "timestamp": "2021-07-21 05:54:51",
+
+  "version": "2.0",
+
+  "realtime": "0",
+
+  "tsMsgReadyForPublish": "1626846891694023"
+}
+
+**Response Message**: Error Response 
+
+{
+
+  "app_seq": "1234",
+
+  "respPostedByStack": "0",
+
+  "dataPersist": true,
+
+  "respRcvdByStack": "0",
+
+  "status": "Bad",
+
+  "tsMsgRcvdForProcessing": "1626778808002974",
+
+  "wellhead": "PL0",
+
+  "tsMsgRcvdFromMQTT": "1626778808000285",
+
+  "tsMsgPublishOnEII": "1626778808000437",
+
+  "reqRcvdInStack": "0",
+
+  "data_topic": "/flowmeter/PL0/Flow/writeResponse",
+
+  "reqRcvdByApp": "1626778808001309",
+
+  "metric": "Flow",
+
+  "usec": "1626778808001814",
+
+  "reqSentByStack": "0",
+
+  "error_code": "2003",
+
+  "version": "2.0",
+
+  "realtime": "0",
+
+  "timestamp": "2021-07-20 11:00:08",
+
+  "tsMsgReadyForPublish": "1626778808003021"
 
 }
 
-Data Flow:
+**Response Message:** Error Response for Invalid request JSON
 
-When App’s connection with MQTT broker breaks then this message is published. 
+{
 
-Sparkplug-Bridge publishes a DDEATH message to SCADA Master for all known SUBCLASS associated with the App. 
+  "app_seq": "1234",
 
+  "respPostedByStack": "0",
 
-8.1.6 	App Message - TemplateDef
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  "dataPersist": true,
 
-MQTT Topic: TemplateDef
+  "respRcvdByStack": "0",
 
-Message format:
+  "status": "Bad",
 
-It is a JSON format message which contains a list of metrics having following fields:
+  "tsMsgRcvdForProcessing": "1626778808002974",
 
-.. figure:: Doc_Images/table17_1.png
-    :scale: 70 %
-    :align: center
+  "wellhead": "PL0",
 
-.. figure:: Doc_Images/table17_2.png
-    :scale: 70%
-    :align: center
+  "tsMsgRcvdFromMQTT": "1626778808000285",
+
+  "tsMsgPublishOnEII": "1626778808000437",
+
+  "reqRcvdInStack": "0",
+
+  "data_topic": "/flowmeter/PL0/Flow/writeResponse",
+
+  "reqRcvdByApp": "1626778808001309",
+
+  "metric": "Flow",
+
+  "usec": "1626778808001814",
+
+  "reqSentByStack": "0",
+
+  "error_code": "100",
+
+  "version": "2.0",
+
+  "realtime": "0",
+
+  "timestamp": "2021-07-20 11:00:08",
+
+  "tsMsgReadyForPublish": "1626778808003021"
+
+}
+
+----------------------
+8.3 	On-Demand Read
+----------------------
+
+This section describes how to read data from some specific Modbus points using MQTT.
+
+To send request: Application should use a topic in the following format to send (i.e., publish) read request on MQTT:
+
+**MQTT topic to send (i.e. publish) read request: /device/wellhead/point/read**
+
+To receive response: Application should use a topic in the following format to receive (i.e., subscribe) response of read request from MQTT:
+
+**MQTT topic to receive (i.e., subscribe) write response:**
+     **/device/wellhead/point/readResponse**
+     
+Please refer to the table in section 6 for details of fields.
 
 **Example:**
 
-{
+**Request Topic: /flowmeter/PL0/Flow/read**
 
-  "udt_name": "custom_udt",
+**Request Message:** 
 
-  "version": "1.0",
-  
-  "metrics": 
-  [
+    {"wellhead":"PL0","command":"Flow","timestamp":"2019-09-20 12:34:56","usec":"1571887474111145","version":"2.0","app_seq":"1234"}
 
-    {
+A message without “realtime” field is treated as a non-realtime message. To execute a message in realtime way, a field called “realtime” should eb added as shown below:
 
-      "name": "M1",
+    {"wellhead":"PL0","command":"Flow","timestamp":"2019-09-20 12:34:56","usec":"1571887474111145","version":"2.0","app_seq":"1234",”realtime”:”1”}
 
-      "dataType": "String",
-
-      "value": ""
-
-    },
-    
-    {
-
-      "name": "RTU_Time",
-
-      "dataType": "Int32",
-
-      "value": 0
-
-    }
-
-  ],
-
-  "parameters": 
-  [
-
-    {
-
-      "name": "P1",
-
-      "dataType": "String",
-
-      "value": ""
-
-    },
-
-    {
-
-      "name": "P2",
-
-      "dataType": "Int32",
-
-      "value": 0
-
-    }
-
-  ]
-
-}
-
-Data Flow:
-
-App should use this message to provide definition of a Sparkplug Template i.e., UDT. UDT definitions are published as a part of NBIRTH message. Hence, after receiving a UDT definition, Sparkplug-Bridge publishes NDEATH and then NBIRTH to SCADA-Master. 
+**Response Topic:** /flowmeter/PL0/Flow/readResponse 
 
 
-8.1.7 	START_BIRTH_PROCESS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-MQTT Topic: START_BIRTH_PROCESS
-
-Message format:
-
-It is an empty JSON format message:
-
-.. list-table:: 
-   :widths: 25 25 25
-   
-   * - **Field Name**
-     - **Datatype**
-     - **Description**
-
-**Example:** 
+**Response Message:** Success Response
 
 {
-  
-}
 
-Data Flow:
+  "app_seq": "1234",
 
-This message is published by Sparkplug-Bridge over MQTT broker and subscribed by App. This message tells the App to publish following:
+  "respPostedByStack": "1626778599282378",
 
-•	Definition of Sparkplug Templates i.e., UDT which are used by App in BIRTH message
-•	BIRTH messages for all SUBCLASS the App is having. The App shall publish BIRTH messages on receiving START_BIRTH_PROCESS message.
+  "dataPersist": true,
 
-START_BIRTH_PROCESS message will be sent on restart of Sparkplug-Bridge container or whenever Sparkplug-Bridge container needs to refresh the data that it maintains for virtual devices.
+  "respRcvdByStack": "1626778599282315",
 
-------------------------------------------
-8.2 	Modbus (real) device communication
-------------------------------------------
+  "status": "Good",
 
-Modbus devices present in network are reported to SCADA Master using SparkPlug mechanism.
+  "tsMsgRcvdForProcessing": "1626778599284171",
 
-Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.
+  "wellhead": "PL0",
 
-8.2.1 	Support for DBIRTH
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+  "scaledValue": 4,
 
-Data from device YML configuration files is used to form a DBIRTH message for real devices at the start of Sparkplug-Bridge container. One datapoint YML file corresponds to one SparkPlug template definition. One real Modbus device contains one metric of type SparkPlug template. The SparkPlug template in turn contains all other metrics which correspond to datapoints mentioned in datapoints-YML file.
+  "value": "0x0004",
 
-8.2.2	Support for DDATA
-~~~~~~~~~~~~~~~~~~~~~~~~~
+  "tsMsgRcvdFromMQTT": "1626778599275557",
 
-Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine a change in value of any of metrics associated with a real device. If a change is detected, a DDATA message is published by Sparkplug-Bridge.
+  "tsMsgPublishOnEII": "1626778599277242",
 
-8.2.3 	Support for DCMD
-~~~~~~~~~~~~~~~~~~~~~~~~
+  "reqRcvdInStack": "1626778599279507",
 
-When a DCMD message is received from a SCADA Master for a real device for a “known metric”, then an on-demand write operation is initiated by SCADA and sent to MQTT-Bridge over internal MQTT.
+  "data_topic": "/flowmeter/PL0/Flow/readResponse",
 
-.. note::
-   
-   •	A “known metric” is one which is present in device YML configuration file. The name and datatype for a “known metric” in DCMD message and YML file shall match.
-   •	A DCMD message can result in multiple on-demand write operations.
+  "reqRcvdByApp": "1626778599279422",
 
-8.2.4 	Support for DDEATH
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+  "metric": "Flow",
 
-Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine whether a device is reachable or not, based on error_code. If device unreachable error-code is found, a DDEATH message is published by Sparkplug-Bridge. When correct values are found, a DBIRTH message is published.
+  "usec": "1626778599282619",
 
---------------------------
-8.3 	SparkPlug Messages
---------------------------
+  "reqSentByStack": "1626778599280674",
 
-Refer SparkPlug standard for more information.
+  "timestamp": "2021-07-20 10:56:39",
 
-8.3.1 	NBIRTH Message
-~~~~~~~~~~~~~~~~~~~~~~
+  "version": "2.0",
 
-NBIRTH is Node-Birth.
+  "realtime": "0",
 
-On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.
-
-For Modbus real device, one datapoint YML file corresponds to one SparkPlug template. These template definitions are sent in NBIRTH message. DBIRTH message for Modbus device specifies a particular SparkPlug template.
-
-Following are sample contents in simplified JSON format:
-
-**Topic:** *spBv1.0/UWC nodes/NBIRTH/RBOX510-00*
-
-**Message:** 
-
-{
-  "timestamp": 1608243262157,
-
-  "metrics":
-
-   [
-
-    {
-      "name": "Name",
-
-      "timestamp": 1608243262157,
-
-      "dataType": "String",
-
-      "value": "SPARKPLUG-BRIDGE"
-
-    },
-
-    {
-
-      "name": "bdSeq",
-
-      "timestamp": 1608243262157,
-
-      "dataType": "UInt64",
-
-      "value": 0
-
-    },
-
-    {
-
-      "name": "Node Control/Rebirth",
-
-      "timestamp": 1608243262157,
-
-      "dataType": "Boolean",
-
-      "value": false
-
-    },
-
-    {
-
-      "name": "iou_datapoints",
-
-      "timestamp": 1608243262157,
-
-      "dataType": "Template",
-      
-      "value": 
-
-      {
-        "version": "1.0.0",
-
-        "reference": "",
-        
-        "isDefinition": true,
-
-        "metrics":
-
-        [
-
-          {
-
-            "name": "D1",
-
-            "timestamp": 1608243262157,
-
-            "dataType": "String",
-
-            "properties": 
-
-            {
-
-              "Pollinterval":
-
-              {
-
-                "type": "UInt32",
-
-                "value": 0
-
-              },
-
-              "Realtime":
-
-              {
-
-                "type": "Boolean",
-
-                "value": false
-
-              }
-
-            },
-
-            "value": ""
-
-          },
-
-          {
-
-            "name": "D2"
-            ,
-            "timestamp": 1608243262157,
-
-            "dataType": "String",
-
-            "properties": 
-
-            {
-
-              "Pollinterval":
-
-              {
-
-                "type": "UInt32",
-
-                "value": 0
-
-              },
-
-              "Realtime":
-               
-              {
-
-                "type": "Boolean",
-
-                "value": false
-
-              }
-
-            },
-
-            "value": ""
-
-          }
-
-        ],
-
-        "parameters": 
-
-        [
-
-          {
-
-            "name": "Protocol",
-
-            "type": "String",
-
-            "value": ""
-
-          }
-
-        ]
-
-      }
-
-    }
-
-  ],
-
-  "seq": 0,
-
-  "uuid": "SPARKPLUG-BRIDGE"
-
-}     
-
-8.3.2 	NDEATH Message
-~~~~~~~~~~~~~~~~~~~~~~
-
-NDEATH is Node-Death.
-
-Whenever Sparkplug-Bridge module’s connection with MQTT broker breaks, the MQTT broker publishes this message. The message is published in text format.
-
-Following are sample contents in simplified JSON format:
-
-**Topic**: spBv1.0/UWC nodes/NDEATH/RBOX510-00
-
-Message: 
-
-{
-
-  "timestamp": 1592306298537,
-
-  "metrics":
-
-   [
-
-    {
-
-      "name": "bdSeq",
-
-      "alias": 10,
-
-      "timestamp": 1592306298537,
-
-      "dataType": "UInt64",
-
-      "value": 0
-
-    }
-
-  ],
-
-  "seq": 0
+  "tsMsgReadyForPublish": "1626778599284240"
 
 }
 
 
-
-8.3.3 	DBIRTH Message
-~~~~~~~~~~~~~~~~~~~~~~
-
-DBIRTH is Device-Birth.
-
-On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.
-
-Following are sample contents in simplified JSON format for a Modbus device:
-
+**Response Message:** Error Response
 
 {
 
-  "timestamp": 1608242600219,
+  "app_seq": "1234",
 
-  "metrics":
+  "respPostedByStack": "0",
 
-  [
+  "dataPersist": false,
 
-    {
+  "respRcvdByStack": "0",
 
-      "name": "iou",
+  "status": "Bad",
 
-      "timestamp": 1608242600219,
+  "tsMsgRcvdForProcessing": "1626846987971314",
 
-      "dataType": "Template",
+  "wellhead": "PL0",
 
-      "value": 
+  "tsMsgRcvdFromMQTT": "1626846987968830",
 
-      {
-        "version": "1.0.0",
+  "tsMsgPublishOnEII": "1626846987968983",
 
-        "reference": "iou_datapoints",
+  "reqRcvdInStack": "0",
 
-        "isDefinition": false,
+  "data_topic": "/flowmeter/PL0/Flow/readResponse",
 
-        "metrics": 
+  "reqRcvdByApp": "1626846987969861",
 
-        [
+  "metric": "Flow",
 
-          {
+  "usec": "1626846987970320",
 
-            "name": "D1",
+  "reqSentByStack": "0",
 
-            "timestamp": 1608242599889,
+  "error_code": "2003",
 
-            "dataType": "Int16",
+  "version": "2.0",
 
-            "properties":
+  "realtime": "0",
 
-            {
+  "timestamp": "2021-07-21 05:56:27",
 
-             "Scale": 
-
-             {
-
-              "type": "Double",
-
-              "value": 1
-
-             },
-
-              "Pollinterval": 
-
-              {
-
-                "type": "UInt32",
-
-                "value": 1000
-
-              },
-
-              "Realtime": 
-
-              {
-
-                "type": "Boolean",
-
-                "value": false
-
-              }
-
-            },
-
-            "value": 0
-
-          },
-
-          {
-
-            "name": "D2",
-
-            "timestamp": 1608242599889,
-
-            "dataType": "Int32",
-
-            "properties": 
-
-            {
-
-             "Scale": 
-
-             {
-
-              "type": "Double",
-
-              "value": 1
-
-             },
-
-              "Pollinterval": 
-              
-              {
-
-                "type": "UInt32",
-
-                "value": 1000
-
-              },
-
-              "Realtime": 
-
-              {
-
-                "type": "Boolean",
-
-                "value": false
-
-              }
-
-            },
-
-            "value": 0
-
-          }
-
-        ],
-
-        "parameters": 
-
-        [
-
-          {
-
-            "name": "Protocol",
-
-            "type": "String"
-            ,
-            "value": "Modbus TCP"
-
-          }
-
-        ]
-
-      }
-
-    }
-
-  ],
-
-  "seq": 1
+  "tsMsgReadyForPublish": "1626846987971358"
 
 }
 
-8.3.4 	DDEATH Message
-~~~~~~~~~~~~~~~~~~~~~~
-
-DDEATH is Device-Death.
-
-Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects that device is not reachable. The message is published in SparkPlug encoded format.
-
-Following are sample contents in simplified JSON format:
+**Response Message**: Error Response for Invalid Input JSON 
 
 {
 
-"timestamp":1599467927490,
+  "app_seq": "1234",
 
-"metrics":[],
+  "respPostedByStack": "0",
 
-"seq":7
+  "dataPersist": false,
 
-}
+  "respRcvdByStack": "0",
 
-8.3.5 	DDATA Message
-~~~~~~~~~~~~~~~~~~~~~
+  "status": "Bad",
 
-DDATA is Device-Data.
+  "tsMsgRcvdForProcessing": "1626846987971314",
 
-Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects a change in value of any of metrics of devices. The message is published in SparkPlug encoded format.
+  "wellhead": "PL0",
 
-Following are sample contents in simplified JSON format for a Modbus device:
+  "tsMsgRcvdFromMQTT": "1626846987968830",
 
-{
+  "tsMsgPublishOnEII": "1626846987968983",
 
-  "timestamp": 1608242631070,
+  "reqRcvdInStack": "0",
 
-  "metrics": 
+  "data_topic": "/flowmeter/PL0/Flow/readResponse",
 
-  [
+  "reqRcvdByApp": "1626846987969861",
 
-    {
+  "metric": "Flow",
 
-      "name": "iou",
+  "usec": "1626846987970320",
 
-      "timestamp": 1608242631070,
+  "reqSentByStack": "0",
 
-      "dataType": "Template",
+  "error_code": "100",
 
-      "value":
+  "version": "2.0",
 
-      {
-        "version": "1.0.0",
+  "realtime": "0",
 
-        "reference": "iou_datapoints",
+  "timestamp": "2021-07-21 05:56:27",
 
-        "isDefinition": false,
-
-        "metrics":
-
-        [
-
-          {
-
-            "name": "D1",
-
-            "timestamp": 1571887474111145,
-
-            "dataType": "String",
-
-            "value": "0x00"
-
-          }
-
-        ]
-
-      }
-
-    }
-
-  ],
-
-  "seq": 2
+  "tsMsgReadyForPublish": "1626846987971358"
 
 }
 
-Following is sample contents in simplified JSON format for a Modbus device with scalefactor applied:
+-----------------------
+8.4 	KPI Application
+-----------------------
 
-{
+Following data (if available) is logged in a log-file by KPI Application for control loops.
 
-  "timestamp": 1621951388659
-  ,
-  "metrics": 
+.. figure:: Doc_Images/table11_1_update.png
+    :scale: 80 %
+    :align: center
 
-  [
-
-    {
-
-      "name": "flowmeter",
-
-      "timestamp": 1621951388659,
-
-      "dataType": "Template",
-
-      "value": 
-
-      {
-        "version": "1.0.0",
-
-        "reference": "flowmeter_datapoints",
-
-        "isDefinition": false,
-
-        "metrics": 
-        
-        [
-
-          {
-
-            "name": "D1",
-
-            "timestamp": 1621951388658,
-
-            "dataType": "Int32",
-
-            "value": 2910
-
-          }
-          
-        ]
-
-      }
-
-    }
-    
-  ],
-
-  "seq": 2
-
-}
-
-
-8.3.6 	NCMD Message
-~~~~~~~~~~~~~~~~~~~~
-
-NCMD is Node-Command.
-
-SCADA Master can tell edge node to reinitiate the node birth process. The node starts publishing NBIRTH, DBIRTH messages after receiving NCMD.
-
-Following are sample contents in simplified JSON format:
-
-**Topic:** *spBv1.0/UWC nodes/NCMD/RBOX510-00*
-
-**Message:** 
-
-{
-
-  "timestamp": 1615619351980,
-
-  "metrics": 
-
-  [
-
-    {
-
-      "name": "Node Control/Rebirth",
-
-      "timestamp": 1615619351980,
-
-      "dataType": "Boolean",
-
-      "value": true
-
-    }
-
-  ],
-
-  "seq": -1
-  
-}
+.. figure:: Doc_Images/table11_2_update.png
+    :scale: 80 %
+    :align: center
 
 
 

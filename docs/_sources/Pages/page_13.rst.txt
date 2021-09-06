@@ -1,181 +1,121 @@
-===============================
-13.0	Steps to Apply RT Patch
-===============================
+==========================================
+13.0 	UWC Gateway to Cloud Communication
+==========================================
 
------------------------------
-13.1 	Install prerequisites
------------------------------
+Below steps describe UWC Gateway and cloud communication architecture and steps to connect UWC Gateway to AWS Sitewise.
 
-Install all the prerequisites using the following command
+13.1 	Architecture
+--------------------
 
-*sudo apt-get install -y libncurses-dev libssl-dev bison flex*
+Modbus devices connects to the on-prem UWC gateway. The gateway is having Sparkplug MQTT client which securely publishes Sparkplug format data to AWS IoT Core. AWS IoT Core service provisions cloud connectivity to IoT edge devices. AWS IoT Core possesses an MQTT broker as one of its components. With this connectivity, UWC gateway published data is available in the AWS cloud. Please find more information about AWS IoT Core at https://aws.amazon.com/iot-core.
 
-*build-essential wget*
+.. figure:: Doc_Images/image_update_12.png
+    :scale: 90 %
+    :align: center
 
-.. note::
-   
-   It will prompt to update package runtime, click Yes to proceed with the update.
+Sparkplug Sitewise Bridge (SSB) is a service which rapidly connects operational technology (OT) data from Industrial Operations (on-prem data) to AWS IoT Sitewise with minimal configuration and zero coding. Please find more information on SSB at https://aws.amazon.com/marketplace/pp/Cirrus-Link-Sparkplug-SiteWise-Bridge/B08L8KNCNN.
 
---------------------------------------------
-13.2 	Keyboard shortcuts for menuconfig UI
---------------------------------------------
+SSB software runs in an EC2 instance which is running in AWS cloud. SSB software comprises MQTT client which subscribes to the AWS IoT Core broker to receive UWC gateway data. When SSB receives UWC gateway data it creates and update resources (Assests, Models) in AWS Sitewise. In AWS Sitewise, user can monitor UWC gateway data. Please find more information about Sitewise at https://aws.amazon.com/iot-sitewise/. 
 
-.. list-table:: 
-   :widths: 25 25 25
-   :header-rows: 1
+13.2 	Installation and Configuration
+--------------------------------------
 
-   * - #
-     - Task/Use
-     - Keyboard Key
-   * - 1
-     - To select specific kernel feature
-     - Space bar 
-   * - 2
-     - To come out of current window
-     - Esc Esc 
-   * - 3
-     - To save current setting 
-     - Click on <save> button
-   * - 4
-     - Exit     
-     - Click on <exit> button 
+13.2.1 	SSB installation and cloud infrastructure provisioning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
----------------------------------------
-13.3 	Steps to apply PREEMPT_RT patch
----------------------------------------
+We need to provision the AWS infrastructure and install SSB in the EC2 instance. Please use below link to carry out SSB installation and cloud infrastructure provisioning procedure - 
 
-This section provides steps to apply PREEMPT_RT patch
+    https://docs.chariot.io/display/CLD80/IBAS%3A+Installation
 
-**Steps:**
+Please note that there are two different delivery methods for SSB installation. Please select ‘CloudFormation Template’ as delivery method.
 
-1.	Make a working directory on system
+Once the process is completed, the result will be 'CREATE_COMPLETE.'
 
-*$ mkdir ~/kernel && cd ~/kernel*
+.. figure:: Doc_Images/image12_1_update.png
+    :scale: 90 %
+    :align: center
 
-2.	Download kernel in ~kernel directory created in step 1
+13.2.2 	AWS IoT core broker and SSB configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A ‘thing' needs to be created in AWS IoT core which represent the IoT edge device i.e., UWC gateway. SSB needs to be configured so that it can access IoT core to fetch the UWC gateway data. Please use the link to carry out the complete AWS IoT Core broker and SSB configuration procedure - 
 
-•	Download kernel manually 
+https://docs.chariot.io/display/CLD80/SSB%3A+Quickstart.
 
-**Link for download** - https://www.kernel.org/pub/linux/kernel/
+Alternate link to get an insight on the creation of a 'thing' in AWS IoT core - https://docs.aws.amazon.com/iot/latest/developerguide/iot-moisture-create-thing.html
 
-This will download kernel manually or use following command to download it from command line inside current directory.
 
-*$ wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.19.72.tar.gz*
-
-**Recommendation:** Please get Linux kernel version 4.19.72
-
-•	Download preempt RT patch
-
-**Link for download -** https://www.kernel.org/pub/linux/kernel/projects/rt/ this will download patch manually or use following command to download it from command line inside current directory.
-
-*wget https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/4.19/older/patch-4.19.72-rt26.patch.gz*
-
-**Recommendation:** Please get PREEMPT_RT version 4.19.72-rt26 
-
-3.	Unzip the kernel using following command
-
-*$ tar -xzvf linux-4.19.72.tar.gz*
-
-4.	Patch the kernel
-
-*$ cd linux-4.19.72*
+13.2.3 	UWC gateway configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: sh
 
-  *$ gzip -cd ../patch-4.19.72-rt26.patch.gz | patch -p1 --verbose*
+    SSL certificates which were created in STEP 2 during the creation of a ‘thing’ in AWS IoT core must be inputted while running the ‘01_pre-requisites.sh’ script.
 
-5.	Launch the graphical UI for setting configurations
+    *$sudo ./02_provision_UWC.sh --deployMode=dev --recipe=3 --isTLS=yes --caFile="/<path>/root-ca.crt" --crtFile="/<path> /client.crt" --keyFile="/<path> client.key" --brokerAddr="azeyj7bji4ghe-ats.iot.us-west-2.amazonaws.com" --brokerPort=8883 --qos=1*
 
-The next command launches a graphical menu in the terminal to generate the .config file.
+Deploy Mode ‘dev’ or ‘Prod’.
 
-*$ make menuconfig*
+Select Recipe as 3 to have Sparkplug Container deployed.
 
-**Graphical UI is shown below:**
+Make sure the ‘isTLS’ argument is set to 'yes'
 
-.. figure:: Doc_Images/image9.png
+Configure the ‘caFile’ argument with the path of the CA certificate obtained from AWS IoT core.
+
+Configure the ‘crtFile’ argument with the path of the client certificate obtained from AWS IoT core.
+
+Configure the ‘keyFile' argument with the path of the client private key obtained from AWS IoT core
+
+‘brokerPort’ should be set to ‘8883.’
+
+‘brokerAddr' should be set to the custom endpoint of the AWS IoT core. Use the following couple of steps to fetch the custom endpoint.
+
+Go to the IoT core console. Select the ‘Settings’ tab in the left pane.
+
+.. figure:: Doc_Images/image12_2_update.png
+    :scale: 70 %
+    :align: center
+
+Custom endpoint which represents the IoT core broker address. This address needs to be configured in the ‘brokerAddr' argument as shown in below image.
+
+.. figure:: Doc_Images/image12_3_update.png
+    :scale: 70 %
+    :align: center
+
+13.3 	Monitor Data on Cloud
+-----------------------------
+
+The data can be monitored on the AWS Sitewise service. 
+
+Scroll to the AWS Sitewise service in the AWS management console as shown in below image
+
+.. figure:: Doc_Images/image12_4_update.png
     :scale: 60 %
     :align: center
 
-    Figure 11.1: Main launching screen
+Go to the ‘Models’ tab. The attribute ‘Protocol’ of a model can be seen.
 
-6.	Select the preemption model as Basic RT using tab key on keyboard
-
-    1)	Select and enter on “General setup” option.
-    2)	Select and Enter on Preemption Model (Voluntary Kernel Preemption (Desktop))
-    3)	Select and Enter on Preemption Model (Fully Preemptible Kernel (RT))
-    4)	After successful selection click on save button and then come back to main page using Esc button on keyboard. 
-
-Refer the following screen capture for more details
-
-.. figure:: Doc_Images/image10.png
+.. figure:: Doc_Images/image12_5_update.png
     :scale: 60 %
     :align: center
 
-    Figure 11.2: Preemption Model (Voluntary Kernel Preemption (Desktop))
+The ‘measurement' parameter representing a data point can be seen in the model.
 
-.. figure:: Doc_Images/image11.png
+.. figure:: Doc_Images/image12_6_update.png
     :scale: 60 %
     :align: center
 
-    Figure 11.3: Preemption Model (Fully Preemptible Kernel (RT))
+Navigate to the ‘Assets’ tab. The attribute ‘Protocol’ can be seen with its defined value.
 
-.. figure:: Doc_Images/image12.png
+.. figure:: Doc_Images/image12_7_update.png
     :scale: 60 %
     :align: center
 
-    Figure 11.4 Fully Preemption Kernel (RT)
+The ‘measurement' parameter representing a data point can be seen in the asset with its defined value.
 
-Save and exit
-
-To save the current setting click on *<save>* button and then exit the UI using *<exit>* button.
-
-.. figure:: Doc_Images/image13.png
+.. figure:: Doc_Images/image12_8_update.png
     :scale: 60 %
     :align: center
-
-    Figure 11.5 Click on ‘OK’
-
-7.	Compile the kernel (Execute the following commands)
-
-*$ make –j20*
-
-*$ sudo make INSTALL_MOD_STRIP=1 modules_install -j20*
-
-*$ sudo make install -j20*
-
-
-8.	Verify and update Verify that initrd.img-4.19.72-rt26, vmlinuz-4.19.72-rt26, and config-4.19.72-rt26 are generated in /boot directory and update the grub.
-
-*$ cd /boot*
-
-*$ ls*
-
-*$ sudo update-grub*
-
-Verify that there is a menuentry containing the text "menuentry 'Ubuntu, with Linux 4.9.72-rt26'" in */boot/grub/grub.cfg* file
-
-To change default kernel in grub, edit the *GRUB_DEFAULT* value in */etc/default/grub* to your desired kernel.
 
 .. note::
-   
-   0 is the 1st menuentry
 
-9.	Reboot and verify using command
-
-*$ sudo reboot*
-
-Once the system reboots, open the terminal and use uname -a to check the kernel version
-
-Command will show below output for successfully applied RT patch – 
-*Linux ubuntu 4.19.72-rt26 #1 SMP PREEMPT RT Tue Mar 24 17:15:47 IST 2020 x86_64 x86_64 x86_64 GNU/Linux*
-
-------------------
-13.4	References
-------------------
-
-https://stackoverflow.com/questions/56189710/how-to-enable-config-rt-group-sched-in-ubuntu-to-make-it-rt
-
-https://stackoverflow.com/questions/51669724/install-rt-linux-patch-for-ubuntu
-
-https://unix.stackexchange.com/questions/270390/how-to-reduce-the-size-of-the-initrd-when-compiling-your-kernel/270418
-
+   One should delete old Assets & Models from AWS IoT to ensure the updated Assets and Models get reflected. Duplicate Assets and Models will not be refreshed.
