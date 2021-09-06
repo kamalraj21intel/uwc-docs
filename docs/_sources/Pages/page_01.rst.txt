@@ -26,13 +26,13 @@ This document aims to provide steps to build, deploy and check if the gateway is
 ------------------------
 The requirements for UWC reference middleware are: 
 
-  * Intel processor family
-  * 4GB system memory
-  * 25GB hard disk space
-  * Ubuntu 20.04 server operating system with RT Patch 
-    (instructions for patching the Ubuntu OS are provided)
-  * Docker >=20.10.6
-  * docker-compose version >=1.29.0
+  *  Intel processor family
+  *  4GB system memory
+  *  25GB hard disk space
+  *  Ubuntu 20.04 server operating system with RT Patch 
+     (instructions for patching the Ubuntu OS are provided)
+  *  Docker >=20.10.6
+  *  docker-compose version >=1.29.0
 
 When enabling the Data Persistence recipe (with Influx DB and Telegrafph), if data access queries are intensive or desired database size is large, it is recommended to use higher performance and capacity components for CPU, memory, and storage: 
 
