@@ -1,38 +1,45 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>9.0 Sparkplug-Bridge Operations &mdash;   documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.0 Debugging steps" href="page_10.html" />
@@ -73,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -80,7 +88,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
@@ -223,6 +231,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -257,18 +266,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>9.0     Sparkplug-Bridge Operations</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/develop/source/Pages/page_09.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -284,13 +295,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sparkplug-bridge-operations">
+  <section id="sparkplug-bridge-operations">
 <h1>9.0     Sparkplug-Bridge Operations<a class="headerlink" href="#sparkplug-bridge-operations" title="Permalink to this headline">¶</a></h1>
 <p>Sparkplug-Bridge implements Eclipse Foundation’s SparkPlug standard.</p>
 <p><strong>Refer:</strong> <a class="reference external" href="https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf">https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf</a></p>
 <p>This section explains the features in detail. UWC gateway acts as a “node” as per SparkPlug standard. Please note that Sparkplug-Bridge is an under-development feature and hence not all message types are supported from SparkPlug.</p>
 <p>This section also explains how information from real device and virtual device is mapped to SparkPlug-formatted data.</p>
-<div class="section" id="app-virtual-device-communication">
+<section id="app-virtual-device-communication">
 <h2>9.1     App (virtual device) communication<a class="headerlink" href="#app-virtual-device-communication" title="Permalink to this headline">¶</a></h2>
 <p>Apps running on UWC platform can be represented as a SparkPlug device to SCADA Master. SCADA Master can monitor, control these apps using SparkPlug mechanism. Sparkplug-Bridge defines following to enable this communication between apps and SCADA Master:</p>
 <p>TemplateDef message: This allows providing a definition for a Sparkplug Template i.e., UDT</p>
@@ -299,7 +310,7 @@
 <p>DATA message: This corresponds to a SparkPlug DDATA message.</p>
 <p>CMD message: This corresponds to a SparkPlug DCMD message.</p>
 <p>Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.</p>
-<div class="section" id="app-message-topic-format">
+<section id="app-message-topic-format">
 <h3>9.1.1   App Message Topic Format<a class="headerlink" href="#app-message-topic-format" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: MESSAGETYPE/APPID/SUBCLASS</p>
 <p>Where,</p>
@@ -310,15 +321,15 @@
 </ul>
 <p>Sparkplug-Bridge uses following format to represent name of virtual device in SparkPlug Topic namespace:</p>
 <p>[value of “APPID” from app message topic] + “-“ + [value of “SUBCLASS” from app message topic]</p>
-</div>
-<div class="section" id="app-message-birth">
+</section>
+<section id="app-message-birth">
 <h3>9.1.2   App Message - BIRTH<a class="headerlink" href="#app-message-birth" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: BIRTH/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table12.png"><img alt="../_images/table12.png" src="../_images/table12.png" style="width: 466.9px; height: 352.79999999999995px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <dl>
 <dt>{</dt><dd><p>“metrics”:</p>
@@ -415,18 +426,18 @@
 </ul>
 </div>
 <p>Following information is required as a part of “value” key when UDT type is used:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table13.png"><img alt="../_images/table13.png" src="../_images/table13.png" style="width: 466.2px; height: 298.2px;" /></a>
-</div>
-</div>
-<div class="section" id="app-message-data">
+</figure>
+</section>
+<section id="app-message-data">
 <h3>9.1.3   App Message - DATA<a class="headerlink" href="#app-message-data" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: DATA/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table14.png"><img alt="../_images/table14.png" src="../_images/table14.png" style="width: 464.79999999999995px; height: 420.0px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -476,15 +487,15 @@
 <p class="admonition-title">Note</p>
 <p>A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DATA message and BIRTH message shall match.</p>
 </div>
-</div>
-<div class="section" id="app-message-cmd">
+</section>
+<section id="app-message-cmd">
 <h3>9.1.4   App Message - CMD<a class="headerlink" href="#app-message-cmd" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: CMD/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table15.png"><img alt="../_images/table15.png" src="../_images/table15.png" style="width: 464.09999999999997px; height: 419.29999999999995px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -530,15 +541,15 @@
 <p class="admonition-title">Note</p>
 <p>A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DCMD message and BIRTH message shall match.</p>
 </div>
-</div>
-<div class="section" id="app-message-death">
+</section>
+<section id="app-message-death">
 <h3>9.1.5   App Message - DEATH<a class="headerlink" href="#app-message-death" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: DEATH/APPID</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains the following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table16.png"><img alt="../_images/table16.png" src="../_images/table16.png" style="width: 464.79999999999995px; height: 133.7px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -548,18 +559,18 @@
 <p>Data Flow:</p>
 <p>When App’s connection with MQTT broker breaks then this message is published.</p>
 <p>Sparkplug-Bridge publishes a DDEATH message to SCADA Master for all known SUBCLASS associated with the App.</p>
-</div>
-<div class="section" id="app-message-templatedef">
+</section>
+<section id="app-message-templatedef">
 <h3>9.1.6   App Message - TemplateDef<a class="headerlink" href="#app-message-templatedef" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: TemplateDef</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table17_1.png"><img alt="../_images/table17_1.png" src="../_images/table17_1.png" style="width: 466.2px; height: 581.6999999999999px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table17_2.png"><img alt="../_images/table17_2.png" src="../_images/table17_2.png" style="width: 466.2px; height: 65.8px;" /></a>
-</div>
+</figure>
 <p><strong>Example:</strong></p>
 <p>{</p>
 <blockquote>
@@ -607,8 +618,8 @@
 <p>}</p>
 <p>Data Flow:</p>
 <p>App should use this message to provide definition of a Sparkplug Template i.e., UDT. UDT definitions are published as a part of NBIRTH message. Hence, after receiving a UDT definition, Sparkplug-Bridge publishes NDEATH and then NBIRTH to SCADA-Master.</p>
-</div>
-<div class="section" id="start-birth-process">
+</section>
+<section id="start-birth-process">
 <h3>9.1.7   START_BIRTH_PROCESS<a class="headerlink" href="#start-birth-process" title="Permalink to this headline">¶</a></h3>
 <p>MQTT Topic: START_BIRTH_PROCESS</p>
 <p>Message format:</p>
@@ -636,21 +647,21 @@
 <li><p>BIRTH messages for all SUBCLASS the App is having. The App shall publish BIRTH messages on receiving START_BIRTH_PROCESS message.</p></li>
 </ul>
 <p>START_BIRTH_PROCESS message will be sent on restart of Sparkplug-Bridge container or whenever Sparkplug-Bridge container needs to refresh the data that it maintains for virtual devices.</p>
-</div>
-</div>
-<div class="section" id="modbus-real-device-communication">
+</section>
+</section>
+<section id="modbus-real-device-communication">
 <h2>9.2     Modbus (real) device communication<a class="headerlink" href="#modbus-real-device-communication" title="Permalink to this headline">¶</a></h2>
 <p>Modbus devices present in network are reported to SCADA Master using SparkPlug mechanism.</p>
 <p>Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.</p>
-<div class="section" id="support-for-dbirth">
+<section id="support-for-dbirth">
 <h3>9.2.1   Support for DBIRTH<a class="headerlink" href="#support-for-dbirth" title="Permalink to this headline">¶</a></h3>
 <p>Data from device YML configuration files is used to form a DBIRTH message for real devices at the start of Sparkplug-Bridge container. One datapoint YML file corresponds to one SparkPlug template definition. One real Modbus device contains one metric of type SparkPlug template. The SparkPlug template in turn contains all other metrics which correspond to datapoints mentioned in datapoints-YML file.</p>
-</div>
-<div class="section" id="support-for-ddata">
+</section>
+<section id="support-for-ddata">
 <h3>9.2.2   Support for DDATA<a class="headerlink" href="#support-for-ddata" title="Permalink to this headline">¶</a></h3>
 <p>Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine a change in value of any of metrics associated with a real device. If a change is detected, a DDATA message is published by Sparkplug-Bridge.</p>
-</div>
-<div class="section" id="support-for-dcmd">
+</section>
+<section id="support-for-dcmd">
 <h3>9.2.3   Support for DCMD<a class="headerlink" href="#support-for-dcmd" title="Permalink to this headline">¶</a></h3>
 <p>When a DCMD message is received from a SCADA Master for a real device for a “known metric”, then an on-demand write operation is initiated by SCADA and sent to MQTT-Bridge over internal MQTT.</p>
 <div class="admonition note">
@@ -660,16 +671,16 @@
 <li><p>A DCMD message can result in multiple on-demand write operations.</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="support-for-ddeath">
+</section>
+<section id="support-for-ddeath">
 <h3>9.2.4   Support for DDEATH<a class="headerlink" href="#support-for-ddeath" title="Permalink to this headline">¶</a></h3>
 <p>Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine whether a device is reachable or not, based on error_code. If device unreachable error-code is found, a DDEATH message is published by Sparkplug-Bridge. When correct values are found, a DBIRTH message is published.</p>
-</div>
-</div>
-<div class="section" id="sparkplug-messages">
+</section>
+</section>
+<section id="sparkplug-messages">
 <h2>9.3     SparkPlug Messages<a class="headerlink" href="#sparkplug-messages" title="Permalink to this headline">¶</a></h2>
 <p>Refer SparkPlug standard for more information.</p>
-<div class="section" id="nbirth-message">
+<section id="nbirth-message">
 <h3>9.3.1   NBIRTH Message<a class="headerlink" href="#nbirth-message" title="Permalink to this headline">¶</a></h3>
 <p>NBIRTH is Node-Birth.</p>
 <p>On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.</p>
@@ -802,8 +813,8 @@
 </dd>
 </dl>
 <p>}</p>
-</div>
-<div class="section" id="ndeath-message">
+</section>
+<section id="ndeath-message">
 <h3>9.3.2   NDEATH Message<a class="headerlink" href="#ndeath-message" title="Permalink to this headline">¶</a></h3>
 <p>NDEATH is Node-Death.</p>
 <p>Whenever Sparkplug-Bridge module’s connection with MQTT broker breaks, the MQTT broker publishes this message. The message is published in text format.</p>
@@ -832,8 +843,8 @@
 <p>“seq”: 0</p>
 </div></blockquote>
 <p>}</p>
-</div>
-<div class="section" id="dbirth-message">
+</section>
+<section id="dbirth-message">
 <h3>9.3.3   DBIRTH Message<a class="headerlink" href="#dbirth-message" title="Permalink to this headline">¶</a></h3>
 <p>DBIRTH is Device-Birth.</p>
 <p>On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.</p>
@@ -954,8 +965,8 @@
 <p>“seq”: 1</p>
 </div></blockquote>
 <p>}</p>
-</div>
-<div class="section" id="ddeath-message">
+</section>
+<section id="ddeath-message">
 <h3>9.3.4   DDEATH Message<a class="headerlink" href="#ddeath-message" title="Permalink to this headline">¶</a></h3>
 <p>DDEATH is Device-Death.</p>
 <p>Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects that device is not reachable. The message is published in SparkPlug encoded format.</p>
@@ -965,8 +976,8 @@
 <p>“metrics”:[],</p>
 <p>“seq”:7</p>
 <p>}</p>
-</div>
-<div class="section" id="ddata-message">
+</section>
+<section id="ddata-message">
 <h3>9.3.5   DDATA Message<a class="headerlink" href="#ddata-message" title="Permalink to this headline">¶</a></h3>
 <p>DDATA is Device-Data.</p>
 <p>Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects a change in value of any of metrics of devices. The message is published in SparkPlug encoded format.</p>
@@ -1051,8 +1062,8 @@
 <p>“seq”: 2</p>
 </div></blockquote>
 <p>}</p>
-</div>
-<div class="section" id="ncmd-message">
+</section>
+<section id="ncmd-message">
 <h3>9.3.6   NCMD Message<a class="headerlink" href="#ncmd-message" title="Permalink to this headline">¶</a></h3>
 <p>NCMD is Node-Command.</p>
 <p>SCADA Master can tell edge node to reinitiate the node birth process. The node starts publishing NBIRTH, DBIRTH messages after receiving NCMD.</p>
@@ -1078,38 +1089,38 @@
 <p>“seq”: -1</p>
 </div></blockquote>
 <p>}</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="page_10.html" class="btn btn-neutral float-right" title="10.0 Debugging steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="page_08.html" class="btn btn-neutral float-left" title="8.0 UWC Modbus Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="page_10.html" class="btn btn-neutral float-right" title="10.0 Debugging steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="page_08.html" class="btn btn-neutral float-left" title="8.0 UWC Modbus Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2021, APP
+        &#169; Copyright 2021, APP.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -1117,7 +1128,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

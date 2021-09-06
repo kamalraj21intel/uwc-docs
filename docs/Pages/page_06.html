@@ -1,38 +1,45 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>6.0 Container Configuration setting &mdash;   documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7.0 Site Configurations" href="page_07.html" />
@@ -73,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -80,7 +88,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
@@ -223,6 +231,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -257,18 +266,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>6.0  Container Configuration setting</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/develop/source/Pages/page_06.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -284,10 +295,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="container-configuration-setting">
+  <section id="container-configuration-setting">
 <h1>6.0  Container Configuration setting<a class="headerlink" href="#container-configuration-setting" title="Permalink to this headline">¶</a></h1>
 <p>This section provides details about configuring UWC containers.</p>
-<div class="section" id="containers">
+<section id="containers">
 <h2>6.1  Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>Following containers are developed under UWC:</dt><dd><ul class="simple">
@@ -305,12 +316,12 @@
 <p>Path for README – <a class="reference external" href="https://github.com/open-edge-insights/eii-core/blob/master/README.md">https://github.com/open-edge-insights/eii-core/blob/master/README.md</a></p>
 <p>UWC containers (i.e., Modbus Clients and MQTT-Bridge) use ZeroMQ to communicate with each other.</p>
 <p>At present, recommendation is to have only one Modbus-TCP and one Modbus-RTU container. Hence, changes to configuration present in docker-compose.yml file shall not be needed.</p>
-<div class="section" id="common-configuration-for-modbus-client-containers">
+<section id="common-configuration-for-modbus-client-containers">
 <h3>6.1.1  Common Configuration for Modbus Client Containers<a class="headerlink" href="#common-configuration-for-modbus-client-containers" title="Permalink to this headline">¶</a></h3>
 <p>Following are configurations, applicable for Modbus Client (TCP and RTU both) containers:</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table3.png"><img alt="../_images/table3.png" src="../_images/table3.png" style="width: 630.4000000000001px; height: 375.20000000000005px;" /></a>
-</div>
+</figure>
 <dl>
 <dt>Example for Modbus-TCP-Master container from docker-compose.yml file:</dt><dd><p>AppName: “TCP”</p>
 <p>ETCD_HOST: ${ETCD_HOST}</p>
@@ -327,8 +338,8 @@
 <p>DEVICES_GROUP_LIST_FILE_NAME: “Devices_group_list.yml”</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="configuration-foodbus-network">
+</section>
+<section id="configuration-foodbus-network">
 <h3>6.1.2  Configuration foodbus network<a class="headerlink" href="#configuration-foodbus-network" title="Permalink to this headline">¶</a></h3>
 <p>A separate network configuration YML file is maintained for each network. E.g., If there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:</p>
 <div class="admonition note">
@@ -343,33 +354,35 @@
 <p>com_port_name: “/dev/ttyS0”</p>
 </dd>
 </dl>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="Pages/Doc_Images/table4.png"><img alt="Pages/Doc_Images/table4.png" src="Pages/Doc_Images/table4.png" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="modbus-tcp-communication">
+</figure>
+</section>
+</section>
+<section id="modbus-tcp-communication">
 <h2>6.2             Modbus TCP Communication<a class="headerlink" href="#modbus-tcp-communication" title="Permalink to this headline">¶</a></h2>
 <p>When used in TCP mode, the publisher of a stream will bind to a TCP socket and the subscribers connect to it to receive data. In Request-Response pattern, the responder acts as the server and binds the socket and the requester connects to it.</p>
-</div>
-<div class="section" id="modbus-rtu-communication">
+</section>
+<section id="modbus-rtu-communication">
 <h2>6.3         Modbus RTU Communication<a class="headerlink" href="#modbus-rtu-communication" title="Permalink to this headline">¶</a></h2>
 <p>Modbus RTU is an open serial protocol derived from the Master/Slave architecture. UWC Modbus-rtu-container is used as master and slave can be configured.</p>
-<div class="figure align-center" id="id1">
+<figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/flow1.png"><img alt="../_images/flow1.png" src="../_images/flow1.png" style="width: 399.59999999999997px; height: 363.59999999999997px;" /></a>
-<p class="caption"><span class="caption-text">parameters (i.e., baud rate, parity, stop bits) from docker-compose.yml file.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="mqtt-bridge">
+<figcaption>
+<p><span class="caption-text">parameters (i.e., baud rate, parity, stop bits) from docker-compose.yml file.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mqtt-bridge">
 <h2>6.4     MQTT Bridge<a class="headerlink" href="#mqtt-bridge" title="Permalink to this headline">¶</a></h2>
 <p>This container is used to send messages from ZeroMQ to MQTT and vice-versa.</p>
 <p>Modbus containers communicate over the internal Edge Insights for Industrial data bus (ZMQ). The MQTT-Bridge module enables communication with Modbus containers using MQTT. The MQTT- Bridge module reads data on ZMQ received from Modbus containers and publishes that data on MQTT. Similarly, the MQTT- Bridge module reads data from MQTT and publishes it on ZMQ.</p>
-</div>
-<div class="section" id="mqtt">
+</section>
+<section id="mqtt">
 <h2>6.5     MQTT<a class="headerlink" href="#mqtt" title="Permalink to this headline">¶</a></h2>
 <p>The MQTT container is a mosquitto broker required for MQTT to publish/subscribe data. MQTT broker use port “11883”.</p>
 <p>MQTT clients should use above mentioned port for communication.</p>
-<div class="section" id="accessing-secured-mqtt-container-from-an-external-mqtt-client">
+<section id="accessing-secured-mqtt-container-from-an-external-mqtt-client">
 <h3>6.5.1   Accessing secured MQTT container from an external MQTT client<a class="headerlink" href="#accessing-secured-mqtt-container-from-an-external-mqtt-client" title="Permalink to this headline">¶</a></h3>
 <dl class="simple">
 <dt><strong>Pre-requisites:</strong></dt><dd><p>All UWC containers must be deployed-on gateway with DEV_MODE=false (i.e., secured mode).</p>
@@ -398,12 +411,14 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 <li><p>Click on PEM Formatted check box and then save the setting and then connect. Refer below screenshot for more details</p></li>
 </ol>
 </div></blockquote>
-<div class="figure align-center" id="id2">
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/image4.png"><img alt="../_images/image4.png" src="../_images/image4.png" style="width: 499.09999999999997px; height: 280.7px;" /></a>
-<p class="caption"><span class="caption-text">Figure. 4.5.1: Screen capture for mqtt.fx client connection</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="accessing-secured-mqtt-container-from-a-client-inside-a-container">
+<figcaption>
+<p><span class="caption-text">Figure. 4.5.1: Screen capture for mqtt.fx client connection</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="accessing-secured-mqtt-container-from-a-client-inside-a-container">
 <h3>6.5.2   Accessing secured MQTT container from a client inside a container<a class="headerlink" href="#accessing-secured-mqtt-container-from-a-client-inside-a-container" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Mention following secrets for a new container in docker-compose.yml file.</p></li>
@@ -416,37 +431,37 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 </ul>
 </div></blockquote>
 <p>Following sample snippet for docker-compose.yml file</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/image5.png"><img alt="../_images/image5.png" src="../_images/image5.png" style="width: 274.5px; height: 111.60000000000001px;" /></a>
-</div>
+</figure>
 <ol class="arabic simple" start="2">
 <li><p>Use certificates mentioned in step 1 inside application to connect with secured MQTT broker which is running as a part of UWC.</p></li>
 </ol>
 <p>Following is the sample code snippet in C++ to use certificates in a program,</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/image6.png"><img alt="../_images/image6.png" src="../_images/image6.png" style="width: 463.2px; height: 100.2px;" /></a>
-</div>
+</figure>
 <ol class="arabic simple" start="3">
 <li><p>Deploy containers using usual deployment process.</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="sparkplug-bridge">
+</section>
+</section>
+<section id="sparkplug-bridge">
 <h2>6.6     Sparkplug-Bridge<a class="headerlink" href="#sparkplug-bridge" title="Permalink to this headline">¶</a></h2>
 <p>This container implements Eclipse Foundation’s SparkPlug standard to expose data to compliant SCADA Master over MQTT.</p>
-<div class="section" id="pre-requisite-for-running-sparkplug-bridge">
+<section id="pre-requisite-for-running-sparkplug-bridge">
 <h3>6.6.1   Pre-requisite for running Sparkplug-Bridge<a class="headerlink" href="#pre-requisite-for-running-sparkplug-bridge" title="Permalink to this headline">¶</a></h3>
 <ol class="loweralpha simple">
 <li><p>SCADA Master (e.g., Ignition System) shall be installed and configured.</p></li>
 <li><p>MQTT broker shall be installed and configured in SCADA Master. At present secured connectivity for MQTT is not supported.</p></li>
 <li><p>Following parameters should be configured for Sparkplug-Bridge in docker-compose.yml file:</p></li>
 </ol>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table5.png"><img alt="../_images/table5.png" src="../_images/table5.png" style="width: 469.7px; height: 63.699999999999996px;" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="kpi-app">
+</figure>
+</section>
+</section>
+<section id="kpi-app">
 <h2>6.7     KPI App<a class="headerlink" href="#kpi-app" title="Permalink to this headline">¶</a></h2>
 <p>This is a sample application which implements control loops and logs data in a log file named “AnalysisKPIApp.log”. Normally 3 log files are created on rolling basis i.e., once tie set file size limit is exceeded, a new file is created and likewise max 3 files are created. After this, the log files are overwritten.</p>
 <p>The log file size can be updated, if required.</p>
@@ -455,42 +470,42 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 <p>Path after deployment inside container: /opt/intel/config/log4cpp.properties</p>
 <p>Log files created are - AnalysisKPIApp.log, AnalysisKpiApp.log1, and AnalysisKpiApp.log2. These files are created in .txt format. Latest data will be available in AnalysisKPIApp.log followed by AnalysisKpiApp.log1, and AnalysisKpiApp.log2</p>
 <p>Default log file size is around 34mb.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/image7.png"><img alt="../_images/image7.png" src="../_images/image7.png" style="width: 544.0px; height: 42.0px;" /></a>
-</div>
+</figure>
 <p>To change the file size, “log4cpp.properties” needs to be changed. Please change the limit highlighted above. The max file size mentioned here is in bytes. Please identify number of bytes as per file size needed and set the value here.</p>
 <p>Please run script 03 Build_Run_UWC.sh   after changing “log4cpp.properties”.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="page_07.html" class="btn btn-neutral float-right" title="7.0 Site Configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="page_05.html" class="btn btn-neutral float-left" title="5.0 Container Configuration setting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="page_07.html" class="btn btn-neutral float-right" title="7.0 Site Configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="page_05.html" class="btn btn-neutral float-left" title="5.0 Container Configuration setting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2021, APP
+        &#169; Copyright 2021, APP.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -498,7 +513,6 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

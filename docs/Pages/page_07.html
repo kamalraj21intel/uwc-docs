@@ -1,38 +1,45 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>7.0 Site Configurations &mdash;   documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8.0 UWC Modbus Operations" href="page_08.html" />
@@ -73,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -80,7 +88,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
@@ -223,6 +231,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -257,18 +266,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>7.0  Site Configurations</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/develop/source/Pages/page_07.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -284,10 +295,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="site-configurations">
+  <section id="site-configurations">
 <h1>7.0  Site Configurations<a class="headerlink" href="#site-configurations" title="Permalink to this headline">¶</a></h1>
 <p>This section provides configurations required to configure site, wellhead, device and points for UWC containers.</p>
-<div class="section" id="system-level-global-configuration">
+<section id="system-level-global-configuration">
 <h2>7.1     System Level Global Configuration<a class="headerlink" href="#system-level-global-configuration" title="Permalink to this headline">¶</a></h2>
 <p>This file contains configurations to be used for operations across UWC containers for (Modbus-TCP, Modbus-RTU, MQTT-Bridge.)</p>
 <p>Global_Config.yml file location - /opt/intel/eii/uwc_data/common_config</p>
@@ -302,7 +313,7 @@
 <li><p>SparkPlug communication for Sparkplug-Bridge</p></li>
 <li><p>Default scale factor</p></li>
 </ol>
-<div class="section" id="settings-for-polling-and-on-demand-operation">
+<section id="settings-for-polling-and-on-demand-operation">
 <h3>7.1.1   Settings for Polling and On-Demand operation<a class="headerlink" href="#settings-for-polling-and-on-demand-operation" title="Permalink to this headline">¶</a></h3>
 <p>Following is a sample for Polling operation. Similar is applicable for On-demand operations:</p>
 <dl>
@@ -329,13 +340,13 @@
 </dd>
 </dl>
 <p>Following is a description of each field.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/image8_1.png"><img alt="../_images/image8_1.png" src="../_images/image8_1.png" style="width: 460.79999999999995px; height: 308.4px;" /></a>
-</div>
+</figure>
 <p><em>Sub fields for “realtime” and “non-realtime” group are as follow</em></p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/image8_2.png"><img alt="../_images/image8_2.png" src="../_images/image8_2.png" style="width: 461.4px; height: 348.0px;" /></a>
-</div>
+</figure>
 <p>If incorrect value is specified for any of above fields, a default value (listed below) will be used:</p>
 <blockquote>
 <div><p>default_realtime: false</p>
@@ -344,8 +355,8 @@
 <p>qos: 0</p>
 </div></blockquote>
 <p>If configuration parameter or section is missing for any of the sub-operation (related to Polling and On-Demand), then default values mentioned above will be used.</p>
-</div>
-<div class="section" id="settings-for-sparkplug-bridge-sparkplug-communication-operation">
+</section>
+<section id="settings-for-sparkplug-bridge-sparkplug-communication-operation">
 <span id="link"></span><h3>7.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation<a class="headerlink" href="#settings-for-sparkplug-bridge-sparkplug-communication-operation" title="Permalink to this headline">¶</a></h3>
 <p>Following is a sample:</p>
 <dl>
@@ -368,11 +379,11 @@
 <p>The parameters here are used to form SparkPlug formatted topic name.</p>
 <p>These values should properly be configured to ensure correct representation of data under SCADA Master.</p>
 <p>Following is a description of each field.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table6.png"><img alt="../_images/table6.png" src="../_images/table6.png" style="width: 464.09999999999997px; height: 154.0px;" /></a>
-</div>
-</div>
-<div class="section" id="settings-for-default-scale-factor">
+</figure>
+</section>
+<section id="settings-for-default-scale-factor">
 <h3>7.1.3   Settings for default scale factor<a class="headerlink" href="#settings-for-default-scale-factor" title="Permalink to this headline">¶</a></h3>
 <p>Following is a sample:</p>
 <dl>
@@ -383,12 +394,12 @@
 </dd>
 </dl>
 <p>default_scale_factor: 1.0</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table7.png"><img alt="../_images/table7.png" src="../_images/table7.png" style="width: 461.99999999999994px; height: 137.89999999999998px;" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="how-to-configure-site-and-wellhead">
+</figure>
+</section>
+</section>
+<section id="how-to-configure-site-and-wellhead">
 <h2>7.2     How to Configure Site and Wellhead<a class="headerlink" href="#how-to-configure-site-and-wellhead" title="Permalink to this headline">¶</a></h2>
 <p>There is one file which lists down reference to device-groups (i.e., wellheads) controlled by one UWC gateway. Ideally, in one UWC gateway there is one TCP and one RTU container. Please note one RTU container can manage communication with multiple RTU networks.</p>
 <p>—
@@ -440,7 +451,7 @@
 <p><em>rtu_master_network_info: “rtu_network1.yml”</em></p>
 </div></blockquote>
 <p>Following sections provide details about TCP and RTU device configuration in device-group file.</p>
-<div class="section" id="configuring-tcp-device-in-device-group">
+<section id="configuring-tcp-device-in-device-group">
 <h3>7.2.1   Configuring TCP device in device-group<a class="headerlink" href="#configuring-tcp-device-in-device-group" title="Permalink to this headline">¶</a></h3>
 <p>E.g.
 <em>devicelist:</em>
@@ -481,8 +492,8 @@
 <p class="admonition-title">Note</p>
 <p>This reference shall be unique across TCP devices and needs to be given for each TCP device.</p>
 </div>
-</div>
-<div class="section" id="configuring-rtu-device-in-device-group">
+</section>
+<section id="configuring-rtu-device-in-device-group">
 <h3>7.2.2   Configuring RTU device in device-group<a class="headerlink" href="#configuring-rtu-device-in-device-group" title="Permalink to this headline">¶</a></h3>
 <p>E.g.</p>
 <p><em>devicelist:</em></p>
@@ -523,9 +534,9 @@
 <p class="admonition-title">Note</p>
 <p>This file needs to be specified for each RTU device. If multiple RTU networks are present (RS485/RS232) then those many files should be created. For each RTU device, an appropriate RTU network reference shall be provided.</p>
 </div>
-</div>
-</div>
-<div class="section" id="how-to-configure-devices">
+</section>
+</section>
+<section id="how-to-configure-devices">
 <h2>7.3     How to Configure Devices<a class="headerlink" href="#how-to-configure-devices" title="Permalink to this headline">¶</a></h2>
 <p>Device contains information of a device. Below is a sample file –</p>
 <p><em>file:</em></p>
@@ -543,8 +554,8 @@
 <p><em>model: “PS3037”</em></p>
 </div></blockquote>
 <p><em>pointlist: “iou_datapoints.yml”</em></p>
-</div>
-<div class="section" id="how-to-configure-device-points">
+</section>
+<section id="how-to-configure-device-points">
 <h2>7.4     How to Configure Device points<a class="headerlink" href="#how-to-configure-device-points" title="Permalink to this headline">¶</a></h2>
 <p>Device Point contains end point information. Below is a sample file.</p>
 <p>Below parameters can be changed in this file –</p>
@@ -667,29 +678,29 @@
 <p>For coil type width should be 1.</p>
 </div>
 <p><strong>YML file Configuration table</strong></p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8_1_updated.png"><img alt="../_images/table8_1_updated.png" src="../_images/table8_1_updated.png" style="width: 650.4000000000001px; height: 656.8000000000001px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8_2_updated.png"><img alt="../_images/table8_2_updated.png" src="../_images/table8_2_updated.png" style="width: 651.2px; height: 660.8000000000001px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8_3_updated.png"><img alt="../_images/table8_3_updated.png" src="../_images/table8_3_updated.png" style="width: 651.2px; height: 644.8000000000001px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8_4_updated.png"><img alt="../_images/table8_4_updated.png" src="../_images/table8_4_updated.png" style="width: 650.4000000000001px; height: 665.6px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8_5_updated.png"><img alt="../_images/table8_5_updated.png" src="../_images/table8_5_updated.png" style="width: 651.2px; height: 550.4px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8_6_updated.png"><img alt="../_images/table8_6_updated.png" src="../_images/table8_6_updated.png" style="width: 651.2px; height: 660.8000000000001px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8_7_updated.png"><img alt="../_images/table8_7_updated.png" src="../_images/table8_7_updated.png" style="width: 652.0px; height: 511.20000000000005px;" /></a>
-</div>
-</div>
-<div class="section" id="how-to-add-edit-delete-new-wellhead-device-point-configurations">
+</figure>
+</section>
+<section id="how-to-add-edit-delete-new-wellhead-device-point-configurations">
 <h2>7.5     How to add/edit/delete new wellhead/device/point configurations<a class="headerlink" href="#how-to-add-edit-delete-new-wellhead-device-point-configurations" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>User can add/update/edit/delete Oil well configurations files (YML files) from /opt/intel/eii/uwc_data directory</p></li>
@@ -704,8 +715,8 @@
 <p class="admonition-title">Note</p>
 <p>This script will restart all UWC docker containers.</p>
 </div>
-</div>
-<div class="section" id="kpi-app-configuration">
+</section>
+<section id="kpi-app-configuration">
 <h2>7.6     KPI App Configuration<a class="headerlink" href="#kpi-app-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Following is a sample configuration file for KPI App.</p>
 <p>—
@@ -741,12 +752,12 @@
 <p><em>dataval: “0x1234”</em></p>
 </div></blockquote>
 <p>Following is a description of each field.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table9_1_update.png"><img alt="../_images/table9_1_update.png" src="../_images/table9_1_update.png" style="width: 500.49999999999994px; height: 569.8px;" /></a>
-</div>
-<div class="figure align-center">
+</figure>
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table9_2_update.png"><img alt="../_images/table9_2_update.png" src="../_images/table9_2_update.png" style="width: 499.79999999999995px; height: 93.8px;" /></a>
-</div>
+</figure>
 <p>Please note following: This configuration file should be created manually with following considerations:</p>
 <blockquote>
 <div><ol class="upperalpha simple">
@@ -759,37 +770,37 @@
 <li><p>KPI App container can run either in ZMQ mode or in MQTT mode at a time.</p></li>
 </ol>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="page_08.html" class="btn btn-neutral float-right" title="8.0 UWC Modbus Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="page_06.html" class="btn btn-neutral float-left" title="6.0 Container Configuration setting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="page_08.html" class="btn btn-neutral float-right" title="8.0 UWC Modbus Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="page_06.html" class="btn btn-neutral float-left" title="6.0 Container Configuration setting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2021, APP
+        &#169; Copyright 2021, APP.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -797,7 +808,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
