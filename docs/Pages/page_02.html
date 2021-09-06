@@ -299,22 +299,20 @@
 <h1>2.0 Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
 <section id="feature-list-supported-in-uwc-v1-6">
 <h2>2.1 Feature list- supported in UWC-v1.6<a class="headerlink" href="#feature-list-supported-in-uwc-v1-6" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
+<ul class="simple">
 <li><p>Enabled Data Persistence feature in UWC</p></li>
-</ol>
+</ul>
 <blockquote>
-<div><ol class="loweralpha simple">
-<li><p>Integrated InfluxDBConnector &amp; Telegraf services of EII’s TICK stack timeseries services with UWC.</p></li>
-<li><p>Data persistence enabled for all 6 operations - ROD (Read on demand), WOD (Write on demand) &amp; Polling in the combinations of both Realtime &amp; non-realtime operations.</p></li>
-<li><p>Data Retention policy enabled giving flexibility to users to customize the data retention period in InfluxDB.</p></li>
-</ol>
+<div><p>Integrated InfluxDBConnector &amp; Telegraf services of EII’s TICK stack timeseries services with UWC.
+Data persistence enabled for all 6 operations - ROD (Read on demand), WOD (Write on demand) &amp; Polling in the combinations of both Realtime &amp; non-realtime operations.
+Data Retention policy enabled giving flexibility to users to customize the data retention period in InfluxDB.</p>
 </div></blockquote>
-<ol class="arabic simple" start="2">
+<ul class="simple">
 <li><p>UWC migrated to EII 2.6</p></li>
 <li><p>Network mode host removed from UWC micro-services and services use docker network.</p></li>
 <li><p>Sample database publisher application use case provided which serves as a reference</p></li>
 <li><p>Enabled UWC on Ubuntu 20.04-LTS Operating system</p></li>
-</ol>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Build time will increase due to addition of two more components needed for data persistence depending on system configurations.</p>
@@ -322,42 +320,30 @@
 </section>
 <section id="feature-list-supported-in-uwc-v1-5">
 <h2>2.2 Feature list- supported in UWC-v1.5<a class="headerlink" href="#feature-list-supported-in-uwc-v1-5" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Eclipse foundation Sparkplug standard Template feature support</p></li>
-</ol>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>User Defined Template (UDT) definition and instance</p></li>
-<li><p>Publish –Subscribe interface for third party App for publishing UTD and instances</p></li>
-</ol>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>Seamless edge to cloud connectivity with AWS IoT site wise</p></li>
-</ol>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>UDT publishing</p></li>
-<li><p>Realtime Tags update</p></li>
-<li><p>Realtime connection/disconnect update</p></li>
-</ol>
-</div></blockquote>
-<ol class="arabic simple" start="3">
+<ul class="simple">
+<li><p>Eclipse foundation Sparkplug standard Template feature support
+User Defined Template (UDT) definition and instance
+Publish –Subscribe interface for third party App for publishing UTD and instances</p></li>
+<li><p>Seamless edge to cloud connectivity with AWS IoT site wise
+UDT publishing
+Realtime Tags update
+Realtime connection/disconnect update</p></li>
 <li><p>Data Conversion and transformation</p></li>
-</ol>
+</ul>
 <blockquote>
-<div><ol class="loweralpha simple">
+<div><ul class="simple">
 <li><p>Data ingested by Modbus services is converted to data type defined in the configuration</p></li>
 <li><p>Data ingested by Modbus services is transformed based on the scale factor defined in the configurations</p></li>
-</ol>
+</ul>
 </div></blockquote>
-<ol class="arabic simple" start="4">
+<ul class="simple">
 <li><p>UWC migrated to EII 2.5</p></li>
 <li><p>UWC open source with MIT license on GitHub</p></li>
-</ol>
+</ul>
 </section>
 <section id="feature-list-supported-in-uwc-v1-0">
 <h2>2.3 Feature list supported in UWC-v1.0<a class="headerlink" href="#feature-list-supported-in-uwc-v1-0" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
+<ul class="simple">
 <li><p>Harden Modbus TCP protocol stack and application supporting soft real-time control</p></li>
 <li><p>Harden Modbus RTU protocol stack and application supporting soft real-time control</p></li>
 <li><p>User defined System model configuration in YAML format</p></li>
@@ -366,16 +352,16 @@
 <li><p>Eclipse Foundation Sparkplug specification compliant SCADA RTU</p></li>
 <li><p>Sample KPI testing for control loop benchmarking</p></li>
 <li><p>Device Management with OTA (Over-The-Air) firmware, OS and Docker container update</p></li>
-</ol>
+</ul>
 </section>
 <section id="changes-to-existing-features">
 <h2>2.4 Changes to Existing Features<a class="headerlink" href="#changes-to-existing-features" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
+<ul class="simple">
 <li><p>In UWC-v1.6, Duplicate “cout” prints removed &amp; replaced with UWC logger prints</p></li>
 <li><p>In UWC-v1.6, Updated readme for RT patch installation steps for ubuntu 20.04</p></li>
 <li><p>In UWC-v1.6, Removed the PDF version of user guide from <a class="reference external" href="https://github.com/open-edge-insights/uwc">https://github.com/open-edge-insights/uwc</a> with Sphinx documentation at  <a class="reference external" href="https://github.com/open-edge-insights/uwc-docs">https://github.com/open-edge-insights/uwc-docs</a></p></li>
 <li><p>In UWC-v1.6, KPI bugs on random KPI-app crashing, non-linearity of bad records versus control loop count addressed</p></li>
-</ol>
+</ul>
 </section>
 <section id="unsupported-or-discontinued-features">
 <h2>2.5 Unsupported or Discontinued Features<a class="headerlink" href="#unsupported-or-discontinued-features" title="Permalink to this headline">¶</a></h2>
