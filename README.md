@@ -1,4 +1,4 @@
-
+ 
 ## Sphinx Prequisites
 Install the following packages:
 
@@ -34,6 +34,7 @@ $ sudo -H -E pip3 install -r requirements.txt
 
 * Use uniform underlines for headings in all files and keep track of indentations, whitespace and blank lines in the RST file.
 
+
 ## Sphinx build steps
 
 Make the necessary changes to the RST files at "source/Pages/*.rst" & run the makefile which builds the sphinx documentation locally in "build" directory and copies the necessary files into "docs/" directory. POst the successful build it hosts the documentation 
@@ -43,7 +44,3 @@ cd uwc-docs
 make html
 ```
 While checking in these files back to remote git repo, make sure to git add all the files in untracked section but not the "build" directory as it's generated at runtime & doesn't need to be checked in.
-
-
-
-

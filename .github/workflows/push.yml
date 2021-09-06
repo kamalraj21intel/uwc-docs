@@ -4,7 +4,7 @@ on:
   # but only for the main branch
   push:
     branches:
-      - develop
+      - main
   # Also trigger on page_build, as well as release created events
   workflow_dispatch:
 jobs:
@@ -29,11 +29,11 @@ jobs:
       run: |
         cur_dir=`pwd`
         cd $HOME
-        git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/ --branch develop --single-branch
+        git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/ --branch main --single-branch
         cd uwc-docs
         cp -r $cur_dir/build/* docs/
         git config --global user.name "${GITHUB_ACTOR}"
         git config --global user.email "${GITHUB_ACTOR}@github.com"
         git add .
         git commit -m "latest html output"
-        git push -f https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY HEAD:develop
+        git push -f https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY HEAD:main
