@@ -39,6 +39,9 @@ $ sudo -H -E pip3 install -r requirements.txt
 
 Make the necessary changes to the RST files at "source/Pages/*.rst" & run the makefile which builds the sphinx documentation locally in "build" directory and copies the necessary files into "docs/" directory. POst the successful build it hosts the documentation 
 on the same machine at port "8652", which can be access at http://localhost:8652
+
+This is for local previewing the changes before checking in the code. Once the preview is done, we need to do git add, commit & push the changes in a PR (Pull Request).
+
 ```sh
 cd uwc-docs
 make html

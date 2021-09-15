@@ -1,45 +1,38 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>8.0 UWC Modbus Operations &mdash;   documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
+  
   
   
 
   
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9.0 Sparkplug-Bridge Operations" href="page_09.html" />
@@ -80,7 +73,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -88,7 +80,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
@@ -222,7 +214,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_14.html">14.0 RT Patch (Optional)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-choose-and-apply-rt-kernel-patch">14.1    Steps to Choose and Apply RT Kernel Patch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-apply-rt-kernel-patch">14.2    Steps To Apply RT Kernel Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#install-prerequisites">14.2 Install Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_14.html#steps-to-apply-rt-kernel-patch">14.3    Steps To Apply RT Kernel Patch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_15.html">15.0 Appendix for UWC terminologies</a></li>
@@ -231,7 +224,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -266,20 +258,18 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
       <li>8.0     UWC Modbus Operations</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/main/source/Pages/page_08.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -295,7 +285,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="uwc-modbus-operations">
+  <div class="section" id="uwc-modbus-operations">
 <h1>8.0     UWC Modbus Operations<a class="headerlink" href="#uwc-modbus-operations" title="Permalink to this headline">¶</a></h1>
 <p>This section provides configurations required to read and write data from sensors and actuators connected over Modbus TCP or RTU on UWC gateway.
 An application can perform following operations using UWC containers:</p>
@@ -309,19 +299,19 @@ An application can perform following operations using UWC containers:</p>
 <p>Following section explains how to use MQTT topics to perform above operations. Further these operations can be performed in realtime (RT) and non-realtime (Non-RT) mode.
 Multiple modules are involved in processing the operation. To capture the time taken by each module (i.e., a step), epoch timestamps in microseconds are added at various levels. These timestamps are present in JSON message.</p>
 <p><strong>The table of terms here is useful for interpreting the JSON payloads of the messages.</strong></p>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/table10_1_updated.png"><img alt="../_images/table10_1_updated.png" src="../_images/table10_1_updated.png" style="width: 459.9px; height: 573.3px;" /></a>
-</figure>
-<figure class="align-center">
+</div>
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/table10_2_update.png"><img alt="../_images/table10_2_update.png" src="../_images/table10_2_update.png" style="width: 461.29999999999995px; height: 577.5px;" /></a>
-</figure>
-<figure class="align-center">
+</div>
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/table10_3_update.png"><img alt="../_images/table10_3_update.png" src="../_images/table10_3_update.png" style="width: 461.99999999999994px; height: 578.9px;" /></a>
-</figure>
-<figure class="align-center">
+</div>
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/table10_4_update.png"><img alt="../_images/table10_4_update.png" src="../_images/table10_4_update.png" style="width: 459.9px; height: 201.6px;" /></a>
-</figure>
-<section id="data-polling">
+</div>
+<div class="section" id="data-polling">
 <h2>8.1     Data Polling<a class="headerlink" href="#data-polling" title="Permalink to this headline">¶</a></h2>
 <p>In the datapoint YML configuration file, a polling frequency is configured. As per polling frequency, data is fetched from the end point and published on MQTT by the UWC container. This section describes how to read the data for polled points using MQTT.</p>
 <p>The data actions which are “Polling” actions are initiated by the Protocol container (in this case the Modbus protocol application (i.e., the driver) within the Modbus container.</p>
@@ -385,8 +375,8 @@ Multiple modules are involved in processing the operation. To capture the time t
 <p>“tsMsgReadyForPublish”: “1626847098399751”</p>
 </div></blockquote>
 <p>}</p>
-</section>
-<section id="on-demand-write">
+</div>
+<div class="section" id="on-demand-write">
 <h2>8.2     On-Demand Write<a class="headerlink" href="#on-demand-write" title="Permalink to this headline">¶</a></h2>
 <p>This section describes how to write data to some specific Modbus point using MQTT.</p>
 <p>To send request: Application should use a topic in the following format to send (i.e., publish) write request on MQTT:</p>
@@ -481,8 +471,8 @@ Multiple modules are involved in processing the operation. To capture the time t
 <p>“tsMsgReadyForPublish”: “1626778808003021”</p>
 </div></blockquote>
 <p>}</p>
-</section>
-<section id="on-demand-read">
+</div>
+<div class="section" id="on-demand-read">
 <h2>8.3     On-Demand Read<a class="headerlink" href="#on-demand-read" title="Permalink to this headline">¶</a></h2>
 <p>This section describes how to read data from some specific Modbus points using MQTT.</p>
 <p>To send request: Application should use a topic in the following format to send (i.e., publish) read request on MQTT:</p>
@@ -580,47 +570,47 @@ Multiple modules are involved in processing the operation. To capture the time t
 <p>“tsMsgReadyForPublish”: “1626846987971358”</p>
 </div></blockquote>
 <p>}</p>
-</section>
-<section id="kpi-application">
+</div>
+<div class="section" id="kpi-application">
 <h2>8.4     KPI Application<a class="headerlink" href="#kpi-application" title="Permalink to this headline">¶</a></h2>
 <p>Following data (if available) is logged in a log-file by KPI Application for control loops.</p>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/table11_1_update.png"><img alt="../_images/table11_1_update.png" src="../_images/table11_1_update.png" style="width: 528.0px; height: 652.8000000000001px;" /></a>
-</figure>
-<figure class="align-center">
+</div>
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/table11_2_update.png"><img alt="../_images/table11_2_update.png" src="../_images/table11_2_update.png" style="width: 526.4px; height: 631.2px;" /></a>
-</figure>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="page_09.html" class="btn btn-neutral float-right" title="9.0 Sparkplug-Bridge Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="page_07.html" class="btn btn-neutral float-left" title="7.0 Site Configurations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="page_09.html" class="btn btn-neutral float-right" title="9.0 Sparkplug-Bridge Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="page_07.html" class="btn btn-neutral float-left" title="7.0 Site Configurations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, APP.
+        &copy; Copyright 2021, APP
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -628,6 +618,7 @@ Multiple modules are involved in processing the operation. To capture the time t
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {
