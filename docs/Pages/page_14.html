@@ -1,45 +1,38 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>14.0 RT Patch (Optional) &mdash;   documentation</title>
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
+  
   
   
 
   
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.0 Appendix for UWC terminologies" href="page_15.html" />
@@ -80,7 +73,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -88,7 +80,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="page_01.html">1.0  Introduction</a><ul>
@@ -222,7 +214,8 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">14.0 RT Patch (Optional)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#steps-to-choose-and-apply-rt-kernel-patch">14.1    Steps to Choose and Apply RT Kernel Patch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#steps-to-apply-rt-kernel-patch">14.2    Steps To Apply RT Kernel Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-prerequisites">14.2 Install Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps-to-apply-rt-kernel-patch">14.3    Steps To Apply RT Kernel Patch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_15.html">15.0 Appendix for UWC terminologies</a></li>
@@ -231,7 +224,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -266,20 +258,18 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
       <li>14.0 RT Patch (Optional)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/main/source/Pages/page_14.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -295,9 +285,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="rt-patch-optional">
+  <div class="section" id="rt-patch-optional">
 <h1>14.0 RT Patch (Optional)<a class="headerlink" href="#rt-patch-optional" title="Permalink to this headline">¶</a></h1>
-<section id="steps-to-choose-and-apply-rt-kernel-patch">
+<div class="section" id="steps-to-choose-and-apply-rt-kernel-patch">
 <h2>14.1    Steps to Choose and Apply RT Kernel Patch<a class="headerlink" href="#steps-to-choose-and-apply-rt-kernel-patch" title="Permalink to this headline">¶</a></h2>
 <p>The latest version of UWC has been tested with Ubuntu 20.04.2 LTS. Check the kernel version corresponding to the Ubuntu OS version being used and map it with the correct RT kernel patch.</p>
 <p>Use the links below to map the kernel version with theRT kernel patch:</p>
@@ -307,9 +297,16 @@
 <li><p><a class="reference external" href="https://mirrors.edge.kernel.org/pub/linux/kernel/">https://mirrors.edge.kernel.org/pub/linux/kernel/</a></p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="steps-to-apply-rt-kernel-patch">
-<h2>14.2    Steps To Apply RT Kernel Patch<a class="headerlink" href="#steps-to-apply-rt-kernel-patch" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="install-prerequisites">
+<h2>14.2 Install Prerequisites<a class="headerlink" href="#install-prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Install all the prerequisites using the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install -y libncurses-dev libssl-dev bison flex build-essential wget libelf-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="steps-to-apply-rt-kernel-patch">
+<h2>14.3    Steps To Apply RT Kernel Patch<a class="headerlink" href="#steps-to-apply-rt-kernel-patch" title="Permalink to this headline">¶</a></h2>
 <p>Default Ubuntu 20.04.2 LTS kernel version is 5.4.0-80.</p>
 <ol class="arabic simple">
 <li><p>Make a working directory on the system:</p></li>
@@ -344,7 +341,7 @@
 <li><p>Patch the kernel</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> linux-5.4.129
-$ gzip -cd ../patch-5.4.129-rt61.patch.gz <span class="p">|</span> patch -p1 –verbose
+$ gzip -cd ../patch-5.4.129-rt61.patch.gz <span class="p">|</span> patch -p1 --verbose
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -355,12 +352,10 @@ $ gzip -cd ../patch-5.4.129-rt61.patch.gz <span class="p">|</span> patch -p1 –
 </pre></div>
 </div>
 <p><strong>Graphical UI is shown below:</strong></p>
-<figure class="align-center" id="id1">
+<div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/image9.png"><img alt="../_images/image9.png" src="../_images/image9.png" style="width: 894.6px; height: 517.1999999999999px;" /></a>
-<figcaption>
-<p><span class="caption-text">Figure 11.1: Main launching screen</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">Figure 11.1: Main launching screen</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ol class="arabic simple" start="6">
 <li><p>Select the preemption model as Basic RT using tab key on keyboard</p></li>
 </ol>
@@ -373,24 +368,25 @@ $ gzip -cd ../patch-5.4.129-rt61.patch.gz <span class="p">|</span> patch -p1 –
 </ol>
 </div></blockquote>
 <p>Refer the following screen capture for more details</p>
-<figure class="align-center" id="id2">
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/image12.png"><img alt="../_images/image12.png" src="../_images/image12.png" style="width: 894.0px; height: 517.1999999999999px;" /></a>
-<figcaption>
-<p><span class="caption-text">Figure 11.2: Preemption Model (Fully Preemptible Kernel (RT))</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id3">
+<p class="caption"><span class="caption-text">Figure 11.2: Preemption Model (Fully Preemptible Kernel (RT))</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/image11.png"><img alt="../_images/image11.png" src="../_images/image11.png" style="width: 894.0px; height: 517.8px;" /></a>
-<figcaption>
-<p><span class="caption-text">Figure 11.3 Fully Preemption Kernel (RT)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">Figure 11.3 Fully Preemption Kernel (RT)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <p>Save and exit</p>
 <ol class="arabic simple" start="7">
 <li><p>To save the current setting click on <em>&lt;save&gt;</em> button and then exit the UI using <em>&lt;exit&gt;</em> button.</p></li>
 <li><p>Compile the kernel (Execute the following commands)</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ make –j20
+<blockquote>
+<div><p>In a production environment, the system key management infrastructure will be provided for the end user to ensure the patched Kernel works with the Secure Boot flow.
+When Secure Boot is not used, comment out the CONFIG_SYSTEM_TRUSTED_KEYS and CONFIG_MODULE_SIG_KEY lines from the /boot/config&lt;version&gt; file.
+Failure to do one of these two things will cause the following make commands to fail.</p>
+</div></blockquote>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ make -j20
 $ sudo make <span class="nv">INSTALL_MOD_STRIP</span><span class="o">=</span><span class="m">1</span> modules_install -j20
 $ sudo make install -j20
 </pre></div>
@@ -404,12 +400,12 @@ $ sudo update-grub
 </pre></div>
 </div>
 <ol class="arabic simple" start="10">
-<li><p>Verify that there is a menu entry containing the text “menuentry ‘Ubuntu, with Linux ‘5.4.129-rt61” in /boot/grub/grub.cfg file</p></li>
+<li><p>Verify that there is a menu entry containing the text “menu entry ‘Ubuntu, with Linux ‘5.4.129-rt61” in /boot/grub/grub.cfg file</p></li>
 <li><p>To change default kernel in grub, edit the GRUB_DEFAULT value in /etc/default/grub to your desired kernel.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>0 is the 1st menuentry</p>
+<p>0 is the 1st menu entry</p>
 </div>
 <ol class="arabic simple" start="12">
 <li><p>Reboot and verify using command</p></li>
@@ -422,41 +418,37 @@ $ sudo update-grub
 </ol>
 <p>Command will show below output for successfully applied RT patch –
 <em>Linux ubuntu 5.4.129-rt61 #1 SMP PREEMPT RT Tue Mar 24 17:15:47 IST 2020 x86_64 x86_64 x86_64 GNU/Linux</em></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If RT patch installation fails during make commands, comment the  “CONFIG_SYSTEM_TRUSTED_KEYS” and “CONFIG_MODULE_SIG_KEY” lines from/boot/config&lt;version&gt; and try the installation again (if enabled, the server will lose the secure boot).</p>
 </div>
-</section>
-</section>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="page_15.html" class="btn btn-neutral float-right" title="15.0 Appendix for UWC terminologies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="page_13.html" class="btn btn-neutral float-left" title="13.0 UWC Gateway to Cloud Communication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="page_15.html" class="btn btn-neutral float-right" title="15.0 Appendix for UWC terminologies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="page_13.html" class="btn btn-neutral float-left" title="13.0 UWC Gateway to Cloud Communication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, APP.
+        &copy; Copyright 2021, APP
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
+
         </div>
       </div>
 
@@ -464,6 +456,7 @@ $ sudo update-grub
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {
