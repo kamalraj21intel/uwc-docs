@@ -229,4 +229,16 @@ Default log file size is around 34mb.
 
 To change the file size, “log4cpp.properties” needs to be changed. Please change the limit highlighted above. The max file size mentioned here is in bytes. Please identify number of bytes as per file size needed and set the value here. 
 
-Please run script 03 Build_Run_UWC.sh   after changing “log4cpp.properties”.
+Please run script 03 Build_Run_UWC.sh after changing “log4cpp.properties”.
+
+6.7.1 	Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. By default, pre-processor flag UWC_HIGH_PERFORMANCE_PROCESSOR is disabled in Kpi App for debug & release mode.
+
+2. To enable KPI-App on high performance processor in release mode, go to <Sourcecode> -> kpi-Tactic -> KPIApp -> Release -> src directory (https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Release/src/subdir.mk) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.
+
+3. To enable KPI-App on high performance processor in release mode, go to <Sourcecode> -> kpi-Tactic -> KPIApp -> Debug -> src directory (https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Debug/src/subdir.mk) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.
+
+4. To disable pre-processor flag in Kpi App, remove the option “-DUWC_HIGH_PERFORMANCE_PROCESSOR” added in steps 2 & 3 for both Release and Debug mode.
+
+High performance processors are Intel core classes processors & low performance/low power systems are Intel atom class processors.
