@@ -639,10 +639,11 @@
 <p><em>isRTModeForPolledPoints: true</em></p>
 <p><em>isRTModeForWriteOp: true</em></p>
 <p><strong># This section lists down number of control loops.</strong></p>
-<p><strong># For each control loop, following information is presented:</strong></p>
-<p><strong># 1. Point being polled</strong></p>
-<p><strong># 2. Point and value to be used for writing</strong></p>
-<p><strong># 3. Delay to be used before sending a write operation.</strong></p>
+<p>** For each control loop, following information is presented:**</p>
+<p>** 1. Point being polled**</p>
+<p>** 2. Point and value to be used for writing**</p>
+<p>** 3. Delay to be used before sending a write operation.**</p>
+<p>** 4. Polled data points and write operation data points must be unique.**</p>
 <p><em>controlLoopDataPointMapping:</em></p>
 <p><em>- polled_point: “/flowmeter/PL0/P1”</em></p>
 <p><em>delay_msec: 5</em></p>
@@ -672,8 +673,9 @@
 </ol>
 <p>e.g., If a point to be polled is not present in datapoints config file, then data for that control loop will not be collected.</p>
 <ol class="upperalpha simple" start="2">
+<li><p>Polled data points in “Polled_point” and write operation data points in “write_operation” must be unique.</p></li>
 <li><p>If the points being polled are configured as <em>“realtime”</em> in datapoints config file, then <em>“isRTModeForPolledPoints”</em> should be set to <em>“true”</em>. It should be set to <em>“false”</em> otherwise.</p></li>
-<li><p>ZMQ-based KPI App can monitor either RT or Non-RT points at a time.</p></li>
+<li><p>KPI App can monitor either RT or Non-RT points at a time.</p></li>
 <li><p>KPI App container can run either in ZMQ mode or in MQTT mode at a time.</p></li>
 </ol>
 </div></blockquote>
