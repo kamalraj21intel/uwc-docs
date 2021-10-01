@@ -98,7 +98,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#pre-requisite-for-running-sparkplug-bridge">6.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#kpi-app">6.7     KPI App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-app">6.7     KPI App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor">6.7.1   Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_07.html">7.0  Site Configurations</a><ul>
@@ -381,7 +384,17 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 <a class="reference internal image-reference" href="../_images/image7.png"><img alt="../_images/image7.png" src="../_images/image7.png" style="width: 544.0px; height: 42.0px;" /></a>
 </figure>
 <p>To change the file size, “log4cpp.properties” needs to be changed. Please change the limit highlighted above. The max file size mentioned here is in bytes. Please identify number of bytes as per file size needed and set the value here.</p>
-<p>Please run script 03 Build_Run_UWC.sh   after changing “log4cpp.properties”.</p>
+<p>Please run script 03 Build_Run_UWC.sh after changing “log4cpp.properties”.</p>
+<section id="pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor">
+<h3>6.7.1   Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor<a class="headerlink" href="#pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor" title="Permalink to this headline"></a></h3>
+<ol class="arabic simple">
+<li><p>By default, pre-processor flag UWC_HIGH_PERFORMANCE_PROCESSOR is disabled in Kpi App for debug &amp; release mode.</p></li>
+<li><p>To enable KPI-App on high performance processor in release mode, go to &lt;Sourcecode&gt; -&gt; kpi-Tactic -&gt; KPIApp -&gt; Release -&gt; src directory (<a class="reference external" href="https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Release/src/subdir.mk">https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Release/src/subdir.mk</a>) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.</p></li>
+<li><p>To enable KPI-App on high performance processor in release mode, go to &lt;Sourcecode&gt; -&gt; kpi-Tactic -&gt; KPIApp -&gt; Debug -&gt; src directory (<a class="reference external" href="https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Debug/src/subdir.mk">https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Debug/src/subdir.mk</a>) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.</p></li>
+<li><p>To disable pre-processor flag in Kpi App, remove the option “-DUWC_HIGH_PERFORMANCE_PROCESSOR” added in steps 2 &amp; 3 for both Release and Debug mode.</p></li>
+</ol>
+<p>High performance processors are Intel core classes processors &amp; low performance/low power systems are Intel atom class processors.</p>
+</section>
 </section>
 </section>
 
