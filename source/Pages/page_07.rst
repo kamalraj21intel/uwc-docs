@@ -568,13 +568,15 @@ Following is a sample configuration file for KPI Application.
 
 **# This section lists down number of control loops.**
 
-**# For each control loop, following information is presented:**
+** For each control loop, following information is presented:**
 
-**# 1. Point being polled**
+** 1. Point being polled**
 
-**# 2. Point and value to be used for writing**
+** 2. Point and value to be used for writing**
 
-**# 3. Delay to be used before sending a write operation.**
+** 3. Delay to be used before sending a write operation.**
+
+** 4. Polled data points and write operation data points must be unique.**
 
 *controlLoopDataPointMapping:*
 
@@ -614,10 +616,12 @@ Please note following: This configuration file should be created manually with f
 
     e.g., If a point to be polled is not present in datapoints config file, then data for that control loop will not be collected.
 
-    B)	If the points being polled are configured as *“realtime”* in datapoints config file, then *“isRTModeForPolledPoints”* should be set to *“true”*. It should be set to *“false”* otherwise.
+    B) Polled data points in “Polled_point” and write operation data points in “write_operation” must be unique.
+    
+    C)	If the points being polled are configured as *“realtime”* in datapoints config file, then *“isRTModeForPolledPoints”* should be set to *“true”*. It should be set to *“false”* otherwise.
 
-    C)	ZMQ-based KPI App can monitor either RT or Non-RT points at a time.
+    D)	KPI App can monitor either RT or Non-RT points at a time.
 
-    D)	KPI App container can run either in ZMQ mode or in MQTT mode at a time.  
+    E)	KPI App container can run either in ZMQ mode or in MQTT mode at a time. 
 
 
