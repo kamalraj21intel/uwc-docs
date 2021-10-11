@@ -17,16 +17,16 @@ This section provides steps to install and Deploy UWC containers using the EII i
 
 .. code-block:: sh
 
-    •	git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.6
-    •	git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch=v2.6
-    •	git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch=v2.6
-    •  	git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.6
-    •	git clone https://github.com/open-edge-insights/ts-telegraf.git IEdgeInsights/Telegraf --branch=v2.6
-    •	git clone https://github.com/open-edge-insights/eii-influxdb-connector.git IEdgeInsights/InfluxDBConnector --branch=v2.6
-    •	git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch=v2.6
-    •	git clone https://github.com/open-edge-insights/eii-tools.git IEdgeInsights/tools --branch=v2.6
-    •	git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch=v1.6
-    •   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.6
+    •	git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.6.1
+    •	git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch=v2.6.1
+    •	git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch=v2.6.1
+    •  	git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.6.1
+    •	git clone https://github.com/open-edge-insights/ts-telegraf.git IEdgeInsights/Telegraf --branch=v2.6.1
+    •	git clone https://github.com/open-edge-insights/eii-influxdb-connector.git IEdgeInsights/InfluxDBConnector --branch=v2.6.1
+    •	git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch=v2.6.1
+    •	git clone https://github.com/open-edge-insights/eii-tools.git IEdgeInsights/tools --branch=v2.6.1
+    •	git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch=v1.6.1
+    •   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.6.1
     
 
 3.	Navigate to $ <working_dir>/IEdgeInsights/build
@@ -46,8 +46,8 @@ This section provides steps to install and Deploy UWC containers using the EII i
     If the error "Docker CE installation step is failed" is seen while running pre-requisite.sh script on a fresh system then kindly re-run the pre_requisite.sh script again. This is a known bug in docker community for Docker CE.
 
 5.	Navigate to <working_dir>/IEdgeInsights/uwc/build_scripts.   
-6.	Execute Command $ sudo ./01_uwc_pre_requisites.sh
-7.	Execute Command $ sudo ./02_provision_UWC.sh
+6.	Execute Command $ sudo -E ./01_uwc_pre_requisites.sh
+7.	Execute Command $ sudo -E ./02_provision_UWC.sh
 
 It prompts these options – 
 
@@ -94,7 +94,7 @@ Enter the external broker port number:
 Enter the QOS for scada (between 0 to 2): 
     1
 
-8.	Execute Command $ sudo ./03_Build_Run_UWC.sh
+8.	Execute Command $ sudo -E ./03_Build_Run_UWC.sh
 
 Above is a process for interactive mode. A non-interactive mode is also supported. 
 Following are the details: 
@@ -113,10 +113,10 @@ If required parameters are missing, then those will be requested from user in an
 .. code-block:: sh
 
         All UWC basic modules (no KPI, no Sparkplug-Bridge)
-        sudo ./02_provision_UWC.sh --deployMode=dev --recipe=1
+        sudo -E ./02_provision_UWC.sh --deployMode=dev --recipe=1
 
         All UWC modules (with KPI and with Sparkplug-Bridge).
-        sudo ./02_provision_UWC.sh --deployMode=dev --recipe=3 --isTLS=yes --caFile="scada_ext_certs/ca/root-ca.crt" --crtFile="scada_ext_certs/client/client.crt" --keyFile="scada_ext_certs/client/client.key" --brokerAddr="192.168.1.11" --brokerPort=22883 --qos=1
+        sudo -E ./02_provision_UWC.sh --deployMode=dev --recipe=3 --isTLS=yes --caFile="scada_ext_certs/ca/root-ca.crt" --crtFile="scada_ext_certs/client/client.crt" --keyFile="scada_ext_certs/client/client.key" --brokerAddr="192.168.1.11" --brokerPort=22883 --qos=1
 
 
 Build scripts descriptions– 
