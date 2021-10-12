@@ -9,6 +9,7 @@
 This section provides steps to install and Deploy UWC containers using the EII installer
 
 **Pre-requisite**: Internet connection (with proper proxy settings) is required for Installation.
+Optional: For enabling full security for production deployments, make sure host machine and docker daemon are configured with below security recommendations.     ../build/docker_security_recommendation.md
 
 **Steps:**
 
