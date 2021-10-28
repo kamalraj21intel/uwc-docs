@@ -64,6 +64,12 @@ It prompts these options –
     7) Running Basic UWC micro-services with time series services (Telegraf & InfluxDBCOnnector) along with Sparkplug service
     8) Running the sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker & Etcd container
 
+.. note::
+   If user wants to run sparkplug in TLS mode then please make sure rootca dir is present. If not present then please run following in PROD mode or run entire 02 script for  any non sparkplug recipe in PROD mode.
+
+  $ cd ../build/provision
+  $ sudo ./provision.sh ../docker-compose.yml --generate_certs
+
 Following is a sample output for Sparkplug-Bridge related configuration:
 
 **• Enter the following parameters required for Sparkplug-Bridge container..**
