@@ -6,8 +6,8 @@
 2.1 Feature list- supported in UWC-v1.6.1 (Hotfix Release)
 ---------------------------------------
 
-* Fixed issue of high number of recursive queries hiting DNS server
 * UWC migrated to EII 2.6.1
+* Fixed issue of high number of recursive queries hiting DNS server
 * Fixed issue related with ESH installer not displaying some prints in Sparkplug use cases 
 *	Minor user guide & ReadMe updates   
 
