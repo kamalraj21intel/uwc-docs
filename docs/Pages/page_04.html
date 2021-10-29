@@ -47,11 +47,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_02.html">2.0 Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-6">2.1 Feature list- supported in UWC-v1.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-5">2.2 Feature list- supported in UWC-v1.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-0">2.3 Feature list supported in UWC-v1.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#changes-to-existing-features">2.4 Changes to Existing Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="page_02.html#unsupported-or-discontinued-features">2.5 Unsupported or Discontinued Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-6-1-hotfix-release">2.1 Feature list- supported in UWC-v1.6.1 (Hotfix Release)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-6">2.2 Feature list- supported in UWC-v1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-5">2.3 Feature list- supported in UWC-v1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#feature-list-supported-in-uwc-v1-0">2.4 Feature list supported in UWC-v1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#changes-to-existing-features">2.5 Changes to Existing Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page_02.html#unsupported-or-discontinued-features">2.6 Unsupported or Discontinued Features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Before Installation</a><ul>
@@ -216,16 +217,16 @@
 <li><p>Install Ubuntu 20.04 server version on gateway and Apply RT Patch (refer section 14).</p></li>
 <li><p>Git clone in following order will place the directories in proper relative directory  structure</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/ts-telegraf.git IEdgeInsights/Telegraf --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/eii-influxdb-connector.git IEdgeInsights/InfluxDBConnector --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/eii-tools.git IEdgeInsights/tools --branch<span class="o">=</span>v2.6
-•   git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch<span class="o">=</span>v1.6
-•   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch<span class="o">=</span>v1.6
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/ts-telegraf.git IEdgeInsights/Telegraf --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/eii-influxdb-connector.git IEdgeInsights/InfluxDBConnector --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/eii-tools.git IEdgeInsights/tools --branch<span class="o">=</span>v2.6.1
+•   git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch<span class="o">=</span>v1.6.1
+•   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch<span class="o">=</span>v1.6.1
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -243,8 +244,8 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 </div>
 <ol class="arabic simple" start="5">
 <li><p>Navigate to &lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts.</p></li>
-<li><p>Execute Command $ sudo ./01_uwc_pre_requisites.sh</p></li>
-<li><p>Execute Command $ sudo ./02_provision_UWC.sh</p></li>
+<li><p>Execute Command $ sudo -E ./01_uwc_pre_requisites.sh</p></li>
+<li><p>Execute Command $ sudo -E ./02_provision_UWC.sh</p></li>
 </ol>
 <p>It prompts these options –</p>
 <ul class="simple">
@@ -301,7 +302,7 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 </dd>
 </dl>
 <ol class="arabic simple" start="8">
-<li><p>Execute Command $ sudo ./03_Build_Run_UWC.sh</p></li>
+<li><p>Execute Command $ sudo -E ./03_Build_Run_UWC.sh</p></li>
 </ol>
 <p>Above is a process for interactive mode. A non-interactive mode is also supported.
 Following are the details:</p>
@@ -316,10 +317,10 @@ Following are the details:</p>
 <li><p>Following are sample commands for non-interactive mode execution.</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>All UWC basic modules <span class="o">(</span>no KPI, no Sparkplug-Bridge<span class="o">)</span>
-sudo ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">1</span>
+sudo -E ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">1</span>
 
 All UWC modules <span class="o">(</span>with KPI and with Sparkplug-Bridge<span class="o">)</span>.
-sudo ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">3</span> --isTLS<span class="o">=</span>yes --caFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/ca/root-ca.crt&quot;</span> --crtFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.crt&quot;</span> --keyFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.key&quot;</span> --brokerAddr<span class="o">=</span><span class="s2">&quot;192.168.1.11&quot;</span> --brokerPort<span class="o">=</span><span class="m">22883</span> --qos<span class="o">=</span><span class="m">1</span>
+sudo -E ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">3</span> --isTLS<span class="o">=</span>yes --caFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/ca/root-ca.crt&quot;</span> --crtFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.crt&quot;</span> --keyFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.key&quot;</span> --brokerAddr<span class="o">=</span><span class="s2">&quot;192.168.1.11&quot;</span> --brokerPort<span class="o">=</span><span class="m">22883</span> --qos<span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
 <p>Build scripts descriptions–</p>
