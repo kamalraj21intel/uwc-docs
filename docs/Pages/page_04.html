@@ -272,6 +272,12 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 <li><p>Running the sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker &amp; Etcd container</p></li>
 </ol>
 </div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If user wants to run sparkplug in TLS mode then please make sure “rootca” dir is present at ../build/provision/, If not present then please run following in PROD mode or  run entire 02 script for any non sparkplug recipe in PROD mode.</p>
+<p>$ cd ../build/provision</p>
+<p>$ sudo ./provision.sh ../docker-compose.yml –generate_certs</p>
+</div>
 <p>Following is a sample output for Sparkplug-Bridge related configuration:</p>
 <p><strong>• Enter the following parameters required for Sparkplug-Bridge container..</strong></p>
 <dl class="simple">
