@@ -8,7 +8,6 @@
 
 * UWCv1.5 rebased & migrated to EII v2.5.2.
 Follow the git clone commands as below:
-
 .. code-block:: sh
 
 •   git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.5.2
