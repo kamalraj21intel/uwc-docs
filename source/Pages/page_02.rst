@@ -13,10 +13,9 @@
     •	git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.5.2
     •	git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch=v2.5.2
     •	git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch=v2.5.2
-    • git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.5.2
-    •	git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch=v2.5.2
+    •   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.5.2
     •	git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch=v1.5.1
-    • git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.5.1
+    •   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.5.1
 
 
 ---------------------------------------
