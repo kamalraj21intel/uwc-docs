@@ -6,17 +6,18 @@
 2.1 Feature list- supported in UWC-v1.5.1 (Hotfix Release)
 ---------------------------------------
 
-* UWCv1.5 rebased & migrated to EII v2.5.2.
-Follow the git clone commands as below:
+* UWCv1.5 rebased & migrated to EII v2.5.2. Follow the git clone commands as below:
+
 .. code-block:: sh
 
-•   git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.5.2
-•   git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch=v2.5.2
-•   git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch=v2.5.2
-•   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.5.2
-•   git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch=v2.5.2
-•   git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch=v1.5.1
-•   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.5.1
+    •	git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.5.2
+    •	git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch=v2.5.2
+    •	git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch=v2.5.2
+    • git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.5.2
+    •	git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch=v2.5.2
+    •	git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch=v1.5.1
+    • git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.5.1
+
 
 ---------------------------------------
 2.2 Feature list- supported in UWC-v1.6.1 (Hotfix Release)
