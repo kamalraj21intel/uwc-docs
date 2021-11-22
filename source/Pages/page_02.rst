@@ -3,7 +3,13 @@
 ==================
 
 ---------------------------------------
-2.1 Feature list- supported in UWC-v1.6.1 (Hotfix Release)
+2.1 Feature list- supported in UWC-v1.5.1 (Hotfix Release)
+---------------------------------------
+
+* UWCv1.5 rebased & migrated to EII v2.5.2
+
+---------------------------------------
+2.2 Feature list- supported in UWC-v1.6.1 (Hotfix Release)
 ---------------------------------------
 
 * UWC migrated to EII v2.6.1
@@ -12,7 +18,7 @@
 *	Minor user guide & ReadMe updates   
 
 ---------------------------------------
-2.2 Feature list- supported in UWC-v1.6
+2.3 Feature list- supported in UWC-v1.6
 ---------------------------------------
 
 * Enabled Data Persistence feature in UWC
@@ -27,7 +33,7 @@
 .. note:: Build time will increase due to addition of two more components needed for data persistence depending on system configurations.
 
 ----------------------------------------
-2.3 Feature list- supported in UWC-v1.5
+2.4 Feature list- supported in UWC-v1.5
 ----------------------------------------
 *	Eclipse foundation Sparkplug standard Template feature support
 
@@ -53,7 +59,7 @@
 *	UWC open source with MIT license on GitHub 
 
 ------------------------------------
-2.4 Feature list supported in UWC-v1.0 
+2.5 Feature list supported in UWC-v1.0 
 ------------------------------------
 *	Harden Modbus TCP protocol stack and application supporting soft real-time control 
 *	Harden Modbus RTU protocol stack and application supporting soft real-time control 
@@ -65,7 +71,7 @@
 *	Device Management with OTA (Over-The-Air) firmware, OS and Docker container update 
 
 ------------------------------------
-2.5 Changes to Existing Features 
+2.6 Changes to Existing Features 
 ------------------------------------
 *	In UWC-v1.6, Duplicate "cout" prints removed & replaced with UWC logger prints
 *	In UWC-v1.6, Updated readme for RT patch installation steps for ubuntu 20.04
@@ -73,7 +79,7 @@
 * In UWC-v1.6, KPI bugs on random KPI-app crashing, non-linearity of bad records versus control loop count addressed
 
 ------------------------------------
-2.6 Unsupported or Discontinued Features 
+2.7 Unsupported or Discontinued Features 
 ------------------------------------
 *	None 
 
