@@ -146,5 +146,6 @@ Build scripts descriptions–
     6.	06_UnitTestRun.sh - This script will generate unit test report and code coverage report.
 
 .. note::
+
 While a particular usecase is running & if user intends to change the usecase, then the script "./02_provision_UWC.sh" has to be re-run. This would kill (remove) all the containers of the existing use case & re-create the consolidated docker-compose.yml & consolidated eii_config.json file as per the new use case selected in "./02_provision_UWC.sh". Provisioning is also done as part of this script.
 "03_Build_Run_UWC.sh" script should be executed  post "02_provision_UWC.sh" is run, which would build the containers of the newly selected usecase.
