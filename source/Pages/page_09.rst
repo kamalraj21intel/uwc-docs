@@ -11,7 +11,19 @@ This section explains the features in detail. UWC gateway acts as a “node” a
 This section also explains how information from real device and virtual device is mapped to SparkPlug-formatted data.
 
 ------------------------------------------
-9.1 	App (virtual device) communication
+9.1 	App mode of communication
+------------------------------------------
+
+Sparkplug can communicate with rest of UWC containers by two ways eighter by MQTT mode (which is sparkplug-bridge -> mqtt-bridge -> EMB) or by EMB mode (which is sparkplug-bridge -> EMB).
+
+For communicating with MQTT, set enable_EMB as false in sparkplug-bridge/config.json
+
+For communicating with EMB, set enable_EMB as true in sparkplug-bridge/config.json
+
+For more details on EMB way, Please refer Vendor_Apps/README-VA.md 
+
+------------------------------------------
+9.2 	App (virtual device) communication
 ------------------------------------------
 
 Apps running on UWC platform can be represented as a SparkPlug device to SCADA Master. SCADA Master can monitor, control these apps using SparkPlug mechanism. Sparkplug-Bridge defines following to enable this communication between apps and SCADA Master:
@@ -30,7 +42,7 @@ CMD message: This corresponds to a SparkPlug DCMD message.
 Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.
 
 
-9.1.1 	App Message Topic Format
+9.2.1 	App Message Topic Format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MQTT Topic: MESSAGETYPE/APPID/SUBCLASS
@@ -45,7 +57,7 @@ Sparkplug-Bridge uses following format to represent name of virtual device in Sp
 
 [value of “APPID” from app message topic] + “-“ + [value of “SUBCLASS” from app message topic]
 
-9.1.2 	App Message - BIRTH
+9.2.2 	App Message - BIRTH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MQTT Topic: BIRTH/APPID/SUBCLASS
@@ -196,7 +208,7 @@ Following information is required as a part of “value” key when UDT type is 
     :align: center
 
 
-9.1.3 	App Message - DATA
+9.2.3 	App Message - DATA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MQTT Topic: DATA/APPID/SUBCLASS
@@ -277,7 +289,7 @@ Sparkplug-Bridge publishes a DDATA message to SCADA Master if value of any of �
    A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DATA message and BIRTH message shall match.
 
 
-9.1.4	App Message - CMD
+9.2.4	App Message - CMD
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MQTT Topic: CMD/APPID/SUBCLASS
@@ -353,7 +365,7 @@ Sparkplug-Bridge publishes a CMD message to the App if DCMD message is received 
    A “known metric” is one which was reported in BIRTH message. The name and datatype for a “known metric” in DCMD message and BIRTH message shall match.
 
 
-9.1.5 	App Message - DEATH
+9.2.5 	App Message - DEATH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MQTT Topic: DEATH/APPID
@@ -381,7 +393,7 @@ When App’s connection with MQTT broker breaks then this message is published.
 Sparkplug-Bridge publishes a DDEATH message to SCADA Master for all known SUBCLASS associated with the App. 
 
 
-9.1.6 	App Message - TemplateDef
+9.2.6 	App Message - TemplateDef
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MQTT Topic: TemplateDef
@@ -463,7 +475,7 @@ Data Flow:
 App should use this message to provide definition of a Sparkplug Template i.e., UDT. UDT definitions are published as a part of NBIRTH message. Hence, after receiving a UDT definition, Sparkplug-Bridge publishes NDEATH and then NBIRTH to SCADA-Master. 
 
 
-9.1.7 	START_BIRTH_PROCESS
+9.2.7 	START_BIRTH_PROCESS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MQTT Topic: START_BIRTH_PROCESS
@@ -495,24 +507,24 @@ This message is published by Sparkplug-Bridge over MQTT broker and subscribed by
 START_BIRTH_PROCESS message will be sent on restart of Sparkplug-Bridge container or whenever Sparkplug-Bridge container needs to refresh the data that it maintains for virtual devices.
 
 ------------------------------------------
-9.2 	Modbus (real) device communication
+9.3 	Modbus (real) device communication
 ------------------------------------------
 
 Modbus devices present in network are reported to SCADA Master using SparkPlug mechanism.
 
 Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.
 
-9.2.1 	Support for DBIRTH
+9.3.1 	Support for DBIRTH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Data from device YML configuration files is used to form a DBIRTH message for real devices at the start of Sparkplug-Bridge container. One datapoint YML file corresponds to one SparkPlug template definition. One real Modbus device contains one metric of type SparkPlug template. The SparkPlug template in turn contains all other metrics which correspond to datapoints mentioned in datapoints-YML file.
 
-9.2.2	Support for DDATA
+9.3.2	Support for DDATA
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine a change in value of any of metrics associated with a real device. If a change is detected, a DDATA message is published by Sparkplug-Bridge.
 
-9.2.3 	Support for DCMD
+9.3.3 	Support for DCMD
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 When a DCMD message is received from a SCADA Master for a real device for a “known metric”, then an on-demand write operation is initiated by SCADA and sent to MQTT-Bridge over internal MQTT.
@@ -522,18 +534,18 @@ When a DCMD message is received from a SCADA Master for a real device for a “k
    •	A “known metric” is one which is present in device YML configuration file. The name and datatype for a “known metric” in DCMD message and YML file shall match.
    •	A DCMD message can result in multiple on-demand write operations.
 
-9.2.4 	Support for DDEATH
+9.3.4 	Support for DDEATH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine whether a device is reachable or not, based on error_code. If device unreachable error-code is found, a DDEATH message is published by Sparkplug-Bridge. When correct values are found, a DBIRTH message is published.
 
 --------------------------
-9.3 	SparkPlug Messages
+9.4 	SparkPlug Messages
 --------------------------
 
 Refer SparkPlug standard for more information.
 
-9.3.1 	NBIRTH Message
+9.4.1 	NBIRTH Message
 ~~~~~~~~~~~~~~~~~~~~~~
 
 NBIRTH is Node-Birth.
@@ -717,7 +729,7 @@ Following are sample contents in simplified JSON format:
 
 }     
 
-9.3.2 	NDEATH Message
+9.4.2 	NDEATH Message
 ~~~~~~~~~~~~~~~~~~~~~~
 
 NDEATH is Node-Death.
@@ -760,7 +772,7 @@ Message:
 
 
 
-9.3.3 	DBIRTH Message
+9.4.3 	DBIRTH Message
 ~~~~~~~~~~~~~~~~~~~~~~
 
 DBIRTH is Device-Birth.
@@ -923,7 +935,7 @@ Following are sample contents in simplified JSON format for a Modbus device:
 
 }
 
-9.3.4 	DDEATH Message
+9.4.4 	DDEATH Message
 ~~~~~~~~~~~~~~~~~~~~~~
 
 DDEATH is Device-Death.
@@ -942,7 +954,7 @@ Following are sample contents in simplified JSON format:
 
 }
 
-9.3.5 	DDATA Message
+9.4.5 	DDATA Message
 ~~~~~~~~~~~~~~~~~~~~~
 
 DDATA is Device-Data.
@@ -1060,7 +1072,7 @@ Following is sample contents in simplified JSON format for a Modbus device with 
 }
 
 
-9.3.6 	NCMD Message
+9.4.6 	NCMD Message
 ~~~~~~~~~~~~~~~~~~~~
 
 NCMD is Node-Command.
