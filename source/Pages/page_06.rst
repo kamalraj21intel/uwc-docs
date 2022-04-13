@@ -132,12 +132,12 @@ MQTT clients should use above mentioned port for communication.
     1.	Open a terminal and execute following command to create local directory to keep certificates of MQTT broker,
         *mkdir ~/mqtt_certs && cd ~/mqtt_certs*
 
-        Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script *02_provision_UWC.sh* from 
-        *working_dir/IEdgeInsights/build/provision/Certificates/ directory*.
+        Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script *02_provision_build_UWC.sh* from 
+        *working_dir/IEdgeInsights/build/Certificates/ directory*.
 
         Command to copy ca/ and /mymqttcerts/ dir in local dir (i.e., mqtt_certs)
 
-        *sudo cp -r /<working_dir>/IEdgeInsights/build/provision/Certificates/ca ~/mqtt_certs/*
+        *sudo cp -r /<working_dir>/IEdgeInsights/build/Certificates/ca ~/mqtt_certs/*
 
     2.	Assign read permission to local certs using following command,
         sudo chown -R $USER:$USER  && sudo chmod +r ca/* mymqttcerts/*
@@ -146,7 +146,7 @@ MQTT clients should use above mentioned port for communication.
 
         Provide right access to certificates directory using below command – sudo chmod +x Certificates in 
 
-        *<working_dir>/IEdgeInsights/build/provision/Certificates*
+        *<working_dir>/IEdgeInsights/build/Certificates*
 
     3.	Open MQTT client e.g., MQTT.fx
 
