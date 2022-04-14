@@ -3,23 +3,32 @@
 ==================
 
 ---------------------------------------
-2.1 Feature list- supported in UWC-v1.5.1 (Hotfix Release)
----------------------------------------
+2.1 Feature list- supported in UWC-v2.0 
+--------------------------------------
 
-* UWCv1.5 rebased & migrated to EII v2.5.2. Follow the git clone commands as below:
+* All UWC micro-services/features ported to new UWC design following "new EMB (EII Msg bus) topic format".
+* The backward compatibility with older MQTT topic format is maintained.
+* Sparkplug-Bridge which historically was compatible with only MQTT-broker (bus) has now been ported to work with EMB (Eii Msg Bus).
+* Multi stage build support enabled for all UWC services. Hence, enabling reducing the build time &  image sizes of all UWC services drastically.
+* UWC docker images pushed to remote docker hub (hub.docker.com). Hence, giving an option for developers to either pull pre-built images directly from docker hub or locally build the container images.
+* New Recipe files are added to cover more usecases. 
+* Repo manifest based cloning enabled instead of git clone method. 
+* UWC codebase rebased on top of latest validated tag of EII - v3.0-RC3. Follow the git clone commands as below:
 
 .. code-block:: sh
 
-    •	git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch=v2.5.2
-    •	git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch=v2.5.2
-    •	git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch=v2.5.2
-    •   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch=v2.5.2
-    •	git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch=v1.5.1
-    •   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch=v1.5.1
-
+    •	repo init -u https://github.com/open-edge-insights/eii-manifests.git -b refs/tags/v2.0
+    •	repo init -m uwc.xml
+    •	repo sync
 
 ---------------------------------------
-2.2 Feature list- supported in UWC-v1.6.1 (Hotfix Release)
+2.2 Feature list- supported in UWC-v1.5.1 (Hotfix Release)
+---------------------------------------
+
+* UWCv1.5 rebased & migrated to EII v2.5.2.
+
+---------------------------------------
+2.3 Feature list- supported in UWC-v1.6.1 (Hotfix Release)
 ---------------------------------------
 
 * UWC migrated to EII v2.6.1
@@ -28,7 +37,7 @@
 *	Minor user guide & ReadMe updates   
 
 ---------------------------------------
-2.3 Feature list- supported in UWC-v1.6
+2.4 Feature list- supported in UWC-v1.6
 ---------------------------------------
 
 * Enabled Data Persistence feature in UWC
@@ -43,33 +52,23 @@
 .. note:: Build time will increase due to addition of two more components needed for data persistence depending on system configurations.
 
 ----------------------------------------
-2.4 Feature list- supported in UWC-v1.5
+2.5 Feature list- supported in UWC-v1.5
 ----------------------------------------
 *	Eclipse foundation Sparkplug standard Template feature support
-
-  	*  User Defined Template (UDT) definition and instance
-    
+  	*  User Defined Template (UDT) definition and instance 
   	*  Publish –Subscribe interface for third party App for publishing UTD and instances  
-    
 *	Seamless edge to cloud connectivity with AWS IoT site wise 
-
   	*  UDT publishing
-    
   	*  Realtime Tags update 
-    
-  	*  Realtime connection/disconnect update 
+    *  Realtime connection/disconnect update 
 *	Data Conversion and transformation 
-
-  *	Data ingested by Modbus services is converted to data type defined in the configuration
-  
-  *	Data ingested by Modbus services is transformed based on the scale factor defined in the configurations 
-  
+    *  Data ingested by Modbus services is converted to data type defined in the configuration
+    *  Data ingested by Modbus services is transformed based on the scale factor defined in the configurations   
 *	UWC migrated to EII 2.5 
-
 *	UWC open source with MIT license on GitHub 
 
 ------------------------------------
-2.5 Feature list supported in UWC-v1.0 
+2.6 Feature list supported in UWC-v1.0 
 ------------------------------------
 *	Harden Modbus TCP protocol stack and application supporting soft real-time control 
 *	Harden Modbus RTU protocol stack and application supporting soft real-time control 
@@ -81,7 +80,7 @@
 *	Device Management with OTA (Over-The-Air) firmware, OS and Docker container update 
 
 ------------------------------------
-2.6 Changes to Existing Features 
+2.7 Changes to Existing Features 
 ------------------------------------
 *	In UWC-v1.6, Duplicate "cout" prints removed & replaced with UWC logger prints
 *	In UWC-v1.6, Updated readme for RT patch installation steps for ubuntu 20.04
@@ -89,7 +88,7 @@
 * In UWC-v1.6, KPI bugs on random KPI-app crashing, non-linearity of bad records versus control loop count addressed
 
 ------------------------------------
-2.7 Unsupported or Discontinued Features 
+2.8 Unsupported or Discontinued Features 
 ------------------------------------
 *	None 
 

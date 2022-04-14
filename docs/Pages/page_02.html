@@ -47,13 +47,13 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2.0 Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-5-1-hotfix-release">2.1 Feature list- supported in UWC-v1.5.1 (Hotfix Release)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-6-1-hotfix-release">2.2 Feature list- supported in UWC-v1.6.1 (Hotfix Release)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-6">2.3 Feature list- supported in UWC-v1.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-5">2.4 Feature list- supported in UWC-v1.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-0">2.5 Feature list supported in UWC-v1.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#changes-to-existing-features">2.6 Changes to Existing Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unsupported-or-discontinued-features">2.7 Unsupported or Discontinued Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-5-1-hotfix-release">2.2 Feature list- supported in UWC-v1.5.1 (Hotfix Release)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-6-1-hotfix-release">2.3 Feature list- supported in UWC-v1.6.1 (Hotfix Release)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-6">2.4 Feature list- supported in UWC-v1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-5">2.5 Feature list- supported in UWC-v1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-0">2.6 Feature list supported in UWC-v1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-to-existing-features">2.7 Changes to Existing Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unsupported-or-discontinued-features">2.8 Unsupported or Discontinued Features</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_03.html">3.0  Before Installation</a><ul>
@@ -210,22 +210,29 @@
              
   <section id="release-notes">
 <h1>2.0 Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline"></a></h1>
-<section id="feature-list-supported-in-uwc-v1-5-1-hotfix-release">
-<h2>2.1 Feature list- supported in UWC-v1.5.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-uwc-v1-5-1-hotfix-release" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p>UWCv1.5 rebased &amp; migrated to EII v2.5.2. Follow the git clone commands as below:</p></li>
+<li><p>All UWC micro-services/features ported to new UWC design following “new EMB (EII Msg bus) topic format”.</p></li>
+<li><p>The backward compatibility with older MQTT topic format is maintained.</p></li>
+<li><p>Sparkplug-Bridge which historically was compatible with only MQTT-broker (bus) has now been ported to work with EMB (Eii Msg Bus).</p></li>
+<li><p>Multi stage build support enabled for all UWC services. Hence, enabling reducing the build time &amp;  image sizes of all UWC services drastically.</p></li>
+<li><p>UWC docker images pushed to remote docker hub (hub.docker.com). Hence, giving an option for developers to either pull pre-built images directly from docker hub or locally build the container images.</p></li>
+<li><p>New Recipe files are added to cover more usecases.</p></li>
+<li><p>Repo manifest based cloning enabled instead of git clone method.</p></li>
+<li><p>UWC codebase rebased on top of latest validated tag of EII - v3.0-RC3. Follow the git clone commands as below:</p></li>
 </ul>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch<span class="o">=</span>v2.5.2
-•   git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch<span class="o">=</span>v2.5.2
-•   git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch<span class="o">=</span>v2.5.2
-•   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch<span class="o">=</span>v2.5.2
-•   git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch<span class="o">=</span>v1.5.1
-•   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch<span class="o">=</span>v1.5.1
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   repo init -u https://github.com/open-edge-insights/eii-manifests.git -b refs/tags/v2.0
+•   repo init -m uwc.xml
+•   repo sync
 </pre></div>
 </div>
+<section id="feature-list-supported-in-uwc-v1-5-1-hotfix-release">
+<h2>2.2 Feature list- supported in UWC-v1.5.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-uwc-v1-5-1-hotfix-release" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>UWCv1.5 rebased &amp; migrated to EII v2.5.2.</p></li>
+</ul>
 </section>
 <section id="feature-list-supported-in-uwc-v1-6-1-hotfix-release">
-<h2>2.2 Feature list- supported in UWC-v1.6.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-uwc-v1-6-1-hotfix-release" title="Permalink to this headline"></a></h2>
+<h2>2.3 Feature list- supported in UWC-v1.6.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-uwc-v1-6-1-hotfix-release" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>UWC migrated to EII v2.6.1</p></li>
 <li><p>Fixed issue of high number of recursive queries hiting DNS server</p></li>
@@ -234,7 +241,7 @@
 </ul>
 </section>
 <section id="feature-list-supported-in-uwc-v1-6">
-<h2>2.3 Feature list- supported in UWC-v1.6<a class="headerlink" href="#feature-list-supported-in-uwc-v1-6" title="Permalink to this headline"></a></h2>
+<h2>2.4 Feature list- supported in UWC-v1.6<a class="headerlink" href="#feature-list-supported-in-uwc-v1-6" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Enabled Data Persistence feature in UWC</dt><dd><ul>
@@ -256,21 +263,21 @@
 </div>
 </section>
 <section id="feature-list-supported-in-uwc-v1-5">
-<h2>2.4 Feature list- supported in UWC-v1.5<a class="headerlink" href="#feature-list-supported-in-uwc-v1-5" title="Permalink to this headline"></a></h2>
+<h2>2.5 Feature list- supported in UWC-v1.5<a class="headerlink" href="#feature-list-supported-in-uwc-v1-5" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p>Eclipse foundation Sparkplug standard Template feature support</p>
-<ul>
-<li><p>User Defined Template (UDT) definition and instance</p></li>
-<li><p>Publish –Subscribe interface for third party App for publishing UTD and instances</p></li>
+<li><p>Eclipse foundation Sparkplug standard Template feature support
+*  User Defined Template (UDT) definition and instance
+*  Publish –Subscribe interface for third party App for publishing UTD and instances</p></li>
+<li><p>Seamless edge to cloud connectivity with AWS IoT site wise
+*  UDT publishing
+*  Realtime Tags update</p></li>
 </ul>
-</li>
-<li><p>Seamless edge to cloud connectivity with AWS IoT site wise</p>
-<ul>
-<li><p>UDT publishing</p></li>
-<li><p>Realtime Tags update</p></li>
+<blockquote>
+<div><ul class="simple">
 <li><p>Realtime connection/disconnect update</p></li>
 </ul>
-</li>
+</div></blockquote>
+<ul class="simple">
 <li><p>Data Conversion and transformation</p></li>
 </ul>
 <blockquote>
@@ -285,7 +292,7 @@
 </ul>
 </section>
 <section id="feature-list-supported-in-uwc-v1-0">
-<h2>2.5 Feature list supported in UWC-v1.0<a class="headerlink" href="#feature-list-supported-in-uwc-v1-0" title="Permalink to this headline"></a></h2>
+<h2>2.6 Feature list supported in UWC-v1.0<a class="headerlink" href="#feature-list-supported-in-uwc-v1-0" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Harden Modbus TCP protocol stack and application supporting soft real-time control</p></li>
 <li><p>Harden Modbus RTU protocol stack and application supporting soft real-time control</p></li>
@@ -298,7 +305,7 @@
 </ul>
 </section>
 <section id="changes-to-existing-features">
-<h2>2.6 Changes to Existing Features<a class="headerlink" href="#changes-to-existing-features" title="Permalink to this headline"></a></h2>
+<h2>2.7 Changes to Existing Features<a class="headerlink" href="#changes-to-existing-features" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>In UWC-v1.6, Duplicate “cout” prints removed &amp; replaced with UWC logger prints</p></li>
 <li><p>In UWC-v1.6, Updated readme for RT patch installation steps for ubuntu 20.04</p></li>
@@ -307,7 +314,7 @@
 </ul>
 </section>
 <section id="unsupported-or-discontinued-features">
-<h2>2.7 Unsupported or Discontinued Features<a class="headerlink" href="#unsupported-or-discontinued-features" title="Permalink to this headline"></a></h2>
+<h2>2.8 Unsupported or Discontinued Features<a class="headerlink" href="#unsupported-or-discontinued-features" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>None</p></li>
 </ul>
