@@ -132,30 +132,31 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">9.0     Sparkplug-Bridge Operations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#app-virtual-device-communication">9.1     App (virtual device) communication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#app-message-topic-format">9.1.1   App Message Topic Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#app-message-birth">9.1.2   App Message - BIRTH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#app-message-data">9.1.3   App Message - DATA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#app-message-cmd">9.1.4   App Message - CMD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#app-message-death">9.1.5   App Message - DEATH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#app-message-templatedef">9.1.6   App Message - TemplateDef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start-birth-process">9.1.7   START_BIRTH_PROCESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-mode-of-communication">9.1     App mode of communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-virtual-device-communication">9.2     App (virtual device) communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app-message-topic-format">9.2.1   App Message Topic Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-message-birth">9.2.2   App Message - BIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-message-data">9.2.3   App Message - DATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-message-cmd">9.2.4   App Message - CMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-message-death">9.2.5   App Message - DEATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-message-templatedef">9.2.6   App Message - TemplateDef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-birth-process">9.2.7   START_BIRTH_PROCESS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#modbus-real-device-communication">9.2     Modbus (real) device communication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#support-for-dbirth">9.2.1   Support for DBIRTH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#support-for-ddata">9.2.2   Support for DDATA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#support-for-dcmd">9.2.3   Support for DCMD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#support-for-ddeath">9.2.4   Support for DDEATH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modbus-real-device-communication">9.3     Modbus (real) device communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#support-for-dbirth">9.3.1   Support for DBIRTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#support-for-ddata">9.3.2   Support for DDATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#support-for-dcmd">9.3.3   Support for DCMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#support-for-ddeath">9.3.4   Support for DDEATH</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#sparkplug-messages">9.3     SparkPlug Messages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#nbirth-message">9.3.1   NBIRTH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ndeath-message">9.3.2   NDEATH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dbirth-message">9.3.3   DBIRTH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ddeath-message">9.3.4   DDEATH Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ddata-message">9.3.5   DDATA Message</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ncmd-message">9.3.6   NCMD Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sparkplug-messages">9.4     SparkPlug Messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nbirth-message">9.4.1   NBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ndeath-message">9.4.2   NDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dbirth-message">9.4.3   DBIRTH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ddeath-message">9.4.4   DDEATH Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ddata-message">9.4.5   DDATA Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ncmd-message">9.4.6   NCMD Message</a></li>
 </ul>
 </li>
 </ul>
@@ -213,8 +214,19 @@
 <p><strong>Refer:</strong> <a class="reference external" href="https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf">https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf</a></p>
 <p>This section explains the features in detail. UWC gateway acts as a “node” as per SparkPlug standard. Please note that Sparkplug-Bridge is an under-development feature and hence not all message types are supported from SparkPlug.</p>
 <p>This section also explains how information from real device and virtual device is mapped to SparkPlug-formatted data.</p>
+<section id="app-mode-of-communication">
+<h2>9.1     App mode of communication<a class="headerlink" href="#app-mode-of-communication" title="Permalink to this headline"></a></h2>
+<p>Sparkplug can communicate with rest of UWC containers by two ways either:
+1. By MQTT mode (which is sparkplug-bridge -&gt; internal-mqtt-Broker -&gt; mqtt-bridge -&gt; EMB)</p>
+<ol class="arabic simple" start="2">
+<li><p>By EMB mode (which is sparkplug-bridge -&gt; EMB).</p></li>
+</ol>
+<p>For communicating with MQTT, set “enable_EMB” as “false” in “sparkplug-bridge/config.json” file.</p>
+<p>For communicating with EMB, set “enable_EMB” as “true” in “sparkplug-bridge/config.json” file.</p>
+<p>For more details on EMB way, Please refer Vendor_Apps/README-VA.md</p>
+</section>
 <section id="app-virtual-device-communication">
-<h2>9.1     App (virtual device) communication<a class="headerlink" href="#app-virtual-device-communication" title="Permalink to this headline"></a></h2>
+<h2>9.2     App (virtual device) communication<a class="headerlink" href="#app-virtual-device-communication" title="Permalink to this headline"></a></h2>
 <p>Apps running on UWC platform can be represented as a SparkPlug device to SCADA Master. SCADA Master can monitor, control these apps using SparkPlug mechanism. Sparkplug-Bridge defines following to enable this communication between apps and SCADA Master:</p>
 <p>TemplateDef message: This allows providing a definition for a Sparkplug Template i.e., UDT</p>
 <p>BIRTH message: This corresponds to a SparkPlug DBIRTH message.</p>
@@ -223,7 +235,7 @@
 <p>CMD message: This corresponds to a SparkPlug DCMD message.</p>
 <p>Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.</p>
 <section id="app-message-topic-format">
-<h3>9.1.1   App Message Topic Format<a class="headerlink" href="#app-message-topic-format" title="Permalink to this headline"></a></h3>
+<h3>9.2.1   App Message Topic Format<a class="headerlink" href="#app-message-topic-format" title="Permalink to this headline"></a></h3>
 <p>MQTT Topic: MESSAGETYPE/APPID/SUBCLASS</p>
 <p>Where,</p>
 <ul class="simple">
@@ -235,7 +247,7 @@
 <p>[value of “APPID” from app message topic] + “-“ + [value of “SUBCLASS” from app message topic]</p>
 </section>
 <section id="app-message-birth">
-<h3>9.1.2   App Message - BIRTH<a class="headerlink" href="#app-message-birth" title="Permalink to this headline"></a></h3>
+<h3>9.2.2   App Message - BIRTH<a class="headerlink" href="#app-message-birth" title="Permalink to this headline"></a></h3>
 <p>MQTT Topic: BIRTH/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
@@ -343,7 +355,7 @@
 </figure>
 </section>
 <section id="app-message-data">
-<h3>9.1.3   App Message - DATA<a class="headerlink" href="#app-message-data" title="Permalink to this headline"></a></h3>
+<h3>9.2.3   App Message - DATA<a class="headerlink" href="#app-message-data" title="Permalink to this headline"></a></h3>
 <p>MQTT Topic: DATA/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
@@ -401,7 +413,7 @@
 </div>
 </section>
 <section id="app-message-cmd">
-<h3>9.1.4   App Message - CMD<a class="headerlink" href="#app-message-cmd" title="Permalink to this headline"></a></h3>
+<h3>9.2.4   App Message - CMD<a class="headerlink" href="#app-message-cmd" title="Permalink to this headline"></a></h3>
 <p>MQTT Topic: CMD/APPID/SUBCLASS</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
@@ -455,7 +467,7 @@
 </div>
 </section>
 <section id="app-message-death">
-<h3>9.1.5   App Message - DEATH<a class="headerlink" href="#app-message-death" title="Permalink to this headline"></a></h3>
+<h3>9.2.5   App Message - DEATH<a class="headerlink" href="#app-message-death" title="Permalink to this headline"></a></h3>
 <p>MQTT Topic: DEATH/APPID</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains the following fields:</p>
@@ -473,7 +485,7 @@
 <p>Sparkplug-Bridge publishes a DDEATH message to SCADA Master for all known SUBCLASS associated with the App.</p>
 </section>
 <section id="app-message-templatedef">
-<h3>9.1.6   App Message - TemplateDef<a class="headerlink" href="#app-message-templatedef" title="Permalink to this headline"></a></h3>
+<h3>9.2.6   App Message - TemplateDef<a class="headerlink" href="#app-message-templatedef" title="Permalink to this headline"></a></h3>
 <p>MQTT Topic: TemplateDef</p>
 <p>Message format:</p>
 <p>It is a JSON format message which contains a list of metrics having following fields:</p>
@@ -532,7 +544,7 @@
 <p>App should use this message to provide definition of a Sparkplug Template i.e., UDT. UDT definitions are published as a part of NBIRTH message. Hence, after receiving a UDT definition, Sparkplug-Bridge publishes NDEATH and then NBIRTH to SCADA-Master.</p>
 </section>
 <section id="start-birth-process">
-<h3>9.1.7   START_BIRTH_PROCESS<a class="headerlink" href="#start-birth-process" title="Permalink to this headline"></a></h3>
+<h3>9.2.7   START_BIRTH_PROCESS<a class="headerlink" href="#start-birth-process" title="Permalink to this headline"></a></h3>
 <p>MQTT Topic: START_BIRTH_PROCESS</p>
 <p>Message format:</p>
 <p>It is an empty JSON format message:</p>
@@ -562,19 +574,19 @@
 </section>
 </section>
 <section id="modbus-real-device-communication">
-<h2>9.2     Modbus (real) device communication<a class="headerlink" href="#modbus-real-device-communication" title="Permalink to this headline"></a></h2>
+<h2>9.3     Modbus (real) device communication<a class="headerlink" href="#modbus-real-device-communication" title="Permalink to this headline"></a></h2>
 <p>Modbus devices present in network are reported to SCADA Master using SparkPlug mechanism.</p>
 <p>Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.</p>
 <section id="support-for-dbirth">
-<h3>9.2.1   Support for DBIRTH<a class="headerlink" href="#support-for-dbirth" title="Permalink to this headline"></a></h3>
+<h3>9.3.1   Support for DBIRTH<a class="headerlink" href="#support-for-dbirth" title="Permalink to this headline"></a></h3>
 <p>Data from device YML configuration files is used to form a DBIRTH message for real devices at the start of Sparkplug-Bridge container. One datapoint YML file corresponds to one SparkPlug template definition. One real Modbus device contains one metric of type SparkPlug template. The SparkPlug template in turn contains all other metrics which correspond to datapoints mentioned in datapoints-YML file.</p>
 </section>
 <section id="support-for-ddata">
-<h3>9.2.2   Support for DDATA<a class="headerlink" href="#support-for-ddata" title="Permalink to this headline"></a></h3>
+<h3>9.3.2   Support for DDATA<a class="headerlink" href="#support-for-ddata" title="Permalink to this headline"></a></h3>
 <p>Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine a change in value of any of metrics associated with a real device. If a change is detected, a DDATA message is published by Sparkplug-Bridge.</p>
 </section>
 <section id="support-for-dcmd">
-<h3>9.2.3   Support for DCMD<a class="headerlink" href="#support-for-dcmd" title="Permalink to this headline"></a></h3>
+<h3>9.3.3   Support for DCMD<a class="headerlink" href="#support-for-dcmd" title="Permalink to this headline"></a></h3>
 <p>When a DCMD message is received from a SCADA Master for a real device for a “known metric”, then an on-demand write operation is initiated by SCADA and sent to MQTT-Bridge over internal MQTT.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -585,15 +597,15 @@
 </div>
 </section>
 <section id="support-for-ddeath">
-<h3>9.2.4   Support for DDEATH<a class="headerlink" href="#support-for-ddeath" title="Permalink to this headline"></a></h3>
+<h3>9.3.4   Support for DDEATH<a class="headerlink" href="#support-for-ddeath" title="Permalink to this headline"></a></h3>
 <p>Data from polling operation published by MQTT-Bridge over internal MQTT is used to determine whether a device is reachable or not, based on error_code. If device unreachable error-code is found, a DDEATH message is published by Sparkplug-Bridge. When correct values are found, a DBIRTH message is published.</p>
 </section>
 </section>
 <section id="sparkplug-messages">
-<h2>9.3     SparkPlug Messages<a class="headerlink" href="#sparkplug-messages" title="Permalink to this headline"></a></h2>
+<h2>9.4     SparkPlug Messages<a class="headerlink" href="#sparkplug-messages" title="Permalink to this headline"></a></h2>
 <p>Refer SparkPlug standard for more information.</p>
 <section id="nbirth-message">
-<h3>9.3.1   NBIRTH Message<a class="headerlink" href="#nbirth-message" title="Permalink to this headline"></a></h3>
+<h3>9.4.1   NBIRTH Message<a class="headerlink" href="#nbirth-message" title="Permalink to this headline"></a></h3>
 <p>NBIRTH is Node-Birth.</p>
 <p>On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.</p>
 <p>For Modbus real device, one datapoint YML file corresponds to one SparkPlug template. These template definitions are sent in NBIRTH message. DBIRTH message for Modbus device specifies a particular SparkPlug template.</p>
@@ -727,7 +739,7 @@
 <p>}</p>
 </section>
 <section id="ndeath-message">
-<h3>9.3.2   NDEATH Message<a class="headerlink" href="#ndeath-message" title="Permalink to this headline"></a></h3>
+<h3>9.4.2   NDEATH Message<a class="headerlink" href="#ndeath-message" title="Permalink to this headline"></a></h3>
 <p>NDEATH is Node-Death.</p>
 <p>Whenever Sparkplug-Bridge module’s connection with MQTT broker breaks, the MQTT broker publishes this message. The message is published in text format.</p>
 <p>Following are sample contents in simplified JSON format:</p>
@@ -757,7 +769,7 @@
 <p>}</p>
 </section>
 <section id="dbirth-message">
-<h3>9.3.3   DBIRTH Message<a class="headerlink" href="#dbirth-message" title="Permalink to this headline"></a></h3>
+<h3>9.4.3   DBIRTH Message<a class="headerlink" href="#dbirth-message" title="Permalink to this headline"></a></h3>
 <p>DBIRTH is Device-Birth.</p>
 <p>On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.</p>
 <p>Following are sample contents in simplified JSON format for a Modbus device:</p>
@@ -879,7 +891,7 @@
 <p>}</p>
 </section>
 <section id="ddeath-message">
-<h3>9.3.4   DDEATH Message<a class="headerlink" href="#ddeath-message" title="Permalink to this headline"></a></h3>
+<h3>9.4.4   DDEATH Message<a class="headerlink" href="#ddeath-message" title="Permalink to this headline"></a></h3>
 <p>DDEATH is Device-Death.</p>
 <p>Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects that device is not reachable. The message is published in SparkPlug encoded format.</p>
 <p>Following are sample contents in simplified JSON format:</p>
@@ -890,7 +902,7 @@
 <p>}</p>
 </section>
 <section id="ddata-message">
-<h3>9.3.5   DDATA Message<a class="headerlink" href="#ddata-message" title="Permalink to this headline"></a></h3>
+<h3>9.4.5   DDATA Message<a class="headerlink" href="#ddata-message" title="Permalink to this headline"></a></h3>
 <p>DDATA is Device-Data.</p>
 <p>Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects a change in value of any of metrics of devices. The message is published in SparkPlug encoded format.</p>
 <p>Following are sample contents in simplified JSON format for a Modbus device:</p>
@@ -976,7 +988,7 @@
 <p>}</p>
 </section>
 <section id="ncmd-message">
-<h3>9.3.6   NCMD Message<a class="headerlink" href="#ncmd-message" title="Permalink to this headline"></a></h3>
+<h3>9.4.6   NCMD Message<a class="headerlink" href="#ncmd-message" title="Permalink to this headline"></a></h3>
 <p>NCMD is Node-Command.</p>
 <p>SCADA Master can tell edge node to reinitiate the node birth process. The node starts publishing NBIRTH, DBIRTH messages after receiving NCMD.</p>
 <p>Following are sample contents in simplified JSON format:</p>
