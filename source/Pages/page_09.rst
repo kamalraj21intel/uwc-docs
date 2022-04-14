@@ -14,11 +14,14 @@ This section also explains how information from real device and virtual device i
 9.1 	App mode of communication
 ------------------------------------------
 
-Sparkplug can communicate with rest of UWC containers by two ways eighter by MQTT mode (which is sparkplug-bridge -> mqtt-bridge -> EMB) or by EMB mode (which is sparkplug-bridge -> EMB).
+Sparkplug can communicate with rest of UWC containers by two ways either:
+1. By MQTT mode (which is sparkplug-bridge -> mqtt-bridge -> EMB) 
 
-For communicating with MQTT, set enable_EMB as false in sparkplug-bridge/config.json
+2. By EMB mode (which is sparkplug-bridge -> EMB).
 
-For communicating with EMB, set enable_EMB as true in sparkplug-bridge/config.json
+For communicating with MQTT, set "enable_EMB" as "false" in "sparkplug-bridge/config.json" file.
+
+For communicating with EMB, set "enable_EMB" as "true" in "sparkplug-bridge/config.json" file.
 
 For more details on EMB way, Please refer Vendor_Apps/README-VA.md 
 
