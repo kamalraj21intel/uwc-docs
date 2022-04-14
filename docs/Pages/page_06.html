@@ -85,7 +85,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">6.0  Container Configuration setting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#containers">6.1  Containers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#common-configuration-for-modbus-client-containers">6.1.1  Common Configuration for Modbus Client Containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configuration-foodbus-network">6.1.2  Configuration foodbus network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-modbus-network">6.1.2  Configuration Modbus network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#modbus-tcp-communication">6.2             Modbus TCP Communication</a></li>
@@ -223,7 +223,7 @@
 </ul>
 </dd>
 </dl>
-<p>For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_UWC.sh..</p>
+<p>For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_build_UWC.sh..</p>
 <p>For more details, please refer README provided in EII documentation.</p>
 <p>Path for README – <a class="reference external" href="https://github.com/open-edge-insights/eii-core/blob/master/README.md">https://github.com/open-edge-insights/eii-core/blob/master/README.md</a></p>
 <p>UWC containers (i.e., Modbus Clients and MQTT-Bridge) use ZeroMQ to communicate with each other.</p>
@@ -251,8 +251,8 @@
 </dd>
 </dl>
 </section>
-<section id="configuration-foodbus-network">
-<h3>6.1.2  Configuration foodbus network<a class="headerlink" href="#configuration-foodbus-network" title="Permalink to this headline"></a></h3>
+<section id="configuration-modbus-network">
+<h3>6.1.2  Configuration Modbus network<a class="headerlink" href="#configuration-modbus-network" title="Permalink to this headline"></a></h3>
 <p>A separate network configuration YML file is maintained for each network. E.g., If there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -267,7 +267,7 @@
 </dd>
 </dl>
 <figure class="align-center">
-<a class="reference internal image-reference" href="Pages/Doc_Images/table4.png"><img alt="Pages/Doc_Images/table4.png" src="Pages/Doc_Images/table4.png" /></a>
+<a class="reference internal image-reference" href="../_images/table8_4_updated.png"><img alt="../_images/table8_4_updated.png" src="../_images/table8_4_updated.png" style="width: 650.4000000000001px; height: 665.6px;" /></a>
 </figure>
 </section>
 </section>
@@ -305,16 +305,16 @@
 <div><ol class="arabic">
 <li><p>Open a terminal and execute following command to create local directory to keep certificates of MQTT broker,
 <em>mkdir ~/mqtt_certs &amp;&amp; cd ~/mqtt_certs</em></p>
-<p>Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script <em>02_provision_UWC.sh</em> from
-<em>working_dir/IEdgeInsights/build/provision/Certificates/ directory</em>.</p>
+<p>Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script <em>02_provision_build_UWC.sh</em> from
+<em>working_dir/IEdgeInsights/build/Certificates/ directory</em>.</p>
 <p>Command to copy ca/ and /mymqttcerts/ dir in local dir (i.e., mqtt_certs)</p>
-<p><em>sudo cp -r /&lt;working_dir&gt;/IEdgeInsights/build/provision/Certificates/ca ~/mqtt_certs/</em></p>
+<p><em>sudo cp -r /&lt;working_dir&gt;/IEdgeInsights/build/Certificates/ca ~/mqtt_certs/</em></p>
 </li>
 <li><p>Assign read permission to local certs using following command,
 sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 <p><strong>Please Note:</strong> Read permissions are only required for ca/ and /mymqttcerts directories present inside mqtt_certs directory copied in step2.</p>
 <p>Provide right access to certificates directory using below command – sudo chmod +x Certificates in</p>
-<p><em>&lt;working_dir&gt;/IEdgeInsights/build/provision/Certificates</em></p>
+<p><em>&lt;working_dir&gt;/IEdgeInsights/build/Certificates</em></p>
 </li>
 <li><p>Open MQTT client e.g., MQTT.fx</p></li>
 <li><p>Open the connection setting and click on SSL/TLS tab.</p>

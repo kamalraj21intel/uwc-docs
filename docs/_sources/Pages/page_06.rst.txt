@@ -16,7 +16,7 @@ Following containers are developed under UWC:
     •	Sparkplug-Bridge
     •	KPI Application
 
-For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_UWC.sh..
+For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_build_UWC.sh..
 
 For more details, please refer README provided in EII documentation.
 
@@ -64,7 +64,7 @@ Example for Modbus-TCP-Master container from docker-compose.yml file:
     DEVICES_GROUP_LIST_FILE_NAME: "Devices_group_list.yml"
 
 
-6.1.2  Configuration foodbus network
+6.1.2  Configuration Modbus network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A separate network configuration YML file is maintained for each network. E.g., If there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:
@@ -82,7 +82,7 @@ For Modbus RTU master, following additional configurations are needed apart from
 
     com_port_name: "/dev/ttyS0"
 
-.. figure:: Doc_Images/table4.png
+.. figure:: Doc_Images/table8_4_updated.png
     :scale: 80 %
     :align: center
 
@@ -132,12 +132,12 @@ MQTT clients should use above mentioned port for communication.
     1.	Open a terminal and execute following command to create local directory to keep certificates of MQTT broker,
         *mkdir ~/mqtt_certs && cd ~/mqtt_certs*
 
-        Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script *02_provision_UWC.sh* from 
-        *working_dir/IEdgeInsights/build/provision/Certificates/ directory*.
+        Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script *02_provision_build_UWC.sh* from 
+        *working_dir/IEdgeInsights/build/Certificates/ directory*.
 
         Command to copy ca/ and /mymqttcerts/ dir in local dir (i.e., mqtt_certs)
 
-        *sudo cp -r /<working_dir>/IEdgeInsights/build/provision/Certificates/ca ~/mqtt_certs/*
+        *sudo cp -r /<working_dir>/IEdgeInsights/build/Certificates/ca ~/mqtt_certs/*
 
     2.	Assign read permission to local certs using following command,
         sudo chown -R $USER:$USER  && sudo chmod +r ca/* mymqttcerts/*
@@ -146,7 +146,7 @@ MQTT clients should use above mentioned port for communication.
 
         Provide right access to certificates directory using below command – sudo chmod +x Certificates in 
 
-        *<working_dir>/IEdgeInsights/build/provision/Certificates*
+        *<working_dir>/IEdgeInsights/build/Certificates*
 
     3.	Open MQTT client e.g., MQTT.fx
 
