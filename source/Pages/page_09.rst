@@ -15,7 +15,7 @@ This section also explains how information from real device and virtual device i
 ------------------------------------------
 
 Sparkplug can communicate with rest of UWC containers by two ways either:
-1. By MQTT mode (which is sparkplug-bridge -> mqtt-bridge -> EMB) 
+1. By MQTT mode (which is sparkplug-bridge -> internal-mqtt-Broker -> mqtt-bridge -> EMB) 
 
 2. By EMB mode (which is sparkplug-bridge -> EMB).
 
