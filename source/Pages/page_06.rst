@@ -16,7 +16,7 @@ Following containers are developed under UWC:
     •	Sparkplug-Bridge
     •	KPI Application
 
-For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_UWC.sh..
+For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_build_UWC.sh..
 
 For more details, please refer README provided in EII documentation.
 
@@ -64,7 +64,7 @@ Example for Modbus-TCP-Master container from docker-compose.yml file:
     DEVICES_GROUP_LIST_FILE_NAME: "Devices_group_list.yml"
 
 
-6.1.2  Configuration foodbus network
+6.1.2  Configuration Modbus network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A separate network configuration YML file is maintained for each network. E.g., If there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:
@@ -82,7 +82,7 @@ For Modbus RTU master, following additional configurations are needed apart from
 
     com_port_name: "/dev/ttyS0"
 
-.. figure:: Doc_Images/table4.png
+.. figure:: Doc_Images/table8_4_updated.png
     :scale: 80 %
     :align: center
 
