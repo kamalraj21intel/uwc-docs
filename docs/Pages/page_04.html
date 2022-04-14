@@ -220,16 +220,9 @@
 <li><p>Install Ubuntu 20.04 server version on gateway and Apply RT Patch (refer section 14).</p></li>
 <li><p>Git clone in following order will place the directories in proper relative directory  structure</p></li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   git clone https://github.com/open-edge-insights/eii-core.git IEdgeInsights --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/eii-messagebus.git IEdgeInsights/common/libs/EIIMessageBus --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/eii-c-utils.git IEdgeInsights/common/util/c --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/eii-zmq-broker.git IEdgeInsights/ZmqBroker --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/ts-telegraf.git IEdgeInsights/Telegraf --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/eii-influxdb-connector.git IEdgeInsights/InfluxDBConnector --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/eii-etcd-ui.git IEdgeInsights/EtcdUI --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/eii-tools.git IEdgeInsights/tools --branch<span class="o">=</span>v2.6.1
-•   git clone https://github.com/open-edge-insights/uwc.git  IEdgeInsights/uwc  --branch<span class="o">=</span>v1.6.1
-•   git clone https://github.com/open-edge-insights/uwc-docs.git IEdgeInsights/uwc-docs --branch<span class="o">=</span>v1.6.1
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   repo init -u https://github.com/open-edge-insights/eii-manifests.git -b refs/tags/v2.0
+•   repo init -m uwc.xml
+•   repo sync
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -248,7 +241,7 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 <ol class="arabic simple" start="5">
 <li><p>Navigate to &lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts.</p></li>
 <li><p>Execute Command $ sudo -E ./01_uwc_pre_requisites.sh</p></li>
-<li><p>Execute Command $ sudo -E ./02_provision_UWC.sh</p></li>
+<li><p>Execute Command $ sudo -E ./02_provision_build_UWC.sh</p></li>
 </ol>
 <p>It prompts these options –</p>
 <ul class="simple">
@@ -265,34 +258,39 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 </ul>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>Basic UWC micro-services without KPI-tactic Application &amp; Sparkplug-Bridge - (Modbus-master TCP &amp; RTU, mqtt-bridge, internal mqtt broker, ETCD server, ETCD UI &amp; other base EII &amp; UWC services)</p></li>
+<li><p>Basic UWC micro-services without KPI-tactic Application &amp; Sparkplug-Bridge - (Modbus-master TCP &amp; RTU, mqtt-bridge, internal mqtt broker, ETCD server, ETCD UI &amp;        other base EII &amp; UWC services)</p></li>
 <li><p>Basic UWC micro-services as in option 1 along with KPI-tactic Application (Without Sparkplug-Bridge)</p></li>
-<li><p>Basic UWC micro-services &amp; KPI-tactic Application along with Sparkplug-Bridge</p></li>
-<li><p>Basic UWC micro-services with Sparkplug-Bridge and no KPI-tactic Application</p></li>
+<li><p>Basic UWC micro-services &amp; KPI-tactic Application along with Sparkplug-Bridge, Sample SamplePublisher and Sample SampleSubscriber</p></li>
+<li><p>Basic UWC micro-services with Sparkplug-Bridge, Sample SamplePublisher and Sample SampleSubscriber and no KPI-tactic Application</p></li>
 <li><p>Basic UWC micro-services with Time series micro-services (Telegraf &amp; InfluxDBConnector)</p></li>
 <li><p>Running Basic UWC micro-services with time series services (Telegraf &amp; InfluxDBCOnnector) along with KPI-tactic app</p></li>
-<li><p>Running Basic UWC micro-services with time series services (Telegraf &amp; InfluxDBCOnnector) along with Sparkplug service</p></li>
-<li><p>Running the sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker &amp; Etcd container</p></li>
+<li><p>Running Basic UWC micro-services with time series services (Telegraf &amp; InfluxDBCOnnector) along with Sparkplug service, Sample SamplePublisher and Sample              SampleSubscriber</p></li>
+<li><p>Running the Sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker &amp; Etcd container.</p></li>
+<li><p>Basic UWC micro-services with Sample SamplePublisher and Sample SampleSubscriber.</p></li>
+<li><p>All modules UWC modules, KPI-tactic Application, SPARKPLUG-BRIDGE, Telegraf, InfluxDBCOnnector, ZmqBroker, Etcd container, Sample SamplePublisher and Sample           SampleSubscriber</p></li>
 </ol>
 </div></blockquote>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If user wants to run sparkplug in TLS mode then please make sure “rootca” dir is present at ../build/provision/, If not present then please run following in PROD mode or  run entire 02 script for any non sparkplug recipe in PROD mode.</p>
-<p>$ cd ../build/provision</p>
-<p>$ sudo ./provision.sh ../docker-compose.yml –generate_certs</p>
-</div>
+<ul class="simple">
+<li><p>Do you want to use pre-build images from public docker hub ?</p></li>
+</ul>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Yes</p></li>
+<li><p>No</p></li>
+</ol>
+</div></blockquote>
 <p>Following is a sample output for Sparkplug-Bridge related configuration:</p>
 <p><strong>• Enter the following parameters required for Sparkplug-Bridge container..</strong></p>
 <dl class="simple">
 <dt>Is TLS required for sparkplug-bridge (yes/no):</dt><dd><p>yes</p>
 </dd>
-<dt>Enter the CA certificate full path including file name:</dt><dd><p>/home/ubuntu/new/ca/root-ca.crt</p>
+<dt>Enter the CA certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/rootca/cacert.pem):</dt><dd><p>/home/ubuntu/new/ca/root-ca.crt</p>
 </dd>
-<dt>Enter the client certificate full path including file name:</dt><dd><p>/home/ubuntu/new/client/client.crt</p>
+<dt>Enter the client certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_certificate.pem ):</dt><dd><p>/home/ubuntu/new/client/client.crt</p>
 </dd>
-<dt>Enter the client key certificate full path including file name:</dt><dd><p>/home/ubuntu/new/client/client.key</p>
+<dt>Enter the client key certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_key.pem ):</dt><dd><p>/home/ubuntu/new/client/client.key</p>
 </dd>
-<dt>Enter the external broker address/hostname:</dt><dd><p>192.168.1.11</p>
+<dt>Enter the external broker address/hostname (e.g. 192.168.0.5 or dummyhost.com):</dt><dd><p>192.168.1.11</p>
 </dd>
 <dt>Enter the external broker port number:</dt><dd><p>22883</p>
 </dd>
@@ -303,7 +301,7 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 <dl class="simple">
 <dt>Is TLS required for sparkplug-bridge (yes/no):</dt><dd><p>no</p>
 </dd>
-<dt>Enter the external broker address/hostname:</dt><dd><p>192.168.1.11</p>
+<dt>Enter the external broker address/hostname (e.g. 192.168.0.5 or dummyhost.com):</dt><dd><p>192.168.1.11</p>
 </dd>
 <dt>Enter the external broker port number:</dt><dd><p>22883</p>
 </dd>
@@ -311,7 +309,7 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 </dd>
 </dl>
 <ol class="arabic simple" start="8">
-<li><p>Execute Command $ sudo -E ./03_Build_Run_UWC.sh</p></li>
+<li><p>Execute Command $ sudo -E ./03_Run_UWC.sh</p></li>
 </ol>
 <p>Above is a process for interactive mode. A non-interactive mode is also supported.
 Following are the details:</p>
@@ -326,26 +324,26 @@ Following are the details:</p>
 <li><p>Following are sample commands for non-interactive mode execution.</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>All UWC basic modules <span class="o">(</span>no KPI, no Sparkplug-Bridge<span class="o">)</span>
-sudo -E ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">1</span>
+sudo -E ./02_provision_build_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">1</span>
 
 All UWC modules <span class="o">(</span>with KPI and with Sparkplug-Bridge<span class="o">)</span>.
-sudo -E ./02_provision_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">3</span> --isTLS<span class="o">=</span>yes --caFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/ca/root-ca.crt&quot;</span> --crtFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.crt&quot;</span> --keyFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.key&quot;</span> --brokerAddr<span class="o">=</span><span class="s2">&quot;192.168.1.11&quot;</span> --brokerPort<span class="o">=</span><span class="m">22883</span> --qos<span class="o">=</span><span class="m">1</span>
+sudo -E ./02_provision_build_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">3</span> --isTLS<span class="o">=</span>yes --caFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/ca/root-ca.crt&quot;</span> --crtFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.crt&quot;</span> --keyFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.key&quot;</span> --brokerAddr<span class="o">=</span><span class="s2">&quot;192.168.1.11&quot;</span> --brokerPort<span class="o">=</span><span class="m">22883</span> --qos<span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
 <p>Build scripts descriptions–</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>01_uwc_pre_requisites.sh - This script creates docker volume directory /opt/intel/eii/uwc_data, creates “/opt/intel/eii/container_logs/” for storing log and git clone modconn into respective directory of modbus master container.</p></li>
-<li><p>02_provision_UWC.sh - It runs the builder to generate consolidated docker-compose.yml. This script performs provisioning as per docker-compose.yml file. Along with this, it generates certs for mqtt.
-It allows user to choose combination of UWC services, allows to choose deployment mode either dev or prod mode.</p></li>
-<li><p>03_Build_Run_UWC.sh - This script will build and deploys all UWC containers.</p></li>
+<li><p>02_provision_build_UWC.sh - It runs the builder to generate consolidated docker-compose.yml. This script performs provisioning as per docker-compose.yml file. Along with this, it generates certs for mqtt and Builds all the micro-services of the docker-compose.yml.
+It allows user to choose combination of UWC services, allows to choose deployment mode either dev or prod mode or allows to choose whether to use <cite>pre-build images</cite> or <cite>build images locally</cite>.</p></li>
+<li><p>03_Run_UWC.sh - This script deploys all UWC containers.</p></li>
 <li><p>04_uninstall_UWC.sh – Used for cleanup and uninstalling docker, docker-compose and installed libraries. This script will bring down all containers and removes all running containers.</p></li>
 <li><p>05_applyConfigChanges.sh - This script will stop and start all running containers with updated changes.</p></li>
 <li><p>06_UnitTestRun.sh - This script will generate unit test report and code coverage report.</p></li>
 </ol>
 </div></blockquote>
-<p>While a particular usecase is running &amp; if user intends to change the usecase, then the script “./02_provision_UWC.sh” has to be re-run. This would kill (remove) all the containers of the existing use case &amp; re-create the consolidated docker-compose.yml &amp; consolidated eii_config.json file as per the new use case selected in “./02_provision_UWC.sh”. Provisioning is also done as part of this script.
-“03_Build_Run_UWC.sh” script should be executed  post “02_provision_UWC.sh” is run, which would build the containers of the newly selected usecase.</p>
+<p>While a particular usecase is running &amp; if user intends to change the usecase, then the script “./02_provision_build_UWC.sh” has to be re-run. This would kill (remove) all the containers of the existing use case &amp; re-create the consolidated docker-compose.yml &amp; consolidated eii_config.json file as per the new use case selected in “./02_provision_build_UWC.sh”. Provisioning is also done as part of this script.
+“03_Run_UWC.sh” script should be executed  post “02_provision_build_UWC.sh” is run, which would build the containers of the newly selected usecase.</p>
 </section>
 </section>
 
