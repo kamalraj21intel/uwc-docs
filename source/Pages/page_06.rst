@@ -206,7 +206,21 @@ c)	Following parameters should be configured for Sparkplug-Bridge in docker-comp
     :align: center
 
 ---------------
-6.7 	KPI App
+6.7 	Vendor Apps 
+---------------
+
+Vendor Apps consist of Sample Publisher and Sample subscriber which are brokered publisher and subscriber for EMB.The EII's ETCDUI acts as interface for sample publisher for more details on ETCDUI, Please refer : https://github.com/open-edge-insights/eii-etcd-ui/blob/master/README.md
+
+Sparkplug can communicate with rest of UWC containers by two ways either:
+
+1. By MQTT mode (which is sparkplug-bridge -> internal-mqtt-Broker -> mqtt-bridge -> EMB)
+
+2. By EMB mode (which is sparkplug-bridge -> EMB).
+
+For more details on working of vendor apps ,Please refer Vendor_Apps/README-VA.md
+
+---------------
+6.8 	KPI App
 ---------------
 
 This is a sample application which implements control loops and logs data in a log file named “AnalysisKPIApp.log”. Normally 3 log files are created on rolling basis i.e., once tie set file size limit is exceeded, a new file is created and likewise max 3 files are created. After this, the log files are overwritten. 
@@ -231,7 +245,7 @@ To change the file size, “log4cpp.properties” needs to be changed. Please ch
 
 Please run script 03 Build_Run_UWC.sh after changing “log4cpp.properties”.
 
-6.7.1 	Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor
+6.8.1 	Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. By default, pre-processor flag UWC_HIGH_PERFORMANCE_PROCESSOR is disabled in Kpi App for debug & release mode.
 
