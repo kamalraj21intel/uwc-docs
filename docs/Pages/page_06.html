@@ -100,8 +100,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#pre-requisite-for-running-sparkplug-bridge">6.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#kpi-app">6.7     KPI App</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor">6.7.1   Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vendor-apps">6.7     Vendor Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-app">6.8     KPI App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor">6.8.1   Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor</a></li>
 </ul>
 </li>
 </ul>
@@ -374,8 +375,18 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 </figure>
 </section>
 </section>
+<section id="vendor-apps">
+<h2>6.7     Vendor Apps<a class="headerlink" href="#vendor-apps" title="Permalink to this headline"></a></h2>
+<p>Vendor Apps consist of Sample Publisher and Sample subscriber which are brokered publisher and subscriber for EMB.The EII’s ETCDUI acts as interface for sample publisher for more details on ETCDUI, Please refer : <a class="reference external" href="https://github.com/open-edge-insights/eii-etcd-ui/blob/master/README.md">https://github.com/open-edge-insights/eii-etcd-ui/blob/master/README.md</a></p>
+<p>Sparkplug can communicate with rest of UWC containers by two ways either:</p>
+<ol class="arabic simple">
+<li><p>By MQTT mode (which is sparkplug-bridge -&gt; internal-mqtt-Broker -&gt; mqtt-bridge -&gt; EMB)</p></li>
+<li><p>By EMB mode (which is sparkplug-bridge -&gt; EMB).</p></li>
+</ol>
+<p>For more details on working of vendor apps ,Please refer Vendor_Apps/README-VA.md</p>
+</section>
 <section id="kpi-app">
-<h2>6.7     KPI App<a class="headerlink" href="#kpi-app" title="Permalink to this headline"></a></h2>
+<h2>6.8     KPI App<a class="headerlink" href="#kpi-app" title="Permalink to this headline"></a></h2>
 <p>This is a sample application which implements control loops and logs data in a log file named “AnalysisKPIApp.log”. Normally 3 log files are created on rolling basis i.e., once tie set file size limit is exceeded, a new file is created and likewise max 3 files are created. After this, the log files are overwritten.</p>
 <p>The log file size can be updated, if required.</p>
 <p>File: log4cpp.properties</p>
@@ -389,7 +400,7 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 <p>To change the file size, “log4cpp.properties” needs to be changed. Please change the limit highlighted above. The max file size mentioned here is in bytes. Please identify number of bytes as per file size needed and set the value here.</p>
 <p>Please run script 03 Build_Run_UWC.sh after changing “log4cpp.properties”.</p>
 <section id="pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor">
-<h3>6.7.1   Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor<a class="headerlink" href="#pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor" title="Permalink to this headline"></a></h3>
+<h3>6.8.1   Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor<a class="headerlink" href="#pre-processor-flag-to-be-used-for-enabling-disabling-kpi-app-on-high-performance-low-performance-processor" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>By default, pre-processor flag UWC_HIGH_PERFORMANCE_PROCESSOR is disabled in Kpi App for debug &amp; release mode.</p></li>
 <li><p>To enable KPI-App on high performance processor in release mode, go to &lt;Sourcecode&gt; -&gt; kpi-Tactic -&gt; KPIApp -&gt; Release -&gt; src directory (<a class="reference external" href="https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Release/src/subdir.mk">https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Release/src/subdir.mk</a>) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.</p></li>
