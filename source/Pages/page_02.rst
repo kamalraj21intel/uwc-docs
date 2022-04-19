@@ -13,7 +13,7 @@
 * UWC docker images pushed to remote docker hub (hub.docker.com). Hence, giving an option for developers to either pull pre-built images directly from docker hub or locally build the container images.
 * New Recipe files are added to cover more usecases. 
 * Repo manifest based cloning enabled instead of git clone method. 
-* UWC codebase rebased on top of latest validated tag of EII - v3.0. Follow the clone commands as below:
+* UWC codebase rebased on top of latest validated tag of EII - v3.0. Follow the repo commands as below:
 
 .. code-block:: sh
 
