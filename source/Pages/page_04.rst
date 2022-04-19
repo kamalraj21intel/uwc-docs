@@ -70,11 +70,11 @@ Following is a sample output for Sparkplug-Bridge related configuration:
 Is TLS required for sparkplug-bridge (yes/no): 
     yes
 Enter the CA certificate full path including file name (e.g. <Work_Dir>/IEdgeInsights/build/Certificates/rootca/cacert.pem):
-    /home/ubuntu/new/ca/root-ca.crt
+    <Work_Dir>/root-ca.pem
 Enter the client certificate full path including file name (e.g. <Work_Dir>/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_certificate.pem ): 
-    /home/ubuntu/new/client/client.crt
+    <Work_Dir>/client_crt.pem
 Enter the client key certificate full path including file name (e.g. <Work_Dir>/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_key.pem ):
-    /home/ubuntu/new/client/client.key
+    <Work_Dir>t/client_key.pem
 Enter the external broker address/hostname (e.g. 192.168.0.5 or dummyhost.com):
     192.168.1.11
 Enter the external broker port number: 
@@ -100,7 +100,7 @@ Following are the details:
 
 9. To support non-interactive mode, following options are added in 2nd script(02_provision_UWC).
 
-.. figure:: Doc_Images/table2.png
+.. figure:: Doc_Images/table8.PNG
     :scale: 80 %
     :align: center
 
