@@ -2,18 +2,18 @@
 2.0 Release Notes
 ==================
 
----------------------------------------
+------------------------------------
 2.1 Feature list- supported in UWC-v2.0 
---------------------------------------
+------------------------------------
 
 * All UWC micro-services/features ported to new UWC design following "new EMB (EII Msg bus) topic format".
 * The backward compatibility with older MQTT topic format is maintained.
-* Sparkplug-Bridge which historically was compatible with only MQTT-broker (bus) has now been ported to work with EMB (Eii Msg Bus).
+* Sparkplug-Bridge which historically was compatible with only MQTT-broker (bus) has now been ported to work with EMB (EII Msg Bus).
 * Multi stage build support enabled for all UWC services. Hence, enabling reducing the build time &  image sizes of all UWC services drastically.
 * UWC docker images pushed to remote docker hub (hub.docker.com). Hence, giving an option for developers to either pull pre-built images directly from docker hub or locally build the container images.
 * New Recipe files are added to cover more usecases. 
 * Repo manifest based cloning enabled instead of git clone method. 
-* UWC codebase rebased on top of latest validated tag of EII - v3.0-RC3. Follow the git clone commands as below:
+* UWC codebase rebased on top of latest validated tag of EII - v3.0. Follow the clone commands as below:
 
 .. code-block:: sh
 
