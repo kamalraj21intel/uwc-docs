@@ -74,7 +74,7 @@ Enter the CA certificate full path including file name (e.g. <Work_Dir>/IEdgeIns
 Enter the client certificate full path including file name (e.g. <Work_Dir>/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_certificate.pem ): 
     <Work_Dir>/client_crt.pem
 Enter the client key certificate full path including file name (e.g. <Work_Dir>/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_key.pem ):
-    <Work_Dir>t/client_key.pem
+    <Work_Dir>/client_key.pem
 Enter the external broker address/hostname (e.g. 192.168.0.5 or dummyhost.com):
     192.168.1.11
 Enter the external broker port number: 
