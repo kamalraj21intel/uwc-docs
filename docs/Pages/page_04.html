@@ -285,11 +285,11 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 <dl class="simple">
 <dt>Is TLS required for sparkplug-bridge (yes/no):</dt><dd><p>yes</p>
 </dd>
-<dt>Enter the CA certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/rootca/cacert.pem):</dt><dd><p>/home/ubuntu/new/ca/root-ca.crt</p>
+<dt>Enter the CA certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/rootca/cacert.pem):</dt><dd><p>&lt;Work_Dir&gt;/root-ca.pem</p>
 </dd>
-<dt>Enter the client certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_certificate.pem ):</dt><dd><p>/home/ubuntu/new/client/client.crt</p>
+<dt>Enter the client certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_certificate.pem ):</dt><dd><p>&lt;Work_Dir&gt;/client_crt.pem</p>
 </dd>
-<dt>Enter the client key certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_key.pem ):</dt><dd><p>/home/ubuntu/new/client/client.key</p>
+<dt>Enter the client key certificate full path including file name (e.g. &lt;Work_Dir&gt;/IEdgeInsights/build/Certificates/mymqttcerts/mymqttcerts_client_key.pem ):</dt><dd><p>&lt;Work_Dir&gt;/client_key.pem</p>
 </dd>
 <dt>Enter the external broker address/hostname (e.g. 192.168.0.5 or dummyhost.com):</dt><dd><p>192.168.1.11</p>
 </dd>
@@ -315,10 +315,10 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 <p>Above is a process for interactive mode. A non-interactive mode is also supported.
 Following are the details:</p>
 <ol class="arabic simple" start="9">
-<li><p>To support non-interactive mode, following options are added in 2nd script(02_provision_UWC).</p></li>
+<li><p>To support non-interactive mode, following options are added in 2nd script(02_provision_build_UWC.sh).</p></li>
 </ol>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../_images/table2.png"><img alt="../_images/table2.png" src="../_images/table2.png" style="width: 531.2px; height: 648.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/table8.PNG"><img alt="../_images/table8.PNG" src="../_images/table8.PNG" style="width: 326.40000000000003px; height: 708.0px;" /></a>
 </figure>
 <p>If required parameters are missing, then those will be requested from user in an interactive mode.</p>
 <ol class="arabic simple" start="10">
