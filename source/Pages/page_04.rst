@@ -98,7 +98,7 @@ Enter the QOS for scada (between 0 to 2):
 Above is a process for interactive mode. A non-interactive mode is also supported. 
 Following are the details: 
 
-9. To support non-interactive mode, following options are added in 2nd script(02_provision_UWC).
+9. To support non-interactive mode, following options are added in 2nd script(02_provision_build_UWC.sh).
 
 .. figure:: Doc_Images/table8.PNG
     :scale: 80 %
