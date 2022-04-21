@@ -1,12 +1,12 @@
-====================================
-5.0  Container Configuration setting
-====================================
+=====================================
+5.0  Container Configuration Settings
+=====================================
 
 ------------------------------
 5.1 	Deactivate Auto Update
 ------------------------------
 
-Once all the containers are deployed successfully, please disable system’s auto update feature as specified in the below sections. Auto update feature is enabled by default in Ubuntu.
+Once all the containers are deployed successfully, disable system’s auto update feature as specified in the below sections. Auto update feature is enabled by default in Ubuntu.
 
 These steps are optional. It is needed to switch off auto updates of packages (Package-Lists, periodic etc) when connected to internet.
 
@@ -32,9 +32,7 @@ To deactivate unattended upgrades, we need to edit
 5.1.2 	Deactivate Periodic Unattended Upgrades
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To deactivate periodic unattended upgrades, we need to 
-
-edit */etc/apt/apt.conf.d/10periodic* file and do the following changes
+To deactivate periodic unattended upgrades edit the */etc/apt/apt.conf.d/10periodic* file and do the following changes:
 
     1.	Disable update package list by changing setting 
 
@@ -57,11 +55,13 @@ edit */etc/apt/apt.conf.d/10periodic* file and do the following changes
 5.1.3 	Deactivate Scheduled Upgrades
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**To deactivate scheduled download please execute below commands**
+To deactivate scheduled download run the following commands:
 
-    1.	sudo systemctl stop apt-daily.timer
-    2.	sudo systemctl disable apt-daily.timer
-    3.	sudo systemctl disable apt-daily.service
-    4.	sudo systemctl daemon-reload
+.. code-block:: sh
+
+    	sudo systemctl stop apt-daily.timer
+    	sudo systemctl disable apt-daily.timer
+    	sudo systemctl disable apt-daily.service
+    	sudo systemctl daemon-reload
 
 
