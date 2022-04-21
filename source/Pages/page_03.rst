@@ -70,7 +70,7 @@ UWC defines a data model which can be used to describe the hierarchy of wellhead
 3.3  Understanding UWC Platform
 -------------------------------
 
-.. figure:: Doc_Images/image3.png
+.. figure:: Doc_Images/high-level-block-diagram-uwc.png
     :scale: 50 %
     :align: center
 
