@@ -51,17 +51,17 @@ This section provides steps to install and deploy Universal Wellpad Controller c
    - Prod 
 9. Based on the use case (combination of Universal Wellpad Controller services), select one of the following options: 
 
-   - Basic UWC micro-services without KPI-tactic Application & Sparkplug-Bridge - (Modbus-master TCP & RTU, mqtt-bridge, internal mqtt broker, ETCD server, ETCD UI &        other base EII & UWC services)
-   - Basic UWC micro-services as in option 1 along with KPI-tactic Application (Without Sparkplug-Bridge)
-   - Basic UWC micro-services & KPI-tactic Application along with Sparkplug-Bridge, Sample SamplePublisher and Sample SampleSubscriber
-   - Basic UWC micro-services with Sparkplug-Bridge, Sample SamplePublisher and Sample SampleSubscriber and no KPI-tactic Application
-   - Basic UWC micro-services with Time series micro-services (Telegraf & InfluxDBConnector)
-   - Running Basic UWC micro-services with time series services (Telegraf & InfluxDBCOnnector) along with KPI-tactic app
-   - Running Basic UWC micro-services with time series services (Telegraf & InfluxDBCOnnector) along with Sparkplug service, Sample SamplePublisher and Sample              SampleSubscriber
-   - Running the Sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker & Etcd container
-   - Basic UWC micro-services with Sample SamplePublisher and Sample SampleSubscriber
-   - All modules UWC modules, KPI-tactic Application, SPARKPLUG-BRIDGE, Telegraf, InfluxDBCOnnector, ZmqBroker, Etcd container, Sample SamplePublisher and Sample           SampleSubscriber
-*	Do you want to use pre-build images from public docker hub ?
+   1. Basic UWC micro-services without KPI-tactic Application & Sparkplug-Bridge - (Modbus-master TCP & RTU, mqtt-bridge, internal mqtt broker, ETCD server, ETCD UI &        other base EII & UWC services)
+   2. Basic UWC micro-services as in option 1 along with KPI-tactic Application (Without Sparkplug-Bridge)
+   3. Basic UWC micro-services & KPI-tactic Application along with Sparkplug-Bridge, Sample SamplePublisher and Sample SampleSubscriber
+   4. Basic UWC micro-services with Sparkplug-Bridge, Sample SamplePublisher and Sample SampleSubscriber and no KPI-tactic Application
+   5. Basic UWC micro-services with Time series micro-services (Telegraf & InfluxDBConnector)
+   6. Running Basic UWC micro-services with time series services (Telegraf & InfluxDBCOnnector) along with KPI-tactic app
+   7. Running Basic UWC micro-services with time series services (Telegraf & InfluxDBCOnnector) along with Sparkplug service, Sample SamplePublisher and Sample              SampleSubscriber
+   8. Running the Sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker & Etcd container
+   9. Basic UWC micro-services with Sample SamplePublisher and Sample SampleSubscriber
+   10. All modules UWC modules, KPI-tactic Application, SPARKPLUG-BRIDGE, Telegraf, InfluxDBCOnnector, ZmqBroker, Etcd container, Sample SamplePublisher, and Sample           SampleSubscriber
+    * Do you want to use pre-build images from public docker hub ?
     - Yes  
     - No
 
@@ -133,9 +133,9 @@ Build scripts descriptions
     1. 01_uwc_pre_requisites.sh - This script creates docker volume directory /opt/intel/eii/uwc_data, creates “/opt/intel/eii/container_logs/” for storing log, and git clone modconn into respective directory of the Modbus master container.  
     
     2. 02_provision_build_UWC.sh - This script runs the builder to generate the consolidated docker-compose.yml. This script performs provisioning per the docker-compose.yml file. Along with this, it generates certs for the MQTT and builds all the microservices of the docker-compose.yml.
-        It allows you to choose combination of UWC services, deployment mode either dev or prod mode, or select whether to use the `pre-build images` or `build images locally`.
+        It allows you to choose combination of Universal Wellpad Controller services, deployment mode either dev or prod mode, or select whether to use the `pre-build images` or `build images locally`.
 
-    3. 03_Run_UWC.sh - This script deploys all UWC containers.
+    3. 03_Run_UWC.sh - This script deploys all Universal Wellpad Controller containers.
 
     4. 04_uninstall_UWC.sh – Used for cleanup and uninstalling docker, docker-compose, and installed libraries. This script will bring down all containers and remove all running containers.
 
@@ -145,4 +145,4 @@ Build scripts descriptions
 
 .. note::
 
-To change the use case that is running, then rerun the "./02_provision_build_UWC.sh" script. This will remove or kill all the containers of the existing use case and recreate the consolidated docker-compose.yml and consolidated eii_config.json file per the new use case selected in the "./02_provision_build_UWC.sh" script. Provisioning is also done as part of this script. Run the "03_Run_UWC.sh" script after running the "02_provision_build_UWC.sh" script. This will build the containers of the new use case.
+Rerun the "./02_provision_build_UWC.sh" script to change the use case that is running. This will remove or kill all the containers of the existing use case and recreate the consolidated docker-compose.yml and consolidated eii_config.json file per the new use case selected in the "./02_provision_build_UWC.sh" script. Provisioning and build is also done as part of this script. Run the "03_Run_UWC.sh" script after running the "02_provision_build_UWC.sh" script. This will bring up all the containers of the new use case.
