@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>8.0 UWC Modbus Operations &mdash;   documentation</title>
+  <title>8.0 Universal Wellpad Controller Modbus Operations &mdash;   documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -126,7 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="page_07.html#kpi-app-configuration">7.6     KPI App Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">8.0     UWC Modbus Operations</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8.0     Universal Wellpad Controller Modbus Operations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#data-polling">8.1     Data Polling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#on-demand-write">8.2     On-Demand Write</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#on-demand-read">8.3     On-Demand Read</a></li>
@@ -200,7 +200,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>8.0     UWC Modbus Operations</li>
+      <li>8.0     Universal Wellpad Controller Modbus Operations</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/main/source/Pages/page_08.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -210,10 +210,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="uwc-modbus-operations">
-<h1>8.0     UWC Modbus Operations<a class="headerlink" href="#uwc-modbus-operations" title="Permalink to this headline"></a></h1>
-<p>This section provides configurations required to read and write data from sensors and actuators connected over Modbus TCP or RTU on UWC gateway.
-An application can perform following operations using UWC containers:</p>
+  <section id="universal-wellpad-controller-modbus-operations">
+<h1>8.0     Universal Wellpad Controller Modbus Operations<a class="headerlink" href="#universal-wellpad-controller-modbus-operations" title="Permalink to this headline"></a></h1>
+<p>This section provides configurations required to read and write data from sensors and actuators connected over Modbus TCP or RTU on Universal Wellpad Controller gateway.
+An application can perform following operations using Universal Wellpad Controller containers:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Data Polling</p></li>
@@ -238,14 +238,14 @@ Multiple modules are involved in processing the operation. To capture the time t
 </figure>
 <section id="data-polling">
 <h2>8.1     Data Polling<a class="headerlink" href="#data-polling" title="Permalink to this headline"></a></h2>
-<p>In the datapoint YML configuration file, a polling frequency is configured. As per polling frequency, data is fetched from the end point and published on MQTT by the UWC container. This section describes how to read the data for polled points using MQTT.</p>
+<p>In the datapoint YML configuration file, a polling frequency is configured. As per polling frequency, data is fetched from the end point and published on MQTT by the Universal Wellpad Controller container. This section describes how to read the data for polled points using MQTT.</p>
 <p>The data actions which are “Polling” actions are initiated by the Protocol container (in this case the Modbus protocol application (i.e., the driver) within the Modbus container.</p>
 <p>To receive polled data: Application should use a topic in following format to receive (i.e., subscribe) polling data from MQTT:</p>
 <dl class="simple">
 <dt><strong>MQTT topic to receive (i.e., subscribe) write response:</strong></dt><dd><p><strong>/device/wellhead/point/update</strong></p>
 </dd>
 </dl>
-<p>Please refer to the table in section 6 for details of fields.</p>
+<p>Refer to the table in section 6 for details of fields.</p>
 <p><strong>Example:</strong></p>
 <p><strong>Polling Topic</strong>: /flowmeter/PL0/D3/update</p>
 <p><strong>Polling Message</strong>: Success Response</p>
@@ -498,7 +498,7 @@ Multiple modules are involved in processing the operation. To capture the time t
 </section>
 <section id="kpi-application">
 <h2>8.4     KPI Application<a class="headerlink" href="#kpi-application" title="Permalink to this headline"></a></h2>
-<p>Following data (if available) is logged in a log-file by KPI Application for control loops.</p>
+<p>The KPI Application records (logs) the following data in a log-file for control loops.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table11_1_update.png"><img alt="../_images/table11_1_update.png" src="../_images/table11_1_update.png" style="width: 528.0px; height: 652.8000000000001px;" /></a>
 </figure>
