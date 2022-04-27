@@ -47,12 +47,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2.0 Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v2-0">2.1 Feature list- supported in UWC-v2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-5-1-hotfix-release">2.2 Feature list- supported in UWC-v1.5.1 (Hotfix Release)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-6-1-hotfix-release">2.3 Feature list- supported in UWC-v1.6.1 (Hotfix Release)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-6">2.4 Feature list- supported in UWC-v1.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-5">2.5 Feature list- supported in UWC-v1.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-uwc-v1-0">2.6 Feature list supported in UWC-v1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-universal-wellpad-controller-v2-0">2.1 Feature list- supported in Universal Wellpad Controller -v2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-universal-wellpad-controller-v1-5-1-hotfix-release">2.2 Feature list- supported in Universal Wellpad Controller-v1.5.1 (Hotfix Release)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-universal-wellpad-controller-v1-6-1-hotfix-release">2.3 Feature list- supported in Universal Wellpad Controller-v1.6.1 (Hotfix Release)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-universal-wellpad-controller-v1-6">2.4 Feature list- supported in Universal Wellpad Controller-v1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-universal-wellpad-controller-v1-5">2.5 Feature list- supported in Universal Wellpad Controller-v1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-list-supported-in-universal-wellpad-controller-v1-0">2.6 Feature list supported in Universal Wellpad Controller-v1.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-to-existing-features">2.7 Changes to Existing Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#unsupported-or-discontinued-features">2.8 Unsupported or Discontinued Features</a></li>
 </ul>
@@ -212,17 +212,17 @@
              
   <section id="release-notes">
 <h1>2.0 Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline"></a></h1>
-<section id="feature-list-supported-in-uwc-v2-0">
-<h2>2.1 Feature list- supported in UWC-v2.0<a class="headerlink" href="#feature-list-supported-in-uwc-v2-0" title="Permalink to this headline"></a></h2>
+<section id="feature-list-supported-in-universal-wellpad-controller-v2-0">
+<h2>2.1 Feature list- supported in Universal Wellpad Controller -v2.0<a class="headerlink" href="#feature-list-supported-in-universal-wellpad-controller-v2-0" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p>All UWC micro-services/features ported to new UWC design following “new EMB (EII Msg bus) topic format”.</p></li>
+<li><p>All Universal Wellpad Controller microservices and features ported to new Universal Wellpad Controller design following the “new EMB (EII Msg bus) topic format”.</p></li>
 <li><p>The backward compatibility with older MQTT topic format is maintained.</p></li>
 <li><p>Sparkplug-Bridge which historically was compatible with only MQTT-broker (bus) has now been ported to work with EMB (EII Msg Bus).</p></li>
-<li><p>Multi stage build support enabled for all UWC services. Hence, enabling reducing the build time &amp;  image sizes of all UWC services drastically.</p></li>
-<li><p>UWC docker images pushed to remote docker hub (hub.docker.com). Hence, giving an option for developers to either pull pre-built images directly from docker hub or locally build the container images.</p></li>
+<li><p>Multi stage build support enabled for all Universal Wellpad Controller services. Hence, enabling reducing the build time &amp;  image sizes of all Universal Wellpad Controller services drastically.</p></li>
+<li><p>Universal Wellpad Controller docker images pushed to remote docker hub (hub.docker.com). Hence, giving an option for developers to either pull pre-built images directly from docker hub or locally build the container images.</p></li>
 <li><p>New Recipe files are added to cover more usecases.</p></li>
 <li><p>Repo manifest based cloning enabled instead of git clone method.</p></li>
-<li><p>UWC codebase rebased on top of latest validated tag of EII - v3.0. Follow the repo commands as below:</p></li>
+<li><p>Universal Wellpad Controller codebase rebased on top of latest validated tag of EII - v3.0. Follow the repo commands as below:</p></li>
 </ul>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   repo init -u https://github.com/open-edge-insights/eii-manifests.git -b refs/tags/v2.0
 •   repo init -m uwc.xml
@@ -230,45 +230,45 @@
 </pre></div>
 </div>
 </section>
-<section id="feature-list-supported-in-uwc-v1-5-1-hotfix-release">
-<h2>2.2 Feature list- supported in UWC-v1.5.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-uwc-v1-5-1-hotfix-release" title="Permalink to this headline"></a></h2>
+<section id="feature-list-supported-in-universal-wellpad-controller-v1-5-1-hotfix-release">
+<h2>2.2 Feature list- supported in Universal Wellpad Controller-v1.5.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-universal-wellpad-controller-v1-5-1-hotfix-release" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p>UWCv1.5 rebased &amp; migrated to EII v2.5.2.</p></li>
+<li><p>Universal Wellpad Controller v1.5 rebased &amp; migrated to EII v2.5.2.</p></li>
 </ul>
 </section>
-<section id="feature-list-supported-in-uwc-v1-6-1-hotfix-release">
-<h2>2.3 Feature list- supported in UWC-v1.6.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-uwc-v1-6-1-hotfix-release" title="Permalink to this headline"></a></h2>
+<section id="feature-list-supported-in-universal-wellpad-controller-v1-6-1-hotfix-release">
+<h2>2.3 Feature list- supported in Universal Wellpad Controller-v1.6.1 (Hotfix Release)<a class="headerlink" href="#feature-list-supported-in-universal-wellpad-controller-v1-6-1-hotfix-release" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p>UWC migrated to EII v2.6.1</p></li>
+<li><p>Universal Wellpad Controller migrated to EII v2.6.1</p></li>
 <li><p>Fixed issue of high number of recursive queries hiting DNS server</p></li>
 <li><p>Fixed issue related with ESH installer not displaying some prints in Sparkplug use cases</p></li>
 <li><p>Minor user guide &amp; ReadMe updates</p></li>
 </ul>
 </section>
-<section id="feature-list-supported-in-uwc-v1-6">
-<h2>2.4 Feature list- supported in UWC-v1.6<a class="headerlink" href="#feature-list-supported-in-uwc-v1-6" title="Permalink to this headline"></a></h2>
+<section id="feature-list-supported-in-universal-wellpad-controller-v1-6">
+<h2>2.4 Feature list- supported in Universal Wellpad Controller-v1.6<a class="headerlink" href="#feature-list-supported-in-universal-wellpad-controller-v1-6" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
-<dt>Enabled Data Persistence feature in UWC</dt><dd><ul>
-<li><p>Integrated InfluxDBConnector &amp; Telegraf services of EII’s TICK stack timeseries services with UWC.</p></li>
+<dt>Enabled Data Persistence feature in Universal Wellpad Controller</dt><dd><ul>
+<li><p>Integrated InfluxDBConnector &amp; Telegraf services of EII’s TICK stack timeseries services with Universal Wellpad Controller.</p></li>
 <li><p>Data persistence enabled for all 6 operations - ROD (Read on demand), WOD (Write on demand) &amp; Polling in the combinations of both Realtime &amp; non-realtime operations.</p></li>
 <li><p>Data Retention policy enabled giving flexibility to users to customize the data retention period in InfluxDB.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>UWC migrated to EII 2.6</p></li>
-<li><p>Network mode host removed from UWC micro-services and services use docker network.</p></li>
+<li><p>Universal Wellpad Controller migrated to EII 2.6</p></li>
+<li><p>Network mode host removed from Universal Wellpad Controller micro-services and services use docker network.</p></li>
 <li><p>Sample database publisher application use case provided which serves as a reference</p></li>
-<li><p>Enabled UWC on Ubuntu 20.04-LTS Operating system</p></li>
+<li><p>Enabled Universal Wellpad Controller on Ubuntu 20.04-LTS Operating system</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Build time will increase due to addition of two more components needed for data persistence depending on system configurations.</p>
 </div>
 </section>
-<section id="feature-list-supported-in-uwc-v1-5">
-<h2>2.5 Feature list- supported in UWC-v1.5<a class="headerlink" href="#feature-list-supported-in-uwc-v1-5" title="Permalink to this headline"></a></h2>
+<section id="feature-list-supported-in-universal-wellpad-controller-v1-5">
+<h2>2.5 Feature list- supported in Universal Wellpad Controller-v1.5<a class="headerlink" href="#feature-list-supported-in-universal-wellpad-controller-v1-5" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Eclipse foundation Sparkplug standard Template feature support
 *  User Defined Template (UDT) definition and instance
@@ -292,12 +292,12 @@
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p>UWC migrated to EII 2.5</p></li>
-<li><p>UWC open source with MIT license on GitHub</p></li>
+<li><p>Universal Wellpad Controller migrated to EII 2.5</p></li>
+<li><p>Universal Wellpad Controller open source with MIT license on GitHub</p></li>
 </ul>
 </section>
-<section id="feature-list-supported-in-uwc-v1-0">
-<h2>2.6 Feature list supported in UWC-v1.0<a class="headerlink" href="#feature-list-supported-in-uwc-v1-0" title="Permalink to this headline"></a></h2>
+<section id="feature-list-supported-in-universal-wellpad-controller-v1-0">
+<h2>2.6 Feature list supported in Universal Wellpad Controller-v1.0<a class="headerlink" href="#feature-list-supported-in-universal-wellpad-controller-v1-0" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Harden Modbus TCP protocol stack and application supporting soft real-time control</p></li>
 <li><p>Harden Modbus RTU protocol stack and application supporting soft real-time control</p></li>
@@ -312,10 +312,10 @@
 <section id="changes-to-existing-features">
 <h2>2.7 Changes to Existing Features<a class="headerlink" href="#changes-to-existing-features" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p>In UWC-v1.6, Duplicate “cout” prints removed &amp; replaced with UWC logger prints</p></li>
-<li><p>In UWC-v1.6, Updated readme for RT patch installation steps for ubuntu 20.04</p></li>
-<li><p>In UWC-v1.6, Removed the PDF version of user guide from <a class="reference external" href="https://github.com/open-edge-insights/uwc">https://github.com/open-edge-insights/uwc</a> with Sphinx documentation at  <a class="reference external" href="https://github.com/open-edge-insights/uwc-docs">https://github.com/open-edge-insights/uwc-docs</a></p></li>
-<li><p>In UWC-v1.6, KPI bugs on random KPI-app crashing, non-linearity of bad records versus control loop count addressed</p></li>
+<li><p>In Universal Wellpad Controller-v1.6, Duplicate “cout” prints removed &amp; replaced with Universal Wellpad Controller logger prints</p></li>
+<li><p>In Universal Wellpad Controller-v1.6, Updated readme for RT patch installation steps for ubuntu 20.04</p></li>
+<li><p>In Universal Wellpad Controller-v1.6, Removed the PDF version of user guide from <a class="reference external" href="https://github.com/open-edge-insights/uwc">https://github.com/open-edge-insights/uwc</a> with Sphinx documentation at  <a class="reference external" href="https://github.com/open-edge-insights/uwc-docs">https://github.com/open-edge-insights/uwc-docs</a></p></li>
+<li><p>In Universal Wellpad Controller-v1.6, KPI bugs on random KPI-app crashing, non-linearity of bad records versus control loop count addressed</p></li>
 </ul>
 </section>
 <section id="unsupported-or-discontinued-features">
