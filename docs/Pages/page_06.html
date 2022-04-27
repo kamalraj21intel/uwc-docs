@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.0 Container Configuration setting &mdash;   documentation</title>
+  <title>6.0 Container Configuration Settings &mdash;   documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -83,7 +83,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6.0  Container Configuration setting</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6.0  Container Configuration Settings</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#containers">6.1  Containers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#common-configuration-for-modbus-client-containers">6.1.1  Common Configuration for Modbus Client Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-modbus-network">6.1.2  Configuration Modbus network</a></li>
@@ -98,7 +98,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#sparkplug-bridge">6.6     Sparkplug-Bridge</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pre-requisite-for-running-sparkplug-bridge">6.6.1   Pre-requisite for running Sparkplug-Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisite-for-running-sparkplug-bridge">6.6.1   Prerequisite for running Sparkplug-Bridge</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#vendor-apps">6.7     Vendor Apps</a></li>
@@ -200,7 +200,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>6.0  Container Configuration setting</li>
+      <li>6.0  Container Configuration Settings</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/main/source/Pages/page_06.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -210,13 +210,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="container-configuration-setting">
-<h1>6.0  Container Configuration setting<a class="headerlink" href="#container-configuration-setting" title="Permalink to this headline"></a></h1>
-<p>This section provides details about configuring UWC containers.</p>
+  <section id="container-configuration-settings">
+<h1>6.0  Container Configuration Settings<a class="headerlink" href="#container-configuration-settings" title="Permalink to this headline"></a></h1>
+<p>This section provides details about configuring the Universal Wellpad Controller containers.</p>
 <section id="containers">
 <h2>6.1  Containers<a class="headerlink" href="#containers" title="Permalink to this headline"></a></h2>
 <dl class="simple">
-<dt>Following containers are developed under UWC:</dt><dd><ul class="simple">
+<dt>Universal Wellpad Controller consists of the following containers:</dt><dd><ul class="simple">
 <li><p>Modbus TCP Master</p></li>
 <li><p>Modbus RTU Master</p></li>
 <li><p>MQTT-Bridge</p></li>
@@ -226,11 +226,10 @@
 </ul>
 </dd>
 </dl>
-<p>For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_build_UWC.sh..</p>
-<p>For more details, please refer README provided in EII documentation.</p>
-<p>Path for README – <a class="reference external" href="https://github.com/open-edge-insights/eii-core/blob/master/README.md">https://github.com/open-edge-insights/eii-core/blob/master/README.md</a></p>
-<p>UWC containers (i.e., Modbus Clients and MQTT-Bridge) use ZeroMQ to communicate with each other.</p>
-<p>At present, recommendation is to have only one Modbus-TCP and one Modbus-RTU container. Hence, changes to configuration present in docker-compose.yml file shall not be needed.</p>
+<p>The containers are configured using the docker-compose.yml. The docker-compose.yml is auto-generated based on inputs provided while executing script 02_provision_build_UWC.sh.</p>
+<p>For more details, refer to the <a class="reference external" href="https://github.com/open-edge-insights/eii-core/blob/master/README.md">EII Readme</a>.</p>
+<p>Universal Wellpad Controller containers Modbus Clients and MQTT-Bridge use ZeroMQ to communicate with each other.</p>
+<p>In the current version of Universal Wellpad Controller it is recommended to have only one Modbus-TCP and one Modbus-RTU container. Hence, changes to configuration present in the docker-compose.yml file is not required.</p>
 <section id="common-configuration-for-modbus-client-containers">
 <h3>6.1.1  Common Configuration for Modbus Client Containers<a class="headerlink" href="#common-configuration-for-modbus-client-containers" title="Permalink to this headline"></a></h3>
 <p>Following are configurations, applicable for Modbus Client (TCP and RTU both) containers:</p>
@@ -256,7 +255,7 @@
 </section>
 <section id="configuration-modbus-network">
 <h3>6.1.2  Configuration Modbus network<a class="headerlink" href="#configuration-modbus-network" title="Permalink to this headline"></a></h3>
-<p>A separate network configuration YML file is maintained for each network. E.g., If there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:</p>
+<p>A separate network configuration YML file is maintained for each network. For example, if there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>inter-frame delay and response timeout values are in Millisecond.</p>
@@ -264,7 +263,7 @@
 <p>interframe_delay: 1</p>
 <p>response_timeout: 80</p>
 <dl>
-<dt>For Modbus RTU master, following additional configurations are needed apart from above mentioned parameters:</dt><dd><p>baudrate: 9600</p>
+<dt>For Modbus RTU master, the following additional configurations are needed apart from the parameters mentioned earlier:</dt><dd><p>baudrate: 9600</p>
 <p>parity: “N”</p>
 <p>com_port_name: “/dev/ttyS0”</p>
 </dd>
@@ -280,7 +279,7 @@
 </section>
 <section id="modbus-rtu-communication">
 <h2>6.3         Modbus RTU Communication<a class="headerlink" href="#modbus-rtu-communication" title="Permalink to this headline"></a></h2>
-<p>Modbus RTU is an open serial protocol derived from the Master/Slave architecture. UWC Modbus-rtu-container is used as master and slave can be configured.</p>
+<p>Modbus RTU is an open serial protocol derived from the Master/Slave architecture. Universal Wellpad Controller Modbus-rtu-container is used as master and slave can be configured.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/flow1.png"><img alt="../_images/flow1.png" src="../_images/flow1.png" style="width: 399.59999999999997px; height: 363.59999999999997px;" /></a>
 <figcaption>
@@ -300,7 +299,7 @@
 <section id="accessing-secured-mqtt-container-from-an-external-mqtt-client">
 <h3>6.5.1   Accessing secured MQTT container from an external MQTT client<a class="headerlink" href="#accessing-secured-mqtt-container-from-an-external-mqtt-client" title="Permalink to this headline"></a></h3>
 <dl class="simple">
-<dt><strong>Pre-requisites:</strong></dt><dd><p>All UWC containers must be deployed-on gateway with DEV_MODE=false (i.e., secured mode).</p>
+<dt><strong>Prerequisites:</strong></dt><dd><p>All Universal Wellpad Controller containers must be deployed-on gateway with DEV_MODE=false (i.e., secured mode).</p>
 </dd>
 </dl>
 <p><strong>Steps to follow:</strong></p>
@@ -315,7 +314,7 @@
 </li>
 <li><p>Assign read permission to local certs using following command,
 sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
-<p><strong>Please Note:</strong> Read permissions are only required for ca/ and /mymqttcerts directories present inside mqtt_certs directory copied in step2.</p>
+<p><strong>Note:</strong> Read permissions are only required for ca/ and /mymqttcerts directories present inside mqtt_certs directory copied in step 2.</p>
 <p>Provide right access to certificates directory using below command – sudo chmod +x Certificates in</p>
 <p><em>&lt;working_dir&gt;/IEdgeInsights/build/Certificates</em></p>
 </li>
@@ -350,7 +349,7 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 <a class="reference internal image-reference" href="../_images/image5.png"><img alt="../_images/image5.png" src="../_images/image5.png" style="width: 274.5px; height: 111.60000000000001px;" /></a>
 </figure>
 <ol class="arabic simple" start="2">
-<li><p>Use certificates mentioned in step 1 inside application to connect with secured MQTT broker which is running as a part of UWC.</p></li>
+<li><p>Use certificates mentioned in step 1 inside application to connect with secured MQTT broker which is running as a part of Universal Wellpad Controller.</p></li>
 </ol>
 <p>Following is the sample code snippet in C++ to use certificates in a program,</p>
 <figure class="align-center">
@@ -363,9 +362,9 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 </section>
 <section id="sparkplug-bridge">
 <h2>6.6     Sparkplug-Bridge<a class="headerlink" href="#sparkplug-bridge" title="Permalink to this headline"></a></h2>
-<p>This container implements Eclipse Foundation’s SparkPlug standard to expose data to compliant SCADA Master over MQTT.</p>
-<section id="pre-requisite-for-running-sparkplug-bridge">
-<h3>6.6.1   Pre-requisite for running Sparkplug-Bridge<a class="headerlink" href="#pre-requisite-for-running-sparkplug-bridge" title="Permalink to this headline"></a></h3>
+<p>This container implements Eclipse Foundation’s SparkPlug* standard to expose data to compliant SCADA Master over MQTT.</p>
+<section id="prerequisite-for-running-sparkplug-bridge">
+<h3>6.6.1   Prerequisite for running Sparkplug-Bridge<a class="headerlink" href="#prerequisite-for-running-sparkplug-bridge" title="Permalink to this headline"></a></h3>
 <ol class="loweralpha simple">
 <li><p>SCADA Master (e.g., Ignition System) shall be installed and configured.</p></li>
 <li><p>MQTT broker shall be installed and configured in SCADA Master. At present secured connectivity for MQTT is not supported.</p></li>
@@ -378,8 +377,8 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 </section>
 <section id="vendor-apps">
 <h2>6.7     Vendor Apps<a class="headerlink" href="#vendor-apps" title="Permalink to this headline"></a></h2>
-<p>Vendor Apps consist of Sample Publisher and Sample subscriber which are brokered publisher and subscriber for EMB.The EII’s ETCDUI acts as interface for sample publisher for more details on ETCDUI, Please refer : <a class="reference external" href="https://github.com/open-edge-insights/eii-etcd-ui/blob/master/README.md">https://github.com/open-edge-insights/eii-etcd-ui/blob/master/README.md</a></p>
-<p>Sparkplug can communicate with rest of UWC containers by two ways either:</p>
+<p>Vendor Apps consist of Sample Publisher and Sample subscriber which are brokered publisher and subscriber for EMB.The EII’s ETCDUI acts as interface for sample publisher for more details on ETCDUI, refer to the <a class="reference external" href="https://github.com/open-edge-insights/eii-etcd-ui/blob/master/README.md">Readme</a>.</p>
+<p>SparkPlug* can communicate with rest of the Universal Wellpad Controller containers by two ways either:</p>
 <ol class="arabic simple">
 <li><p>By MQTT mode (which is sparkplug-bridge -&gt; internal-mqtt-Broker -&gt; mqtt-bridge -&gt; EMB)</p></li>
 <li><p>By EMB mode (which is sparkplug-bridge -&gt; EMB).</p></li>
@@ -406,9 +405,9 @@ sudo chown -R $USER:$USER  &amp;&amp; sudo chmod +r ca/* mymqttcerts/*</p>
 <li><p>By default, pre-processor flag UWC_HIGH_PERFORMANCE_PROCESSOR is disabled in Kpi App for debug &amp; release mode.</p></li>
 <li><p>To enable KPI-App on high performance processor in release mode, go to &lt;Sourcecode&gt; -&gt; kpi-Tactic -&gt; KPIApp -&gt; Release -&gt; src directory (<a class="reference external" href="https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Release/src/subdir.mk">https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Release/src/subdir.mk</a>) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.</p></li>
 <li><p>To enable KPI-App on high performance processor in release mode, go to &lt;Sourcecode&gt; -&gt; kpi-Tactic -&gt; KPIApp -&gt; Debug -&gt; src directory (<a class="reference external" href="https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Debug/src/subdir.mk">https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Debug/src/subdir.mk</a>) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.</p></li>
-<li><p>To disable pre-processor flag in Kpi App, remove the option “-DUWC_HIGH_PERFORMANCE_PROCESSOR” added in steps 2 &amp; 3 for both Release and Debug mode.</p></li>
+<li><p>To disable the pre-processor flag in the KPI App, remove the option “-DUWC_HIGH_PERFORMANCE_PROCESSOR” added in steps 2 and 3 for both the Release and Debug mode.</p></li>
 </ol>
-<p>High performance processors are Intel core classes processors &amp; low performance/low power systems are Intel atom class processors.</p>
+<p>High performance processors are Intel® Core™ classes processors and low performance or low power systems are Intel Atom® x processor family.</p>
 </section>
 </section>
 </section>
