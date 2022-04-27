@@ -216,18 +216,18 @@
 <ol class="arabic simple">
 <li><p>Syntax - <em>sudo docker logs &lt;container_name&gt;</em></p></li>
 </ol>
-<p>e.g.:- To check modbus-tcp-container logs execute <em>“sudo docker logs modbus-tcp-container”</em> command.</p>
+<p>For example, to check the modbus-tcp-container logs, run the <em>“sudo docker logs modbus-tcp-container”</em> command.</p>
 <ol class="arabic simple" start="2">
-<li><p>Command to check logs inside the container <em>“sudo docker exec -it &lt;container_name&gt; bash”</em> and go to the “logs” directory using <em>“cd logs”</em>.</p></li>
-<li><p>Use <em>“cat &lt;log_file_name&gt;”</em> to see log file inside the container</p></li>
-<li><p>Copying logs from container to host machine</p></li>
+<li><p>Run the command to check logs inside the container <em>“sudo docker exec -it &lt;container_name&gt; bash”</em> and then, go to the “logs” directory using <em>“cd logs”</em>.</p></li>
+<li><p>Use the <em>“cat &lt;log_file_name&gt;”</em> command to see log file inside the container.</p></li>
+<li><p>To copy logs from container to host machine refer to the following command:</p></li>
 </ol>
 <blockquote>
 <div><p>Syntax - <em>docker cp &lt;container_name&gt;:&lt;file to copy from container&gt; &lt;file to be copied i.e., host directory&gt;</em></p>
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li><p>To check the IP address of machine, use the <em>“ifconfig”</em> command.</p></li>
-<li><p>For Modbus RTU, to check attached COM port for serial communication, use the <em>“dmesg | grep tty”</em> command.</p></li>
+<li><p>To check the IP address of machine, run the <em>“ifconfig”</em> command.</p></li>
+<li><p>For Modbus RTU, to check attached COM port for serial communication, run the <em>“dmesg | grep tty”</em> command.</p></li>
 </ol>
 <p>Redirect docker logs to file including errors</p>
 <p><em>docker logs modbus-tcp-container &gt; docker.log 2&gt;&amp;1</em></p>
@@ -245,7 +245,7 @@
 <p><strong>Steps to apply new configuration (i.e., YML files)</strong></p>
 <p>Once YML files/docker-compose.yml are changed/Modified in <em>/opt/intel/eii/uwc_data</em> directory then, execute following command to apply new configurations,</p>
 <p><em>sudo ./05_applyConfigChanges.sh</em></p>
-<p><strong>How to bring up/down UWC containers</strong></p>
+<p><strong>How to bring up/down the Universal Wellpad Controller containers</strong></p>
 <p><em>docker-compose down</em> - bring down all containers</p>
 <p><em>docker-compose up</em> - bring up all containers</p>
 </section>
