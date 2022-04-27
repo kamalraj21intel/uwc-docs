@@ -110,19 +110,19 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">7.0  Site Configurations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#system-level-global-configuration">7.1     System Level Global Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#settings-for-polling-and-on-demand-operation">7.1.1   Settings for Polling and On-Demand operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settings-for-polling-and-on-demand-operations">7.1.1   Settings for Polling and On-Demand Operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#settings-for-sparkplug-bridge-sparkplug-communication-operation">7.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#settings-for-default-scale-factor">7.1.3   Settings for default scale factor</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-configure-site-and-wellhead">7.2     How to Configure Site and Wellhead</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-tcp-device-in-device-group">7.2.1   Configuring TCP device in device-group</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-rtu-device-in-device-group">7.2.2   Configuring RTU device in device-group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-tcp-device-in-device-group">7.2.1   Configuring TCP device in Device-group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-rtu-device-in-device-group">7.2.2   Configuring RTU Device in Device-group</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-configure-devices">7.3     How to Configure Devices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-configure-device-points">7.4     How to Configure Device points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-add-edit-delete-new-wellhead-device-point-configurations">7.5     How to add/edit/delete new wellhead/device/point configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-add-edit-or-delete-a-new-wellhead-device-or-point-configurations">7.5     How to Add, Edit, or Delete a New Wellhead, Device, or point configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#kpi-app-configuration">7.6     KPI App Configuration</a></li>
 </ul>
 </li>
@@ -212,13 +212,13 @@
              
   <section id="site-configurations">
 <h1>7.0  Site Configurations<a class="headerlink" href="#site-configurations" title="Permalink to this headline"></a></h1>
-<p>This section provides configurations required to configure the site, wellhead, device and points for UWC containers.</p>
+<p>This section provides configurations required to configure the site, wellhead, device, and points for Universal Wellpad Controller containers.</p>
 <section id="system-level-global-configuration">
 <h2>7.1     System Level Global Configuration<a class="headerlink" href="#system-level-global-configuration" title="Permalink to this headline"></a></h2>
-<p>This file contains configurations to be used for operations across UWC containers for (Modbus-TCP, Modbus-RTU, MQTT-Bridge.)</p>
-<p>Global_Config.yml file location - /opt/intel/eii/uwc_data/common_config</p>
-<p>Based on realtime requirement, operations are classified into following sub-operations:</p>
-<ol class="arabic simple">
+<p>This file contains configurations to be used for operations across Universal Wellpad Controller containers for Modbus-TCP, Modbus-RTU, and MQTT-Bridge.</p>
+<p>The Global_Config.yml file location is as follows, /opt/intel/eii/uwc_data/common_config</p>
+<p>Based on realtime requirement, operations are classified into the following sub-operations:</p>
+<ul class="simple">
 <li><p>Polling realtime</p></li>
 <li><p>Polling non-realtime</p></li>
 <li><p>On-demand read realtime</p></li>
@@ -227,10 +227,10 @@
 <li><p>On-demand write non-realtime</p></li>
 <li><p>SparkPlug communication for Sparkplug-Bridge</p></li>
 <li><p>Default scale factor</p></li>
-</ol>
-<section id="settings-for-polling-and-on-demand-operation">
-<h3>7.1.1   Settings for Polling and On-Demand operation<a class="headerlink" href="#settings-for-polling-and-on-demand-operation" title="Permalink to this headline"></a></h3>
-<p>Following is a sample for Polling operation. Similar is applicable for On-demand operations:</p>
+</ul>
+<section id="settings-for-polling-and-on-demand-operations">
+<h3>7.1.1   Settings for Polling and On-Demand Operations<a class="headerlink" href="#settings-for-polling-and-on-demand-operations" title="Permalink to this headline"></a></h3>
+<p>The following is a sample setting for the Polling operation. The settings are similar for the On-demand operations:</p>
 <dl>
 <dt>Global:</dt><dd><dl>
 <dt>Operations:</dt><dd><ul>
@@ -254,7 +254,7 @@
 </dl>
 </dd>
 </dl>
-<p>Following is a description of each field.</p>
+<p>The description of each field is as follows:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/image8_1.png"><img alt="../_images/image8_1.png" src="../_images/image8_1.png" style="width: 460.79999999999995px; height: 308.4px;" /></a>
 </figure>
@@ -262,18 +262,18 @@
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/image8_2.png"><img alt="../_images/image8_2.png" src="../_images/image8_2.png" style="width: 461.4px; height: 348.0px;" /></a>
 </figure>
-<p>If incorrect value is specified for any of above fields, a default value (listed below) will be used:</p>
+<p>If incorrect value is specified for any of above fields, a default value which is listed below will be used:</p>
 <blockquote>
 <div><p>default_realtime: false</p>
 <p>operation_priority: 1</p>
 <p>retries: 0</p>
 <p>qos: 0</p>
 </div></blockquote>
-<p>If configuration parameter or section is missing for any of the sub-operation (related to Polling and On-Demand), then default values mentioned above will be used.</p>
+<p>If configuration parameter or section is missing for any of the sub-operation related to the Polling and On-Demand operations, then default values mentioned above will be used.</p>
 </section>
 <section id="settings-for-sparkplug-bridge-sparkplug-communication-operation">
 <span id="link"></span><h3>7.1.2   Settings for Sparkplug-Bridge – SparkPlug communication operation<a class="headerlink" href="#settings-for-sparkplug-bridge-sparkplug-communication-operation" title="Permalink to this headline"></a></h3>
-<p>Following is a sample:</p>
+<p>The following is a sample setting for Sparkplug-Bridge</p>
 <dl>
 <dt>Global:</dt><dd><dl>
 <dt>Operations:</dt><dd><ul>
@@ -290,7 +290,7 @@
 </dl>
 </dd>
 </dl>
-<p>Above are also the default values for mentioned parameters. If configuration parameter or section is missing for SparkPlug communication, then default values mentioned above will be used.</p>
+<p>The sample also shows the default values for parameters. If a configuration parameter or section is missing for SparkPlug* communication, then default values mentioned in the sample will be used.</p>
 <p>The parameters here are used to form SparkPlug formatted topic name.</p>
 <p>These values should properly be configured to ensure correct representation of data under SCADA Master.</p>
 <p>Following is a description of each field.</p>
@@ -300,7 +300,7 @@
 </section>
 <section id="settings-for-default-scale-factor">
 <h3>7.1.3   Settings for default scale factor<a class="headerlink" href="#settings-for-default-scale-factor" title="Permalink to this headline"></a></h3>
-<p>Following is a sample:</p>
+<p>The sample settings for default scale factor is as follows:</p>
 <dl>
 <dt>Global:</dt><dd><p>Operations:
 .</p>
@@ -316,7 +316,7 @@
 </section>
 <section id="how-to-configure-site-and-wellhead">
 <h2>7.2     How to Configure Site and Wellhead<a class="headerlink" href="#how-to-configure-site-and-wellhead" title="Permalink to this headline"></a></h2>
-<p>There is one file which lists down reference to device-groups (i.e., wellheads) controlled by one UWC gateway. Ideally, in one UWC gateway there is one TCP and one RTU container. Please note one RTU container can manage communication with multiple RTU networks.</p>
+<p>There is one file which lists down reference to device-groups that is wellheads controlled by one Universal Wellpad Controller gateway. Ideally, in one Universal Wellpad Controller gateway there is one TCP and one RTU container. One RTU container can manage communication with multiple RTU networks.</p>
 <p>—
 <em>file:</em></p>
 <blockquote>
@@ -367,9 +367,9 @@
 </div></blockquote>
 <p>Following sections provide details about TCP and RTU device configuration in device-group file.</p>
 <section id="configuring-tcp-device-in-device-group">
-<h3>7.2.1   Configuring TCP device in device-group<a class="headerlink" href="#configuring-tcp-device-in-device-group" title="Permalink to this headline"></a></h3>
-<p>E.g.
-<em>devicelist:</em>
+<h3>7.2.1   Configuring TCP device in Device-group<a class="headerlink" href="#configuring-tcp-device-in-device-group" title="Permalink to this headline"></a></h3>
+<p>The following is an example for configuring TCP device in a Device-group</p>
+<p><em>devicelist:</em>
 <em>- deviceinfo: “flowmeter_device.yml”</em></p>
 <blockquote>
 <div><p><em>id: “flowmeter”</em></p>
@@ -382,14 +382,14 @@
 </div></blockquote>
 <p><em>tcp_master_info: “tcp_master_info.yml”</em></p>
 </div></blockquote>
-<p>Following parameters are needed for each TCP device:</p>
+<p>The following parameters are needed for each TCP device:</p>
 <ul class="simple">
 <li><p>ipaddress – for TCP communication IP address for client device required</p></li>
 <li><p>port – can be configured as per client device configuration</p></li>
-<li><p>unitid – id can used to distinguish multiple clients on same ipaddress</p></li>
-<li><p>tcp_master_info - tcp_master_info.yml – In this file interframe delay and response timeout can be configured for TCP network</p></li>
+<li><p>unitid – id can used to distinguish multiple clients on same IP address</p></li>
+<li><p>tcp_master_info - tcp_master_info.yml – In this file, interframe delay and response timeout can be configured for TCP network</p></li>
 </ul>
-<p>Following is a sample file for tcp_master_info.yml</p>
+<p>Sample file for tcp_master_info.yml is as follows:</p>
 <p><em>file:</em></p>
 <blockquote>
 <div><p><em>version: “1.0.0”</em></p>
@@ -399,18 +399,18 @@
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>inter-frame delay and response timeout values are in Millisecond</p>
+<p>The inter-frame delay and response timeout values are in milliseconds</p>
 </div>
 <p>interframe_delay: 1</p>
 <p>response_timeout: 80</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This reference shall be unique across TCP devices and needs to be given for each TCP device.</p>
+<p>This reference is unique across TCP devices and needs to be given for each TCP device.</p>
 </div>
 </section>
 <section id="configuring-rtu-device-in-device-group">
-<h3>7.2.2   Configuring RTU device in device-group<a class="headerlink" href="#configuring-rtu-device-in-device-group" title="Permalink to this headline"></a></h3>
-<p>E.g.</p>
+<h3>7.2.2   Configuring RTU Device in Device-group<a class="headerlink" href="#configuring-rtu-device-in-device-group" title="Permalink to this headline"></a></h3>
+<p>The example for configuring the RTU device in a device-group is as follows:</p>
 <p><em>devicelist:</em></p>
 <p><em>- deviceinfo: “iou_device.yml”</em></p>
 <blockquote>
@@ -422,12 +422,12 @@
 </div></blockquote>
 <p><em>rtu_master_network_info: “rtu_network1.yml”</em></p>
 </div></blockquote>
-<p>Following parameters are needed for each RTU device:</p>
+<p>The following parameters are required for each RTU device:</p>
 <ul class="simple">
 <li><p>slaveid – This is end device id in case of RTU communication</p></li>
 <li><p>rtu_master_network_info: “rtu_network1.yml” – This file is used to configure RTU configuration for a specific RTU network.</p></li>
 </ul>
-<p>Following is a sample file for rtu_network1.yml</p>
+<p>A sample file for rtu_network1.yml is as follows:</p>
 <p>—
 <em>file:</em></p>
 <blockquote>
@@ -441,7 +441,7 @@
 <p><em>com_port_name: “/dev/ttyS0”</em></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>inter-frame delay and response timeout values are in Millisecond</p>
+<p>The inter-frame delay and response timeout values are in milliseconds (ms)</p>
 </div>
 <p>interframe_delay: 1</p>
 <p>response_timeout: 80</p>
@@ -453,7 +453,7 @@
 </section>
 <section id="how-to-configure-devices">
 <h2>7.3     How to Configure Devices<a class="headerlink" href="#how-to-configure-devices" title="Permalink to this headline"></a></h2>
-<p>Device contains information of a device. Below is a sample file –</p>
+<p>Device contains information of a device. A sample file is as follows:</p>
 <p><em>file:</em></p>
 <blockquote>
 <div><p><em>version: “1.0.0”</em></p>
@@ -472,8 +472,7 @@
 </section>
 <section id="how-to-configure-device-points">
 <h2>7.4     How to Configure Device points<a class="headerlink" href="#how-to-configure-device-points" title="Permalink to this headline"></a></h2>
-<p>Device Point contains end point information. Below is a sample file.</p>
-<p>Below parameters can be changed in this file –</p>
+<p>A device point contains the end point information. A sample file is shown as follows. The following parameters can be changed in this file –</p>
 <ul class="simple">
 <li><p>addr - can be of range 0 to 65534</p></li>
 <li><p>pollinterval – value in milliseconds</p></li>
@@ -615,25 +614,22 @@
 <a class="reference internal image-reference" href="../_images/table8_7_updated.png"><img alt="../_images/table8_7_updated.png" src="../_images/table8_7_updated.png" style="width: 652.0px; height: 511.20000000000005px;" /></a>
 </figure>
 </section>
-<section id="how-to-add-edit-delete-new-wellhead-device-point-configurations">
-<h2>7.5     How to add/edit/delete new wellhead/device/point configurations<a class="headerlink" href="#how-to-add-edit-delete-new-wellhead-device-point-configurations" title="Permalink to this headline"></a></h2>
+<section id="how-to-add-edit-or-delete-a-new-wellhead-device-or-point-configurations">
+<h2>7.5     How to Add, Edit, or Delete a New Wellhead, Device, or point configurations<a class="headerlink" href="#how-to-add-edit-or-delete-a-new-wellhead-device-or-point-configurations" title="Permalink to this headline"></a></h2>
+<p>You can add, update, edit, or delete oil well configurations files (YML files) from the following directory, /opt/intel/eii/uwc_data directory</p>
 <ol class="arabic simple">
-<li><p>User can add/update/edit/delete Oil well configurations files (YML files) from /opt/intel/eii/uwc_data directory</p></li>
 <li><p>Open a terminal and go to &lt;working_dir&gt;/IEdgeInsights directory.</p></li>
-<li><p>Run below command to apply new Oil well site configurations</p></li>
+<li><p>Navigate to <em>&lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts</em></p></li>
+<li><p>Run the following command to apply a new oil well site configurations</p></li>
 </ol>
-<blockquote>
-<div><p>Navigate to <em>&lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts</em></p>
-<p><em>sudo ./05_applyConfigChanges.sh</em></p>
-</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This script will restart all UWC docker containers.</p>
+<p>This script will restart all the Universal Wellpad Controller docker containers.</p>
 </div>
 </section>
 <section id="kpi-app-configuration">
 <h2>7.6     KPI App Configuration<a class="headerlink" href="#kpi-app-configuration" title="Permalink to this headline"></a></h2>
-<p>Following is a sample configuration file for KPI Application.</p>
+<p>A sample configuration file for KPI Application is as follows:</p>
 <p>—
 <em>file:</em></p>
 <blockquote>
@@ -667,26 +663,26 @@
 <div><p><em>datapoint: “/flowmeter/PL0/D2”</em></p>
 <p><em>dataval: “0x1234”</em></p>
 </div></blockquote>
-<p>Following is a description of each field.</p>
+<p>The description of each field is as follows:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table9_1_update.png"><img alt="../_images/table9_1_update.png" src="../_images/table9_1_update.png" style="width: 500.49999999999994px; height: 569.8px;" /></a>
 </figure>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table9_2_update.png"><img alt="../_images/table9_2_update.png" src="../_images/table9_2_update.png" style="width: 499.79999999999995px; height: 93.8px;" /></a>
 </figure>
-<p>Please note following: This configuration file should be created manually with following considerations:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <blockquote>
-<div><ol class="upperalpha simple">
-<li><p>The points in <em>“polled_point”</em> and <em>“datapoint”</em> fields in this file should be configured as per actual configuration in wellhead, device and datapoints config files.</p></li>
-</ol>
-<p>e.g., If a point to be polled is not present in datapoints config file, then data for that control loop will not be collected.</p>
-<ol class="upperalpha simple" start="2">
+<div><p>This configuration file should be created manually with following considerations:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>The points in <em>“polled_point”</em> and <em>“datapoint”</em> fields in this file should be configured as per actual configuration in wellhead, device and datapoints config files. For example, if a point to be polled is not present in datapoints config file then data for that control loop will not be collected.</p></li>
 <li><p>Polled data points in “Polled_point” and write operation data points in “write_operation” must be unique.</p></li>
 <li><p>If the points being polled are configured as <em>“realtime”</em> in datapoints config file, then <em>“isRTModeForPolledPoints”</em> should be set to <em>“true”</em>. It should be set to <em>“false”</em> otherwise.</p></li>
 <li><p>KPI App can monitor either RT or Non-RT points at a time.</p></li>
 <li><p>KPI App container can run either in ZMQ mode or in MQTT mode at a time.</p></li>
-</ol>
-</div></blockquote>
+</ul>
+</div>
 </section>
 </section>
 
