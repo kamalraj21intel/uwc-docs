@@ -67,7 +67,7 @@ This section provides steps to install and deploy Universal Wellpad Controller c
 
 For the Sparkplug-Bridge-related configuration, refer to the following sample output:
 
-**• Enter the following parameters required for Sparkplug-Bridge container..**
+Enter the following parameters required for Sparkplug-Bridge container.
 
 Is TLS required for sparkplug-bridge (yes/no): 
     yes
