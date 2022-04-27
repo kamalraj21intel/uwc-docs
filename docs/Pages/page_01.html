@@ -40,9 +40,9 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="First_pg.html">Legal Disclaimer</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1.0  Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#purpose">1.1  Purpose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scope">1.2  Scope</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1.0 Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose">1.1 Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scope">1.2 Scope</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#system-requirements">1.3  System Requirements</a></li>
 </ul>
 </li>
@@ -200,7 +200,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>1.0  Introduction</li>
+      <li>1.0 Introduction</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/main/source/Pages/page_01.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -211,44 +211,42 @@
            <div itemprop="articleBody">
              
   <section id="introduction">
-<h1>1.0  Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h1>
+<h1>1.0 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h1>
 <p>Universal Wellpad Controller is a reference design for a secured management platform that provides third party application developers an easy access to data services including data collection from field devices, control data pathways, and connections to centralized data systems (i.e., SCADA) for Upstream Oil and Gas facilities, including gas well sites.</p>
 <p>Universal Wellpad Controller platform will provide a secure, management platform for oil and gas upstream process monitoring and control to support oil and gas installations with various artificial lift methods such as plunger lift, gas lift, gas-assisted plunger lift, rod-beam and electronic submersible pump (ESP).
-Intel’s primary objective in this market is to move the Upstream Oil and Gas vendors, service providers, and end-users to adopt Intel-based hardware hosting a rich range of open-architecture software-defined platforms. Solution is targeted to address multiple pain areas that the O&amp;G industry is facing in day-to-day operations. These pain areas are further restricting the O&amp;G industry to benefit from technology advancements resulting from cloud-based services and applications for business intelligence (BI), analytics, dashboards, and so on. There is a need to provide a uniform mechanism to connect, monitor and control various devices in an O&amp;G well site adhering to real-time nature of the industry.
+Intel’s primary objective in this market is to move the upstream oil and gas vendors, service providers, and end-users to adopt Intel-based hardware hosting a rich range of open-architecture software-defined platforms. Solution is targeted to address multiple pain areas that the O&amp;G industry is facing in day-to-day operations. These pain areas are further restricting the O&amp;G industry to benefit from technology advancements resulting from cloud-based services and applications for business intelligence (BI), analytics, dashboards, and so on. There is a need to provide a uniform mechanism to connect, monitor and control various devices in an O&amp;G well site adhering to real-time nature of the industry.
 While the Universal Wellpad Controller software solution described in this User Guide contains a data model specific to a Gas Wellpad, the software is flexible and can be configured for use with other soft-RT process control sites and operating assets.</p>
 <section id="purpose">
-<h2>1.1  Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline"></a></h2>
-<p>This document provides information on how to install the Universal Wellpad Controller software framework and configure the device models, data model and data flows for data collection (from field devices) and reporting (such as to SCADA) at remote process control sites such as an oil or natural gas well (wellpad).  The document will help the developer to evaluate the performance of the data collection processes using an applet called the ‘KPI Application’.  The document will also help the developer to set up the security and manageability services.</p>
+<h2>1.1 Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline"></a></h2>
+<p>This document provides information on how to install the Universal Wellpad Controller software framework and configure the device models, data model and data flows for data collection from field devices and reporting such as to Supervisory Control and Data Acquisition (SCADA) at remote process control sites such as an oil or natural gas well (wellpad). The document will help the developer to evaluate the performance of the data collection processes using an applet called the ‘KPI Application’.  The document will also help the developer to set up the security and manageability services.</p>
 </section>
 <section id="scope">
-<h2>1.2  Scope<a class="headerlink" href="#scope" title="Permalink to this headline"></a></h2>
-<p>This document aims to provide steps to build, deploy and check if the gateway is up and running all containers. This document also provides steps to set Universal Wellpad Controller containers for communication with Modbus devices.</p>
+<h2>1.2 Scope<a class="headerlink" href="#scope" title="Permalink to this headline"></a></h2>
+<p>This document aims to provide steps to build, deploy, and check if the gateway is up and running all containers. This document also provides steps to set Universal Wellpad Controller containers for communication with Modbus devices.</p>
 </section>
 <section id="system-requirements">
 <h2>1.3  System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline"></a></h2>
 <p>The requirements for Universal Wellpad Controller reference middleware are:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Intel processor family</p></li>
-<li><p>4GB system memory</p></li>
-<li><p>25GB hard disk space</p></li>
-<li><p>Ubuntu 20.04 server operating system with RT Patch
-(instructions for patching the Ubuntu OS are provided)</p></li>
-<li><p>Docker &gt;=20.10.6</p></li>
-<li><p>docker-compose version &gt;=1.29.0</p></li>
+<li><p>Intel® processor family</p></li>
+<li><p>4 GB system memory</p></li>
+<li><p>25 GB hard disk space</p></li>
+<li><p>Ubuntu 20.04 server operating system with RT Patch (Instructions for patching the Ubuntu OS are provided)</p></li>
+<li><p>Docker version 20.10.6 or above</p></li>
+<li><p>Docker Compose version 1.29.0 or above</p></li>
 </ul>
 </div></blockquote>
-<p>When enabling the Data Persistence recipe (with Influx DB and Telegrafph), if data access queries are intensive or desired database size is large, it is recommended to use higher performance and capacity components for CPU, memory, and storage:</p>
+<p>When enabling the Data Persistence recipe (with InfluxDB* and Telegraf*), if data access queries are intensive or desired database size is large, it is recommended to use higher performance and capacity components for CPU, memory, and storage:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Four or more physical or virtual cores</p></li>
 <li><p>Intel® Core™ processor family</p></li>
-<li><p>8GB memory</p></li>
-<li><p>64GB hard disk space</p></li>
-<li><p>Ubuntu 20.04 server operating system with RT Patch
-(instructions for patching the Ubuntu OS are provided)</p></li>
-<li><p>Docker &gt;=20.10.6</p></li>
-<li><p>docker-compose version &gt;=1.29.0</p></li>
+<li><p>8 GB memory</p></li>
+<li><p>64 GB hard disk space</p></li>
+<li><p>Ubuntu 20.04 server operating system with RT Patch (Instructions for patching the Ubuntu OS are provided)</p></li>
+<li><p>Docker version 20.10.6 or above</p></li>
+<li><p>Docker Compose version 1.29.0 or above</p></li>
 </ul>
 </div></blockquote>
 </section>
