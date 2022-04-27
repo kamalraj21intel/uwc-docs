@@ -15,7 +15,7 @@ This section provides steps to install and deploy Universal Wellpad Controller c
 **Steps:**
 
 1. Install Ubuntu 20.04 server version on gateway and then, apply the RT Patch. For more information, see section 14.
-2. Git clone in following order will place the directories in the correct relative directory structure
+2. Run repo commands in the following order which will place the directories in the correct relative directory structure
 
 .. code-block:: sh
 
@@ -60,7 +60,7 @@ This section provides steps to install and deploy Universal Wellpad Controller c
    7. Running Basic UWC micro-services with time series services (Telegraf & InfluxDBCOnnector) along with Sparkplug service, Sample SamplePublisher and Sample              SampleSubscriber
    8. Running the Sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker & Etcd container
    9. Basic UWC micro-services with Sample SamplePublisher and Sample SampleSubscriber
-   10. All modules UWC modules, KPI-tactic Application, SPARKPLUG-BRIDGE, Telegraf, InfluxDBCOnnector, ZmqBroker, Etcd container, Sample SamplePublisher, and Sample           SampleSubscriber
+   10. All modules UWC modules, KPI-tactic Application, SPARKPLUG-BRIDGE, Telegraf, InfluxDBCOnnector, ZmqBroker, Etcd container, SamplePublisher, and           SampleSubscriber
     * Do you want to use pre-build images from public docker hub ?
     - Yes  
     - No
