@@ -2,45 +2,43 @@
 9.0 	Sparkplug-Bridge Operations
 ===================================
 
-Sparkplug-Bridge implements Eclipse Foundation’s SparkPlug standard. 
+Sparkplug-Bridge implements Eclipse Foundation’s SparkPlug* standard. 
 
 **Refer:** https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf
 
-This section explains the features in detail. UWC gateway acts as a “node” as per SparkPlug standard. Please note that Sparkplug-Bridge is an under-development feature and hence not all message types are supported from SparkPlug.
+This section explains the features in detail. Universal Wellpad Controller gateway acts as a “node” as per SparkPlug* standard. Note that Sparkplug-Bridge is an under-development feature and hence not all message types are supported from SparkPlug*.
 
-This section also explains how information from real device and virtual device is mapped to SparkPlug-formatted data.
+This section also explains how information from real device and virtual device is mapped to SparkPlug*-formatted data.
 
-------------------------------------------
+---------------------------------
 9.1 	App mode of communication
-------------------------------------------
+---------------------------------
 
-Sparkplug can communicate with rest of UWC containers by two ways either:
+Sparkplug* can communicate with rest of Universal Wellpad Controller containers by two ways either:
 1. By MQTT mode (which is sparkplug-bridge -> internal-mqtt-Broker -> mqtt-bridge -> EMB) 
 
 2. By EMB mode (which is sparkplug-bridge -> EMB).
 
-For communicating with MQTT, set "enable_EMB" as "false" in "sparkplug-bridge/config.json" file.
+* For communicating with MQTT, set "enable_EMB" as "false" in "sparkplug-bridge/config.json" file.
 
-For communicating with EMB, set "enable_EMB" as "true" in "sparkplug-bridge/config.json" file.
-
-For more details on EMB way, Please refer Vendor_Apps/README-VA.md 
+* For communicating with EMB, set "enable_EMB" as "true" in "sparkplug-bridge/config.json" file. For more details on EMB way, refer to Vendor_Apps/README-VA.md 
 
 ------------------------------------------
 9.2 	App (virtual device) communication
 ------------------------------------------
 
-Apps running on UWC platform can be represented as a SparkPlug device to SCADA Master. SCADA Master can monitor, control these apps using SparkPlug mechanism. Sparkplug-Bridge defines following to enable this communication between apps and SCADA Master:
+Apps running on Universal Wellpad Controller platform can be represented as a SparkPlug* device to SCADA Master. SCADA Master can monitor, control these apps using SparkPlug mechanism. Sparkplug-Bridge defines following to enable this communication between apps and SCADA Master:
 
 
 TemplateDef message: This allows providing a definition for a Sparkplug Template i.e., UDT
 
-BIRTH message: This corresponds to a SparkPlug DBIRTH message.
+BIRTH message: This corresponds to a SparkPlug* DBIRTH message.
 
-DEATH message: This corresponds to a SparkPlug DDEATH message.
+DEATH message: This corresponds to a SparkPlug* DDEATH message.
 
-DATA message: This corresponds to a SparkPlug DDATA message.
+DATA message: This corresponds to a SparkPlug* DDATA message.
 
-CMD message: This corresponds to a SparkPlug DCMD message.
+CMD message: This corresponds to a SparkPlug* DCMD message.
 
 Apps and Sparkplug-Bridge communicate over internal MQTT using above defined messages.
 
@@ -56,7 +54,7 @@ Where,
 •	APPID: Any string e.g., “UWCP”
 •	SUBCLASS: Any string like wellhead-id e.g., “PL0”. This is not needed in case of DEATH message.
 
-Sparkplug-Bridge uses following format to represent name of virtual device in SparkPlug Topic namespace:
+Sparkplug-Bridge uses following format to represent name of virtual device in SparkPlug* Topic namespace:
 
 [value of “APPID” from app message topic] + “-“ + [value of “SUBCLASS” from app message topic]
 
@@ -553,9 +551,9 @@ Refer SparkPlug standard for more information.
 
 NBIRTH is Node-Birth.
 
-On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.
+On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug* encoded format.
 
-For Modbus real device, one datapoint YML file corresponds to one SparkPlug template. These template definitions are sent in NBIRTH message. DBIRTH message for Modbus device specifies a particular SparkPlug template.
+For Modbus real device, one datapoint YML file corresponds to one SparkPlug* template. These template definitions are sent in NBIRTH message. DBIRTH message for Modbus device specifies a particular SparkPlug template.
 
 Following are sample contents in simplified JSON format:
 
@@ -780,7 +778,7 @@ Message:
 
 DBIRTH is Device-Birth.
 
-On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug encoded format.
+On start-up, Sparkplug-Bridge module publishes this message over MQTT broker. The message is published in SparkPlug* encoded format.
 
 Following are sample contents in simplified JSON format for a Modbus device:
 
@@ -943,7 +941,7 @@ Following are sample contents in simplified JSON format for a Modbus device:
 
 DDEATH is Device-Death.
 
-Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects that device is not reachable. The message is published in SparkPlug encoded format.
+Sparkplug-Bridge module publishes this message over MQTT broker whenever it detects that device is not reachable. The message is published in SparkPlug* encoded format.
 
 Following are sample contents in simplified JSON format:
 
