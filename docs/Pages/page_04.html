@@ -71,7 +71,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4.0  Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-install-uwc-software-with-eii-installer">4.1  How to install UWC software with EII installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-universal-wellpad-controller-with-eii-installer">4.1  How to install Universal Wellpad Controller with EII installer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="page_05.html">5.0  Container Configuration Settings</a><ul>
@@ -212,15 +212,15 @@
              
   <section id="installation-guide">
 <h1>4.0  Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline"></a></h1>
-<section id="how-to-install-uwc-software-with-eii-installer">
-<h2>4.1  How to install UWC software with EII installer<a class="headerlink" href="#how-to-install-uwc-software-with-eii-installer" title="Permalink to this headline"></a></h2>
-<p>This section provides steps to install and Deploy UWC containers using the EII installer</p>
-<p><strong>Pre-requisite</strong>: Internet connection (with proper proxy settings) is required for Installation.</p>
-<p><strong>Optional</strong>: For enabling full security for production deployments, make sure host machine and docker daemon are configured with below security recommendations.       ../build/docker_security_recommendation.md</p>
+<section id="how-to-install-universal-wellpad-controller-with-eii-installer">
+<h2>4.1  How to install Universal Wellpad Controller with EII installer<a class="headerlink" href="#how-to-install-universal-wellpad-controller-with-eii-installer" title="Permalink to this headline"></a></h2>
+<p>This section provides steps to install and deploy Universal Wellpad Controller containers using the EII installer.</p>
+<p><strong>Prerequisite</strong>: As a prerequisite to install the Universal Wellpad Controller, you need an internet connection with correct proxy settings.</p>
+<p><strong>Optional</strong>: For enabling full security for production deployments, ensure to configure host machine and docker daemon with the following security recommendations.       ../build/docker_security_recommendation.md</p>
 <p><strong>Steps:</strong></p>
 <ol class="arabic simple">
-<li><p>Install Ubuntu 20.04 server version on gateway and Apply RT Patch (refer section 14).</p></li>
-<li><p>Git clone in following order will place the directories in proper relative directory  structure</p></li>
+<li><p>Install Ubuntu 20.04 server version on gateway and then, apply the RT Patch. For more information, see section 14.</p></li>
+<li><p>Git clone in following order will place the directories in the correct relative directory structure</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>•   repo init -u https://github.com/open-edge-insights/eii-manifests.git -b refs/tags/v2.0
 •   repo init -m uwc.xml
@@ -228,38 +228,37 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Navigate to $ &lt;working_dir&gt;/IEdgeInsights/build</p></li>
-<li><p>Execute Command</p></li>
+<li><p>Navigate to the build folder from the following path &lt;working_dir&gt;/IEdgeInsights/build</p></li>
+<li><p>Based on the proxy settings, run any of the following commands:</p>
+<ul class="simple">
+<li><p>For a proxy enabled network, run ./pre_requisites.sh –proxy=&lt;proxy address with port number&gt;</p></li>
+<li><p>For a non-proxy network, run sudo ./pre_requisites.sh</p></li>
+</ul>
+</li>
 </ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>a.  $./pre_requisites.sh --proxy<span class="o">=</span>&lt;proxy address with port number&gt; <span class="k">for</span> proxy enabled network.
-
-b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the error “Docker CE installation step is failed” is seen while running pre-requisite.sh script on a fresh system then kindly re-run the pre_requisite.sh script again. This is a known bug in docker community for Docker CE.</p>
+<p>Rerun the pre_requisite.sh script, if the “Docker CE installation step is failed” error occurs while running the pre-requisite.sh script on a fresh system. This is a known bug in the docker community for Docker CE.</p>
 </div>
 <ol class="arabic simple" start="5">
-<li><p>Navigate to &lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts.</p></li>
-<li><p>Execute Command $ sudo -E ./01_uwc_pre_requisites.sh</p></li>
-<li><p>Execute Command $ sudo -E ./02_provision_build_UWC.sh</p></li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">&lt;working_dir&gt;/IEdgeInsights/uwc/build_scripts</span></code>.</p></li>
+<li><p>Run the following command:</p></li>
 </ol>
-<p>It prompts these options –</p>
-<ul class="simple">
-<li><p>Please choose one of the below options based on Dev or Prod mode.</p></li>
-</ul>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>Dev</p></li>
-<li><p>Prod</p></li>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo -E ./01_uwc_pre_requisites.sh
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Run the following command:</p></li>
 </ol>
-</div></blockquote>
-<ul class="simple">
-<li><p>Please choose one of the below options based on the use case (combination of UWC services) needed.</p></li>
-</ul>
-<blockquote>
-<div><ol class="arabic simple">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo -E ./02_provision_build_UWC.sh
+</pre></div>
+</div>
+<ol class="arabic" start="8">
+<li><p>Select one of the following options based on Dev mode or Prod mode.
+- Dev
+- Prod</p></li>
+<li><p>Based on the use case (combination of Universal Wellpad Controller services), select one of the following options:</p>
+<ol class="arabic simple">
 <li><p>Basic UWC micro-services without KPI-tactic Application &amp; Sparkplug-Bridge - (Modbus-master TCP &amp; RTU, mqtt-bridge, internal mqtt broker, ETCD server, ETCD UI &amp;        other base EII &amp; UWC services)</p></li>
 <li><p>Basic UWC micro-services as in option 1 along with KPI-tactic Application (Without Sparkplug-Bridge)</p></li>
 <li><p>Basic UWC micro-services &amp; KPI-tactic Application along with Sparkplug-Bridge, Sample SamplePublisher and Sample SampleSubscriber</p></li>
@@ -267,21 +266,22 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 <li><p>Basic UWC micro-services with Time series micro-services (Telegraf &amp; InfluxDBConnector)</p></li>
 <li><p>Running Basic UWC micro-services with time series services (Telegraf &amp; InfluxDBCOnnector) along with KPI-tactic app</p></li>
 <li><p>Running Basic UWC micro-services with time series services (Telegraf &amp; InfluxDBCOnnector) along with Sparkplug service, Sample SamplePublisher and Sample              SampleSubscriber</p></li>
-<li><p>Running the Sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker &amp; Etcd container.</p></li>
-<li><p>Basic UWC micro-services with Sample SamplePublisher and Sample SampleSubscriber.</p></li>
-<li><p>All modules UWC modules, KPI-tactic Application, SPARKPLUG-BRIDGE, Telegraf, InfluxDBCOnnector, ZmqBroker, Etcd container, Sample SamplePublisher and Sample           SampleSubscriber</p></li>
+<li><p>Running the Sample DB publisher with Telegraf, InfluxDBCOnnector, ZmqBroker &amp; Etcd container</p></li>
+<li><p>Basic UWC micro-services with Sample SamplePublisher and Sample SampleSubscriber</p></li>
+<li><p>All modules UWC modules, KPI-tactic Application, SPARKPLUG-BRIDGE, Telegraf, InfluxDBCOnnector, ZmqBroker, Etcd container, Sample SamplePublisher, and Sample           SampleSubscriber</p></li>
 </ol>
-</div></blockquote>
-<ul class="simple">
+<blockquote>
+<div><ul class="simple">
 <li><p>Do you want to use pre-build images from public docker hub ?</p></li>
 </ul>
-<blockquote>
-<div><ol class="arabic simple">
+<ul class="simple">
 <li><p>Yes</p></li>
 <li><p>No</p></li>
-</ol>
+</ul>
 </div></blockquote>
-<p>Following is a sample output for Sparkplug-Bridge related configuration:</p>
+</li>
+</ol>
+<p>For the Sparkplug-Bridge-related configuration, refer to the following sample output:</p>
 <p><strong>• Enter the following parameters required for Sparkplug-Bridge container..</strong></p>
 <dl class="simple">
 <dt>Is TLS required for sparkplug-bridge (yes/no):</dt><dd><p>yes</p>
@@ -310,42 +310,54 @@ b.  $ sudo ./pre_requisites.sh – <span class="k">for</span> non-proxy network
 <dt>Enter the QOS for scada (between 0 to 2):</dt><dd><p>1</p>
 </dd>
 </dl>
-<ol class="arabic simple" start="8">
-<li><p>Execute Command $ sudo -E ./03_Run_UWC.sh</p></li>
+<ol class="arabic simple" start="10">
+<li><p>Run the following command:</p></li>
 </ol>
-<p>Above is a process for interactive mode. A non-interactive mode is also supported.
-Following are the details:</p>
-<ol class="arabic simple" start="9">
-<li><p>To support non-interactive mode, following options are added in 2nd script(02_provision_build_UWC.sh).</p></li>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>sudo -E ./03_Run_UWC.sh</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These steps are the process for interactive mode. For a non-interactive mode support, refer to the following steps</p>
+</div>
+<ol class="arabic simple" start="11">
+<li><p>To support non-interactive mode, the following options are added in the 2nd script (02_provision_build_UWC.sh).</p></li>
 </ol>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/table8.PNG"><img alt="../_images/table8.PNG" src="../_images/table8.PNG" style="width: 326.40000000000003px; height: 708.0px;" /></a>
 </figure>
-<p>If required parameters are missing, then those will be requested from user in an interactive mode.</p>
-<ol class="arabic simple" start="10">
-<li><p>Following are sample commands for non-interactive mode execution.</p></li>
-</ol>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>All UWC basic modules <span class="o">(</span>no KPI, no Sparkplug-Bridge<span class="o">)</span>
-sudo -E ./02_provision_build_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">1</span>
+<p>If the required parameters are not available, then in the interactive mode, you need to provide the details for the required parameters.
+12.     Following are sample commands for the non-interactive mode execution.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For all the Universal Wellpad Controller basic modules (no KPI, no Sparkplug-Bridge), run the following command:</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>  sudo -E ./02_provision_build_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">1</span>
 
-All UWC modules <span class="o">(</span>with KPI and with Sparkplug-Bridge<span class="o">)</span>.
-sudo -E ./02_provision_build_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">3</span> --isTLS<span class="o">=</span>yes --caFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/ca/root-ca.crt&quot;</span> --crtFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.crt&quot;</span> --keyFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.key&quot;</span> --brokerAddr<span class="o">=</span><span class="s2">&quot;192.168.1.11&quot;</span> --brokerPort<span class="o">=</span><span class="m">22883</span> --qos<span class="o">=</span><span class="m">1</span>
+* For all the Universal Wellpad Controller modules <span class="o">(</span>with KPI and with Sparkplug-Bridge<span class="o">)</span>.
 </pre></div>
 </div>
-<p>Build scripts descriptions–</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo -E ./02_provision_build_UWC.sh --deployMode<span class="o">=</span>dev --recipe<span class="o">=</span><span class="m">3</span> --isTLS<span class="o">=</span>yes --caFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/ca/root-ca.crt&quot;</span> --crtFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.crt&quot;</span> --keyFile<span class="o">=</span><span class="s2">&quot;scada_ext_certs/client/client.key&quot;</span> --brokerAddr<span class="o">=</span><span class="s2">&quot;192.168.1.11&quot;</span> --brokerPort<span class="o">=</span><span class="m">22883</span> --qos<span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Build scripts descriptions</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>01_uwc_pre_requisites.sh - This script creates docker volume directory /opt/intel/eii/uwc_data, creates “/opt/intel/eii/container_logs/” for storing log and git clone modconn into respective directory of modbus master container.</p></li>
-<li><p>02_provision_build_UWC.sh - It runs the builder to generate consolidated docker-compose.yml. This script performs provisioning as per docker-compose.yml file. Along with this, it generates certs for mqtt and Builds all the micro-services of the docker-compose.yml.
-It allows user to choose combination of UWC services, allows to choose deployment mode either dev or prod mode or allows to choose whether to use <cite>pre-build images</cite> or <cite>build images locally</cite>.</p></li>
-<li><p>03_Run_UWC.sh - This script deploys all UWC containers.</p></li>
-<li><p>04_uninstall_UWC.sh – Used for cleanup and uninstalling docker, docker-compose and installed libraries. This script will bring down all containers and removes all running containers.</p></li>
+<li><p>01_uwc_pre_requisites.sh - This script creates docker volume directory /opt/intel/eii/uwc_data, creates “/opt/intel/eii/container_logs/” for storing log, and git clone modconn into respective directory of the Modbus master container.</p></li>
+<li><dl class="simple">
+<dt>02_provision_build_UWC.sh - This script runs the builder to generate the consolidated docker-compose.yml. This script performs provisioning per the docker-compose.yml file. Along with this, it generates certs for the MQTT and builds all the microservices of the docker-compose.yml.</dt><dd><p>It allows you to choose combination of Universal Wellpad Controller services, deployment mode either dev or prod mode, or select whether to use the <cite>pre-build images</cite> or <cite>build images locally</cite>.</p>
+</dd>
+</dl>
+</li>
+<li><p>03_Run_UWC.sh - This script deploys all Universal Wellpad Controller containers.</p></li>
+<li><p>04_uninstall_UWC.sh – Used for cleanup and uninstalling docker, docker-compose, and installed libraries. This script will bring down all containers and remove all running containers.</p></li>
 <li><p>05_applyConfigChanges.sh - This script will stop and start all running containers with updated changes.</p></li>
 <li><p>06_UnitTestRun.sh - This script will generate unit test report and code coverage report.</p></li>
 </ol>
 </div></blockquote>
-<p>While a particular usecase is running &amp; if user intends to change the usecase, then the script “./02_provision_build_UWC.sh” has to be re-run. This would kill (remove) all the containers of the existing use case &amp; re-create the consolidated docker-compose.yml &amp; consolidated eii_config.json file as per the new use case selected in “./02_provision_build_UWC.sh”. Provisioning is also done as part of this script.
-“03_Run_UWC.sh” script should be executed  post “02_provision_build_UWC.sh” is run, which would build the containers of the newly selected usecase.</p>
+<p>Rerun the “./02_provision_build_UWC.sh” script to change the use case that is running. This will remove or kill all the containers of the existing use case and recreate the consolidated docker-compose.yml and consolidated eii_config.json file per the new use case selected in the “./02_provision_build_UWC.sh” script. Provisioning and build is also done as part of this script. Run the “03_Run_UWC.sh” script after running the “02_provision_build_UWC.sh” script. This will bring up all the containers of the new use case.</p>
 </section>
 </section>
 
