@@ -214,7 +214,7 @@
 <h1>14.0 RT Patch (Optional)<a class="headerlink" href="#rt-patch-optional" title="Permalink to this headline"></a></h1>
 <section id="steps-to-choose-and-apply-rt-kernel-patch">
 <h2>14.1    Steps to Choose and Apply RT Kernel Patch<a class="headerlink" href="#steps-to-choose-and-apply-rt-kernel-patch" title="Permalink to this headline"></a></h2>
-<p>The latest version of UWC has been tested with Ubuntu 20.04.2 LTS. Check the kernel version corresponding to the Ubuntu OS version being used and map it with the correct RT kernel patch.</p>
+<p>The latest version of Universal Wellpad Controller has been tested with Ubuntu 20.04.2 LTS. Check the kernel version corresponding to the Ubuntu OS version being used and map it with the correct RT kernel patch.</p>
 <p>Use the links below to map the kernel version with theRT kernel patch:</p>
 <blockquote>
 <div><ul class="simple">
@@ -228,6 +228,10 @@
 <p>Install all the prerequisites using the following command:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install -y libncurses-dev libssl-dev bison flex build-essential wget libelf-dev
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will see a prompt to update the package runtime. Click <strong>Yes</strong>.</p>
 </div>
 </section>
 <section id="steps-to-apply-rt-kernel-patch">
@@ -309,21 +313,20 @@ $ gzip -cd ../patch-5.4.129-rt61.patch.gz <span class="p">|</span> patch -p1 --v
 </figure>
 <p>Save and exit</p>
 <ol class="arabic simple" start="7">
-<li><p>To save the current setting click on <em>&lt;save&gt;</em> button and then exit the UI using <em>&lt;exit&gt;</em> button.</p></li>
-<li><p>Compile the kernel (Execute the following commands)</p></li>
+<li><p>To save the current setting click <strong>Save</strong> and then, click <strong>Exit</strong> to exit the UI.</p></li>
+<li><p>To compile the kernel, execute the following commands:</p></li>
 </ol>
-<blockquote>
-<div><p>In a production environment, the system key management infrastructure will be provided for the end user to ensure the patched Kernel works with the Secure Boot flow.
-When Secure Boot is not used, comment out the CONFIG_SYSTEM_TRUSTED_KEYS and CONFIG_MODULE_SIG_KEY lines from the /boot/config&lt;version&gt; file.
-Failure to do one of these two things will cause the following make commands to fail.</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a production environment, the system key management infrastructure will be provided for the end user to ensure the patched Kernel works with the Secure Boot flow. When Secure Boot is not used, comment out the CONFIG_SYSTEM_TRUSTED_KEYS and CONFIG_MODULE_SIG_KEY lines from the /boot/config&lt;version&gt; file. Failure to do one of these two things will cause the following make commands to fail.</p>
+</div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ make -j20
 $ sudo make <span class="nv">INSTALL_MOD_STRIP</span><span class="o">=</span><span class="m">1</span> modules_install -j20
 $ sudo make install -j20
 </pre></div>
 </div>
 <ol class="arabic simple" start="9">
-<li><p>Verify that initrd.img-‘5.4.129-rt61, vmlinuz-‘5.4.129-rt61, and config-‘5.4.129-rt61 are generated in /boot directory and update the grub.</p></li>
+<li><p>Verify that initrd.img-‘5.4.129-rt61, vmlinuz-‘5.4.129-rt61, and config-‘5.4.129-rt61 are generated in the /boot directory and update the grub.</p></li>
 </ol>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /boot
 $ ls
@@ -331,7 +334,7 @@ $ sudo update-grub
 </pre></div>
 </div>
 <ol class="arabic simple" start="10">
-<li><p>Verify that there is a menu entry containing the text “menu entry ‘Ubuntu, with Linux ‘5.4.129-rt61” in /boot/grub/grub.cfg file</p></li>
+<li><p>Verify that there is a menu entry containing the text “menu entry ‘Ubuntu, with Linux ‘5.4.129-rt61” in the /boot/grub/grub.cfg file</p></li>
 <li><p>To change default kernel in grub, edit the GRUB_DEFAULT value in /etc/default/grub to your desired kernel.</p></li>
 </ol>
 <div class="admonition note">
