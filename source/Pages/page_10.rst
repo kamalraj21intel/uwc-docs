@@ -1,23 +1,23 @@
-=======================
+=====================
 10.0 	Debugging steps
-=======================
+=====================
 
 **Checking logs** 
 
 1. Syntax - *sudo docker logs <container_name>*
 
-e.g.:- To check modbus-tcp-container logs execute *"sudo docker logs modbus-tcp-container"* command.
+For example, to check the modbus-tcp-container logs, run the *"sudo docker logs modbus-tcp-container"* command.
 
-2. Command to check logs inside the container *"sudo docker exec -it <container_name> bash"* and go to the “logs” directory using *“cd logs”*.
+2. Run the command to check logs inside the container *"sudo docker exec -it <container_name> bash"* and then, go to the “logs” directory using *“cd logs”*.
 
-3. Use *"cat <log_file_name>"* to see log file inside the container
+3. Use the *"cat <log_file_name>"* command to see log file inside the container.
 
-4. Copying logs from container to host machine
+4. To copy logs from container to host machine refer to the following command:
   Syntax - *docker cp <container_name>:<file to copy from container> <file to be copied i.e., host directory>*
 
-5. To check the IP address of machine, use the *"ifconfig"* command.
+5. To check the IP address of machine, run the *"ifconfig"* command.
 
-6. For Modbus RTU, to check attached COM port for serial communication, use the *"dmesg | grep tty"* command.
+6. For Modbus RTU, to check attached COM port for serial communication, run the *"dmesg | grep tty"* command.
 
 Redirect docker logs to file including errors
 
@@ -47,7 +47,7 @@ Once YML files/docker-compose.yml are changed/Modified in */opt/intel/eii/uwc_da
 
 *sudo ./05_applyConfigChanges.sh*
 
-**How to bring up/down UWC containers**
+**How to bring up/down the Universal Wellpad Controller containers**
 
 *docker-compose down* - bring down all containers
 
