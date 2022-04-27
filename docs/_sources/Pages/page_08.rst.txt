@@ -1,8 +1,8 @@
-=========================
-8.0	UWC Modbus Operations
-=========================
-This section provides configurations required to read and write data from sensors and actuators connected over Modbus TCP or RTU on UWC gateway.
-An application can perform following operations using UWC containers:
+==================================================
+8.0	Universal Wellpad Controller Modbus Operations
+==================================================
+This section provides configurations required to read and write data from sensors and actuators connected over Modbus TCP or RTU on Universal Wellpad Controller gateway.
+An application can perform following operations using Universal Wellpad Controller containers:
 
     •	Data Polling
     •	On-Demand Write
@@ -33,7 +33,7 @@ Multiple modules are involved in processing the operation. To capture the time t
 8.1 	Data Polling
 --------------------
 
-In the datapoint YML configuration file, a polling frequency is configured. As per polling frequency, data is fetched from the end point and published on MQTT by the UWC container. This section describes how to read the data for polled points using MQTT.
+In the datapoint YML configuration file, a polling frequency is configured. As per polling frequency, data is fetched from the end point and published on MQTT by the Universal Wellpad Controller container. This section describes how to read the data for polled points using MQTT.
 
 The data actions which are “Polling” actions are initiated by the Protocol container (in this case the Modbus protocol application (i.e., the driver) within the Modbus container. 
 
@@ -42,7 +42,7 @@ To receive polled data: Application should use a topic in following format to re
 **MQTT topic to receive (i.e., subscribe) write response:**
      **/device/wellhead/point/update**
 
-Please refer to the table in section 6 for details of fields.
+Refer to the table in section 6 for details of fields.
 
 
 **Example:**
@@ -500,7 +500,7 @@ A message without “realtime” field is treated as a non-realtime message. To 
 8.4 	KPI Application
 -----------------------
 
-Following data (if available) is logged in a log-file by KPI Application for control loops.
+The KPI Application records (logs) the following data in a log-file for control loops.
 
 .. figure:: Doc_Images/table11_1_update.png
     :scale: 80 %

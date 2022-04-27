@@ -4,7 +4,7 @@
 
 **MODBUS_EXCEPTION Codes**
 
-Response JSON message from Modbus container contains a code in case of error scenario. 
+For a scenario when an error occurs, the response JSON message from the Modbus container contains an error code. 
 
 **Format:** “error_code”: “number”
 

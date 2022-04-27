@@ -1,12 +1,12 @@
-===============================
+========================
 14.0 RT Patch (Optional)
-===============================
+========================
 
------------------------------
+-----------------------------------------------
 14.1 	Steps to Choose and Apply RT Kernel Patch 
------------------------------
+-----------------------------------------------
 
-The latest version of UWC has been tested with Ubuntu 20.04.2 LTS. Check the kernel version corresponding to the Ubuntu OS version being used and map it with the correct RT kernel patch.
+The latest version of Universal Wellpad Controller has been tested with Ubuntu 20.04.2 LTS. Check the kernel version corresponding to the Ubuntu OS version being used and map it with the correct RT kernel patch.
 
 Use the links below to map the kernel version with theRT kernel patch: 
 
@@ -23,7 +23,8 @@ Install all the prerequisites using the following command:
 
   $ sudo apt-get install -y libncurses-dev libssl-dev bison flex build-essential wget libelf-dev
 
-.. note::You will see a prompt to update the package runtime. Click on the Yes button. 
+.. note:: 
+        You will see a prompt to update the package runtime. Click **Yes**.
 
 --------------------------------------------
 14.3 	Steps To Apply RT Kernel Patch
@@ -112,13 +113,12 @@ Refer the following screen capture for more details
 
 Save and exit
 
-7. To save the current setting click on *<save>* button and then exit the UI using *<exit>* button.
+7. To save the current setting click **Save** and then, click **Exit** to exit the UI.
 
-8.	Compile the kernel (Execute the following commands)
+8.	To compile the kernel, execute the following commands:
 
- In a production environment, the system key management infrastructure will be provided for the end user to ensure the patched Kernel works with the Secure Boot flow.
- When Secure Boot is not used, comment out the CONFIG_SYSTEM_TRUSTED_KEYS and CONFIG_MODULE_SIG_KEY lines from the /boot/config<version> file.
- Failure to do one of these two things will cause the following make commands to fail.
+.. note::
+   In a production environment, the system key management infrastructure will be provided for the end user to ensure the patched Kernel works with the Secure Boot flow. When Secure Boot is not used, comment out the CONFIG_SYSTEM_TRUSTED_KEYS and CONFIG_MODULE_SIG_KEY lines from the /boot/config<version> file. Failure to do one of these two things will cause the following make commands to fail.
 
 .. code-block:: sh
 
@@ -127,7 +127,7 @@ Save and exit
   $ sudo make install -j20
 
 
-9.	Verify that initrd.img-'5.4.129-rt61, vmlinuz-'5.4.129-rt61, and config-'5.4.129-rt61 are generated in /boot directory and update the grub.
+9.	Verify that initrd.img-'5.4.129-rt61, vmlinuz-'5.4.129-rt61, and config-'5.4.129-rt61 are generated in the /boot directory and update the grub.
 
 .. code-block:: sh
 
@@ -135,7 +135,7 @@ Save and exit
   $ ls
   $ sudo update-grub
 
-10. Verify that there is a menu entry containing the text "menu entry 'Ubuntu, with Linux '5.4.129-rt61" in /boot/grub/grub.cfg file 
+10. Verify that there is a menu entry containing the text "menu entry 'Ubuntu, with Linux '5.4.129-rt61" in the /boot/grub/grub.cfg file 
 
 11. To change default kernel in grub, edit the GRUB_DEFAULT value in /etc/default/grub to your desired kernel. 
 

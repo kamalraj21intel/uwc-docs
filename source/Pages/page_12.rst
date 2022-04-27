@@ -1,10 +1,10 @@
-===============================
-12.0 	Steps to flash LFM BIOS
-===============================
+============================================
+12.0 	Steps to flash Low Frequency Mode BIOS
+============================================
 
-LFM is Low Frequency Mode. This mode is enabled on gateway for efficient power usage.
+The Low Frequency Mode (LFM) is enabled on gateway for efficient power usage.
 
-Following steps and BIOS are applicable for below model of Device:
+The following steps and BIOS are applicable for the following models of device:
 
 RBOX510 ATEX & C1D2 ANTI-EXPLOSIVE CERTIFIED ROBOST DIN-RAIL FANLESS SYS.W/ATOM E3827(1.75GHz)
 
@@ -27,21 +27,21 @@ RBOX510 ATEX & C1D2 ANTI-EXPLOSIVE CERTIFIED ROBOST DIN-RAIL FANLESS SYS.W/ATOM 
 
 **Steps for converting to LFM**
 
-Use files from **0502_1500m.zip** folder
+Use files from the **0502_1500m.zip** folder and complete the following steps:
 
 1.	Create a FAT32 file-system on a USB stick, then dump each BIOS file structure to the root as needed.
 2.	Prepare the LFM BIOS first on USB, then boot to the USB’s EFI device (boot priorities).
 3.	After setting the Boot priorities save & exit from boot menu. You will be switched to Command window. Press any key to enter to command line, type flash.nsh to update the BIOS.
-4.	Restart the HW and you will now be locked at 1750MHz
+4.	Restart the HW and you will now be locked at 1750 MHz.
 5.	Check frequency of device using command *$ cat /proc/cpuinfo | grep “MHz”*
 
 **Steps for reverting to normal Frequency**
 
-Use files from **A.103** folder
+Use files from the **A.103** folder and complete the following steps:
 
 1.	Create a FAT32 file-system on a USB stick, then dump each BIOS file structure to the root as needed.
 2.	Prepare the LFM BIOS first on USB, then boot to the USB’s EFI device (boot priorities).
 3.	After setting the Boot priorities save & exit from boot menu. You will be switched to Command window. Press any key to enter to command line, type flash.nsh to update the BIOS.
-4.	Restart the HW and you will now be locked at 1750MHz
+4.	Restart the HW and you will now be locked at 1750 MHz
 5.	Check frequency of device using command *$ cat /proc/cpuinfo | grep “MHz”*
 

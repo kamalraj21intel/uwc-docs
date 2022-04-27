@@ -33,18 +33,22 @@
      - IEdgeInsights/uwc
      - kpi-tactic application folder used to install kpi-app container.
    * - 6
+     - Vendor_Apps
+     - IEdgeInsights/uwc
+     - Vendor_Apps application folder used to install Sample publisher and subscriber.     
+   * - 7
      - Others    
      - /opt/intel/eii/uwc_data/
      - All yml files containing device, datapoints, and configurations. It also contains Global_config.yml
-   * - 7
+   * - 8
      - uwc_common
      - IEdgeInsights/uwc
      - Common libraries installation docker file and source code. 
-   * - 8
+   * - 9
      - build_scripts
      - IEdgeInsights/uwc
      - All installation scripts are kept here
-   * - 9
+   * - 10
      - uwc_recipes
      - IEdgeInsights/uwc
-     - This directory contents recipe files
+     - This directory contains recipe files

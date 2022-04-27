@@ -1,14 +1,14 @@
-====================================
-6.0  Container Configuration setting
-====================================
+=====================================
+6.0  Container Configuration Settings
+=====================================
 
-This section provides details about configuring UWC containers. 
+This section provides details about configuring the Universal Wellpad Controller containers. 
 
 ---------------
 6.1  Containers
 ---------------
 
-Following containers are developed under UWC:
+Universal Wellpad Controller consists of the following containers:
     •	Modbus TCP Master
     •	Modbus RTU Master
     •	MQTT-Bridge
@@ -16,15 +16,13 @@ Following containers are developed under UWC:
     •	Sparkplug-Bridge
     •	KPI Application
 
-For configuring these containers, docker-compose.yml file is used. The docker-compose.yml is auto generated based on inputs provided while executing script 02_provision_UWC.sh..
+The containers are configured using the docker-compose.yml. The docker-compose.yml is auto-generated based on inputs provided while executing script 02_provision_build_UWC.sh.
 
-For more details, please refer README provided in EII documentation.
+For more details, refer to the `EII Readme <https://github.com/open-edge-insights/eii-core/blob/master/README.md>`_.
 
-Path for README – https://github.com/open-edge-insights/eii-core/blob/master/README.md
+Universal Wellpad Controller containers Modbus Clients and MQTT-Bridge use ZeroMQ to communicate with each other.
 
-UWC containers (i.e., Modbus Clients and MQTT-Bridge) use ZeroMQ to communicate with each other.
-
-At present, recommendation is to have only one Modbus-TCP and one Modbus-RTU container. Hence, changes to configuration present in docker-compose.yml file shall not be needed.
+In the current version of Universal Wellpad Controller it is recommended to have only one Modbus-TCP and one Modbus-RTU container. Hence, changes to configuration present in the docker-compose.yml file is not required.
 
 
 6.1.1  Common Configuration for Modbus Client Containers
@@ -64,10 +62,10 @@ Example for Modbus-TCP-Master container from docker-compose.yml file:
     DEVICES_GROUP_LIST_FILE_NAME: "Devices_group_list.yml"
 
 
-6.1.2  Configuration foodbus network
+6.1.2  Configuration Modbus network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A separate network configuration YML file is maintained for each network. E.g., If there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:
+A separate network configuration YML file is maintained for each network. For example, if there are 2 RTU and 1 TCP networks, then there will be 3 network configuration files. This file contains following configuration for both TCP and RTU:
 
 .. note:: inter-frame delay and response timeout values are in Millisecond.
 
@@ -75,14 +73,14 @@ interframe_delay: 1
 
 response_timeout: 80
 
-For Modbus RTU master, following additional configurations are needed apart from above mentioned parameters:
+For Modbus RTU master, the following additional configurations are needed apart from the parameters mentioned earlier:
     baudrate: 9600
 
     parity: "N"
 
     com_port_name: "/dev/ttyS0"
 
-.. figure:: Doc_Images/table4.png
+.. figure:: Doc_Images/table8_4_updated.png
     :scale: 80 %
     :align: center
 
@@ -96,7 +94,7 @@ When used in TCP mode, the publisher of a stream will bind to a TCP socket and t
 6.3	    Modbus RTU Communication
 --------------------------------
 
-Modbus RTU is an open serial protocol derived from the Master/Slave architecture. UWC Modbus-rtu-container is used as master and slave can be configured.
+Modbus RTU is an open serial protocol derived from the Master/Slave architecture. Universal Wellpad Controller Modbus-rtu-container is used as master and slave can be configured.
 
 .. figure:: Doc_Images/flow1.png
     :scale: 60 %
@@ -124,29 +122,29 @@ MQTT clients should use above mentioned port for communication.
 6.5.1	Accessing secured MQTT container from an external MQTT client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Pre-requisites:**
-    All UWC containers must be deployed-on gateway with DEV_MODE=false (i.e., secured mode).
+**Prerequisites:**
+    All Universal Wellpad Controller containers must be deployed-on gateway with DEV_MODE=false (i.e., secured mode).
 
 **Steps to follow:**
 
     1.	Open a terminal and execute following command to create local directory to keep certificates of MQTT broker,
         *mkdir ~/mqtt_certs && cd ~/mqtt_certs*
 
-        Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script *02_provision_UWC.sh* from 
-        *working_dir/IEdgeInsights/build/provision/Certificates/ directory*.
+        Copy ca/ and /mymqttcerts directories in local directory i.e., created in  script *02_provision_build_UWC.sh* from 
+        *working_dir/IEdgeInsights/build/Certificates/ directory*.
 
         Command to copy ca/ and /mymqttcerts/ dir in local dir (i.e., mqtt_certs)
 
-        *sudo cp -r /<working_dir>/IEdgeInsights/build/provision/Certificates/ca ~/mqtt_certs/*
+        *sudo cp -r /<working_dir>/IEdgeInsights/build/Certificates/ca ~/mqtt_certs/*
 
     2.	Assign read permission to local certs using following command,
         sudo chown -R $USER:$USER  && sudo chmod +r ca/* mymqttcerts/*
 
-        **Please Note:** Read permissions are only required for ca/ and /mymqttcerts directories present inside mqtt_certs directory copied in step2.
+        **Note:** Read permissions are only required for ca/ and /mymqttcerts directories present inside mqtt_certs directory copied in step 2.
 
         Provide right access to certificates directory using below command – sudo chmod +x Certificates in 
 
-        *<working_dir>/IEdgeInsights/build/provision/Certificates*
+        *<working_dir>/IEdgeInsights/build/Certificates*
 
     3.	Open MQTT client e.g., MQTT.fx
 
@@ -177,7 +175,7 @@ Following sample snippet for docker-compose.yml file
     :scale: 90 %
     :align: center
 
-2.	Use certificates mentioned in step 1 inside application to connect with secured MQTT broker which is running as a part of UWC.
+2.	Use certificates mentioned in step 1 inside application to connect with secured MQTT broker which is running as a part of Universal Wellpad Controller.
 
 Following is the sample code snippet in C++ to use certificates in a program,
 
@@ -191,11 +189,11 @@ Following is the sample code snippet in C++ to use certificates in a program,
 6.6 	Sparkplug-Bridge
 ------------------------
 
-This container implements Eclipse Foundation’s SparkPlug standard to expose data to compliant SCADA Master over MQTT. 
+This container implements Eclipse Foundation’s SparkPlug* standard to expose data to compliant SCADA Master over MQTT. 
 
 
-6.6.1 	Pre-requisite for running Sparkplug-Bridge 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6.6.1 	Prerequisite for running Sparkplug-Bridge 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 a)	SCADA Master (e.g., Ignition System) shall be installed and configured.
 b)	MQTT broker shall be installed and configured in SCADA Master. At present secured connectivity for MQTT is not supported. 
@@ -206,7 +204,21 @@ c)	Following parameters should be configured for Sparkplug-Bridge in docker-comp
     :align: center
 
 ---------------
-6.7 	KPI App
+6.7 	Vendor Apps 
+---------------
+
+Vendor Apps consist of Sample Publisher and Sample subscriber which are brokered publisher and subscriber for EMB.The EII's ETCDUI acts as interface for sample publisher for more details on ETCDUI, refer to the `Readme <https://github.com/open-edge-insights/eii-etcd-ui/blob/master/README.md>`_.
+
+SparkPlug* can communicate with rest of the Universal Wellpad Controller containers by two ways either:
+
+1. By MQTT mode (which is sparkplug-bridge -> internal-mqtt-Broker -> mqtt-bridge -> EMB)
+
+2. By EMB mode (which is sparkplug-bridge -> EMB).
+
+For more details on working of vendor apps ,Please refer Vendor_Apps/README-VA.md
+
+---------------
+6.8 	KPI App
 ---------------
 
 This is a sample application which implements control loops and logs data in a log file named “AnalysisKPIApp.log”. Normally 3 log files are created on rolling basis i.e., once tie set file size limit is exceeded, a new file is created and likewise max 3 files are created. After this, the log files are overwritten. 
@@ -231,7 +243,7 @@ To change the file size, “log4cpp.properties” needs to be changed. Please ch
 
 Please run script 03 Build_Run_UWC.sh after changing “log4cpp.properties”.
 
-6.7.1 	Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor
+6.8.1 	Pre-processor flag to be used for enabling/disabling KPI-App on high performance/low performance processor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. By default, pre-processor flag UWC_HIGH_PERFORMANCE_PROCESSOR is disabled in Kpi App for debug & release mode.
 
@@ -239,6 +251,6 @@ Please run script 03 Build_Run_UWC.sh after changing “log4cpp.properties”.
 
 3. To enable KPI-App on high performance processor in release mode, go to <Sourcecode> -> kpi-Tactic -> KPIApp -> Debug -> src directory (https://github.com/open-edge-insights/uwc/blob/master/kpi-tactic/KPIApp/Debug/src/subdir.mk) and open subdir.mk file. Add the option “-      DUWC_HIGH_PERFORMANCE_PROCESSOR” in below line where GCC compiler is invoked.
 
-4. To disable pre-processor flag in Kpi App, remove the option “-DUWC_HIGH_PERFORMANCE_PROCESSOR” added in steps 2 & 3 for both Release and Debug mode.
+4. To disable the pre-processor flag in the KPI App, remove the option “-DUWC_HIGH_PERFORMANCE_PROCESSOR” added in steps 2 and 3 for both the Release and Debug mode.
 
-High performance processors are Intel core classes processors & low performance/low power systems are Intel atom class processors.
+High performance processors are Intel® Core™ classes processors and low performance or low power systems are Intel Atom® x processor family.

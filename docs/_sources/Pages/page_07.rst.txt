@@ -2,38 +2,38 @@
 7.0  Site Configurations
 ========================
 
-This section provides configurations required to configure the site, wellhead, device and points for UWC containers.
+This section provides configurations required to configure the site, wellhead, device, and points for Universal Wellpad Controller containers.
 
--------------------------------------
+-----------------------------------------
 7.1	System Level Global Configuration
--------------------------------------
+-----------------------------------------
 
-This file contains configurations to be used for operations across UWC containers for (Modbus-TCP, Modbus-RTU, MQTT-Bridge.)
+This file contains configurations to be used for operations across Universal Wellpad Controller containers for Modbus-TCP, Modbus-RTU, and MQTT-Bridge.
 
-Global_Config.yml file location - /opt/intel/eii/uwc_data/common_config
+The Global_Config.yml file location is as follows, /opt/intel/eii/uwc_data/common_config
 
-Based on realtime requirement, operations are classified into following sub-operations:
+Based on realtime requirement, operations are classified into the following sub-operations:
 
-1. Polling realtime
+* Polling realtime
 
-2. Polling non-realtime
+* Polling non-realtime
 
-3. On-demand read realtime
+* On-demand read realtime
 
-4. On-demand read non-realtime
+* On-demand read non-realtime
 
-5. On-demand write realtime
+* On-demand write realtime
 
-6. On-demand write non-realtime
+* On-demand write non-realtime
 
-7. SparkPlug communication for Sparkplug-Bridge
+* SparkPlug communication for Sparkplug-Bridge
 
-8. Default scale factor
+* Default scale factor
 
 
-7.1.1 	Settings for Polling and On-Demand operation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Following is a sample for Polling operation. Similar is applicable for On-demand operations:
+7.1.1 	Settings for Polling and On-Demand Operations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The following is a sample setting for the Polling operation. The settings are similar for the On-demand operations:
 
 Global:
     Operations:
@@ -53,7 +53,7 @@ Global:
 
               qos: 0
 
-Following is a description of each field.
+The description of each field is as follows:
 
 .. figure:: Doc_Images/image8_1.png
     :scale: 60 %
@@ -65,7 +65,7 @@ Following is a description of each field.
     :scale: 60 %
     :align: center
 
-If incorrect value is specified for any of above fields, a default value (listed below) will be used:
+If incorrect value is specified for any of above fields, a default value which is listed below will be used:
 
     default_realtime: false
 
@@ -75,14 +75,14 @@ If incorrect value is specified for any of above fields, a default value (listed
 
     qos: 0
 
-If configuration parameter or section is missing for any of the sub-operation (related to Polling and On-Demand), then default values mentioned above will be used.
+If configuration parameter or section is missing for any of the sub-operation related to the Polling and On-Demand operations, then default values mentioned above will be used.
 
 .. _link:
 
 7.1.2	Settings for Sparkplug-Bridge – SparkPlug communication operation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Following is a sample:
+The following is a sample setting for Sparkplug-Bridge
 
 Global:
     Operations:
@@ -92,7 +92,7 @@ Global:
             
 			edge_node_id: "RBOX510"
 
-Above are also the default values for mentioned parameters. If configuration parameter or section is missing for SparkPlug communication, then default values mentioned above will be used.
+The sample also shows the default values for parameters. If a configuration parameter or section is missing for SparkPlug* communication, then default values mentioned in the sample will be used.
 
 The parameters here are used to form SparkPlug formatted topic name. 
 
@@ -108,7 +108,7 @@ Following is a description of each field.
 7.1.3	Settings for default scale factor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Following is a sample:
+The sample settings for default scale factor is as follows:
 
 Global:
     Operations:
@@ -127,7 +127,7 @@ default_scale_factor: 1.0
 7.2 	How to Configure Site and Wellhead
 ------------------------------------------
 
-There is one file which lists down reference to device-groups (i.e., wellheads) controlled by one UWC gateway. Ideally, in one UWC gateway there is one TCP and one RTU container. Please note one RTU container can manage communication with multiple RTU networks.
+There is one file which lists down reference to device-groups that is wellheads controlled by one Universal Wellpad Controller gateway. Ideally, in one Universal Wellpad Controller gateway there is one TCP and one RTU container. One RTU container can manage communication with multiple RTU networks.
 
 ---
 *file:*
@@ -198,10 +198,11 @@ Each device-group file will have information about devices in that group.
 Following sections provide details about TCP and RTU device configuration in device-group file.
 
 
-7.2.1 	Configuring TCP device in device-group
+7.2.1 	Configuring TCP device in Device-group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-E.g. 
+The following is an example for configuring TCP device in a Device-group
+
 *devicelist:*
 *- deviceinfo: "flowmeter_device.yml"*
 
@@ -219,15 +220,15 @@ E.g.
 
   *tcp_master_info: "tcp_master_info.yml"*
 
-Following parameters are needed for each TCP device:
+The following parameters are needed for each TCP device:
 
 -	ipaddress – for TCP communication IP address for client device required 
 -	port – can be configured as per client device configuration
--	unitid – id can used to distinguish multiple clients on same ipaddress
--	tcp_master_info - tcp_master_info.yml – In this file interframe delay and response timeout can be configured for TCP network
+-	unitid – id can used to distinguish multiple clients on same IP address
+-	tcp_master_info - tcp_master_info.yml – In this file, interframe delay and response timeout can be configured for TCP network
 
 
-Following is a sample file for tcp_master_info.yml 
+Sample file for tcp_master_info.yml is as follows:
 
 *file:*
 
@@ -241,7 +242,7 @@ Following is a sample file for tcp_master_info.yml
 
 .. note::
 
-   inter-frame delay and response timeout values are in Millisecond
+   The inter-frame delay and response timeout values are in milliseconds
 
 interframe_delay: 1
 
@@ -249,13 +250,13 @@ response_timeout: 80
 
 .. note::
    
-   This reference shall be unique across TCP devices and needs to be given for each TCP device.
+   This reference is unique across TCP devices and needs to be given for each TCP device.
 
 
-7.2.2 	Configuring RTU device in device-group
+7.2.2 	Configuring RTU Device in Device-group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-E.g. 
+The example for configuring the RTU device in a device-group is as follows: 
 
 *devicelist:*
 
@@ -271,11 +272,12 @@ E.g.
 
   *rtu_master_network_info: "rtu_network1.yml"*
 
-Following parameters are needed for each RTU device:
+The following parameters are required for each RTU device:
 
--	slaveid – This is end device id in case of RTU communication
--	rtu_master_network_info: "rtu_network1.yml" – This file is used to configure RTU configuration for a specific RTU network.
-Following is a sample file for rtu_network1.yml
+- slaveid – This is end device id in case of RTU communication
+- rtu_master_network_info: "rtu_network1.yml" – This file is used to configure RTU configuration for a specific RTU network.
+
+A sample file for rtu_network1.yml is as follows:
 
 ---
 *file:*
@@ -296,7 +298,7 @@ Following is a sample file for rtu_network1.yml
 
 .. note::
 
-   inter-frame delay and response timeout values are in Millisecond
+   The inter-frame delay and response timeout values are in milliseconds (ms)
 
 interframe_delay: 1
 
@@ -310,7 +312,7 @@ response_timeout: 80
 7.3 	How to Configure Devices
 --------------------------------
 
-Device contains information of a device. Below is a sample file –
+Device contains information of a device. A sample file is as follows:
 
 *file:*
 
@@ -338,9 +340,7 @@ Device contains information of a device. Below is a sample file –
 7.4 	How to Configure Device points
 --------------------------------------
 
-Device Point contains end point information. Below is a sample file.
-
-Below parameters can be changed in this file –
+A device point contains the end point information. A sample file is shown as follows. The following parameters can be changed in this file –
 
 -	addr - can be of range 0 to 65534
 -	pollinterval – value in milliseconds 
@@ -524,28 +524,27 @@ Below parameters can be changed in this file –
     :scale: 80 %
     :align: center
 
------------------------------------------------------------------------
-7.5 	How to add/edit/delete new wellhead/device/point configurations
------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+7.5 	How to Add, Edit, or Delete a New Wellhead, Device, or point configurations
+-----------------------------------------------------------------------------------
+You can add, update, edit, or delete oil well configurations files (YML files) from the following directory, /opt/intel/eii/uwc_data directory
 
-1.	User can add/update/edit/delete Oil well configurations files (YML files) from /opt/intel/eii/uwc_data directory
-2.	Open a terminal and go to <working_dir>/IEdgeInsights directory.
-3.	Run below command to apply new Oil well site configurations 
+1. Open a terminal and go to <working_dir>/IEdgeInsights directory.
+2. Navigate to *<working_dir>/IEdgeInsights/uwc/build_scripts*	
+3. Run the following command to apply a new oil well site configurations 
 
-    Navigate to *<working_dir>/IEdgeInsights/uwc/build_scripts*
-
+.. code-block:: sh
     *sudo ./05_applyConfigChanges.sh*
 
 .. note::
    
-   This script will restart all UWC docker containers.
+   This script will restart all the Universal Wellpad Controller docker containers.
 
 -----------------------------
 7.6 	KPI App Configuration
 -----------------------------
 
-Following is a sample configuration file for KPI Application.
-
+A sample configuration file for KPI Application is as follows:
 
 ---
 *file:*
@@ -600,7 +599,7 @@ Following is a sample configuration file for KPI Application.
 
     *dataval: "0x1234"*
 
-Following is a description of each field.
+The description of each field is as follows:
 
 .. figure:: Doc_Images/table9_1_update.png
     :scale: 70 %
@@ -610,18 +609,17 @@ Following is a description of each field.
     :scale: 70 %
     :align: center
 
-Please note following: This configuration file should be created manually with following considerations:
+.. note::
+        This configuration file should be created manually with following considerations:
 
-    A)	The points in *“polled_point”* and *“datapoint”* fields in this file should be configured as per actual configuration in wellhead, device and datapoints config files.
+    * The points in *“polled_point”* and *“datapoint”* fields in this file should be configured as per actual configuration in wellhead, device and datapoints config files. For example, if a point to be polled is not present in datapoints config file then data for that control loop will not be collected.
 
-    e.g., If a point to be polled is not present in datapoints config file, then data for that control loop will not be collected.
-
-    B) Polled data points in “Polled_point” and write operation data points in “write_operation” must be unique.
+    * Polled data points in “Polled_point” and write operation data points in “write_operation” must be unique.
     
-    C)	If the points being polled are configured as *“realtime”* in datapoints config file, then *“isRTModeForPolledPoints”* should be set to *“true”*. It should be set to *“false”* otherwise.
+    * If the points being polled are configured as *“realtime”* in datapoints config file, then *“isRTModeForPolledPoints”* should be set to *“true”*. It should be set to *“false”* otherwise.
 
-    D)	KPI App can monitor either RT or Non-RT points at a time.
+    * KPI App can monitor either RT or Non-RT points at a time.
 
-    E)	KPI App container can run either in ZMQ mode or in MQTT mode at a time. 
+    * KPI App container can run either in ZMQ mode or in MQTT mode at a time. 
 
 
