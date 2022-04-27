@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.0 Container Configuration setting &mdash;   documentation</title>
+  <title>5.0 Container Configuration Settings &mdash;   documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -74,7 +74,7 @@
 <li class="toctree-l2"><a class="reference internal" href="page_04.html#how-to-install-uwc-software-with-eii-installer">4.1  How to install UWC software with EII installer</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5.0  Container Configuration setting</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5.0  Container Configuration Settings</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#deactivate-auto-update">5.1     Deactivate Auto Update</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#deactivate-unattended-upgrades">5.1.1   Deactivate Unattended Upgrades</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deactivate-periodic-unattended-upgrades">5.1.2   Deactivate Periodic Unattended Upgrades</a></li>
@@ -200,7 +200,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>5.0  Container Configuration setting</li>
+      <li>5.0  Container Configuration Settings</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com//open-edge-insights/uwc-docs/blob/main/source/Pages/page_05.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -210,11 +210,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="container-configuration-setting">
-<h1>5.0  Container Configuration setting<a class="headerlink" href="#container-configuration-setting" title="Permalink to this headline"></a></h1>
+  <section id="container-configuration-settings">
+<h1>5.0  Container Configuration Settings<a class="headerlink" href="#container-configuration-settings" title="Permalink to this headline"></a></h1>
 <section id="deactivate-auto-update">
 <h2>5.1     Deactivate Auto Update<a class="headerlink" href="#deactivate-auto-update" title="Permalink to this headline"></a></h2>
-<p>Once all the containers are deployed successfully, please disable system’s auto update feature as specified in the below sections. Auto update feature is enabled by default in Ubuntu.</p>
+<p>Once all the containers are deployed successfully, disable system’s auto update feature as specified in the below sections. Auto update feature is enabled by default in Ubuntu.</p>
 <p>These steps are optional. It is needed to switch off auto updates of packages (Package-Lists, periodic etc) when connected to internet.</p>
 <section id="deactivate-unattended-upgrades">
 <h3>5.1.1   Deactivate Unattended Upgrades<a class="headerlink" href="#deactivate-unattended-upgrades" title="Permalink to this headline"></a></h3>
@@ -241,8 +241,7 @@
 </section>
 <section id="deactivate-periodic-unattended-upgrades">
 <h3>5.1.2   Deactivate Periodic Unattended Upgrades<a class="headerlink" href="#deactivate-periodic-unattended-upgrades" title="Permalink to this headline"></a></h3>
-<p>To deactivate periodic unattended upgrades, we need to</p>
-<p>edit <em>/etc/apt/apt.conf.d/10periodic</em> file and do the following changes</p>
+<p>To deactivate periodic unattended upgrades edit the <em>/etc/apt/apt.conf.d/10periodic</em> file and do the following changes:</p>
 <blockquote>
 <div><ol class="arabic">
 <li><p>Disable update package list by changing setting</p>
@@ -262,15 +261,13 @@
 </section>
 <section id="deactivate-scheduled-upgrades">
 <h3>5.1.3   Deactivate Scheduled Upgrades<a class="headerlink" href="#deactivate-scheduled-upgrades" title="Permalink to this headline"></a></h3>
-<p><strong>To deactivate scheduled download please execute below commands</strong></p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>sudo systemctl stop apt-daily.timer</p></li>
-<li><p>sudo systemctl disable apt-daily.timer</p></li>
-<li><p>sudo systemctl disable apt-daily.service</p></li>
-<li><p>sudo systemctl daemon-reload</p></li>
-</ol>
-</div></blockquote>
+<p>To deactivate scheduled download run the following commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo systemctl stop apt-daily.timer
+sudo systemctl disable apt-daily.timer
+sudo systemctl disable apt-daily.service
+sudo systemctl daemon-reload
+</pre></div>
+</div>
 </section>
 </section>
 </section>
